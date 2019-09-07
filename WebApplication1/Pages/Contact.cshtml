@@ -4,20 +4,16 @@
     Layout = null;
 }
 <script>
-    //函数的声明
-    function learn/*函数名*/(major, student/*标明参数*/) { 
-        console.log(student + "学习了" + major);/*输出*//*方法体*/
-        return//返回值
-    }
-    /*使用函数名调用函数*/learn(`javascript`, `阿泰`);
-
     //循环
-    var d = 0; b = 0;
-    while (b < 100) {
-        b = b + 2;
-        d = d + b;
+    function sum() {
+        var d = 0; b = 0;
+        while/*循环*/ (b < 100) {
+            b = b + 2;
+            d = d + b;
+        }
+        console.log(d);//输出
     }
-    console.log(d);
+
 
 
     ////////求值
@@ -32,7 +28,7 @@
                 array[j + 1] = a;
             }
     }
-
+    console.log(array);
     //封装素数
     function myfunction(max) {
         var arr = [];
