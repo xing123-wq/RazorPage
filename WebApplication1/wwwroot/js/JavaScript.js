@@ -13,6 +13,7 @@ function sum(array) {
 
 ////////求值
 var z = [(27 + 11) * 2 - 10] / 2;
+
 ////////冒泡排序
 var array = [4, 2, 4, 25, 63, 24, 667, 78]/*数组*/
 for (var i = 0; i < array.length; i++) {
@@ -24,6 +25,7 @@ for (var i = 0; i < array.length; i++) {
         }
 }
 console.log(array);
+
 //封装素数
 function myfunction(max) {
     var arr = [];
