@@ -7,97 +7,68 @@
 
 </head>
 <body>
-    <div class="container">
-        <a href="#home">主页</a>
-        <a href="#news">新闻</a>
-        <div class="dropdown">
-            <button class="dropbtn" onclick="myFunction()">下拉菜单</button>
-            <div class="dropdown-content" id="myDropdown">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
-        </div>
-    </div>
-   
-    <a href="index">
-        <img src="/Images/logo-big.ico" alt="一起帮Logo" class="pull-left" />
-    </a>
-    <b>
-        <span>一起帮</span>
-        <span>网络互助平台</span>
-    </b>
-    <h1>
-        <span class="glyphicon glyphicon-list-alt">
-            常见问题
-        </span>
-    </h1>
-    <hr />
-    @*水平线分隔的标题和段落*@
-    <h2><span class="glyphicon glyphicon-question-sign" style="color:dodgerblue"><a style="color:aqua">账户</a></span></h2>
-    <a style="color:red">
-        <ol type="A">
-            <li>邀请码是怎么一回事？</li>
-            <li>为什么会提示“邀请人数达到上限”？</li>
-            <li>系统如何是确定“最后（上次）登录时间”的？</li>
-            <li>“最后登录时间”有什么用处？</li>
-            <li>邮箱有什么作用？</li>
-            <li>为什么我收不到邮件通知？</li>
-        </ol>
-    </a>
+    <h1>常见问题</h1><hr />
+    <h2 style="color:blue">账户</h2>
+    <p>
+        Q:邀请码是怎么一回事？<br />
 
+        Q：为什么会提示“邀请人数达到上限”？<br />
+
+        Q：系统如何是确定“最后（上次）登录时间”的？<br />
+
+        Q：“最后登录时间”有什么用处？<br />
+
+        Q：邮箱有什么作用？<br />
+
+        Q：为什么我收不到邮件通知？<br />
+
+    </p>
+    <h2 style="color:blue">帮帮点</h2>
+    <p>
+        Q：什么是帮帮点？有什么用处？<br />
+
+        Q：如何才能获得帮帮点？<br />
+    </p>
+    <h2 style="color:blue">表格</h2>
+    <p>
+
+        一句话：尽可能的多的参加下社区活动。<br />
+
+        目前的奖励政策如下表所示：<br />
+    </p>
     <table border="1" cellpadding="10">
         <thead>
             <tr>
                 <th>社区活动</th>
                 <th>点数</th>
                 <th>备注</th>
+
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td colspan="3" class="subtitle">* 账号相关</td>
+            <tr bgcolor="pink">
+                <td colspan="3" class="subtitle">*账号相关</td>
             </tr>
             <tr>
-                <td colspan="1"><h4>注册</h4></td>
-                <td>10</td>
-                <td>使用了别人的<h4>邀请码</h4></td>
-            </tr>
-            <tr>
-                <td><h4>邀请注册</h4></td>
-                <td>10</td>
-                <td colspan="2">别人使用了你的<h4>邀请码</h4>完成注册</td>
-            </tr>
-            <tr>
-                <td><h4>激活Email</h4></td>
-                <td>20</td>
-                <td>不是填写了Email就有点数，Email必须被<h4>验证激活</h4></td>
-            </tr>
-            <tr>
-                <td colspan="3" class="subtitle">* 求助相关</td>
-            </tr>
-            <tr>
-                <td><h4>新人测试</h4></td>
-                <td>30</td>
-
-                <td>按<h4>测试成绩</h4>给点数奖励，每题3点</td>
-            </tr>
-            <tr>
-                <td><h4><strong>首次</strong>求助</h4></td>
-                <td>20</td>
-                <td>只能是<h4>第一次发布求助</h4>，并且审核通过，才能获得点数奖励</td>
-            </tr>
-            <tr>
-                <td>
-                    <h4>酬谢</h4>
+                <td rowspan="2">
+                    <p>注册</p>
+                    <p>邀请注册</p>
                 </td>
-                <td>
-                    “求助人”<a>酬谢</a>多少
-                    <h4 data-toggle="tooltip" class="credit" title="点击了解">
-                        帮帮币
-                    </h4>
+                <td>10</td>
+                <td>使用了别人的邀请码</td>
+            </tr>
+            <tr>
 
-                </td>
+                <td>10</td>
+                <td>别人使用了你的邀请码完成注册</td>
+            </tr>
+            <tr>
+                <td>激活Email</td>
+                <td>20</td>
+                <td>不是填写了Email就有点数，Email必须被验证激活</td>
+            </tr>
+            <tr bgcolor="pink">
+                <td colspan="3" class="subtitle">*求助相关</td>
             </tr>
         </tbody>
     </table>
