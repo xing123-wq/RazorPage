@@ -1,6 +1,6 @@
 ﻿
 ////封装成一个函数Sum()，可以计算任意起始位置、任意步长
-var Sum = function(first, step, end) {
+var Sum = function (first, step, end) {
     var result = 0;
     while (first < end) {
         first = first + step;
@@ -69,7 +69,7 @@ function getMaxNumber() {
 //}
 //swap(arr, 0, 1);
 //利用上面的Swap()函数，将“冒泡排序”封装成函数bubbleSort()
-var bubbleSort = function() {
+var bubbleSort = function () {
     var swap = [12, 7, 8, 37, 20, 42, 69, 51];
     for (var i = 0; i < swap.length - 1; i++) {
         for (var j = 0; j < swap.length - 1 - i; j++) {
@@ -160,25 +160,41 @@ function strAdd() {
     console.log(arr);
 }
 //构建一个函数has9(number) ，可以判断number中是否带有数字9
-function has9(number) {
-    number = [76, 2, 1, 9, 8];
-    console.log(number.indexOf/*查找*/(9))
-}
-has9();
 //构建一个函数has8(number) ，可以判断number中是否带有数字8；
-function has8(number) {
-    number = [43, 88, 75, 22, 8, 6, 7,];
-    console.log(number.indexOf(8));
-}
-has8();
 //使用上述函数，找出10000以内有多少个数字包含：9或者8或者6。
-//构建一个函数has6(number) ，可以判断number中是否带有数字6；
-function has6(number) {
-    for (var i = 1; i < 1001; i++) {
-        var numbeer = 1001
+function has(number) {
+    var result = 0;
+    for (var i = 0; i < number + 1; i++) {
+        if (has9(i) || has8(i) || has6(i)) {
+            result++;
+        } else {
+            //什么都不做
+        }
     }
-
-    console.log(number.indexOf(6));
+    console.log(result);
 }
-has6();
-
+//构建一个函数has6(number) ，可以判断number中是否带有数字6；
+function has9(number) {
+    return hasx(number, 9)
+}
+function has6(number) {
+    return hasx(number, 6)
+}
+function has8(number) {
+    return hasx(number, 8)
+}
+function hasx(number, x) {
+    return String(number).indexOf(x) >= 0;
+}
+//模拟名称空间
+var get986 = function (number) {
+    var result = 0;
+    for (var i = 0; i < number + 1; i++) {
+        if (has9(i) || has8(i) || has6(i)) {
+            result++;
+        } else {
+            //什么都不做
+        }
+    }
+    console.log(result);
+}
