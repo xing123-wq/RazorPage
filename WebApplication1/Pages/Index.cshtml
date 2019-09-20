@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
     <script src="~/js/JavaScript1.js"></script>
+    <script src="~/js/site.js"></script>
 </head>
 <body>
     <header>
         @*导航栏没有下拉列表*@
-        <div class="navbar navbar-default @*navbar-fixed-top*@">
+        <div class="navbar navbar-default">
             <div class="container">
                 <a href="/" data-toggle="tooltip" title="返回首页">
                     <img src="/Images/logo-big.ico" alt="一起帮Logo" class="pull-left" />
@@ -34,13 +35,13 @@
                 <div class="collapse navbar-collapse" id="sidebar">
                     <nav class="navbar-right">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdownop @*open*@">
+                            <li class="dropdown ">
                                 <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     <span class=" glyphicon glyphicon-question-sign"></span>
                                     求助
                                     <b class="caret"></b>
                                 </a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+                                <ul class="dropdown-menu" role="menu">
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">督导班</a></li>
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">疑问发布</a></li>
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">疑问列表</a></li>
@@ -53,7 +54,7 @@
                                 <a href="#" class="dropdown-toggle"
                                    data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">
-                                    <span class=" glyphicon glyphicon-eye-open"></span>
+                                    <span class=" glyphicon glyphicon-eye-open" id="eye"></span>
                                     督促
                                 </a>
                                 <ul class="dropdown-menu">
@@ -122,7 +123,7 @@
                         <img class="img-responsive center-block" src="~/images/求助.png" alt="图片.求助">
                         <h1 class="text-center">一对一远程协助</h1>
                         <p class="text-center">帮忙就要帮到底</p>
-                        <a class="btn btn-primary btn-lg btn-block bottom" href="#">求助</a>
+                        <a class="btn btn-primary btn-lg btn-block bottom" href="seekhelp">求助</a>
                     </div>
                 </div>
                 <div class="col-lg-4 home-card">

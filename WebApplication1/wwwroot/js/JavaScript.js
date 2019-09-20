@@ -1,5 +1,4 @@
-﻿
-////封装成一个函数Sum()，可以计算任意起始位置、任意步长
+﻿////封装成一个函数Sum()，可以计算任意起始位置、任意步长
 var Sum = function (first, step, end) {
     var result = 0;
     while (first < end) {
@@ -10,42 +9,42 @@ var Sum = function (first, step, end) {
 }
 
 //////////求值
-//var z = [(27 + 11) * 2 - 10] / 2;
+var z = [(27 + 11) * 2 - 10] / 2;
 
 //////////冒泡排序
-//var array = [4, 2, 4, 25, 63, 24, 667, 78]/*数组*/
-//for (var i = 0; i < array.length; i++) {
-//    for (var j = 0; j < array.length - i - 1; j++)
-//        if (array[j] > array[j + 1]) {
-//            var a = array[j];
-//            array[j] = array[j + 1];
-//            array[j + 1] = a;
-//        }
-//}
-//console.log(array);
+var array = [4, 2, 4, 25, 63, 24, 667, 78]/*数组*/
+for (var i = 0; i < array.length; i++) {
+    for (var j = 0; j < array.length - i - 1; j++)
+        if (array[j] > array[j + 1]) {
+            var a = array[j];
+            array[j] = array[j + 1];
+            array[j + 1] = a;
+        }
+}
+console.log(array);
 
 ////封装素数
-//function myfunction(max) {
-//    var err = [];
-//    for (var i = 2; i < max; i++) {//2<100,for循环。
-//        var yes = true;//
-//        for (var j = 2; j <= i / 2; j++) {
-//            if (i % j == 0) {
-//                yes = false;//yes=布尔值false
-//                break;
-//            }
-//        }
-//        if (yes) {
-//            err.push(i);
+function myfunction(max) {
+    var err = [];
+    for (var i = 2; i < max; i++) {//2<100,for循环。
+        var yes = true;//
+        for (var j = 2; j <= i / 2; j++) {
+            if (i % j == 0) {
+                yes = false;//yes=布尔值false
+                break;
+            }
+        }
+        if (yes) {
+            err.push(i);
 
 
-//        }
-//    }
-//    console.log(err);
+        }
+    }
+    console.log(err);
 
 
 
-//}
+}
 
 
 ////封装一个函数，建立一个函数getMaxNumber()，可以接受任意多各种类型。
@@ -61,13 +60,13 @@ function getMaxNumber() {
 }
 
 //封装一个函数Swap(arr, i, j),i和j的值交换下标
-//var arr = [8, 3];
-//function swap(arr, i, j) {
-//    var temp = arr[i];
-//    arr[i] = arr[j];
-//    arr[j] = temp;
-//}
-//swap(arr, 0, 1);
+var arr = [8, 3];
+function swap(arr, i, j) {
+    var temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+swap(arr, 0, 1);
 //利用上面的Swap()函数，将“冒泡排序”封装成函数bubbleSort()
 var bubbleSort = function () {
     var swap = [12, 7, 8, 37, 20, 42, 69, 51];
@@ -155,6 +154,8 @@ function strAdd() {
     for (var i = 0; i < str.length; i++) {
         if (true) {
 
+        } else {
+            //什么都不做
         }
     }
     console.log(arr);
@@ -198,3 +199,5 @@ var get986 = function (number) {
     }
     console.log(result);
 }
+//使用setTimeout()（不是setInterval()）实现每隔1秒钟依次显示：
+//第n周，源栈同学random人。（n逐次递增，random随机）

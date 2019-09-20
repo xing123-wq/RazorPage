@@ -16,9 +16,23 @@
             <option value="5">五级</option>
         </select>
         <button type="submit" id="btn" style="color:blue;">点我</button>
-
-
     </form>
+    <div zyf-scroll-sample style="height:200px;border:1px dashed;overflow-y:scroll;">
+        wahahah<br />
+        wahahah<br />
+        wahahah<br />
+        wahahah<br />
+        wahahah<br />
+        wahahah<br />
+        wahahah<br />
+        wahahah<br />
+        wahahah<br />
+        wahahah<br />
+        wahahah<br />
+        wahahah<br />
+        wahahah<br />
+        wahahah<br />
+    </div>
     <script>
         let name = '您';
         //document.getElementsByTagName('h1')[0].addEventListener('click', function () {
@@ -38,23 +52,23 @@
             return false;//用return代替event.preventDefault();
         }
         //点击输入框变黄色，离开输入框变白色
-        //document.getElementsByName('username')[0].onfocus = function () {
-        //    if (this.style.backgroundColor === 'white') {
-        //        this.style.backgroundColor = 'yellow';
-        //    } else {
-        //        this.style.backgroundColor = 'white';
-        //    }
-        //}
-        //setInterval(document.getElementsByName('username')[0]);
-        //document.getElementsByName('click')[0].onkeydown = function (e) {
-        //    console.log('code:${e.code};e.key:${e.key};');
-        //    if (!isNaN(+e.key)) {
-        //        console.log(e.key + '是个数字');
-        //    }
-        //}
-        //document.getElementsByName('level')[0].onchange = function () {
-        //    console.log(this.children[this.selectedIndex].innerText);
-        //}
+        document.getElementsByName('username')[0].onfocus = function () {
+            if (this.style.backgroundColor === 'white') {
+                this.style.backgroundColor = 'yellow';
+            } else {
+                this.style.backgroundColor = 'white';
+            }
+        }
+        setInterval(document.getElementsByName('username')[0]);
+        document.getElementsByName('click')[0].onkeydown = function (e) {
+            console.log('code:${e.code};e.key:${e.key};');
+            if (!isNaN(+e.key)) {
+                console.log(e.key + '是个数字');
+            }
+        }
+        document.getElementsByName('level')[0].onchange = function () {
+            console.log(this.children[this.selectedIndex].innerText);
+        }
         //验证
         document.getElementsByTagName('form')[0].onsubmit = function () {
             if (document.getElementsByName('username')[0].value === '') {

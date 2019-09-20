@@ -8,3 +8,13 @@ function changecolor() {
     }
 }
 setInterval(changecolor, 1000);
+//眼睛闪烁
+function opticalcolor() {
+    var eyeball = document.getElementById('eye');
+    if (eyeball.style.color === 'white') {
+        eyeball.style.color = 'blue';
+    } else {
+        eyeball.style.color = 'white';
+    }
+}
+setInterval(opticalcolor, 1000);
