@@ -162,19 +162,21 @@ function strAdd() {
 }
 //构建一个函数has9(number) ，可以判断number中是否带有数字9
 //构建一个函数has8(number) ，可以判断number中是否带有数字8；
-//使用上述函数，找出10000以内有多少个数字包含：9或者8或者6。
-function has(number) {
-    var result = 0;
-    for (var i = 0; i < number + 1; i++) {
-        if (has9(i) || has8(i) || has6(i)) {
-            result++;
-        } else {
-            //什么都不做
-        }
-    }
-    console.log(result);
-}
 //构建一个函数has6(number) ，可以判断number中是否带有数字6；
+//使用上述函数，找出10000以内有多少个数字包含：9或者8或者6。
+//var number = 1000;
+//function has6(number) {
+//    var result = 0;
+//    for (var i = 1; i < number; i++) {
+//        if (has6(i)) {
+//            result++;
+//        } else {
+
+//        }
+//    }
+//    console.log(result);
+//}
+//has6();
 function has9(number) {
     return hasx(number, 9)
 }
@@ -188,16 +190,42 @@ function hasx(number, x) {
     return String(number).indexOf(x) >= 0;
 }
 //模拟名称空间
-var get986 = function (number) {
+var ovrall = {}; ovrall.yz = {}; ovrall.yz.fei = {};
+ovrall.yz.fei.get986 = function () { };
+ovrall.yz.fei.get986 = function (number) {
     var result = 0;
     for (var i = 0; i < number + 1; i++) {
-        if (has9(i) || has8(i) || has6(i)) {
+        if (has9() || has8() || has6()) {
             result++;
         } else {
             //什么都不做
         }
     }
+    function has9() {
+        return hasx(i, 9);
+    }
+    function has8() {
+        return hasx(i, 8);
+    }
+    function has6() {
+        return hasx(i, 6);
+    }
     console.log(result);
 }
+ovrall.yz.fei.get986(10000);
 //使用setTimeout()（不是setInterval()）实现每隔1秒钟依次显示：
 //第n周，源栈同学random人。（n逐次递增，random随机）
+var counter = 1;
+function greet() {
+    if (counter < 21) {
+        setTimeout(function () {
+            console.log("第" + counter + "周，源栈同学" +
+                Math.floor(Math.random() * (10 + 1)) + "人")
+            counter++;
+            greet();
+        }, 1000);
+    } else {
+
+    }
+}
+greet();

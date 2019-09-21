@@ -1,5 +1,8 @@
 ﻿@page
 <html>
+<head>
+    <script src="~/js/JavaScript.js"></script>
+</head>
 <body>
     <h1 name="飞哥">HTML DOM示范</h1>
     <button id="btn" style="color:red;">点一下</button>
@@ -59,16 +62,16 @@
                 this.style.backgroundColor = 'white';
             }
         }
-        setInterval(document.getElementsByName('username')[0]);
-        document.getElementsByName('click')[0].onkeydown = function (e) {
-            console.log('code:${e.code};e.key:${e.key};');
-            if (!isNaN(+e.key)) {
-                console.log(e.key + '是个数字');
-            }
-        }
-        document.getElementsByName('level')[0].onchange = function () {
-            console.log(this.children[this.selectedIndex].innerText);
-        }
+        //setInterval(document.getElementsByName('username')[0]);
+        //document.getElementsByName('click')[0].onkeydown = function (e) {
+        //    console.log('code:${e.code};e.key:${e.key};');
+        //    if (!isNaN(+e.key)) {
+        //        console.log(e.key + '是个数字');
+        //    }
+        //}
+        //document.getElementsByName('level')[0].onchange = function () {
+        //    console.log(this.children[this.selectedIndex].innerText);
+        //}
         //验证
         document.getElementsByTagName('form')[0].onsubmit = function () {
             if (document.getElementsByName('username')[0].value === '') {

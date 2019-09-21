@@ -7,12 +7,23 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="~/css/about.css">
-    <script src="~/js/JavaScript1.js"></script>
-    <script src="~/js/site.js"></script>
     <link rel="stylesheet" href="~/css/signup.css" />
     <title>求助页面</title>
 </head>
 <body>
+    <script>
+        //字体闪烁
+        function roplcolor() {
+            var free = document.getElementById('advertising');
+            if (free.style.color === 'blue') {
+                free.style.color = '#8a6d3b';
+            } else {
+                free.style.color = 'blue';
+            }
+        }
+        setInterval(roplcolor, 1000);
+
+    </script>
     <header>
         @*导航栏没有下拉列表*@
         <div class="navbar navbar-default @*navbar-fixed-top*@">
@@ -1357,11 +1368,11 @@
                     </div>
                     <div class="ad-in-widget order-list">
                         <span class="item order-tag">4</span>
-                        <a href="/AdInWidget/_Free?position=2" zyf-adinwidget-free="" class="" >免费广告位，抢到就是赚到！</a>
+                        <a href="/AdInWidget/_Free?position=2" zyf-adinwidget-free="" class="">免费广告位，抢到就是赚到！</a>
                     </div>
                     <div class="ad-in-widget order-list">
                         <span class="item order-tag">5</span>
-                        <a href="/AdInWidget/_Free?position=2" zyf-adinwidget-free="" class="" >免费广告位，抢到就是赚到！</a>
+                        <a href="/AdInWidget/_Free?position=2" zyf-adinwidget-free="" class="">免费广告位，抢到就是赚到！</a>
                     </div>
                     <div class="ad-in-widget order-list">
                         <span class="item order-tag">6</span> 本站主机由<a href="http://www.west.cn/index.asp?ReferenceID=563969">西部数码</a>提供
