@@ -12,7 +12,7 @@
 <body>
     <header>
         @*导航栏没有下拉列表*@
-        <div class="navbar navbar-default">
+        <div class="navbar navbar-default @*navbar-fixed-top*@">
             <div class="container">
                 <a href="/" data-toggle="tooltip" title="返回首页">
                     <img src="/Images/logo-big.ico" alt="一起帮Logo" class="pull-left" />
@@ -20,7 +20,6 @@
                 <p class="navbar-text pull-left">
                     <span style="font-size:18px; font-weight:600;">一起帮</span>
                     <span class="visible-md-inline visible-lg-inline">· 网络互助平台</span>
-                    <a href="#" id="greet" class="glyphicon glyphicon-bell"></a>
                 </p>
                 <a href="/Message/Mine" class="navbar-text pull-left" style="font-size:18px; margin-left:10px;">
                     <span class="fa fa-bell  pull-left hide" style="color: darkblue;" zyf-bell></span>
@@ -32,29 +31,30 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-                <div class="collapse navbar-collapse" id="sidebar">
+                <div class="collapse navbar-collapse">
                     <nav class="navbar-right">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown ">
-                                <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle"
+                                   data-toggle="dropdown" role="button"
+                                   aria-haspopup="true" aria-expanded="false">
                                     <span class=" glyphicon glyphicon-question-sign"></span>
                                     求助
-                                    <b class="caret"></b>
                                 </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">督导班</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">疑问发布</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">疑问列表</a></li>
-                                    <li role="presentation" class="divider"></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">列表</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">发布</a></li>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">督导班</a></li>
+                                    <li><a href="#">疑问发布</a></li>
+                                    <li><a href="#">疑问列表</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">列表</a></li>
+                                    <li><a href="#">发布</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle"
                                    data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">
-                                    <span class=" glyphicon glyphicon-eye-open" id="eye"></span>
+                                    <span class=" glyphicon glyphicon-eye-open"></span>
                                     督促
                                 </a>
                                 <ul class="dropdown-menu">
@@ -77,7 +77,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle"
+                                <a href="#" class="glyphicon glyphicon-phone"
                                    data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">
                                     APP下载
@@ -88,11 +88,11 @@
                                     <li><a href="#">iOS</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown open">
-                                <a href="#" class="dropdown-toggle"
+                            <li class="dropdown @*open*@">
+                                <a href="#" class=" glyphicon glyphicon-save"
                                    data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">
-                                    <i class=" glyphicon glyphicon-save"></i>登录状态
+                                    未登录
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -111,7 +111,7 @@
                 全部消息
             </a>
             <div>
-                <span> Saber捡走了 skyline ② 掉落的 帮帮币 1枚</span>
+                <span>  文章源栈培训：JavaScript-5：BOM被1234_打赏 帮帮币 1枚 </span>
             </div>
         </div>
     </header>

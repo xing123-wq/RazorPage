@@ -18,3 +18,13 @@ function opticalcolor() {
     }
 }
 setInterval(opticalcolor, 1000);
+//字体闪烁
+function roplcolor() {
+    var free = document.getElementById('advertising');
+    if (free.style.color === 'blue') {
+        free.style.color = '#8a6d3b';
+    } else {
+        free.style.color = 'blue';
+    }
+}
+setInterval(roplcolor, 1000);

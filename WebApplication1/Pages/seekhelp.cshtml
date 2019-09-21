@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="~/css/about.css">
+    <script src="~/js/JavaScript1.js"></script>
     <script src="~/js/site.js"></script>
+    <link rel="stylesheet" href="~/css/signup.css" />
     <title>求助页面</title>
 </head>
 <body>
@@ -36,9 +38,8 @@
                     <nav class="navbar-right">
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle"
-                                   data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                   aria-expanded="false">
                                     <span class=" glyphicon glyphicon-question-sign"></span>
                                     求助
                                 </a>
@@ -78,7 +79,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle"
+                                <a href="#" class="glyphicon glyphicon-phone"
                                    data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">
                                     APP下载
@@ -90,10 +91,10 @@
                                 </ul>
                             </li>
                             <li class="dropdown @*open*@">
-                                <a href="#" class="dropdown-toggle"
+                                <a href="#" class=" glyphicon glyphicon-user"
                                    data-toggle="dropdown" role="button"
                                    aria-haspopup="true" aria-expanded="false">
-                                    登录状态
+                                    未登录
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -924,11 +925,8 @@
 
             </div>
             <div class="col-md-4 visible-md visible-lg">
-
-
-
                 <div zyf-widget-content="" class="widget clearfix">
-                    <div style="font-size:24px;"><span class="fa fa-tags "></span> 关键字</div>
+                    <div style="font-size:24px;"><span class="glyphicon glyphicon-tags"></span> 关键字</div>
                     <hr>
                     <div zyf-keyword-widget-content="">
                         <div class="user-tags">
@@ -1019,7 +1017,7 @@
                         <div class="col-sm-8">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="直接输入关键字查找" zyf-keyword-widget-search-value="">
-                                <span class="input-group-addon" zyf-keyword-widget-search-btn=""><span class="fa fa-search"></span></span>
+                                <span class="input-group-addon" zyf-keyword-widget-search-btn=""><span class="glyphicon glyphicon-search"></span></span>
                             </div>
 
                         </div>
@@ -1351,19 +1349,19 @@
                     </div>
                     <div class="ad-in-widget order-list">
                         <span class="item-2 order-tag">2</span>
-                        <a href="/AdInWidget/_Free?position=2" zyf-adinwidget-free="" class="">免费广告位，抢到就是赚到！</a>
+                        <a href="/AdInWidget/_Free?position=2" zyf-adinwidget-free="" class="" id="advertising">免费广告位，抢到就是赚到！</a>
                     </div>
                     <div class="ad-in-widget order-list">
                         <span class="item-3 order-tag">3</span>
-                        <a href="/AdInWidget/_Free?position=3" zyf-adinwidget-free="" class="">免费广告位，抢到就是赚到！</a>
+                        <a href="/AdInWidget/_Free?position=2" zyf-adinwidget-free="" class="" id="advertising">免费广告位，抢到就是赚到！</a>
                     </div>
                     <div class="ad-in-widget order-list">
                         <span class="item order-tag">4</span>
-                        <a href="/AdInWidget/_Free?position=4" zyf-adinwidget-free="" class="">免费广告位，抢到就是赚到！</a>
+                        <a href="/AdInWidget/_Free?position=2" zyf-adinwidget-free="" class="" >免费广告位，抢到就是赚到！</a>
                     </div>
                     <div class="ad-in-widget order-list">
                         <span class="item order-tag">5</span>
-                        <a href="/AdInWidget/_Free?position=5" zyf-adinwidget-free="" class="">免费广告位，抢到就是赚到！</a>
+                        <a href="/AdInWidget/_Free?position=2" zyf-adinwidget-free="" class="" >免费广告位，抢到就是赚到！</a>
                     </div>
                     <div class="ad-in-widget order-list">
                         <span class="item order-tag">6</span> 本站主机由<a href="http://www.west.cn/index.asp?ReferenceID=563969">西部数码</a>提供
@@ -1380,11 +1378,35 @@
             </div>
         </div>
         <a zyf-global-feedback="" href="/Contact/Us" style="bottom: 132px; right: 147.5px;" class="feedback flag text-center">
-            <span class="fa fa-question-circle-o"></span><br>帮助
+            <span class="glyphicon glyphicon-question-sign"></span><br>帮助
         </a>
         <a zyf-global-feedback="" href="/Suggest/New" style="bottom: 80px; right: 147.5px;" class="feedback flag text-center">
-            <span class="fa fa-comments-o"></span><br>反馈
+            <span class="glyphicon glyphicon-comment"></span><br>反馈
         </a>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">7</a></li>
+                <li><a href="#">8</a></li>
+                <li><a href="#">9</a></li>
+                <li><a href="#">10</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
         <hr>
         <footer>
             <div>
