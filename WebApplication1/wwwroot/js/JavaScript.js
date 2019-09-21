@@ -215,6 +215,8 @@ ovrall.yz.fei.get986 = function (number) {
 ovrall.yz.fei.get986(10000);
 //使用setTimeout()（不是setInterval()）实现每隔1秒钟依次显示：
 //第n周，源栈同学random人。（n逐次递增，random随机）
+//math.ceil:四舍五入到下一个最大的整数或整数。
+//math.random:返回随机数。
 var counter = 1;
 function greet() {
     if (counter < 21) {
@@ -229,3 +231,55 @@ function greet() {
     }
 }
 greet();
+//猜数字
+var binggo = 678;//1:声明变量
+if (confirm(`弹出游戏玩法说明，等待用户点击“确认”，开始游戏；
+             浏览器生成一个不大于1000的随机正整数；
+             用户输入猜测；
+             如果用户没有猜对，浏览器比较后告知结果：“大了”或者“小了”。如果用户：
+             只用了不到6次就猜到，弹出：碉堡了！
+             只用了不到8次就猜到，弹出：666！
+             用了8 - 10次猜到，弹出：猜到了。
+             用了10次都还没猜对，弹出：^ (*￣(oo) ￣) ^`)) {
+    bing();//调用函数
+} else {
+    //停止
+}
+function bing() {
+    for (var i = 0; i < 10; i++) {
+        var word = prompt("输入你的猜测");
+        if (!word) {//取反
+            break
+            return false;
+        } else {
+            //什么都不做
+        }
+        if (!isNaN(word) && word > 0 && word.indexOf(".") === -1) {
+            if (+word === binggo) {
+                if (i < 6) {
+                    alert("碉堡了!");
+                } else {
+                    if (i < 8) {
+                        alert("666!");
+                    } else {
+                        alert("猜到了!");
+                    }
+                }
+                break;
+            } else {
+                if (i >= 9) {
+                    alert("^ (*￣(oo) ￣) ^`");
+                    break;
+                }
+                if (+word > binggo) {
+                    alert("大了");
+                } else {
+                    alert("小了");
+                }
+
+            }
+        } else {
+            alert("请输入正整数");
+        }
+    }
+}

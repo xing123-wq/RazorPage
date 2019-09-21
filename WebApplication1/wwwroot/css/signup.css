@@ -5,6 +5,12 @@
     word-break: break-all;
     background-color: #fff;
 }
+
 .ad-in-widget {
     margin: 8px 0;
 }
+
+element.style {
+    top: 120px;
+}
+
