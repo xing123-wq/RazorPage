@@ -10,11 +10,3 @@ else {
 //window.onbeforeunload = function (e) {
 //    return '';
 //};      
-document.getElementsByTagName('form')[0].onsubmit = function () {
-    if (document.getElementsByName('UserName')[0].value === '') {
-        return false;
-    }
-}
-window.onbeforeunload = function (e) {
-    return '关闭提示';
-};

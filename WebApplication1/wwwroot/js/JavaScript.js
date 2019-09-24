@@ -129,12 +129,12 @@ function standard() {
 }
 //生成随机数
 function getRandomArray(length, max) {
-    var arr = [];
+    var ara = [];
     for (var i = 0; i < length - 1; i++) {
-        arr[i] = Math.floor(Math.random() * max);
-        arr.push(i);
+        ara[i] = Math.floor(Math.random() * max);
+        ara.push(i);
     }
-    console.log(arr);
+    console.log(ara);
 }
 //颠倒字符顺序
 function reverse() {
@@ -212,7 +212,7 @@ ovrall.yz.fei.get986 = function (number) {
     }
     console.log(result);
 }
-ovrall.yz.fei.get986(10000);
+ovrall.yz.fei.get986(100);
 //使用setTimeout()（不是setInterval()）实现每隔1秒钟依次显示：
 //第n周，源栈同学random人。（n逐次递增，random随机）
 //math.ceil:四舍五入到下一个最大的整数或整数。
@@ -281,5 +281,13 @@ function bing() {
         } else {
             alert("请输入正整数");
         }
+    }
+}
+//在函数student()中声明了函数域变量name、age和female，使用闭包机制，将其暴露到函数外部
+function student() {
+    var name = '阿泰'; agg = 16;
+    var objd = { name, agg };
+    return function () {
+        return objd;
     }
 }
