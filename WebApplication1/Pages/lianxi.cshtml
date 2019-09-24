@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1 name="飞哥">HTML DOM示范</h1>
-    <button id="btn" style="color:red;">点一下</button>
+    <button id="btns" style="color:red;">点一下</button>
     <a href="http://17bang.ren">17bang</a>
     <form action="http://17bang.ren" method="get">
         <input type="password" name="click" />
@@ -18,7 +18,7 @@
             <option value="4">四级</option>
             <option value="5">五级</option>
         </select>
-        <button type="submit" id="btn" style="color:blue;">点我</button>
+        <button type="submit" id="btn">点我</button>
     </form>
     <div zyf-scroll-sample style="height:200px;padding:10px; border:1px dashed;overflow-y:scroll;">
         wahahah<br />
@@ -48,10 +48,10 @@
         document.getElementsByTagName('h1')[0].onclick = function greet() {
             alert('hello' + name);
         }
-        document.getElementById('btn').onclick = function () {
-            document.getElementsByTagName('h1')[0].style.color =
-                this.style.color;
-        }
+        //document.getElementById('btns').onclick = function () {
+        //    document.getElementsByTagName('h1')[0].style.color =
+        //        this.style.color;
+        //}
         document.getElementsByTagName('a')[0].onclick = function (event) {
             //event.preventDefault();
             console.log('event.type:' + event.type);
@@ -94,15 +94,27 @@
             console.log('scrollTop:' + this.scrollTop);
         });
         //闭包
-        function changColor(color) {
-            document.getElementsByTagName('h2')[0].style.color = color;
-        }
+        //function changColor(color) {
+        //    return function () {
+        //        document.getElementsByTagName('h2')[0].style.color = color;
+        //    }
+        //}
+        //var btns = document.getElementsByTagName('button');
+        //for (var i = 0; i < btns.length; i++) {
+        //    btns[i].onclick = changColor(btns[i].style.color);
+        //}
+        //解决闭包
         var btns = document.getElementsByTagName('button');
         for (var i = 0; i < btns.length; i++) {
-            btns[i].onclick = function () {
-                changColor(this.style.color);
-            }
+            btns[i].onclick = function (i) {//事件绑定,onclick外部变量
+                //每一次进行onclcik事件绑定，函数就应该把(i)保存下来
+                return function () {//立即函数表达式
+                    document.getElementsByTagName('h2')[0].style.color = btns[i].style.color;
+                }
+            }(i);//(i)要能够取出值
+
         }
+        //
     </script>
 
 </body>

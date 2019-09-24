@@ -14,3 +14,17 @@ element.style {
     top: 120px;
 }
 
+element.style {
+    padding: 0 10px 0 10px;
+    margin-bottom: 10px;
+}
+
+.yellow-highlight {
+    background-color: #ffffe0;
+    border: 2px dashed #eee;
+    border-radius: 4px 5px;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
