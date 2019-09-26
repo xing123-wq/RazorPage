@@ -18,15 +18,18 @@
 </head>
 <body>
     <script>
-        //字体闪烁
+        //取多个name进行字体闪烁
         function roplcolor() {
-            var free = document.getElementById('advertising');
-            if (free.style.color === 'blue') {
-                free.style.color = '#8a6d3b';
-            } else {
-                free.style.color = 'blue';
+            var free = document.getElementsByName('bay');
+            for (var i = 0; i < free.length; i++) {
+                if (free[i].style.color === 'blue') {
+                    free[i].style.color = '#8a6d3b';
+                } else {
+                    free[i].style.color = 'blue';
+                }
             }
         }
+
         setInterval(roplcolor, 1000);
 
     </script>
@@ -1364,19 +1367,19 @@
                     </div>
                     <div class="ad-in-widget order-list">
                         <span class="item-2 order-tag">2</span>
-                        <a href="/AdInWidget/_Free?position=2" class="" id="advertising">免费广告位，抢到就是赚到！</a>
+                        <a href="/AdInWidget/_Free?position=2" name="bay">免费广告位，抢到就是赚到！</a>
                     </div>
                     <div class="ad-in-widget order-list">
                         <span class="item-3 order-tag">3</span>
-                        <a href="/AdInWidget/_Free?position=2" class="" id="advertising">免费广告位，抢到就是赚到！</a>
+                        <a href="/AdInWidget/_Free?position=2" name="bay">免费广告位，抢到就是赚到！</a>
                     </div>
                     <div class="ad-in-widget order-list">
                         <span class="item order-tag">4</span>
-                        <a href="/AdInWidget/_Free?position=2" class="">免费广告位，抢到就是赚到！</a>
+                        <a href="/AdInWidget/_Free?position=2" name="bay">免费广告位，抢到就是赚到！</a>
                     </div>
                     <div class="ad-in-widget order-list">
                         <span class="item order-tag">5</span>
-                        <a href="/AdInWidget/_Free?position=2" class="">免费广告位，抢到就是赚到！</a>
+                        <a href="/AdInWidget/_Free?position=2" name="bay">免费广告位，抢到就是赚到！</a>
                     </div>
                     <div class="ad-in-widget order-list">
                         <span class="item order-tag">6</span> 本站主机由<a href="http://www.west.cn/index.asp?ReferenceID=563969">西部数码</a>提供
