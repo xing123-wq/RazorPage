@@ -80,19 +80,42 @@ table.table-none-border {
     color: #fff;
     margin-right: 10px;
 }
+
 .nav {
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
 }
+
 .nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a:focus {
     border: 1px solid #ddd;
 }
+
 .nav-tabs.nav-justified > li > a {
     /* margin-right: 0; */
     border-radius: 4px;
     border: 1px dashed #ddd;
 }
+
 .nav-tabs.nav-justified > li {
     background-color: #CCFFFF;
+}
+
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.fa fa-user-circle-o {
+    color: black;
+}
+
+.remote-icon {
+    background-color: #777;
+    border-radius: 3px 4px;
+    width: 40px;
+    color: #fff;
+}
+.icon-remote-help:before {
+    content: "";
 }

@@ -1,0 +1,16 @@
+{
+  "id": "1434689",
+  "name": "My icon",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "求助页面图标",
+  "glyphs": [
+    {
+      "icon_id": "11069087",
+      "name": "美元",
+      "font_class": "iconset0293-copy-copy",
+      "unicode": "e6c2",
+      "unicode_decimal": 59074
+    }
+  ]
+}

@@ -14,6 +14,17 @@
     <link rel="stylesheet" href="~/css/about.css">
     <script src="~/js/site.js"></script>
     <link rel="stylesheet" href="~/css/signup.css" />
+    <script>
+        var parssword = document.querySelectorAll('[xlt]');
+        var verifypassword = document.querySelectorAll('[xlt]');
+
+        if (parssword === verifypassword) {
+
+        }
+        else {
+            alert('你输入的密码不一致');
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -161,7 +172,7 @@
                         </section>
                         <div class="form-group">
                             <label>用户名：（* 必填）</label>
-                            <input class="form-control" data-val="true" data-val-length="* 用户名的长度不能大于4" maxlength="4"data-val-remote="* 用户名重复，请重新输入" data-val-remote-additionalfields="*.UserName" data-val-remote-url="/User/_NameIsExist"
+                            <input class="form-control" data-val="true" data-val-length="* 用户名的长度不能大于4" maxlength="4" data-val-remote="* 用户名重复，请重新输入" data-val-remote-additionalfields="*.UserName" data-val-remote-url="/User/_NameIsExist"
                                    data-val-required="* 用户名不能为空" id="UserName" name="UserName" placeholder="登录用户名，可修改，不能重复" type="text" value="">
                             <span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
                         </div>
@@ -193,7 +204,7 @@
                             </span>
                         </div>
                         <div class="submit">
-                            <input type="submit" class="btn btn-primary loading" value="提交" >
+                            <input type="submit" class="btn btn-primary loading" value="提交">
                             <input type="reset" class="btn btn-default">
                             <a href="About US" class="btn pull-right"><span class="glyphicon glyphicon-log-in"></span> 登录</a>
                         </div>
