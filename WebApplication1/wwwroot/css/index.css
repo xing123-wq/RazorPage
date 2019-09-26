@@ -384,9 +384,6 @@ a {
     content: '';
 }
 
-.open > .dropdown-menu {
-    display: block;
-}
 
 .navbar-fixed-top, .navbar-fixed-bottom {
     position: fixed;
@@ -789,4 +786,19 @@ a {
     right: 0;
     left: 0;
     z-index: 1030;
+}
+ul li ul {
+    background: #F00;
+    display: none;
+    /*//将二级菜单初始隐藏*/
+}
+
+ul li:hover ul {
+    display: block;
+    /*//使用hover，当鼠标移动到对应的一级菜单上是显示二级菜单*/
+}
+
+.navbar-right .dropdown-menu {
+    right: 0;
+    left: auto;
 }

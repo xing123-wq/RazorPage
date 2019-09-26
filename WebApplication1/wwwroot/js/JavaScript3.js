@@ -8,3 +8,4 @@ for (var i = 0; i < offer.length; i++) {
     }
 }
 alert(reward);
+
