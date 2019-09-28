@@ -8,16 +8,24 @@
     <meta charset="utf-8" />
     <link rel="shortcut icon" type="image/x-icon" href="~/images/logo-big.ico">
     <title>注册.一起帮</title>
+    <link rel="stylesheet" href="~/css/font-awesome.css" />
+    <link rel="stylesheet" href="~/css/mdui.css" />
+    <link rel="stylesheet" href="~/css/mdui.min.css" />
     <link rel="stylesheet" href="~/css/index.css">
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="~/css/about.css">
     <script src="~/js/site.js"></script>
     <link rel="stylesheet" href="~/css/signup.css" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/npm.js"></script>
 </head>
 <body>
     <header>
-        @*导航栏没有下拉列表*@
         <div class="navbar navbar-default @*navbar-fixed-top*@">
             <div class="container">
                 <a href="/" data-toggle="tooltip" title="返回首页">
@@ -26,8 +34,9 @@
                 <p class="navbar-text pull-left">
                     <span style="font-size:18px; font-weight:600;">一起帮</span>
                     <span class="visible-md-inline visible-lg-inline">· 网络互助平台</span>
+                    <a href="#" class="glyphicon glyphicon-bell" id="greet"></a>
                 </p>
-                <a href="/Message/Mine" class="navbar-text pull-left" style="font-size:18px; margin-left:10px;">
+                <a href="#" class="navbar-text pull-left" style="font-size:18px; margin-left:10px;">
                     <span class="fa fa-bell  pull-left hide" style="color: darkblue;" zyf-bell></span>
                 </a>
                 <div class="navbar-header">
@@ -37,76 +46,58 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-                <div class="collapse navbar-collapse">
+                <div class="navbar-collapse collapse">
                     <nav class="navbar-right">
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle"
-                                   data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <span class=" glyphicon glyphicon-question-sign"></span>
-                                    求助
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">督导班</a></li>
-                                    <li><a href="#">疑问发布</a></li>
-                                    <li><a href="#">疑问列表</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">列表</a></li>
-                                    <li><a href="#">发布</a></li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-question-circle"></span> 求助</a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li class="dropdown-header">督导班</li>
+                                    <li><a href="#"><span class="fa fa-eye"></span> 督导班</a> </li>
+                                    <li><a href="seekhelp"><span class="fa fa-list"></span> 列表</a> </li>
+                                    <li><a href="#"><span class="fa fa-edit"></span> 疑问发布</a> </li>
+                                    <li><a href="#"><span class="fa fa-list"></span> 疑问列表</a> </li>
+                                    <li class="divider"></li>
+                                    <li><a href="/Problem?excludeCanceled=true&excludeRewarded=true"><span class="fa fa-list"></span> 列表</a> </li>
+                                    <li><a href="/Problem/New"><span class="fa fa-edit"></span> 发布</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle"
-                                   data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <span class=" glyphicon glyphicon-eye-open"></span>
-                                    督促
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">求督促</a></li>
-                                    <li><a href="#">督促别人</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">我的目标</a></li>
-                                    <li><a href="#">我的督促</a></li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span zyf-ducu-notices class="fa fa-eye"></span> 督促</a>
+                                <ul class="dropdown-menu" role="menu" zyf-navigator-ducu>
+                                    <li><a href="#"><span class="fa fa-edit fa-fw"></span> 求督促</a></li>
+                                    <li><a href="#"><span class="fa fa-gavel fa-fw"></span> 督促别人</a></li>
+                                    <li><a href="#"><span class="fa fa-list fa-fw"></span> 我的目标</a></li>
+                                    <li><a href="#"><span class="fa fa-list fa-fw"></span> 我的督促</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle"
-                                   data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <span class="glyphicon glyphicon-paperclip"></span>
-                                    文章
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">列表</a></li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="iconfont icon-articles"></span> 文章</a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="Aeticle"><span class="fa fa-list fa-fw"></span> 列表</a> </li>
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="glyphicon glyphicon-phone"
-                                   data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    APP下载
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="iconfont icon-mobile"></span>APP下载<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#"><span class="fa fa-android"></span> Android</a></li>
+                                    <li><a href="#"><span class="fa fa-apple"></span> iOS<small>（越狱）</small> </a> </li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a class="text-primary dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                                    <span class="text-muted"><span class="fa fa-user-secret"></span><span> 未登录</span></span>
                                     <span class="caret"></span>
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Android</a></li>
-                                    <li><a href="#">iOS</a></li>
+                                <ul class="dropdown-menu" role="menu">
+
+                                    <li><a href="About Us"><span class="fa fa-sign-in"></span> 登录</a></li>
+                                    <li><a href="signup"><span class="fa fa-registered"></span> 注册</a></li>
+                                    <li><a href="#"><span class="fa fa-lock"></span> 忘记密码</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown @*open*@">
-                                <a href="#" class=" glyphicon glyphicon-save"
-                                   data-toggle="dropdown" role="button"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    未登录
-                                    <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="About Us">登录</a></li>
-                                    <li><a href="signup">注册</a></li>
-                                    <li><a href="#">忘记密码</a></li>
-                                </ul>
-                            </li>
+
                         </ul>
                     </nav>
                 </div>
