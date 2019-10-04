@@ -8,170 +8,21 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="~/images/logo-big.ico">
     <title>个人资料</title>
-    
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
 </head>
-<body>
+<body style="padding-top:100px;">
+    <iframe zyf-iframe src="/iframe1" id="keywords"></iframe>
+    <button zyf-change-iframe type="button">改变</button>
+    <script>
+        $(document).ready(function () {
+            $('[zyf-change-iframe]').click(function () {
+                $('[zyf-iframe]').attr('src', '/iframe2');
+                //$($(frames[0].document).find('p').text('源栈飞哥欢迎您'))
+            })
 
-    <ul>
-        <li>
-            <a href="index" 返回首页>
-                <img src="~/images/logo-big.ico" alt="一起帮logo">
-            </a>
-            <b>一起帮</b>
-            <b>网络互助平台</b>
-        </li>
-        <li><a class="pull-right" href="#">求助</a></li>
-        <li><a href="#Aeticle">文章</a></li>
-        <li><a href="#">APP下载</a></li>
-        <li><a href="#">后台</a></li>
-    </ul><hr />
-    <div class="page-header">
-        <h2>个人资料</h2>
-    </div>
-    <h2 style="color:blue">说明</h2>
-    <p>1.头像仅接受jpg/png/gif格式，大小不超过256KB。</p>
-    <p>2.头像图片的建议宽度为300像素左右，过宽或过窄都有可能失真。</p>
-    <p>3.自我介绍的字数不要超过255字。</p>
-
-    <label>头像：（* 仅限jpg/png/gif）</label>
-    <div zyf-usericon-show>
-    </div>
-    <iframe id="frameFile" name="frameFile" zyf-file-upload-now style="display:none"></iframe>
-    <div class="input-group">
-        <input class="form-control" type="text" placeholder="页面提交时上传文件">
-        <h4>自我介绍</h4>
-        <p>
-            <textarea rows="10" cols="20"></textarea>
-
-        </p>
-        <input type="submit" value="浏览">
-    </div>
-
-
-    <form action="/Profile/Write?prepage=%2f" method="post">
-        <div class="form-group">
-            <label>性别：</label>
-            <label class="checkbox-inline">
-                <input id="IsFemale" name="IsFemale" type="radio" value="True" /> 男
-            </label>
-            <label class="checkbox-inline">
-                <input id="IsFemale" name="IsFemale" type="radio" value="False" /> 女
-            </label>
-        </div>
-        <div class="form-group">
-
-            <label>生日：</label>
-            <div class="input-group">
-                <select class="form-control" data-val="true" data-val-number="字段 BirthYear 必须是一个数字。" id="BirthYear" name="BirthYear">
-                    <option value="">----</option>
-                    <option>2016</option>
-                    <option>2015</option>
-                    <option>2014</option>
-                    <option>2013</option>
-                    <option>2012</option>
-                    <option>2011</option>
-                    <option>2010</option>
-                    <option>2009</option>
-                    <option>2008</option>
-                    <option>2007</option>
-                    <option>2006</option>
-                    <option>2005</option>
-                    <option>2004</option>
-                    <option>2003</option>
-                    <option>2002</option>
-                    <option>2001</option>
-                    <option>2000</option>
-                    <option>1999</option>
-                    <option>1998</option>
-                    <option>1997</option>
-                    <option>1996</option>
-                    <option>1995</option>
-                    <option>1994</option>
-                    <option>1993</option>
-                    <option>1992</option>
-                    <option>1991</option>
-                    <option>1990</option>
-                    <option>1989</option>
-                    <option>1988</option>
-                    <option>1987</option>
-                    <option>1986</option>
-                    <option>1985</option>
-                    <option>1984</option>
-                    <option>1983</option>
-                    <option>1982</option>
-                    <option>1981</option>
-                    <option>1980</option>
-                    <option>1979</option>
-                    <option>1978</option>
-                    <option>1977</option>
-                    <option>1976</option>
-                    <option>1975</option>
-                    <option>1974</option>
-                    <option>1973</option>
-                    <option>1972</option>
-                    <option>1971</option>
-                    <option>1970</option>
-                    <option>1969</option>
-                    <option>1968</option>
-                    <option>1967</option>
-                    <option>1966</option>
-                    <option>1965</option>
-                    <option>1964</option>
-                    <option>1963</option>
-                    <option>1962</option>
-                    <option>1961</option>
-                    <option>1960</option>
-                    <option>1959</option>
-                    <option>1958</option>
-                    <option>1957</option>
-                </select>
-                <span class="input-group-addon">年</span>
-                <select class="form-control" data-val="true" data-val-number="字段 BirthMonth 必须是一个数字。" id="BirthMonth" name="BirthMonth">
-                    <option value="">--</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                    <option>11</option>
-                    <option>12</option>
-                </select>
-                <span class="input-group-addon">月</span>
-                <select class="form-control" id="Constellation" name="Constellation">
-                    <option value="">--</option>
-                    <option>白羊座</option>
-                    <option>金牛座</option>
-                    <option>双子座</option>
-                    <option>巨蟹座</option>
-                    <option>狮子座</option>
-                    <option>处女座</option>
-                    <option>天秤座</option>
-                    <option>天蝎座</option>
-                    <option>射手座</option>
-                    <option>摩羯座</option>
-                    <option>水瓶座</option>
-                    <option>双鱼座</option>
-                </select>
-                <span class="input-group-addon">星座</span>
-            </div>
-        </div><hr />
-        <div class="form-group">
-            <ul class="dropdown-menu" zyf-keyword-dropdownlist="1">
-                <li><a data-keyword-id="163">编程开发语言</a></li>
-                <li><a data-keyword-id="162">工具软件</a></li>
-                <li><a data-keyword-id="164">顾问咨询</a></li>
-                <li><a data-keyword-id="161">操作系统</a></li>
-
-            </ul>
-        </div>
-    </form>
-
-
+        })
+    </script>
 
 </body>
 </html>
