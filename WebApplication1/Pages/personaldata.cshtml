@@ -14,6 +14,9 @@
 <body style="padding-top:100px;">
     <iframe zyf-iframe src="/iframe1" id="keywords"></iframe>
     <button zyf-change-iframe type="button">改变</button>
+    <p id="message"></p>
+    <canvas id="canvas" width="1200" height="600"></canvas>
+
     <script>
         $(document).ready(function () {
             $('[zyf-change-iframe]').click(function () {
@@ -22,6 +25,39 @@
             })
 
         })
+        //绘制一个canvas画布，当鼠标移到上面，显示鼠标所在位置的canvas坐标
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        function getLocation(x, y) {
+            var bbox = canvas.getBoundingClientRect();
+            return {
+                x: (x - bbox.left) * (canvas.width / bbox.width),
+                y: (y - bbox.top) * (canvas.height / bbox.height)
+            };
+        }
+        function drawHorizontalLine(y) {
+            context.beginPath();
+            context.moveTo(0, y);
+            context.lineTo(canvas.width, y);
+            context.stroke();
+            context.closePath();
+        }
+        function drawVerticalLine(x) {
+            context.beginPath();
+            context.moveTo(x, 0);
+            context.lineTo(x, canvas.height);
+            context.stroke();
+            context.closePath();
+        }
+        canvas.onmousemove = function (e) {
+            var location = getLocation(e.clientX, e.clientY);
+            var message = document.getElementById("message");
+            message.innerHTML = "x=" + location.x + " ,y=" + location.y;
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            drawHorizontalLine(location.y);
+            drawVerticalLine(location.x);
+        };
     </script>
 
 </body>

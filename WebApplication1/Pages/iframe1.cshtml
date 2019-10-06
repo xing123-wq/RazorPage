@@ -1,90 +1,103 @@
 ﻿@page
-<link rel="shortcut icon" type="image/x-icon" href="~/images/logo-big.ico">
 <link rel="stylesheet" href="~/css/index.css">
+<link rel="stylesheet" href="~/css/font-awesome.css" />
 <link rel="stylesheet" href="~/css/about.css">
 <link rel="stylesheet" href="~/css/signup.css" />
+<link rel="stylesheet" href="~/css/mdui.css" />
+<link rel="stylesheet" href="~/css/mdui.min.css" />
 <script src="~/lib/jquery/dist/jquery.js"></script>
-<div zyf-keyword-widget-content="">
-    <div class="user-tags">
-        <a zyf-keyword-widget-id="351" href="/Problem?keyword=351" data-toggle="tooltip" title="" data-original-title="已使用2次">
-            <span class="badge" style="font-size:21px; background-color:rgba(51, 51, 51, 0.96875)">
-                aop
-            </span>
-        </a>
-        <a zyf-keyword-widget-id="322" href="/Problem?keyword=322" data-toggle="tooltip" title="" data-original-title="已使用2次">
-            <span class="badge" style="font-size:20.5px; background-color:rgba(51, 51, 51, 0.9375)">
-                layabox
-            </span>
-        </a>
-        <a zyf-keyword-widget-id="56" href="/Problem?keyword=56" data-toggle="tooltip" title="" data-original-title="已使用2次">
-            <span class="badge" style="font-size:20px; background-color:rgba(51, 51, 51, 0.90625)">
-                Exception
-            </span>
-        </a>
-        <a zyf-keyword-widget-id="270" href="/Problem?keyword=270" data-toggle="tooltip" title="" data-original-title="已使用2次">
-            <span class="badge" style="font-size:19.5px; background-color:rgba(51, 51, 51, 0.875)">
-                bootstrap
-            </span>
-        </a>
-        <a zyf-keyword-widget-id="263" href="/Problem?keyword=263" data-toggle="tooltip" title="" data-original-title="已使用2次">
-            <span class="badge" style="font-size:19px; background-color:rgba(51, 51, 51, 0.84375)">
-                jwt
-            </span>
-        </a>
-        <a zyf-keyword-widget-id="67" href="/Problem?keyword=67" data-toggle="tooltip" title="" data-original-title="已使用2次">
-            <span class="badge" style="font-size:18.5px; background-color:rgba(51, 51, 51, 0.8125)">
-                服务器
-            </span>
-        </a>
-        <a zyf-keyword-widget-id="299" href="/Problem?keyword=299" data-toggle="tooltip" title="" data-original-title="已使用2次">
-            <span class="badge" style="font-size:18px; background-color:rgba(51, 51, 51, 0.78125)">
-                文件操作
-            </span>
-        </a>
-        <a zyf-keyword-widget-id="267" href="/Problem?keyword=267" data-toggle="tooltip" title="" data-original-title="已使用2次">
-            <span class="badge" style="font-size:17.5px; background-color:rgba(51, 51, 51, 0.75)">
-                socket
-            </span>
-        </a>
-        <a zyf-keyword-widget-id="264" href="/Problem?keyword=264" data-toggle="tooltip" title="" data-original-title="已使用2次">
-            <span class="badge" style="font-size:17px; background-color:rgba(51, 51, 51, 0.71875)">
-                认证
-            </span>
-        </a>
-        <a zyf-keyword-widget-id="319" href="/Problem?keyword=319" data-toggle="tooltip" title="" data-original-title="已使用2次">
-            <span class="badge" style="font-size:16.5px; background-color:rgba(51, 51, 51, 0.6875)">
-                PAT
-            </span>
-        </a>
-        <a zyf-keyword-widget-id="341" href="/Problem?keyword=341" data-toggle="tooltip" title="" data-original-title="已使用2次">
-            <span class="badge" style="font-size:16px; background-color:rgba(51, 51, 51, 0.65625)">
-                数据库连接
-            </span>
-        </a>
-        <a zyf-keyword-widget-id="453" href="/Problem?keyword=453" data-toggle="tooltip" title="" data-original-title="已使用2次">
-            <span class="badge" style="font-size:15.5px; background-color:rgba(51, 51, 51, 0.625)">
-                github
-            </span>
-        </a>
-        <a zyf-keyword-widget-id="183" href="/Problem?keyword=183" data-toggle="tooltip" title="" data-original-title="已使用2次">
-            <span class="badge" style="font-size:15px; background-color:rgba(51, 51, 51, 0.59375)">
-                Word
-            </span>
-        </a>
-        <a zyf-keyword-widget-id="149" href="/Problem?keyword=149" data-toggle="tooltip" title="" data-original-title="已使用2次">
-            <span class="badge" style="font-size:14.5px; background-color:rgba(51, 51, 51, 0.5625)">
-                手机
-            </span>
-        </a>
-        <a zyf-keyword-widget-id="508" href="/Problem?keyword=508" data-toggle="tooltip" title="" data-original-title="已使用2次">
-            <span class="badge" style="font-size:14px; background-color:rgba(51, 51, 51, 0.53125)">
-                上位机
-            </span>
-        </a>
-        <a zyf-keyword-widget-id="52" href="/Problem?keyword=52" data-toggle="tooltip" title="" data-original-title="已使用2次">
-            <span class="badge" style="font-size:13.5px; background-color:rgba(51, 51, 51, 0.5)">
-                VS2015
-            </span>
-        </a>
-    </div>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.css" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+<div class="user-tags">
+    <a zyf-keyword-widget-id="351" href="/Problem?keyword=351" data-toggle="tooltip"data-placement="right" title="" data-original-title="已使用2次">
+        <span class="badge" style="font-size:21px; background-color:rgba(51, 51, 51, 0.96875)">
+            aop
+        </span>
+    </a>
+    <a zyf-keyword-widget-id="322" href="/Problem?keyword=322" data-toggle="tooltip"data-placement="right" title="" data-original-title="已使用2次">
+        <span class="badge" style="font-size:20.5px; background-color:rgba(51, 51, 51, 0.9375)">
+            layabox
+        </span>
+    </a>
+    <a zyf-keyword-widget-id="56" href="/Problem?keyword=56" data-toggle="tooltip"data-placement="right" title="" data-original-title="已使用2次">
+        <span class="badge" style="font-size:20px; background-color:rgba(51, 51, 51, 0.90625)">
+            Exception
+        </span>
+    </a>
+    <a zyf-keyword-widget-id="270" href="/Problem?keyword=270" data-toggle="tooltip" title="" data-original-title="已使用2次">
+        <span class="badge" style="font-size:19.5px; background-color:rgba(51, 51, 51, 0.875)">
+            bootstrap
+        </span>
+    </a>
+    <a zyf-keyword-widget-id="263" href="/Problem?keyword=263" data-toggle="tooltip" title="" data-original-title="已使用2次">
+        <span class="badge" style="font-size:19px; background-color:rgba(51, 51, 51, 0.84375)">
+            jwt
+        </span>
+    </a>
+    <a zyf-keyword-widget-id="67" href="/Problem?keyword=67" data-toggle="tooltip" title="" data-original-title="已使用2次">
+        <span class="badge" style="font-size:18.5px; background-color:rgba(51, 51, 51, 0.8125)">
+            服务器
+        </span>
+    </a>
+    <a zyf-keyword-widget-id="299" href="/Problem?keyword=299" data-toggle="tooltip" title="" data-original-title="已使用2次">
+        <span class="badge" style="font-size:18px; background-color:rgba(51, 51, 51, 0.78125)">
+            文件操作
+        </span>
+    </a>
+    <a zyf-keyword-widget-id="267" href="/Problem?keyword=267" data-toggle="tooltip" title="" data-original-title="已使用2次">
+        <span class="badge" style="font-size:17.5px; background-color:rgba(51, 51, 51, 0.75)">
+            socket
+        </span>
+    </a>
+    <a zyf-keyword-widget-id="264" href="/Problem?keyword=264" data-toggle="tooltip" title="" data-original-title="已使用2次">
+        <span class="badge" style="font-size:17px; background-color:rgba(51, 51, 51, 0.71875)">
+            认证
+        </span>
+    </a>
+    <a zyf-keyword-widget-id="319" href="/Problem?keyword=319" data-toggle="tooltip" title="" data-original-title="已使用2次">
+        <span class="badge" style="font-size:16.5px; background-color:rgba(51, 51, 51, 0.6875)">
+            PAT
+        </span>
+    </a>
+    <a zyf-keyword-widget-id="341" href="/Problem?keyword=341" data-toggle="tooltip" title="" data-original-title="已使用2次">
+        <span class="badge" style="font-size:16px; background-color:rgba(51, 51, 51, 0.65625)">
+            数据库连接
+        </span>
+    </a>
+    <a zyf-keyword-widget-id="453" href="/Problem?keyword=453" data-toggle="tooltip" title="" data-original-title="已使用2次">
+        <span class="badge" style="font-size:15.5px; background-color:rgba(51, 51, 51, 0.625)">
+            github
+        </span>
+    </a>
+    <a zyf-keyword-widget-id="183" href="/Problem?keyword=183" data-toggle="tooltip" title="" data-original-title="已使用2次">
+        <span class="badge" style="font-size:15px; background-color:rgba(51, 51, 51, 0.59375)">
+            Word
+        </span>
+    </a>
+    <a zyf-keyword-widget-id="149" href="/Problem?keyword=149" data-toggle="tooltip" title="" data-original-title="已使用2次">
+        <span class="badge" style="font-size:14.5px; background-color:rgba(51, 51, 51, 0.5625)">
+            手机
+        </span>
+    </a>
+    <a zyf-keyword-widget-id="508" href="/Problem?keyword=508" data-toggle="tooltip" title="" data-original-title="已使用2次">
+        <span class="badge" style="font-size:14px; background-color:rgba(51, 51, 51, 0.53125)">
+            上位机
+        </span>
+    </a>
+    <a zyf-keyword-widget-id="52" href="/Problem?keyword=52" data-toggle="tooltip" title="" data-original-title="已使用2次">
+        <span class="badge" style="font-size:13.5px; background-color:rgba(51, 51, 51, 0.5)">
+            VS2015
+        </span>
+    </a>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </div>
