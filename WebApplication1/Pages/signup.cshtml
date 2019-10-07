@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/npm.js"></script>
 </head>
 <body>
     <header>
@@ -132,7 +131,7 @@
                             </a>
                         </div>
                     </div>
-                    <form>
+                    <form action="demo_form.php" method="post">
                         <section style="padding:0 10px 0 10px; margin-bottom:10px;" class="yellow-highlight">
 
                             <div class="text-right" style="padding-top:10px;">
@@ -153,7 +152,7 @@
                         <div class="form-group">
                             <label>用户名：（* 必填）</label>
                             <input class="form-control" data-val="true" data-val-length="* 用户名的长度不能大于4" maxlength="4" data-val-remote="* 用户名重复，请重新输入" data-val-remote-additionalfields="*.UserName" data-val-remote-url="/User/_NameIsExist"
-                                   data-val-required="* 用户名不能为空" id="UserName" name="UserName" placeholder="登录用户名，可修改，不能重复" type="text" value="">
+                                   data-val-required="* 用户名不能为空" id="UserName"  placeholder="登录用户名，可修改，不能重复" value=""type="text" name="fname" required="required">
                             <span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
                         </div>
                         <div class="form-group">
@@ -185,7 +184,7 @@
                             </span>
                         </div>
                         <div class="submit">
-                            <input type="button" class="btn btn-primary loading" value="提交">
+                            <input type="submit" class="btn btn-primary loading" value="提交">
                             <input type="reset" class="btn btn-default">
                             <a href="About US" class="btn pull-right"><span class="glyphicon glyphicon-log-in"></span> 登录</a>
                         </div>
