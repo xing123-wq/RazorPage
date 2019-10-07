@@ -1,7 +1,8 @@
 ﻿@page
+
 <html>
 <head>
-
+    <script src="~/js/JavaScript.js"></script>
 </head>
 <body>
     <h1 name="飞哥">HTML DOM示范</h1>
@@ -40,82 +41,81 @@
     <button style="color:red" name="change-color">变红</button>
     <button style="color:blue" name="change-color">变蓝</button>
     <button style="color:yellow" name="change-color">变黄</button>
-    <script>
-        let name = '您';
-        //document.getElementsByTagName('h1')[0].addEventListener('click', function () {
-        //    alert('hello,' + name);
-        //});
-        document.getElementsByTagName('h1')[0].onclick = function greet() {
-            alert('hello' + name);
-        }
-        //document.getElementById('btns').onclick = function () {
-        //    document.getElementsByTagName('h1')[0].style.color =
-        //        this.style.color;
-        //}
-        document.getElementsByTagName('a')[0].onclick = function (event) {
-            //event.preventDefault();
-            console.log('event.type:' + event.type);
-            console.log('event.target:' + event.target);
-            return false;//用return代替event.preventDefault();
-        }
-        //点击输入框变黄色，离开输入框变白色
-        document.getElementsByName('username')[0].onfocus = function () {
-            if (this.style.backgroundColor === 'white') {
-                this.style.backgroundColor = 'yellow';
-            } else {
-                this.style.backgroundColor = 'white';
+    @*<script>
+            let name = '您';
+            //document.getElementsByTagName('h1')[0].addEventListener('click', function () {
+            //    alert('hello,' + name);
+            //});
+            document.getElementsByTagName('h1')[0].onclick = function greet() {
+                alert('hello' + name);
             }
-        }
-        //setInterval(document.getElementsByName('username')[0]);
-        document.getElementsByName('click')[0].onkeydown = function (e) {
-            console.log('code:${e.code};e.key:${e.key};');
-            if (!isNaN(+e.key)) {
-                console.log(e.key + '是个数字');
+            //document.getElementById('btns').onclick = function () {
+            //    document.getElementsByTagName('h1')[0].style.color =
+            //        this.style.color;
+            //}
+            document.getElementsByTagName('a')[0].onclick = function (event) {
+                //event.preventDefault();
+                console.log('event.type:' + event.type);
+                console.log('event.target:' + event.target);
+                return false;//用return代替event.preventDefault();
             }
-        }
-        document.getElementsByName('level')[0].onchange = function () {
-            console.log(this.children[this.selectedIndex].innerText);
-        }
-        //验证
-        document.getElementsByTagName('form')[0].onsubmit = function () {
-            if (document.getElementsByName('username')[0].value === '') {
-                return false;
-            }
-        }
-        window.onbeforeunload = function (e) {
-            return '关闭提示';
-        };
-        //滚动条事件
-        document.querySelector('[zyf-scroll-sample]').addEventListener('scroll', function () {
-            console.log('offseHeight:' + this.offsetHeight);
-            console.log('clientHeight:' + this.clientHeight);
-            console.log('scrollHeight:' + this.scrollHeight);
-            console.log('clientTop:' + this.clientTop);
-            console.log('scrollTop:' + this.scrollTop);
-        });
-        //闭包
-        //function changColor(color) {
-        //    return function () {
-        //        document.getElementsByTagName('h2')[0].style.color = color;
-        //    }
-        //}
-        //var btns = document.getElementsByTagName('button');
-        //for (var i = 0; i < btns.length; i++) {
-        //    btns[i].onclick = changColor(btns[i].style.color);
-        //}
-        //解决闭包
-        var btns = document.getElementsByTagName('button');
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].onclick = function (i) {//事件绑定,onclick外部变量
-                //每一次进行onclcik事件绑定，函数就应该把(i)保存下来
-                return function () {//立即函数表达式
-                    document.getElementsByTagName('h2')[0].style.color = btns[i].style.color;
+            //点击输入框变黄色，离开输入框变白色
+            document.getElementsByName('username')[0].onfocus = function () {
+                if (this.style.backgroundColor === 'white') {
+                    this.style.backgroundColor = 'yellow';
+                } else {
+                    this.style.backgroundColor = 'white';
                 }
-            }(i);//(i)要能够取出值
+            }
+            //setInterval(document.getElementsByName('username')[0]);
+            document.getElementsByName('click')[0].onkeydown = function (e) {
+                console.log('code:${e.code};e.key:${e.key};');
+                if (!isNaN(+e.key)) {
+                    console.log(e.key + '是个数字');
+                }
+            }
+            document.getElementsByName('level')[0].onchange = function () {
+                console.log(this.children[this.selectedIndex].innerText);
+            }
+            //验证
+            document.getElementsByTagName('form')[0].onsubmit = function () {
+                if (document.getElementsByName('username')[0].value === '') {
+                    return false;
+                }
+            }
+            window.onbeforeunload = function (e) {
+                return '关闭提示';
+            };
+            //滚动条事件
+            document.querySelector('[zyf-scroll-sample]').addEventListener('scroll', function () {
+                console.log('offseHeight:' + this.offsetHeight);
+                console.log('clientHeight:' + this.clientHeight);
+                console.log('scrollHeight:' + this.scrollHeight);
+                console.log('clientTop:' + this.clientTop);
+                console.log('scrollTop:' + this.scrollTop);
+            });
+            //闭包
+            //function changColor(color) {
+            //    return function () {
+            //        document.getElementsByTagName('h2')[0].style.color = color;
+            //    }
+            //}
+            //var btns = document.getElementsByTagName('button');
+            //for (var i = 0; i < btns.length; i++) {
+            //    btns[i].onclick = changColor(btns[i].style.color);
+            //}
+            //解决闭包
+            var btns = document.getElementsByTagName('button');
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].onclick = function (i) {//事件绑定,onclick外部变量
+                    //每一次进行onclcik事件绑定，函数就应该把(i)保存下来
+                    return function () {//立即函数表达式
+                        document.getElementsByTagName('h2')[0].style.color = btns[i].style.color;
+                    }
+                }(i);//(i)要能够取出值
 
-        }
-        //
-    </script>
-
-</body>
+            }
+            //
+        </script>*@
+    </body>
 </html>
