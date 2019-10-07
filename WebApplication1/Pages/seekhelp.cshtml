@@ -66,8 +66,8 @@
                                     <li><a href="#"><span class="fa fa-edit"></span> 疑问发布</a> </li>
                                     <li><a href="#"><span class="fa fa-list"></span> 疑问列表</a> </li>
                                     <li class="divider"></li>
-                                    <li><a href="/Problem?excludeCanceled=true&excludeRewarded=true"><span class="fa fa-list"></span> 列表</a> </li>
-                                    <li><a href="/Problem/New"><span class="fa fa-edit"></span> 发布</a></li>
+                                    <li><a href="Newtask"><span class="fa fa-list"></span> 列表</a> </li>
+                                    <li><a href="#"><span class="fa fa-edit"></span> 发布</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -1397,7 +1397,7 @@
                         </div>
                         <div class="ad-in-widget order-list">
                             <span class="item-2 order-tag">2</span>
-                            <a  name="bay" data-toggle="modal" href="remote.html" data-target="#myModal" rel="noopener noreferrer">免费广告位，抢到就是赚到！</a>
+                            <a name="bay" data-toggle="modal" href="remote.html" data-target="#myModal" rel="noopener noreferrer">免费广告位，抢到就是赚到！</a>
                         </div>
                         <div class="ad-in-widget order-list">
                             <span class="item-3 order-tag">3</span>
@@ -1431,7 +1431,7 @@
             <a href="/Suggest/New" style="bottom: 80px; right: 147.5px;" class="feedback flag text-center">
                 <span class="glyphicon glyphicon-comment"></span><br>反馈
             </a>
-            <div class="modal fade"  id="myModal"tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                 <div class="modal-dialog" role="document">
                     <form action="/AdInWidget/_Free?position=2" method="post" novalidate="novalidate">
                         <div class="modal-content">
@@ -1445,7 +1445,7 @@
                                     <a zyf-ad-delete="" class="text-warning pull-right"><span class="fa fa-remove"></span> 删除</a>
                                     <label>之前用过的广告：</label>
                                     <select class="form-control" data-val="true" data-val-number="字段 SelectedHistory 必须是一个数字。" id="Content_SelectedHistory" name="Content.SelectedHistory" zyf-ad-in-widget-history-select="">
-                                        <option value="">----- 使用新的广告 -----</option>
+                                        <option >----- 使用新的广告 -----</option>
                                     </select>
                                 </div>
                                 <ul class="hide" zyf-ad-in-widget-history-url="">
@@ -1453,17 +1453,24 @@
                                 <section style="padding:10px 20px; margin-bottom:20px;" class="yellow-highlight" zyf-ad-content-container="">
                                     <div class="text-right checkbox">
                                         <label>
-                                            <input data-val="true" data-val-required="Edit 字段是必需的。" id="Content_Edit" name="Content.Edit" type="checkbox" value="true" zyf-ad-content-edit=""><input name="Content.Edit" type="hidden" value="false"> 修改
+                                            <input data-val="true" data-val-required="Edit 字段是必需的。" id="Content_Edit" name="Content.Edit" type="checkbox" value="true" onclick="disable()"><input name="Content.Edit" type="hidden" value="false"> 修改
+                                            <script>
+                                                function disable() {
+
+                                                    document.getElementById("user.name").disabled = "";
+                                                    document.getElementById("user.number").disabled = "";
+
+                                                }</script>
                                         </label>
                                     </div>
                                     <div class="form-group">
                                         <label>文字内容：（* 必填）</label>
-                                        <input class="form-control" data-val="true" data-val-length="* 文本的长度不能大于30" data-val-length-max="30" data-val-required="* 文本不能为空" id="Content_Text" name="Content.Text" placeholder="最多不超过24个字符" type="text" value="" zyf-ad-in-widget-input-text="">
+                                        <input class="form-control" data-val="true" data-val-length="* 文本的长度不能大于30" data-val-length-max="30" data-val-required="* 文本不能为空" id="user.name" name="Content.Text" placeholder="最多不超过24个字符" type="text"  disabled="true">
                                         <span class="field-validation-valid" data-valmsg-for="Content.Text" data-valmsg-replace="true"></span>
                                     </div>
                                     <div class="form-group">
                                         <label>链接：（* 必填）</label>
-                                        <input class="form-control" data-val="true" data-val-regex="* URL格式错误" data-val-regex-pattern="http(s)?://.*" data-val-required="* 链接不能为空" id="Content_Url" name="Content.Url" placeholder="http或https开头的网址" type="text" value="" zyf-ad-in-widget-input-url="">
+                                        <input class="form-control" data-val="true" data-val-regex="* URL格式错误" data-val-regex-pattern="http(s)?://.*" data-val-required="* 链接不能为空" id="user.number" name="Content.Url" placeholder="http或https开头的网址" type="text"  disabled="true">
                                         <span class="field-validation-valid" data-valmsg-for="Content.Url" data-valmsg-replace="true"></span>
                                     </div>
                                 </section>

@@ -20,6 +20,33 @@
             <option value="5">五级</option>
         </select>
         <button type="submit" id="btn">点我</button>
+        <script type="text/javascript">
+            function disable() {
+
+                document.getElementById("user.name").disabled = "";
+                document.getElementById("user.number").disabled = "";
+              
+            }
+        </script>
+        <table>
+            <tr>
+                <td>姓名:</td>
+                <td><input id="user.name" type="text" name="user.name" value=星云} disabled="true"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    学号：<br />
+                </td>
+                <td><input id="user.number" type="text" name="user.number" value=1001 disabled="true"></td>
+            </tr>
+
+          
+            <tr>
+                <td><input type="submit" value="确认" onclick="disable()"></td>
+                <td><input type="button" value="修改" onclick="disable()" /></td>
+            </tr>
+        </table>
     </form>
     <div zyf-scroll-sample style="height:200px;padding:10px; border:1px dashed;overflow-y:scroll;">
         wahahah<br />
@@ -117,5 +144,5 @@
             }
             //
         </script>*@
-    </body>
+</body>
 </html>

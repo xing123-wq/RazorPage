@@ -7,20 +7,13 @@
     <link rel="stylesheet" href="~/css/font-awesome.css" />
     <link rel="stylesheet" href="~/css/about.css">
     <link rel="stylesheet" href="~/css/signup.css" />
-    <link rel="stylesheet" href="~/css/mdui.css" />
-    <link rel="stylesheet" href="~/css/mdui.min.css" />
     <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.css" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
     <title>我要求助</title>
-    <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
 </head>
 <body>
     <header>
@@ -142,12 +135,12 @@
                     <div class="form-group">
                         <label>标题：（* 必填）</label>
                         <input class="form-control" data-val="true" data-val-length="* 标题的长度不能大于255" data-val-length-max="255" data-val-required="* 标题不能为空"
-                               id="Content_Title" name="Content.Title" placeholder="简明扼要，不超过255字" type="text" value="" zyf-draft-check-title="">
+                               id="Content_Title" name="Content.Title" placeholder="简明扼要，不超过255字" type="text">
                         <span class="field-validation-valid" data-valmsg-for="Content.Title" data-valmsg-replace="true"></span>
                     </div>
                     <div class="form-group">
                         <label>关键字：（* 使用空格分隔）</label>
-                        <div zyf-keyword-show="" style="padding-bottom:3px;"></div>
+                        <div style="padding-bottom:3px;"></div>
                         <div class="input-group">
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-default ">--- 1级 ---</button>
@@ -155,7 +148,7 @@
                                     <span class="caret"></span>
                                     <span class="sr-only">Toggle Dropdown</span>
                                 </button>
-                                <ul class="dropdown-menu" zyf-keyword-dropdownlist="1">
+                                <ul class="dropdown-menu" zyf-keyword-dropdownlist>
                                     <li><a data-keyword-id="163">编程开发语言</a></li>
                                     <li><a data-keyword-id="162">工具软件</a></li>
                                     <li><a data-keyword-id="164">顾问咨询</a></li>
@@ -185,7 +178,7 @@
                             </div>
                             <input type="text" class="form-control" placeholder="自定义关键字，使用空格分隔" zyf-keyword-input="">
                         </div>
-                        <input data-val="true" data-val-required="* 关键字不能为空" id="Keywords" name="Keywords" type="hidden" value="" zyf-keyword-submit-value="">
+                        <input data-val="true" data-val-required="* 关键字不能为空" id="Keywords" name="Keywords" type="hidden" >
                         <span class="field-validation-valid" data-valmsg-for="Keywords" data-valmsg-replace="true"></span>
                     </div>
                     <div class="form-group">
@@ -216,7 +209,7 @@
                                     <span class="iconfont icon-money"></span>
                                 </a>
                             </span>
-                            <input class="form-control" data-rule-creditenough="[zyf-current-money]" data-val="true" data-val-number="字段 悬赏帮帮币 必须是一个数字。" data-val-regex="* 悬赏帮帮币只能为正整数" data-val-regex-pattern="^[1-9][0-9]*$" data-val-required="* 悬赏帮帮币不能为空" id="Reward" name="Reward" placeholder="正整数，建议10枚以上" type="text" value="" zyf-problem-reward-amount="">
+                            <input class="form-control" data-rule-creditenough="[zyf-current-money]" data-val="true" data-val-number="字段 悬赏帮帮币 必须是一个数字。" data-val-regex="* 悬赏帮帮币只能为正整数" data-val-regex-pattern="^[1-9][0-9]*$" data-val-required="* 悬赏帮帮币不能为空" id="Reward" name="Reward" placeholder="正整数，建议10枚以上" type="text" >
                             <span class="input-group-addon">枚</span>
                         </div>
                         <a href="/FAQ/Money#gain" class="pull-right"><span class="fa fa-question-circle"></span> 如何获得“帮帮币”</a>
