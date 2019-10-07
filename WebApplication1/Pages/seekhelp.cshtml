@@ -19,20 +19,7 @@
     <title>求助页面</title>
 </head>
 <body>
-    <script>
-        //取多个name进行字体闪烁
-        function roplcolor() {
-            var free = document.getElementsByName('bay');
-            for (var i = 0; i < free.length; i++) {
-                if (free[i].style.color === 'blue') {
-                    free[i].style.color = '#8a6d3b';
-                } else {
-                    free[i].style.color = 'blue';
-                }
-            }
-        }
-        setInterval(roplcolor, 1000);
-    </script>
+ 
     <header>
         <div class="navbar navbar-default @*navbar-fixed-top*@">
             <div class="container">
@@ -130,7 +117,7 @@
                     </a>
                 </span>
 
-                <form action="/Problem?excludeCanceled=true&amp;excludeRewarded=true" method="post" novalidate="novalidate">
+                <form action="#" method="post" novalidate="novalidate"id="list">
                     <div class="clearfix" style="border-left:6px solid gray; margin-bottom:20px">
                         <div class="pull-left text-muted" style="margin:5px 0;">
                             <label class="checkbox-inline">
@@ -157,9 +144,12 @@
                                 <input data-val="true" data-val-required="OnlySummaried 字段是必需的。" id="OnlySummaried" name="OnlySummaried" type="checkbox" value="true"><input name="OnlySummaried" type="hidden" value="false"> 有总结
                             </label>
                         </div>
-
+                        <label>
+                            <input type="checkbox" id="all">全选
+                        </label>
                     </div>
-                </form>    <div style="margin:10px 0; clear:both;">
+                </form>    
+                <div style="margin:10px 0; clear:both;">
                     <div style="padding-top:20px;">
                         <span data-toggle="tooltip" title="" data-original-title="更新：2018年11月19日 11点49分">
                             <small class="text-muted">
@@ -1454,13 +1444,8 @@
                                     <div class="text-right checkbox">
                                         <label>
                                             <input data-val="true" data-val-required="Edit 字段是必需的。" id="Content_Edit" name="Content.Edit" type="checkbox" value="true" onclick="disable()"><input name="Content.Edit" type="hidden" value="false"> 修改
-                                            <script>
-                                                function disable() {
-
-                                                    document.getElementById("user.name").disabled = "";
-                                                    document.getElementById("user.number").disabled = "";
-
-                                                }</script>
+                                           
+                                               
                                         </label>
                                     </div>
                                     <div class="form-group">
@@ -1525,15 +1510,7 @@
                 <script src="~/js/JavaScript3.js"></script>
             </footer>
         </div>
-        <script>
-            $(function () {
-                $('[data-toggle="tooltip"]').tooltip()
-            })
-            $('#myTabs a').click(function (e) {
-                e.preventDefault()
-                $(this).tab('show')
-            })
-        </script>
+        <script src="~/js/seekhelp.js"></script>
 
     </div>
 </body>
