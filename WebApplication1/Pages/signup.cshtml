@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="~/css/mdui.min.css" />
     <link rel="stylesheet" href="~/css/index.css">
     <link rel="stylesheet" href="~/css/about.css">
-    <script src="~/js/site.js"></script>
     <link rel="stylesheet" href="~/css/signup.css" />
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
@@ -131,7 +130,7 @@
                             </a>
                         </div>
                     </div>
-                    <form action="demo_form.php" method="post">
+                    <form action="demo_form.php" method="post"id="form">
                         <section style="padding:0 10px 0 10px; margin-bottom:10px;" class="yellow-highlight">
 
                             <div class="text-right" style="padding-top:10px;">
@@ -139,20 +138,20 @@
                             </div>
                             <div class="form-group">
                                 <label>邀请人：</label>（* 必填，<a href="/User/Inviters" class="text-info" data-toggle="tooltip" title="" data-original-title="点击由系统推荐">没有邀请人</a>）
-                                <input class="form-control" data-val="true" data-val-length="* 邀请人的长度不能大于20" data-val-length-max="20" data-val-required="* 邀请人不能为空" id="Name" name="InviterName" placeholder="他的用户名，模糊查询只能从头开始" type="text" value="" zyf-search-by-username="">
+                                <input class="form-control" data-val="true" data-val-length="* 邀请人的长度不能大于20" maxlength="4" data-val-required="* 邀请人不能为空" id="username" name="InviterName" placeholder="他的用户名，模糊查询只能从头开始" type="text" value="">
                                 <div zyf-search-username-result=""></div>
                                 <span class="field-validation-valid" data-valmsg-for="InviterName" data-valmsg-replace="true"></span>
                             </div>
                             <div class="form-group">
                                 <label>邀请码：（* 必填）</label>
-                                <input class="form-control" data-val="true" data-val-regex="* 邀请码只能是4位数字" data-val-regex-pattern="[0-9]{4}" data-val-required="* 邀请码不能为空" id="InviteCode" name="InviteCode" placeholder="4位数字" type="text" >
+                                <input class="form-control" data-val="true" data-val-regex="* 邀请码只能是4位数字" maxlength="4" data-val-required="* 邀请码不能为空" id="InviteCode" name="InviteCode" placeholder="4位数字" type="text">
                                 <span class="field-validation-valid" data-valmsg-for="InviteCode" data-valmsg-replace="true"></span>
                             </div>
                         </section>
                         <div class="form-group">
                             <label>用户名：（* 必填）</label>
                             <input class="form-control" data-val="true" data-val-length="* 用户名的长度不能大于4" maxlength="4" data-val-remote="* 用户名重复，请重新输入" data-val-remote-additionalfields="*.UserName" data-val-remote-url="/User/_NameIsExist"
-                                   data-val-required="* 用户名不能为空" id="UserName"  placeholder="登录用户名，可修改，不能重复" type="text" name="fname" required="required">
+                                   data-val-required="* 用户名不能为空" id="UserName" placeholder="登录用户名，可修改，不能重复" type="text" name="fname" required="required">
                             <span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
                         </div>
                         <div class="form-group">
@@ -161,7 +160,7 @@
                         </div>
                         <div class="form-group">
                             <label>验证密码：（* 必填）</label>
-                            <input id="verify" class="form-control" data-val="true" data-val-equalto="* 确认密码和密码不一致" data-val-equalto-other="*.Password" data-val-required="* 确认密码不能为空" name="word" placeholder="和密码相同" type="password" onkeyup="validate()">
+                            <input id="verify" class="form-control" maxlength="15" data-val="true" data-val-equalto="* 确认密码和密码不一致" data-val-equalto-other="*.Password" data-val-required="* 确认密码不能为空" name="word" placeholder="和密码相同" type="password" onkeyup="validate()">
                             <span id="tishi"></span>
                         </div>
                         <div class="form-group">
@@ -169,8 +168,8 @@
                             <br>
                             <span zyf-img-code="">
 
-                                <input class="form-control" data-val="true" data-val-length="* 验证码的长度只能等于4" data-val-length-max="4" data-val-length-min="4" data-val-required="* 验证码不能为空"
-                                       id="InputImageCode" name="InputImageCode" style="width:80px; display: inline;" type="text" >
+                                <input class="form-control" data-val="true" data-val-length="* 验证码的长度只能等于4" maxlength="4" data-val-required="* 验证码不能为空"
+                                       id="tel" name="InputImageCode" style="width:80px; display: inline;" type="text">
                                 <img zyf-image-code="" style="vertical-align: middle; display: none;">
                                 <a name="imageCode">
 
@@ -184,7 +183,7 @@
                             </span>
                         </div>
                         <div class="submit">
-                            <input type="submit" class="btn btn-primary loading" value="提交">
+                            <input type="submit" class="btn btn-primary loading" id="Validate" value="提交">
                             <input type="reset" class="btn btn-default">
                             <a href="About US" class="btn pull-right"><span class="glyphicon glyphicon-log-in"></span> 登录</a>
                         </div>
@@ -273,13 +272,37 @@
                 //<!--对比两次输入的密码-->
                 if (pwd1 == pwd2) {
                     document.getElementById("tishi").innerHTML = "<font color='green'>两次密码相同</font>";
-                    document.getElementById("button").disabled = false;
+                    //document.getElementById("button").disabled = true;
                 }
                 else {
                     document.getElementById("tishi").innerHTML = "<font color='red'>两次密码不相同</font>";
-                    document.getElementById("button").disabled = true;
+                    //document.getElementById("button").disabled = false;
                 }
             }
+
+            $(document).ready(function () {
+                $("#Validate").click(function () {
+                    var username = $('#username').val();
+                    var password = $('#InviteCode').val();
+                    var telphone = $('#tel').val();
+                    if (username == '') {
+                        alert("请输入邀请人")
+                        return false;
+                    }
+                    else {
+                        if (password == '') {
+                            alert("请输入邀请码");
+                            return false;
+                        } else
+                            if (telphone == '') {
+                                alert("请输入验证码");
+                                return false;
+                            }
+
+                            else $('#form').submit();
+                    }
+                });
+            });
         </script>
     </div>
 </body>

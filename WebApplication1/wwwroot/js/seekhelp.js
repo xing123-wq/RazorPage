@@ -7,7 +7,7 @@
             $("#list :checkbox").attr("checked", false);
         }
     });
-//    //获取选中选项的值
+    //    //获取选中选项的值
     $("#getValue").click(function () {
         var valArr = new Array;
         $("#list :checkbox[checked]").each(function (i) {
@@ -30,12 +30,13 @@ function roplcolor() {
     }
 }
 setInterval(roplcolor, 1000);
+//点击解除禁用
 function disable() {
-
-    document.getElementById("user.name").disabled = "";
-    document.getElementById("user.number").disabled = "";
+    var relieve = document.getElementById("user.name").disabled = "";
+    var disarm = document.getElementById("user.number").disabled = "";
 
 }
+
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })

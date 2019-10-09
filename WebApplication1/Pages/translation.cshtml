@@ -1,87 +1,59 @@
 ﻿@page
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>演示：jQuery实现的全选、反选和不选功能</title>
     <script src="~/lib/jquery/dist/jquery.js"></script>
- 
-    <script src="http://libs.baidu.com/jquery/1.7.2/jquery.js"></script>
     <script>
-        $(function () {
-            //全选或全不选
-            $("#all").click(function () {
-                if (this.checked) {
-                    $("#list :checkbox").attr("checked", true);
-                } else {
-                    $("#list :checkbox").attr("checked", false);
+        //$('input[type=text]').each(function (i, v) {
+        //    $(v).blur(function () {
+        //        if ($(v).val() == '') {
+        //            $(v).css('border-color', 'red');
+        //            $(v).focus();
+        //        } else {
+        //            $(v).css('border-color', '#ece9e9');
+        //        }
+        //    })
+        //})
+        $(document).ready(function () {
+            $("#submit_button").click(function () {
+                var username = $('.username').val();
+                var password = $('.password').val();
+                var telphone = $('.tel').val();
+                if (username == '') {
+                    alert("请输入账号");
+                    return false;
                 }
-            });
-            //全选
-            $("#selectAll").click(function () {
-                $("#list :checkbox,#all").attr("checked", true);
-            });
-            //全不选
-            $("#unSelect").click(function () {
-                $("#list :checkbox,#all").attr("checked", false);
-            });
-            //反选
-            $("#reverse").click(function () {
-                $("#list :checkbox").each(function () {
-                    $(this).attr("checked", !$(this).attr("checked"));
-                });
-                allchk();
-            });
+                else {
+                    if (password == '') {
+                        alert("请输入密码");
+                        return false;
+                    } else
+                        if (telphone == '') {
+                            alert("请输入你的电话号码");
+                            return false;
+                        }
 
-            //设置全选复选框
-            $("#list :checkbox").click(function () {
-                allchk();
-            });
-
-            //获取选中选项的值
-            $("#getValue").click(function () {
-                var valArr = new Array;
-                $("#list :checkbox[checked]").each(function (i) {
-                    valArr[i] = $(this).val();
-                });
-                var vals = valArr.join(',');
-                alert(vals);
+                        else $('#form').submit();
+                }
             });
         });
-        function allchk() {
-            var chknum = $("#list :checkbox").size();//选项总个数
-            var chk = 0;
-            $("#list :checkbox").each(function () {
-                if ($(this).attr("checked") == true) {
-                    chk++;
-                }
-            });
-            if (chknum == chk) {//全选
-                $("#all").attr("checked", true);
-            } else {//不全选
-                $("#all").attr("checked", false);
-            }
-        }
     </script>
 </head>
-
 <body>
-    <div id="main">
-        <h2 class="top_title"><a href="http://www.cnblogs.com/phpfensi/p/3853337.html ">jQuery实现的全选、反选和不选功能</a></h2>
-        <div class="demo">
-            <ul id="list">
-                <li><label><input type="checkbox" value="1"> 1.时间都去哪儿了</label></li>
-                <li><label><input type="checkbox" value="2"> 2.海阔天空</label></li>
-                <li><label><input type="checkbox" value="3"> 3.真的爱你</label></li>
-                <li><label><input type="checkbox" value="4"> 4.不再犹豫</label></li>
-                <li><label><input type="checkbox" value="5"> 5.光辉岁月</label></li>
-                <li><label><input type="checkbox" value="6"> 6.喜欢妳</label></li>
-            </ul>
-            <input type="checkbox" id="all">
-            <input type="button" value="全选" class="btn" id="selectAll">
-            <input type="button" value="全不选" class="btn" id="unSelect">
-            <input type="button" value="反选" class="btn" id="reverse">
-            <input type="button" value="获得选中的所有值" class="btn" id="getValue">
+    <form action="" method="post" class="form1" enctype="multipart/form-data">
+        <div class="tab_common">
+            <span class="tab_common_span">队伍名称</span>
+            <input type="text" class="tab_common_input" name="team_name" required placeholder="队伍名称">
+
         </div>
-    </div>
+    </form>
+
+    <form action="/server_url" method="post" id="form">
+        <!--提交地址-->
+        <input type="text" name="username" class="username" placeholder="请输入您的用户名！">
+        <input type="password" name="password" class="password" placeholder="请输入您的用户密码！">
+        <input type="tel" name="telphone" class="tel" placeholder="请输入您的电话号码！">
+        <input type="submit" class="submit_button" id="submit_button" value="登录">
+        <button type="reset" class="reset_button">重置</button>
+    </form>
 </body>
 </html>
