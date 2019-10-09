@@ -141,7 +141,7 @@
                             <label>验证码：（* 必填）</label>
                             <br />
                             <span zyf-img-code>
-                                <input class="form-control" data-val="true" data-val-length="* 验证码的长度只能等于4" data-val-length-max="4" data-val-length-min="4" data-val-required="* 验证码不能为空" id="InputImageCode" name="InputImageCode" style="width:80px; display: inline;" type="text"/>
+                                <input class="form-control" data-val="true" data-val-length="* 验证码的长度只能等于4" data-val-length-max="4" data-val-length-min="4" data-val-required="* 验证码不能为空" id="" name="simulation" style="width:80px; display: inline;" type="text" />
                                 <img zyf-image-code style="vertical-align: middle; display: none;" />
                                 <a name="imageCode" />
                                 <a href="#" zyf-refresh-image-code style="font-size: 12px; display: none">
@@ -153,7 +153,7 @@
                             </span>
                         </div>
                         <div class="submit">
-                            <input type="submit" class="btn btn-primary loading" value="提交" zyf-submit-once="" style="display: inline-block;" submit="true">
+                            <input type="submit" class="btn btn-primary loading" value="提交" style="display: inline-block;" submit="true" id="put in">
 
                             <label class="checkbox-inline" style="margin-left:16px;">
                                 <input type="checkbox" name="remember" value="true" checked="">记住我
@@ -164,7 +164,17 @@
                             </span>
                         </div>
                     </form>
+                    <script>
+                        function validity() {
+                            var username = document.getElementById('UserName').value;
+                            var parssword = document.getElementById('InputImageCode').value;
+                            var seeclearly = document.getElementById('simulation').value;
+                            if (username = '') {
+                                
+                            }
+                        }
 
+                    </script>
 
                     <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="introductionLabel">
                         <div class="modal-dialog" role="document">
