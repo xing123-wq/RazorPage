@@ -157,7 +157,7 @@
                             <span class="reveal"><font color='red'>请输入验证码</font></span>
                         </div>
                         <div class="submit">
-                            <input type="submit" class="btn btn-primary loading" value="提交" id="putin"onclick="func(event)" >
+                            <input type="submit" class="btn btn-primary loading" value="提交" id="putin" onclick="func(event)">
 
                             <label class="checkbox-inline" style="margin-left:16px;">
                                 <input type="checkbox" name="remember" value="true" checked="">记住我
@@ -169,26 +169,24 @@
                         </div>
                     </form>
                     <script>
-                        function validity() {
-                            $(document).ready(function () {
-                                $('#putin').click(function () {
-                                    var user = $('#UserName').val();
-                                    var fillin = $('#password').val();
-                                    var obtain = $('#login').val();
-                                    var sp = $('.reveal')
-                                    for (var i = 0; i < sp.length; i++) {
-                                        if (user == '',fillin=='',obtain=='') {
-                                            sp.show();
-                                            return false;
-                                        } else {
-                                          
+                        var user = $('#UserName').val();
+                        var fillin = $('#password').val();
+                        var obtain = $('#login').val();
+                        var sp = $('.reveal')
+                        $(document).ready(function () {
+                            $('#putin').click(function () {
+                                for (var i = 0; i < sp.length; i++) {
+                                    if (user == '', fillin == '', obtain == '') {
+                                        sp.show();
+                                    } else {
 
-                                        }
                                     }
+                                }
 
-                                })
                             })
-                        }
+                        })
+
+
 
                     </script>
 
