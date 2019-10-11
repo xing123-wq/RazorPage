@@ -330,3 +330,35 @@ class coure {
 let javascript = new coure("javascript", new Date(2019, 8, 18), "2019年5月10日", ["两开花", "王枫", "王平", "采铃", "老程"]);
 let SQL = new coure("javascript", "2019年5月5日", "2019年5月10日", "两开花; 王枫; 王平;采铃; 老程");
 javascript.begin();
+//2.已有如下代码:
+var sname = '飞哥';
+var a = {
+    sname: '老程',
+    fn: function () {
+        console.log(this.sname);
+    }
+}
+a.fn.call();
+var bname = { sname: '飞哥' }
+a.fn.apply(bname);
+a.fn();
+//3.不改变变代码，分别使用call()和apply()，打印"文轩"和"两开花"
+var sname = "飞哥";
+var a = {
+    sname: '老程',
+    fn: function () {
+        console.log(this.sname);
+    }
+}
+a.fn.call({ sname: '文轩' });
+var bname = { sname: '两开花' }
+a.fn.apply(bname);
+//4.将fn()永久拷贝到showname(),始终打印"源栈最棒!^_^"
+var sname = "飞哥";
+var a = {
+    sname: '老程',
+    fn: function () {
+        console.log(this.sname);
+    }
+}
+a.fn.bind({ sname: '源栈最棒! ^ _ ^ }' })();
