@@ -131,22 +131,22 @@
         </table>
 
     </div>
-    <div id="count">当前得分 ：<span id="score"> 0 </span>分</div>
-    <div id="history">最佳记录: <span id="score1"> 0 </span>分</div>
+    <div id="count">当前得分 ：<span id="currentscore"> 0 </span>分</div>
+    <div id="history">最佳记录: <span id="bestscore"> 0 </span>分</div>
     <div class="clock"></div>
 
     <div id="cover" style="display:none"><span id="text"></span></div>
-    <script >
+    <script>
 
 
         var content = document.getElementById('content');
         var cover = document.getElementById('cover');
         var image = document.getElementsByTagName('img');
         var countMouse = document.getElementById('count');
-        var best = document.getElementById("score");
+        var bestscore = document.getElementById("bestscore");
         var history = document.getElementById("history");
-        var score1 = document.getElementById("score1");
-        var div = document.querySelector(".clock");
+        var currentscore = document.getElementById("currentscore");
+        var div  = document.querySelector(".clock");
         var text = document.getElementById("text");
         var preScore = 0;
         var ranK;
@@ -195,7 +195,7 @@
 
                 clearTimeout(timeId);
                 if (cover.style.display == "none") {
-                    cover.style.display = "block";
+                    //cover.style.display = "block";
                     if (count === undefined)
                         text.innerHTML = "当前成绩为：" + 0 + "分" + "<br/>" + "游戏结束！";
 
