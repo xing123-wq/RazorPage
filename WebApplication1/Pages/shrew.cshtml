@@ -131,11 +131,11 @@
         </table>
 
     </div>
-    <div id="count">当前得分 ：<span class="score"> 0 </span>分</div>
+    <div id="count">当前得分 ：<span id="score"> 0 </span>分</div>
     <div id="history">最佳记录: <span id="score1"> 0 </span>分</div>
     <div class="clock"></div>
 
-
+    <div id="cover" style="display:none"><span id="text"></span></div>
     <script >
 
 
@@ -143,7 +143,7 @@
         var cover = document.getElementById('cover');
         var image = document.getElementsByTagName('img');
         var countMouse = document.getElementById('count');
-        var score = countMouse.querySelector(".score");
+        var best = document.getElementById("score");
         var history = document.getElementById("history");
         var score1 = document.getElementById("score1");
         var div = document.querySelector(".clock");
@@ -179,11 +179,11 @@
             image[rank].removeAttribute("onclick");
             image[rank].style.marginTop = "3px";
             count++;
-            score.innerHTML = count;
+            best.innerHTML = count;
         }
 
         //设置一个定时器
-        var seconds = 59;
+        var seconds = 60;
         var speed = 1000;
         function countDown(seconds, speed) {
             var txt = "剩余时间：" + ((seconds < 10) ? "0" + seconds : seconds) + "秒";
