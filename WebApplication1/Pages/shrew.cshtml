@@ -1,6 +1,8 @@
 ﻿@page
 <html>
 <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/images/logo-big.ico">
     <style type="text/css">
         * {
             margin: 0px;
@@ -8,7 +10,7 @@
         }
 
         #background {
-            background: url(./images/beijing.jpg);
+            background: url(./images/打地鼠/背景.jpg);
         }
 
         h2 {
@@ -100,7 +102,6 @@
             text-align: center;
             vertical-align: middle;
         }
-
     </style>
 </head>
 <body>
@@ -135,11 +136,9 @@
     <div class="clock"></div>
 
 
-    <div id="cover" style="display:none"> <span id="text"></span></div>
-    <script type="text/javascript">
+    <script >
 
 
-        //1 先获取到所有的坑(图片)
         var content = document.getElementById('content');
         var cover = document.getElementById('cover');
         var image = document.getElementsByTagName('img');
@@ -153,33 +152,27 @@
         var ranK;
         var count = 0;
 
-    
+
 
         preScore = localStorage.getItem("bestScore");
         console.log(preScore);
         score1.innerHTML = preScore;
 
         //让老鼠随机出现在一个坑里
-        setTimeout("chulai()", Math.random() * 400 + 800);
+        setTimeout(chulai, Math.random() * 400 + 800);
 
 
         function chulai() {
             rank = Math.floor(Math.random() * 9);
-            image[rank].src = "./images/打地鼠/萌地鼠.png";
+            image[rank].src = "/images/打地鼠/萌地鼠.png";
             image[rank].style.marginTop = "0px";
-            image[rank].setAttribute("onclik", "die()");
-            setTimeout("paole()", Math.random() * 400 + 800);
+            image[rank].onclick = die;
+            setTimeout(paole, Math.random() * 400 + 800);
         }
         function paole() {
-            image[rank].src = "./images/打地鼠/土堆.png";
+            image[rank].src = "/images/打地鼠/土堆.png";
             image[rank].style.marginTop = "31px";
-            image[rank].removeAttribute(".onclick");
             setTimeout("chulai()", Math.random() * 400 + 800);
-        }
-        function die() {
-            image[rank].src = "images/打地鼠/晕地鼠.png";
-            image[rank].removeAttribute("onclick");
-            image[rank].style.marginTop = "3px";
         }
         function die() {
             image[rank].src = "images/打地鼠/晕地鼠.png";
