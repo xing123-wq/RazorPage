@@ -28,6 +28,7 @@
         img {
             position: relative;
             margin-top: 31px;
+            z-index: 2;
         }
 
         #content {
@@ -113,7 +114,6 @@
 <body>
     <div id="content">
         <h2>打地鼠</h2><br />
-
         <table id="background">
 
             <tr>
@@ -140,7 +140,6 @@
     <div id="count">当前得分 ：<span id="currentscore"> 0 </span>分</div>
     <div id="history">最佳记录: <span id="bestscore"> 0 </span>分</div>
     <div class="clock"></div>
-
     <div id="cover" style="display:none"><span id="text"></span></div>
     <script>
 
@@ -165,21 +164,21 @@
         bestscore.innerHTML = preScore;
 
         //让老鼠随机出现在一个坑里
-        //setTimeout(chulai, Math.random() * 400 + 800);
+        setTimeout(chulai, Math.random() * 400 + 800);
 
         chulai();
         function chulai() {
             rank = Math.floor(Math.random() * 9);
             var goodMole = document.createElement('img');
             goodMole.src = "/images/打地鼠/萌地鼠.png";
-            goodMole.style = " position: absolute;top:-30px;left: 50;z-index:10;";
+            goodMole.style = " position: absolute;top:-30px;left: 54;z-index:0;";
             goodMole.onclick = die;
             image[rank].parentElement.appendChild(goodMole);
-            setTimeout('paole()', Math.random() * 400 + 800);
+            setTimeout(paole, Math.random() * 400 + 800);
         }
         function paole() {
             image[rank].parentElement.children[1].remove();
-            setTimeout("chulai()", Math.random() * 400 + 800);
+            setTimeout(chulai, Math.random() * 400 + 800);
         }
         function die() {
             image[rank].parentElement.children[1].src = 'images/打地鼠/晕地鼠.png';
@@ -187,34 +186,34 @@
             bestscore.innerHTML = count;
         }
 
-        //设置一个定时器
-        var seconds = 60;
-        var speed = 1000;
-        function countDown(seconds, speed) {
-            var txt = "剩余时间：" + ((seconds < 10) ? "0" + seconds : seconds) + "秒";
-            clock.innerHTML = txt;
-            var timeId = setTimeout("countDown(seconds--,speed)", speed);
-            if (seconds == 0) {
-                //localStorage.setItem("scoreshow",count);
-                localStorage.setItem("bestScore", preScore);
+            //设置一个定时器
+            //var seconds = 60;
+            //var speed = 1000;
+            //function countDown(seconds, speed) {
+            //    var txt = "剩余时间：" + ((seconds < 10) ? "0" + seconds : seconds) + "秒";
+            //    clock.innerHTML = txt;
+            //    var timeId = setTimeout("countDown(seconds--,speed)", speed);
+            //    if (seconds == 0) {
+            //        //localStorage.setItem("scoreshow",count);
+            //        localStorage.setItem("bestScore", preScore);
 
-                clearTimeout(timeId);
-                if (cover.style.display == "none") {
-                    //cover.style.display = "block";
-                    if (count === undefined)
-                        text.innerHTML = "当前成绩为：" + 0 + "分" + "<br/>" + "游戏结束！";
+            //        clearTimeout(timeId);
+            //        if (cover.style.display == "none") {
+            //            //cover.style.display = "block";
+            //            if (count === undefined)
+            //                text.innerHTML = "当前成绩为：" + 0 + "分" + "<br/>" + "游戏结束！";
 
-                    else if (count == localStorage.getItem("bestScore")) {
-                        text.innerHTML = "当前成绩为：" + count + "分" + "<br/>" + "恭喜您打破纪录" + "<br/>" + "游戏结束！";
-                    }
-                    else
-                        text.innerHTML = "当前成绩为：" + count + "分" + "<br/>" + "游戏结束！";
-                }
-            }
+            //            else if (count == localStorage.getItem("bestScore")) {
+            //                text.innerHTML = "当前成绩为：" + count + "分" + "<br/>" + "恭喜您打破纪录" + "<br/>" + "游戏结束！";
+            //            }
+            //            else
+            //                text.innerHTML = "当前成绩为：" + count + "分" + "<br/>" + "游戏结束！";
+            //        }
+            //    }
 
-        }
+            //}
 
-        countDown(seconds, speed);
+            //countDown(seconds, speed);
 
     </script>
 
