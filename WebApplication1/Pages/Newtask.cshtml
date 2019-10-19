@@ -7,12 +7,15 @@
     <link rel="stylesheet" href="~/css/font-awesome.css" />
     <link rel="stylesheet" href="~/css/about.css">
     <link rel="stylesheet" href="~/css/signup.css" />
+    <link rel="stylesheet" href="~/css/mdui.css" />
+    <link rel="stylesheet" href="~/css/mdui.min.css" />
     <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-
     <title>我要求助</title>
 </head>
 <body>
@@ -56,7 +59,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span zyf-ducu-notices class="fa fa-eye"></span> 督促</a>
                                 <ul class="dropdown-menu" role="menu" zyf-navigator-ducu>
-                                    <li><a href="#"><span class="fa fa-edit fa-fw"></span> 求督促</a></li>
+                                    <li><a href="Newtask"><span class="fa fa-edit fa-fw"></span> 求督促</a></li>
                                     <li><a href="#"><span class="fa fa-gavel fa-fw"></span> 督促别人</a></li>
                                     <li><a href="#"><span class="fa fa-list fa-fw"></span> 我的目标</a></li>
                                     <li><a href="#"><span class="fa fa-list fa-fw"></span> 我的督促</a></li>
@@ -178,7 +181,7 @@
                             </div>
                             <input type="text" class="form-control" placeholder="自定义关键字，使用空格分隔" zyf-keyword-input="">
                         </div>
-                        <input data-val="true" data-val-required="* 关键字不能为空" id="Keywords" name="Keywords" type="hidden" >
+                        <input data-val="true" data-val-required="* 关键字不能为空" id="Keywords" name="Keywords" type="hidden">
                         <span class="field-validation-valid" data-valmsg-for="Keywords" data-valmsg-replace="true"></span>
                     </div>
                     <div class="form-group">
@@ -209,7 +212,7 @@
                                     <span class="iconfont icon-money"></span>
                                 </a>
                             </span>
-                            <input class="form-control" data-rule-creditenough="[zyf-current-money]" data-val="true" data-val-number="字段 悬赏帮帮币 必须是一个数字。" data-val-regex="* 悬赏帮帮币只能为正整数" data-val-regex-pattern="^[1-9][0-9]*$" data-val-required="* 悬赏帮帮币不能为空" id="Reward" name="Reward" placeholder="正整数，建议10枚以上" type="text" >
+                            <input class="form-control" data-rule-creditenough="[zyf-current-money]" data-val="true" data-val-number="字段 悬赏帮帮币 必须是一个数字。" data-val-regex="* 悬赏帮帮币只能为正整数" data-val-regex-pattern="^[1-9][0-9]*$" data-val-required="* 悬赏帮帮币不能为空" id="Reward" name="Reward" placeholder="正整数，建议10枚以上" type="text">
                             <span class="input-group-addon">枚</span>
                         </div>
                         <a href="/FAQ/Money#gain" class="pull-right"><span class="fa fa-question-circle"></span> 如何获得“帮帮币”</a>
@@ -340,5 +343,53 @@
             <p class="pull-right"><a href="http://www.miitbeian.gov.cn">渝ICP备18007191号（备案）</a>© 2019 - 首顾科技</p>
         </footer>
     </div>
+        
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h3 class="modal-title"><span class="fa fa-question-circle"></span> 是否需要远程协助</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            “一起帮”提倡通过远程协助，“一对一”的解决开发/电脑使用等方面的具体问题。请确认你的求助是否需要远程协助：
+                        </p>
+                        <p class="radio">
+                            <label>
+                                <input type="radio" name="needRemoteHelpInModal" checked="" zyf-need-remote-help-in-modal=""> 需要（推荐）<br>
+                                当有人应答之后，建议你点击他们的<a>用户名</a>获得他们的联系方式，主动联系他/她；当然你也可以等待他们联系你，所以请注意保持<a href="/Contact/New">联系方式</a>畅通。
+                            </label>
+                        </p>
+                        <p class="radio">
+                            <label>
+                                <input type="radio" name="needRemoteHelpInModal">不需要 <br>
+                                类似于传统的论坛问答，解决方案将直接写在应答当中，任何人都可以阅读。<a href="/FAQ/Problem#normal">开始协助</a> -&gt; <a href="/FAQ/Problem#refuse">拒绝全额酬谢</a>/<a href="/FAQ/Problem#normal">酬谢评价</a> 机制被破坏，<a href="/FAQ/Problem#summary">总结</a> 的价值被大大削弱。
+                            </label>
+                        </p>
+                        <hr>
+                        <p class="checkbox">
+                            <label>
+                                <input type="checkbox" zyf-remember-in-needremotehelp-modal=""> 不再提示。（该选项还可以在发布求助前更改）
+                            </label>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    <script type="text/javascript">
+
+        $(function () {
+            $('#myModal').modal('show')
+        });
+    </script>
 </body>
 </html>
+<script>
+
+</script>

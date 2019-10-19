@@ -43,4 +43,4 @@ $(function () {
 $('#myTabs a').click(function (e) {
     e.preventDefault()
     $(this).tab('show')
-})
+})//工具提示
