@@ -535,7 +535,7 @@ GROUP BY Age
 
 SELECT  Age,MAX(Score) AS TScore FROM Student
 GROUP BY Age
-HAVING MAX(Score)>0
+HAVING MAX(Score)>80
 
 SELECT * FROM Student
 
@@ -566,6 +566,7 @@ SELECT * INTO Exam FROM Student
 WHERE Id>5
 
 SELECT * FROM V_Student
+SELECT * FROM Student
 SELECT * FROM Problem
 GO
 
@@ -580,4 +581,27 @@ FROM Problem
 GROUP BY  Score
 --WHERE Id>5
 -- 还可以添加其他的WHERE/GROUP/HAVING等子句
+GO
 
+SELECT * FROM Student s
+JOIN City c
+ON s.FromCityId=c.Id
+WHERE c.FromProvince=N'山东' 
+
+SELECT * FROM dbo.spt_values
+SELECT * FROM V_Student
+-- 建一个临时表
+CREATE TABLE #tmp_Student(
+    tId INT IDENTITY,
+    sId INT)
+
+-- 插入数据，生成自增rId
+INSERT #tmp_Student(sId)
+SELECT Id FROM Student ORDER BY Score
+
+-- JOIN获取Student完整数据
+SELECT * FROM #tmp_Student 
+JOIN Student ON #tmp_Student.sId = Student.Id
+WHERE #tmp_Student .tId BETWEEN 4 AND 6
+
+SELECT * FROM #tmp_Student
