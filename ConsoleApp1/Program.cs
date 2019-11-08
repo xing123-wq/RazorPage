@@ -24,18 +24,22 @@ namespace ConsoleApp1
             string FromCity = "重庆";
             Console.WriteLine("来自:" + FromCity);
             Console.ReadLine();
-            int i = 23;
+            int i = 43;
             int j = 33;
-            Console.WriteLine(i+j);
-            Console.WriteLine(i-j);
-            Console.WriteLine(i*j);
-            Console.WriteLine(i/j);
+            string l = "整数：";
+            Console.WriteLine(l);
+            Console.WriteLine("和：" + (i + j));
+            Console.WriteLine("差：" + (i - j));
+            Console.WriteLine("积：" + (i * j));
+            Console.WriteLine("商：" + (i / j));
             double a = 2.7;
             double b = 0.3;
-            Console.WriteLine(a + b);
-            Console.WriteLine(a - b);
-            Console.WriteLine(a * b);
-            Console.WriteLine(a / b);
+            string k = "小数：";
+            Console.WriteLine(k);
+            Console.WriteLine("和：" + (a + b));
+            Console.WriteLine("差：" + (a - b));
+            Console.WriteLine("积：" + (a * b));
+            Console.WriteLine("商：" + (a / b));
 
 
         }
