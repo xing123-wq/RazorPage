@@ -31,7 +31,7 @@ namespace ConsoleApp1
             Console.WriteLine("和：" + (i + j));
             Console.WriteLine("差：" + (i - j));
             Console.WriteLine("积：" + (i * j));
-            Console.WriteLine("商：" + (i / j));
+            Console.WriteLine("商：" + (i / (float) j));
             double a = 2.7;
             double b = 0.3;
             string k = "小数：";
