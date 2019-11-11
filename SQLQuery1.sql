@@ -539,21 +539,23 @@ HAVING MAX(Score)>80
 
 SELECT * FROM Student
 
---SELECT [Name] FROM Student
---UNION
---SELECT [Author] FROM Problem --纵向连接
---GROUP BY [Author]
-
-SELECT Age,COUNT(Score) AS Cscore,MAX(Score) AS TScore FROM Student s  
---- 只能出现GROUP BY 后面的列名，
-----要出现其他的所有字段都要加聚合函数.
- JOIN City c
-ON s.FromCityId=c.Id
-GROUP BY Age  ---GROUP BY 后面的列名
 
 SELECT * FROM Student s
 JOIN City c
 ON s.FromCityId=c.Id
+
+SELECT [Name] FROM Student
+UNION
+SELECT [Author] FROM Problem --纵向连接
+GROUP BY [Author]
+
+	SELECT  Age,COUNT(Score) AS Cscore,
+	MAX(Score) AS TScore FROM Student s  
+	--- 只能出现GROUP BY 后面的列名，
+	----要出现其他的所有字段都要加聚合函数.
+	 JOIN City c
+	ON s.FromCityId=c.Id
+	GROUP BY Age  ---GROUP BY 后面的列名
 
 
 SELECT s.Age,COUNT(*) AS Cscore,MAX(Score) AS TScore FROM Student s
@@ -602,6 +604,36 @@ SELECT Id FROM Student ORDER BY Score
 -- JOIN获取Student完整数据
 SELECT * FROM #tmp_Student 
 JOIN Student ON #tmp_Student.sId = Student.Id
-WHERE #tmp_Student .tId BETWEEN 4 AND 6
+WHERE #tmp_Student .tId BETWEEN 4 AND 6  ---BETWEEN 4 AND 6：在4和6之间
 
-SELECT * FROM #tmp_Student
+
+SELECT * INTO #tmp_KeyWorld FROM Student
+WHERE Id>5
+
+SELECT * FROM Student s
+LEFT JOIN City c
+ON s.FromCityId=c.Id
+WHERE s.Score>80
+
+SELECT * FROM Student s
+LEFT JOIN City c
+ON s.FromCityId=c.Id
+AND s.Score>80
+
+ALTER TABLE BangMoney
+ADD CONSTRAINT CK_BangMoney_Balance CHECK(Balance>=0)
+---添加约束Balance必须大于等于0
+
+BEGIN TRY
+    BEGIN TRANSACTION
+        UPDATE BangMoney SET 
+		Balance += 100 WHERE [Name] = N'幸龙泰';
+        UPDATE BangMoney SET
+		Balance -= 100 WHERE [Name] = N'陈元';
+    COMMIT TRANSACTION      -- 没有异常就会提交事务
+END TRY
+BEGIN CATCH
+    ROLLBACK                -- 出现异常就会回滚事务
+END CATCH
+
+SELECT * FROM BangMoney
