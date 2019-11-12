@@ -163,17 +163,24 @@ namespace ConsoleApp1
             {
                 for (int j = 2; j < i; j++)
                 {
-                    if (i % j == 0)//判断i的数能被1和本身以外的数整除的话结束内循环，也就是相当于跳过这个数
+                    if (i % j == 0)
                     {
-                        //Console.WriteLine(i+"  "+j);
                         break;
                     }
-                    if (j == i - 1)//如果i除以j没有被整除的话则是质数
+                    if (j == i - 1)
                     {
                         Console.WriteLine(i);
                     }
                 }
             }
+            //将之前以下作业封装成方法（自行思考参数和返回值），并调用执行
+            //自我介绍：SelfIntroduce()
+            //加减乘除：Add() / Minus() / Mutiply() / Divide()
+            //取字符值：GetUnicode()
+            //取最高分：GetMax()
+            //且以后作业，如无特别声明，皆需使用方法封装
+            //计算得到源栈同学的平均成绩（精确到两位小数），方法名GetAverage()
+            //完成“猜数字”游戏，方法名GuessMe()
             Console.ReadLine();
 
         }
