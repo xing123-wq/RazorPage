@@ -161,6 +161,9 @@ namespace ConsoleApp1
             GetUnicode('你');
             //取最高分：GetMax()
             GetMax(new double[] { 12.2, 33, 55, 323, 77, 21, 0.2 });
+            //计算得到源栈同学的平均成绩（精确到两位小数），方法名GetAverage()
+            GetAverage(new double[] { 12, 43, 56, 78, 99, 0.4 });
+            GuessMe();
         }
         static void SelfIntroduce(string name, int Age, bool IsFemale, int Height, string FromCity)
         {
@@ -204,8 +207,101 @@ namespace ConsoleApp1
             return score;
         }
         //且以后作业，如无特别声明，皆需使用方法封装
-        //计算得到源栈同学的平均成绩（精确到两位小数），方法名GetAverage()
-        
+        static double[] GetAverage(double[] mean)
+        {
+            Console.WriteLine("\nGetAverage：");
+            double sum = 0;
+            for (int i = 0; i < mean.Length; i++)
+            {
+                sum = sum + mean[i];
+            }
+            double scores = Math.Round((sum / mean.Length), 2);
+            Console.WriteLine(scores);
+            return mean;
+        }
         //完成“猜数字”游戏，方法名GuessMe()
+        static void GuessMe()
+        {
+            Random num = new Random();
+            int randomNum = num.Next(1000);  /*666*/
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("第" + (i + 1) + "次," + "请输入一个整数：");
+                string input = Console.ReadLine();
+                int a = 0;
+                bool result = int.TryParse(input, out a);
+                if (result == true)
+                {
+                    int inputNum = int.Parse(input);
+                    if (inputNum > randomNum)
+                    {
+                        Console.WriteLine("大了！");
+                        if (i >= 9)
+                        {
+                            Console.WriteLine("^(*￣(oo)￣)^ ！");
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    else if (inputNum < randomNum)
+                    {
+                        Console.WriteLine("小了！");
+                        if (i >= 9)
+                        {
+                            Console.WriteLine("^(*￣(oo)￣)^ ！");
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    else if (inputNum == randomNum)
+                    {
+                        if (i < 5)
+                        {
+                            Console.WriteLine("碉堡了！");
+                        }
+                        else if (i < 7)
+                        {
+                            Console.WriteLine("666！");
+                        }
+                        else if (i <= 9)
+                        {
+                            Console.WriteLine("猜到了！");
+                        }
+                        else
+                        {
+                            // nothing to do
+                        }
+                        break;
+                    }
+                    else
+                    {
+                        // nothing to do
+                    }
+                }
+                else if (i < 9)
+                {
+                    Console.WriteLine("请输入一个数字！");
+                }
+                else
+                {
+                    if (i >= 9)
+                    {
+                        Console.WriteLine("^(*￣(oo)￣)^ ！");
+                        break;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+            }
+        }
     }
 }
+
