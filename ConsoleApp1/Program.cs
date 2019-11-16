@@ -153,7 +153,7 @@ namespace ConsoleApp1
             //    }
             //}
             //自我介绍：SelfIntroduce()
-            SelfIntroduce("幸龙泰", 16, false, 175, "重庆");
+            SelfIntroduce(16, false, 175, "重庆");
             Console.ReadLine();
             //加减乘除：Add() / Minus() / Mutiply() / Divide()
             Arithmetic(43, 22);
@@ -163,11 +163,19 @@ namespace ConsoleApp1
             GetMax(new double[] { 12.2, 33, 55, 323, 77, 21, 0.2 });
             //计算得到源栈同学的平均成绩（精确到两位小数），方法名GetAverage()
             GetAverage(new double[] { 12, 43, 56, 78, 99, 0.4 });
-            GuessMe();
+            //完成“猜数字”游戏，方法名GuessMe()
+            //GuessMe();
+            //利用ref调用Swap()方法交换两个同学的床位号 
+            int i = 2;
+            int k = 1;
+            Swap(ref i, ref k);
+            Console.WriteLine("交换"+i+","+k);
         }
-        static void SelfIntroduce(string name, int Age, bool IsFemale, int Height, string FromCity)
+        static void SelfIntroduce(int Age, bool IsFemale, int Height, string FromCity)
         {
             Console.WriteLine("Self-Introduction ：");
+            string name;
+            name = Console.ReadLine();
             Console.WriteLine(name + "源栈欢迎您！");
             Console.WriteLine("年龄：" + Age);
             Console.WriteLine("是不是女的：" + IsFemale);
@@ -302,6 +310,27 @@ namespace ConsoleApp1
                 }
             }
         }
+        //利用ref调用Swap()方法交换两个同学的床位号 
+        static void Swap(ref int BedID, ref int bed2)
+        {
+            int k = 0;
+            k = BedID;
+            BedID = bed2;
+            bed2 = k;
+
+        }
+        //定义一个生成数组的方法：int[] GetArray()，其元素随机生成从小到大排列。利用可选参数控制：
+        //最小值（默认为1）
+        //相邻两个元素之间的最大差值（默认为5）
+        //元素个数（默认为10个）
+
+        //重载GetArray()，使其返回一个string[]
+        //实现二分查找，方法名BinarySeek()
+        //引用传递：传递的是变量本身
+
+
+
+
     }
 }
 
