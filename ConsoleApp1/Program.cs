@@ -169,7 +169,12 @@ namespace ConsoleApp1
             int i = 2;
             int k = 1;
             Swap(ref i, ref k);
-            Console.WriteLine("交换"+i+","+k);
+            Console.WriteLine("交换" + i + "," + k);
+            //使用tuple作为参数，重构SelfIntroduction()方法，输出自我介绍
+            var student = SelfIntroduction();
+            Console.WriteLine(student.height);
+            Console.WriteLine(student.name);
+            Console.WriteLine(student.gender);
         }
         static void SelfIntroduce(int Age, bool IsFemale, int Height, string FromCity)
         {
@@ -236,8 +241,7 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("第" + (i + 1) + "次," + "请输入一个整数：");
                 string input = Console.ReadLine();
-                int a = 0;
-                bool result = int.TryParse(input, out a);
+                bool result = int.TryParse(input, out int a);
                 if (result == true)
                 {
                     int inputNum = int.Parse(input);
@@ -313,7 +317,7 @@ namespace ConsoleApp1
         //利用ref调用Swap()方法交换两个同学的床位号 
         static void Swap(ref int BedID, ref int bed2)
         {
-            int k = 0;
+            int k;
             k = BedID;
             BedID = bed2;
             bed2 = k;
@@ -323,6 +327,7 @@ namespace ConsoleApp1
         //最小值（默认为1）
         //相邻两个元素之间的最大差值（默认为5）
         //元素个数（默认为10个）
+        
 
         //重载GetArray()，使其返回一个string[]
         //实现二分查找，方法名BinarySeek()
@@ -330,7 +335,19 @@ namespace ConsoleApp1
 
 
 
+        //使用tuple作为参数，重构SelfIntroduction()方法，输出自我介绍
+        static (string name, int height, bool gender) SelfIntroduction()
+        {
+            Console.WriteLine("\ntuple:");
+            return ("幸龙泰", 176, true);
+        }
 
+
+        //实现方法：
+        //IndexOf()，通过遍历在无序数组中
+        //BinarySearch()，通过二分查找法在一个有序数组中
+        //找到某个值的下标，找不到返回-
+        
     }
 }
 
