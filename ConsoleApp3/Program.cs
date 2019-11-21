@@ -36,7 +36,7 @@ namespace ConsoleApp3
 
         //注册 / 登录功能，定义一个User类，包含字段：Name（用户名）、
         //Password（密码）和 邀请人（InvitedBy），和方法：Register()、Login()
-        internal class User 
+        internal class User
         {
             internal User(string inviter)
             {
@@ -71,7 +71,7 @@ namespace ConsoleApp3
                 }
             }
             public string Name { get; set; }
-            private string Password { get; set; }
+            private  string Password { get; set; }
             public User Invitedby { get; set; }
             static void Register()
             {
@@ -87,7 +87,7 @@ namespace ConsoleApp3
 
 
             }
-        
+
         }
         //求助版块，定义一个类Problem，包含字段：标题（Title）、正文（Body）、
         //悬赏（Reward）、发布时间（PublishDateTime）和作者（Author），和方法Publish()
@@ -141,9 +141,17 @@ namespace ConsoleApp3
             {
 
             }//获得帮帮币的门槛
-            
+
 
         }
-
+        //定义一个仓库（Repoistory）类，其中包含：
+        //一个int类型的常量version
+        //一个静态只读的字符串connection，以后可用于连接数据库
+        //思考Respoitory应该是static类还是实例类更好
+        internal class Repoistory
+        {
+            internal const int VERSION = 1;
+            static readonly string Connection; 
+        }
     }
 }
