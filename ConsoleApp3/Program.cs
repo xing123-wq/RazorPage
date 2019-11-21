@@ -12,6 +12,11 @@ namespace ConsoleApp3
             User not = new User();
             Program a = new Program();
             HelpMoney b = new HelpMoney();
+            new User().Reward = -1;
+            //作者积分
+            Problem Release = new Problem();
+            Release.Author = new User("阿泰");
+            Release.Publish();
             //将之前User / Problem / HelpMoney类的字段封装成属性，其中：
             //user.Password在类的外部只能读不能改，且为User类添加ChangePasword()方法，以修改其密码
             //如果user.Name为“admin”，输入时修改为“系统管理员”
@@ -31,31 +36,42 @@ namespace ConsoleApp3
 
         //注册 / 登录功能，定义一个User类，包含字段：Name（用户名）、
         //Password（密码）和 邀请人（InvitedBy），和方法：Register()、Login()
-        private class User
+        internal class User 
         {
+            internal User(string inviter)
+            {
+
+            }
+            public User()
+            {
+
+            }
+            internal int HelpMony { get; set; }
+            internal int credit { get; set; }
+            private int _reward;
             public int Reward
             {
                 get
                 {
-                    return Reward;
+                    return _reward;
                 }
                 set
                 {
-                    if (Reward<0)
+                    if (value < 0)
                     {
-                        Console.WriteLine("奖赏不能为负数!") ;
+                        Console.WriteLine("奖赏不能为负数!");
                     }
                     else
                     {
-                        Reward = value;
-                    }      
-                    
+                        _reward = value;
+                    }
 
-                    
+
+
                 }
             }
             public string Name { get; set; }
-            internal string Password { get; set; }
+            private string Password { get; set; }
             public User Invitedby { get; set; }
             static void Register()
             {
@@ -65,33 +81,26 @@ namespace ConsoleApp3
             {
 
             }
-            internal void ChangePasword()
+            internal void ChangePasword(string data)
             {
 
 
 
             }
-            internal User(string inviter)
-            {
-
-            }
-            public User()
-            {
-
-            }
+        
         }
         //求助版块，定义一个类Problem，包含字段：标题（Title）、正文（Body）、
         //悬赏（Reward）、发布时间（PublishDateTime）和作者（Author），和方法Publish()
-        class Problem
+        internal class Problem
         {
             internal string Title { get; set; }
             public string Body { get; set; }
             internal int Reward { get; set; }
             public DateTime PublishDateTime { get; set; }
-            internal string Author { get; set; }
-            static void Publish()
+            internal User Author { get; set; }
+            internal void Publish()
             {
-
+                Author.credit++;
             }
             internal Problem()
             {
@@ -100,27 +109,31 @@ namespace ConsoleApp3
 
         }
         //帮帮币版块，定义一个类HelpMoney，包含你认为应该包含的字段和方法
-        class HelpMoney
+        internal class HelpMoney
         {
-            private DateTime Time { get; set; }
-            private int usable { get; set; }
-            private int frost { get; set; }
-            private string kind { get; set; }
-            private int change { get; set; }
-            private string remark { get; set; }
-            static void GainTime()
+            internal HelpMoney()
             {
 
-            } //获取帮帮币的时间
-            static void AcquireMony()
+            }
+            public DateTime Time { get; set; }
+            public int usable { get; set; }
+            public int frost { get; set; }
+            public string kind { get; set; }
+            public int change { get; set; }
+            public string remark { get; set; }
+            static void Gainkind()
             {
 
-            }//所得到的帮帮币
-            static void BuyHelpMony()
+            } //获取帮帮币的种类
+            static void Acquirecount()
+            {
+
+            }//获得到的帮帮币的数量
+            static void Buy()
             {
 
             }//所购买的帮帮币
-            static void SellHelpMoney()
+            static void Sell()
             {
 
             }//所出售的帮帮币
@@ -128,10 +141,7 @@ namespace ConsoleApp3
             {
 
             }//获得帮帮币的门槛
-            internal HelpMoney()
-            {
-
-            }
+            
 
         }
 
