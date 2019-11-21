@@ -7,7 +7,6 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-
             User newbie = new User("");
             User not = new User();
             Program a = new Program();
@@ -17,25 +16,14 @@ namespace ConsoleApp3
             Problem Release = new Problem();
             Release.Author = new User("阿泰");
             Release.Publish();
-            //将之前User / Problem / HelpMoney类的字段封装成属性，其中：
-            //user.Password在类的外部只能读不能改，且为User类添加ChangePasword()方法，以修改其密码
-            //如果user.Name为“admin”，输入时修改为“系统管理员”
-            //problem.Reward不能为负数
-            //定义一个仓库（Repoistory）类，其中包含：
-            //一个int类型的常量version
-            //一个静态只读的字符串connection，以后可用于连接数据库
-            //思考Respoitory应该是static类还是实例类更好
-            //考虑求助的以下方法 / 属性，哪些适合实例，哪些适合静态，然后添加到类中：
-            //Publish()：发布一篇求助，并将其保存到数据库
-            //Load(int Id)：根据Id从数据库获取一条求助
-            //Delete()：删除某个求助
-            //repoistory：可用于在底层实现上述方法和数据库的连接操作等
-            //设计一个类FactoryContext，保证整个程序运行过程中，
-            //无论如何，外部只能获得它的唯一的一个实例化对象。（提示：设计模式之单例）
         }
 
         //注册 / 登录功能，定义一个User类，包含字段：Name（用户名）、
         //Password（密码）和 邀请人（InvitedBy），和方法：Register()、Login()
+        //将之前User / Problem / HelpMoney类的字段封装成属性，其中：
+        //user.Password在类的外部只能读不能改，且为User类添加ChangePasword()方法，以修改其密码
+        //如果user.Name为“admin”，输入时修改为“系统管理员”
+        //problem.Reward不能为负数
         internal class User
         {
             internal User(string inviter)
@@ -71,8 +59,13 @@ namespace ConsoleApp3
                 }
             }
             public string Name { get; set; }
-            private  string Password { get; set; }
+            private string Password { get; set; }
             public User Invitedby { get; set; }
+            internal string elevaterank(string label)
+            {
+                return label;
+            }
+            //提升等级的方法
             static void Register()
             {
 
@@ -121,6 +114,7 @@ namespace ConsoleApp3
             public string kind { get; set; }
             public int change { get; set; }
             public string remark { get; set; }
+
             static void Gainkind()
             {
 
@@ -151,7 +145,15 @@ namespace ConsoleApp3
         internal class Repoistory
         {
             internal const int VERSION = 1;
-            static readonly string Connection; 
+            static readonly string Connection;
         }
+        //考虑求助的以下方法 / 属性，哪些适合实例，哪些适合静态，然后添加到类中：
+        //Publish()：发布一篇求助，并将其保存到数据库
+        //Load(int Id)：根据Id从数据库获取一条求助
+        //Delete()：删除某个求助
+        //repoistory：可用于在底层实现上述方法和数据库的连接操作等
+        //设计一个类FactoryContext，保证整个程序运行过程中，
+        //无论如何，外部只能获得它的唯一的一个实例化对象。（提示：设计模式之单例）
+
     }
 }
