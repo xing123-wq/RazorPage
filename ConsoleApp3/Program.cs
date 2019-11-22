@@ -24,7 +24,7 @@ namespace ConsoleApp3
         //user.Password在类的外部只能读不能改，且为User类添加ChangePasword()方法，以修改其密码
         //如果user.Name为“admin”，输入时修改为“系统管理员”
         //problem.Reward不能为负数
-        internal class User
+        sealed internal class User
         {
             internal User(string inviter)
             {
@@ -82,6 +82,12 @@ namespace ConsoleApp3
             }
 
         }
+        class FactoryContext
+        {
+
+
+        }
+        
         //求助版块，定义一个类Problem，包含字段：标题（Title）、正文（Body）、
         //悬赏（Reward）、发布时间（PublishDateTime）和作者（Author），和方法Publish()
         //考虑求助的以下方法 / 属性，哪些适合实例，哪些适合静态，然后添加到类中：
@@ -93,6 +99,10 @@ namespace ConsoleApp3
         //无论如何，外部只能获得它的唯一的一个实例化对象。（提示：设计模式之单例）
         internal class Problem
         {
+            internal Problem()
+            {
+
+            }
             internal string Title { get; set; }
             public string Body { get; set; }
             public int Reward { get; set; }
@@ -110,11 +120,10 @@ namespace ConsoleApp3
             {
 
             }
-            internal Problem()
+            internal void repoistory()
             {
 
             }
-
         }
         //帮帮币版块，定义一个类HelpMoney，包含你认为应该包含的字段和方法
         internal class HelpMoney
@@ -166,7 +175,7 @@ namespace ConsoleApp3
             internal const int VERSION = 1;
             static readonly string Connection;
         }
-
+     
     }
 }
     
