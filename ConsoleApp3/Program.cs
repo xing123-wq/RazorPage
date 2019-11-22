@@ -16,6 +16,8 @@ namespace ConsoleApp3
             Problem Release = new Problem();
             Release.Author = new User("阿泰");
             Release.Publish();
+            Content ad = new Problem();
+            
         }
 
         //注册 / 登录功能，定义一个User类，包含字段：Name（用户名）、
@@ -88,6 +90,17 @@ namespace ConsoleApp3
 
 
         }
+        public abstract class Content
+        {
+            static void headline()
+            {
+
+            }
+            static string describe(string indetail)
+            {
+                return indetail;
+            }
+        }
 
         //求助版块，定义一个类Problem，包含字段：标题（Title）、正文（Body）、
         //悬赏（Reward）、发布时间（PublishDateTime）和作者（Author），和方法Publish()
@@ -98,8 +111,10 @@ namespace ConsoleApp3
         //repoistory：可用于在底层实现上述方法和数据库的连接操作等
         //设计一个类FactoryContext，保证整个程序运行过程中，
         //无论如何，外部只能获得它的唯一的一个实例化对象。（提示：设计模式之单例）
-        internal class Problem
+        internal class Problem : Content
         {
+           
+           
             internal Problem()
             {
 
@@ -125,6 +140,14 @@ namespace ConsoleApp3
             {
 
             }
+        }
+        public class Article:Content
+        {
+
+        }
+        public class Suggest
+        {
+
         }
         //帮帮币版块，定义一个类HelpMoney，包含你认为应该包含的字段和方法
         internal class HelpMoney
