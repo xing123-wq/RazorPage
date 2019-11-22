@@ -212,11 +212,12 @@ namespace ConsoleApp1
             return ("幸龙泰", 176, true);
         }
 
-
+        //重载GetArray()，使其返回一个string[]
         //实现方法：
         //IndexOf()，通过遍历在无序数组中
         //BinarySearch()，通过二分查找法在一个有序数组中
-        //找到某个值的下标，找不到返回-
+        //找到某个值的下标，找不到返回-1
+
 
     }
 }
