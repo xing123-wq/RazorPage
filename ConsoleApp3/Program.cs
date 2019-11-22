@@ -84,16 +84,31 @@ namespace ConsoleApp3
         }
         //求助版块，定义一个类Problem，包含字段：标题（Title）、正文（Body）、
         //悬赏（Reward）、发布时间（PublishDateTime）和作者（Author），和方法Publish()
+        //考虑求助的以下方法 / 属性，哪些适合实例，哪些适合静态，然后添加到类中：
+        //Publish()：发布一篇求助，并将其保存到数据库
+        //Load(int Id)：根据Id从数据库获取一条求助
+        //Delete()：删除某个求助
+        //repoistory：可用于在底层实现上述方法和数据库的连接操作等
+        //设计一个类FactoryContext，保证整个程序运行过程中，
+        //无论如何，外部只能获得它的唯一的一个实例化对象。（提示：设计模式之单例）
         internal class Problem
         {
             internal string Title { get; set; }
             public string Body { get; set; }
-            internal int Reward { get; set; }
+            public int Reward { get; set; }
             public DateTime PublishDateTime { get; set; }
             internal User Author { get; set; }
             internal void Publish()
             {
                 Author.credit++;
+            }
+            public void Load(int Id)
+            {
+
+            }
+            static void Delete()
+            {
+
             }
             internal Problem()
             {
@@ -114,12 +129,16 @@ namespace ConsoleApp3
             public string kind { get; set; }
             public int change { get; set; }
             public string remark { get; set; }
+            public void GainmMony()
+            {
 
-            static void Gainkind()
+            }//怎么获得帮帮币的
+
+            public void Gainkind()
             {
 
             } //获取帮帮币的种类
-            static void Acquirecount()
+            public void Acquirecount()
             {
 
             }//获得到的帮帮币的数量
@@ -131,7 +150,7 @@ namespace ConsoleApp3
             {
 
             }//所出售的帮帮币
-            static void SillHelpMoney()
+            internal void SillHelpMoney()
             {
 
             }//获得帮帮币的门槛
@@ -147,13 +166,7 @@ namespace ConsoleApp3
             internal const int VERSION = 1;
             static readonly string Connection;
         }
-        //考虑求助的以下方法 / 属性，哪些适合实例，哪些适合静态，然后添加到类中：
-        //Publish()：发布一篇求助，并将其保存到数据库
-        //Load(int Id)：根据Id从数据库获取一条求助
-        //Delete()：删除某个求助
-        //repoistory：可用于在底层实现上述方法和数据库的连接操作等
-        //设计一个类FactoryContext，保证整个程序运行过程中，
-        //无论如何，外部只能获得它的唯一的一个实例化对象。（提示：设计模式之单例）
 
     }
 }
+    
