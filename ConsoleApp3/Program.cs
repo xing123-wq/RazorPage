@@ -92,6 +92,7 @@ namespace ConsoleApp3
         }
         public abstract class Content
         {
+            private protected string Kind;
             static void headline()
             {
 
@@ -113,8 +114,8 @@ namespace ConsoleApp3
         //无论如何，外部只能获得它的唯一的一个实例化对象。（提示：设计模式之单例）
         internal class Problem : Content
         {
-           
-           
+            
+            
             internal Problem()
             {
 
@@ -141,7 +142,7 @@ namespace ConsoleApp3
 
             }
         }
-        public class Article:Content
+        public class Article : Content
         {
 
         }
