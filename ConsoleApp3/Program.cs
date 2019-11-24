@@ -92,7 +92,11 @@ namespace ConsoleApp3
         }
         public abstract class Content
         {
-            private protected string Kind;
+            private protected string kind;
+            public  Content(string kind)
+            {
+               this.kind = kind;
+            }
             static void headline()
             {
 
