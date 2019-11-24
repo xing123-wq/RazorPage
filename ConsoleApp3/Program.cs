@@ -17,7 +17,7 @@ namespace ConsoleApp3
             Release.Author = new User("阿泰");
             Release.Publish();
             Content ad = new Problem();
-            
+
         }
 
         //注册 / 登录功能，定义一个User类，包含字段：Name（用户名）、
@@ -101,6 +101,10 @@ namespace ConsoleApp3
             {
                 return indetail;
             }
+            static DateTime createTime(DateTime i)
+            {
+                return i;
+            }
         }
 
         //求助版块，定义一个类Problem，包含字段：标题（Title）、正文（Body）、
@@ -114,8 +118,8 @@ namespace ConsoleApp3
         //无论如何，外部只能获得它的唯一的一个实例化对象。（提示：设计模式之单例）
         internal class Problem : Content
         {
-            
-            
+
+
             internal Problem()
             {
 
