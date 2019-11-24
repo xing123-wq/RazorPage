@@ -26,7 +26,7 @@ namespace ConsoleApp3
         //user.Password在类的外部只能读不能改，且为User类添加ChangePasword()方法，以修改其密码
         //如果user.Name为“admin”，输入时修改为“系统管理员”
         //problem.Reward不能为负数
-        sealed internal class User
+        sealed internal class User 
         {
             internal User(string inviter)
             {
@@ -64,9 +64,9 @@ namespace ConsoleApp3
             private string Password { get; set; }
             public User Invitedby { get; set; }
             public string Grade { get; set; }//等级属性
-            internal string elevaterank(string label)
+            internal void elevaterank(string label, int integral)
             {
-                return label;
+                
             }
             //提升等级的方法
             static void Register()
@@ -133,22 +133,29 @@ namespace ConsoleApp3
             {
                 Author.credit++;
             }
-            public void Load(int Id)
+            public static void Load(int Id)
             {
 
             }
-            static void Delete()
+            static void Delete(int id)
             {
 
             }
-            internal void repoistory()
+            private readonly static repoistory _repoistory;
+
+            public class repoistory
             {
 
             }
+
+
         }
         public class Article : Content
         {
-
+            public void MoneyAeount(int reward)
+            {
+                Console.WriteLine("覆盖"+reward+"了");
+            }
         }
         public class Suggest
         {
@@ -172,13 +179,14 @@ namespace ConsoleApp3
 
             }//怎么获得帮帮币的
 
-            public void Gainkind()
+            public void Gainkind(string text)
             {
-
+                
             } //获取帮帮币的种类
-            public void Acquirecount()
+            public int Acquirecount(int pickups)
             {
 
+                return pickups;
             }//获得到的帮帮币的数量
             static void Buy()
             {
@@ -192,8 +200,14 @@ namespace ConsoleApp3
             {
 
             }//获得帮帮币的门槛
+            public void Purchased()
+            {
 
+            }//已购买方法
+            public void sale()
+            {
 
+            }//卖出
         }
         //定义一个仓库（Repoistory）类，其中包含：
         //一个int类型的常量version
