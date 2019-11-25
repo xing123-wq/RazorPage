@@ -4,7 +4,10 @@ using System.Text;
 
 namespace ConsoleApp3
 {
-    interface Study
+    public class Suggest : Content
     {
+        public Suggest(string kind) : base(kind) { }
+
     }
+
 }
