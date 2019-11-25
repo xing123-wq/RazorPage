@@ -20,6 +20,7 @@ namespace ConsoleApp3
     //Entity，包含一个只读的Id属性。试一试，Suggest能有Id属性么？
     public class Content
     {
+        public DateTime PublishTime { get; } 
         protected string kind;
         public Content(string kind)
         {
@@ -28,7 +29,7 @@ namespace ConsoleApp3
         static void headline()
         {
 
-        }
+        }//标题
         static string describe(string indetail)
         {
             return indetail;
@@ -37,6 +38,7 @@ namespace ConsoleApp3
         {
             return i;
         }
+
     }
 
 }
