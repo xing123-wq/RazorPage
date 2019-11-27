@@ -6,7 +6,9 @@ namespace ConsoleApp3
 {
     internal class Problem : Content
     {
-        public Problem(string kind) : base(kind) { }
+        //public Problem(string kind) : base(kind) { }
+
+
         internal string Title { get; set; }
         public string Body { get; set; }
         public int _reward;
@@ -22,11 +24,12 @@ namespace ConsoleApp3
             }
         }
         public DateTime PublishDateTime { get; set; }
-        internal User Author { get; set; }
-        internal void Publish()
+        public void Publish()
         {
             Author.credit++;
+            Author.HelpMony -= Reward;
         }
+
         public static void Load(int Id)
         {
 
