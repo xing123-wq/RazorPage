@@ -38,7 +38,25 @@ namespace ConsoleApp3
 
             }
         }
-        public string Name { get; set; }
+        public string _name;
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                if (value == "admin")
+                {
+                    _name = "系统管理员";
+                }
+                else
+                {
+                    Console.WriteLine("不是系统管理员");
+                }
+            }
+        }
         private string Password { get; set; }
         public User Invitedby { get; set; }
         public string Grade { get; set; }//等级属性
