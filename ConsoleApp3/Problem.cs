@@ -9,7 +9,18 @@ namespace ConsoleApp3
         public Problem(string kind) : base(kind) { }
         internal string Title { get; set; }
         public string Body { get; set; }
-        public int Reward { get; set; }
+        public int _reward;
+        public int Reward
+        {
+            get { return _reward; }
+            set
+            {
+                if (_reward > 0)
+                {
+                    _reward = value;
+                }
+            }
+        }
         public DateTime PublishDateTime { get; set; }
         internal User Author { get; set; }
         internal void Publish()
