@@ -45,8 +45,7 @@ namespace ConsoleApp3
         {
             return i;
         }
-        public abstract void Agree();
-        public abstract void Disagree();
+
 
     }
 
