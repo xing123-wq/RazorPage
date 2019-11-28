@@ -36,6 +36,8 @@ namespace ConsoleApp3
         {
 
         }
+
+
         private readonly static repoistory _repoistory;
 
         public class repoistory

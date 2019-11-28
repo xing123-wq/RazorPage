@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleApp3
 {
-    sealed internal class User:Entity
+    sealed internal class User:Entity,ISendMessage,IChat
     {
         internal User(string inviter)
         {
@@ -79,6 +79,13 @@ namespace ConsoleApp3
 
 
         }
-
+        void ISendMessage.send()
+        {
+            Console.WriteLine("实现ISendMessage接口方法");
+        }
+        void IChat.send()
+        {
+            Console.WriteLine("实现IChat接口方法");
+        }
     }
 }

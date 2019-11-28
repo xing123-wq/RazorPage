@@ -19,11 +19,9 @@ namespace ConsoleApp3
             //Content ad = new Problem("1");
             Problem p = new Problem();
             new ContentService().Publish(p);
-        }
-        interface IAppraise
-        {
-            void Agree(User voter);
-            void Disagree(User voter);
+            new DBMessage().send();
+            new EmailMessage().send();
+
         }
     }
 }
