@@ -6,6 +6,6 @@ namespace ConsoleApp3e
 {
     public abstract class Entity
     {
-        public int id { get; }
+        public int Id { get; }
     }
 }

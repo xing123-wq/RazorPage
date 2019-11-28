@@ -7,7 +7,14 @@ namespace ConsoleApp3
     internal class Problem : Content
     {
         //public Problem(string kind) : base(kind) { }
-
+        public override void Agree()
+        {
+            Author.HelpMony += 1;
+        }
+        public override void Disagree()
+        {
+            Author.HelpMony -= 1;
+        }
 
         internal string Title { get; set; }
         public string Body { get; set; }
@@ -44,8 +51,6 @@ namespace ConsoleApp3
         {
 
         }
-
-
     }
 
 }
