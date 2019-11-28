@@ -20,5 +20,10 @@ namespace ConsoleApp3
             Problem p = new Problem();
             new ContentService().Publish(p);
         }
+        interface IAppraise
+        {
+            void Agree(User voter);
+            void Disagree(User voter);
+        }
     }
 }

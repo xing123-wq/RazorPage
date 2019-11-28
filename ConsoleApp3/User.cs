@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleApp3
 {
-    sealed internal class User
+    sealed internal class User:Entity
     {
         internal User(string inviter)
         {

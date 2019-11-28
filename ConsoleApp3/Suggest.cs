@@ -4,10 +4,10 @@ using System.Text;
 
 namespace ConsoleApp3
 {
-    public class Suggest : Content
+    public class Suggest :Entity
     {
         //public Suggest(string kind) : base(kind) { }
-        
+    
     }
 
 }

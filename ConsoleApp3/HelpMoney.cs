@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleApp3
 {
-    internal class HelpMoney
+    internal class HelpMoney:Entity
     {
         internal HelpMoney()
         {
