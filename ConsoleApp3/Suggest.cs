@@ -7,7 +7,7 @@ namespace ConsoleApp3
     public class Suggest : Content
     {
         //public Suggest(string kind) : base(kind) { }
-
+        
     }
 
 }
