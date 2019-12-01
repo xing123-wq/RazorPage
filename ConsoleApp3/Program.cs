@@ -22,6 +22,10 @@ namespace ConsoleApp3
             new DBMessage().send();
             new EmailMessage().send();
 
+            values k = new values(1, 2);
+            values w = k;
+            k.j = 10;
+            Console.WriteLine(w.j);
         }
     }
 }
