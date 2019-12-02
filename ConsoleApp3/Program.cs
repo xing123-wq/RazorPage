@@ -22,10 +22,12 @@ namespace ConsoleApp3
             new DBMessage().send();
             new EmailMessage().send();
 
-            values k = new values(1, 2);
-            values w = k;
-            k.j = 10;
-            Console.WriteLine(w.j);
+            genre atai = new genre();
+            atai.Student = "阿泰";
+            genre friend = atai;
+            Console.WriteLine(friend.Student);
+           atai.Student = "王新";
+            Console.WriteLine(friend.Student);
         }
     }
 }

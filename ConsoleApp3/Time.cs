@@ -10,15 +10,10 @@ namespace ConsoleApp3
         //用代码证明struct定义的类型是值类型
 
     }
-    internal struct values
+    internal struct genre
     {
-        internal int q;
-        internal int j;
-        internal values(int j, int q)
-        {
-            this.j = j;
-            this.q = q;
-        }
+        internal string Student;
+
     }
 
 }
