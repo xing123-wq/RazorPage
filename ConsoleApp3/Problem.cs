@@ -19,6 +19,10 @@ namespace ConsoleApp3
                 {
                     _reward = value;
                 }
+                else
+                {
+                    //do nothing 
+                }
             }
         }
         public DateTime PublishDateTime { get; set; }

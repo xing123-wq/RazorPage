@@ -26,7 +26,7 @@ namespace ConsoleApp3
             atai.Student = "阿泰";
             genre friend = atai;
             Console.WriteLine(friend.Student);
-           atai.Student = "王新";
+            atai.Student = "王新";
             Console.WriteLine(friend.Student);
         }
     }

@@ -13,7 +13,6 @@ namespace ConsoleApp3
     internal struct genre
     {
         internal string Student;
-
     }
 
 }
