@@ -22,14 +22,14 @@ namespace ConsoleApp3
             new DBMessage().send();
             new EmailMessage().send();
 
-            genre atai = new genre();
-            atai.Student = "阿泰";
-            genre friend = atai;
-            Console.WriteLine(friend.Student);
-            atai.Student = "王新";
-            Console.WriteLine(friend.Student);
+            StudentInformation atai = new StudentInformation();
+            atai.score = 98;
+            StudentInformation wx = atai;
+            Console.WriteLine(wx.score);
+            atai.score = 100;
+            Console.WriteLine(wx.score);
 
-            GetWeeks(2019/1/1);
+            //GetWeeks(2019/1/1);
         }
         //源栈的学费是按周计费的，所以请实现这两个功能：
         //函数GetDate()，能计算一个日期若干（日 / 周 / 月）后的日期
