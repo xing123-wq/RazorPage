@@ -8,10 +8,29 @@ namespace ConsoleApp3
     {
         //思考dynamic和var的区别
         //用代码证明struct定义的类型是值类型
-
+        internal void Information()
+        {
+            object[] Student = new object[5];
+            string Name = "阿泰";
+            Student[0] = Name;  
+            int Score = 99;
+            Student[1] = Score;
+            double GPA = 88.5;
+            Student[2] = GPA;
+            DateTime EnrolTime = new DateTime(1/1/1);
+            Student[3] = EnrolTime;
+            bool gender = true;//true代表男生,false代表女生.
+            Student[4] = gender;
+            Console.WriteLine(Student[0]);
+            Console.WriteLine(Student[1]);
+            Console.WriteLine(Student[2]);
+            Console.WriteLine(Student[3]);
+            Console.WriteLine(Student[4]);
+        }
     }
     internal struct StudentInformation
     {
+
         internal int score;
     }
 

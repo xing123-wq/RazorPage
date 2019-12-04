@@ -17,19 +17,21 @@ namespace ConsoleApp3
             //Release.Author = new User("阿泰");
             //Release.Publish();
             //Content ad = new Problem("1");
-            Problem p = new Problem();
-            new ContentService().Publish(p);
-            new DBMessage().send();
-            new EmailMessage().send();
+            //Problem p = new Problem();
+            //new ContentService().Publish(p);
+            //new DBMessage().send();
+            //new EmailMessage().send();
 
-            StudentInformation atai = new StudentInformation();
-            atai.score = 98;
-            StudentInformation wx = atai;
-            Console.WriteLine(wx.score);
-            atai.score = 100;
-            Console.WriteLine(wx.score);
+            //StudentInformation atai = new StudentInformation();
+            //atai.score = 98;
+            //StudentInformation wx = atai;
+            //Console.WriteLine(wx.score);
+            //atai.score = 100;
+            //Console.WriteLine(wx.score);
 
             //GetWeeks(2019/1/1);
+            Student s = new Student();
+            s.Information();
         }
         //源栈的学费是按周计费的，所以请实现这两个功能：
         //函数GetDate()，能计算一个日期若干（日 / 周 / 月）后的日期
