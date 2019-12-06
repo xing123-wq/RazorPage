@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleApp3
 {
-    sealed internal class User:Entity,ISendMessage,IChat
+    sealed internal class User : Entity, ISendMessage, IChat
     {
         internal User(string inviter)
         {
@@ -14,6 +14,7 @@ namespace ConsoleApp3
         {
 
         }
+        internal enum TokenManager { get }
         internal int HelpMony { get; set; }
         internal int credit { get; set; }
         private int _reward;
