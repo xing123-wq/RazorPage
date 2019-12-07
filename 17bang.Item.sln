@@ -13,6 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp3", "ConsoleApp3\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Junit", "飞哥\Junit.csproj", "{7FFB64C4-CC36-4E51-9BF8-3F34E39B8B26}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Front", "Front", "{4447C949-FB7D-4E62-8403-D61C101B6FEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "17bang.CSharp", "17bang.CSharp", "{C31970A9-309E-4F22-B2F8-7E526BBEBAE7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "practice", "practice", "{92A3BFB8-2B4B-4001-A89A-72AD8D4DF531}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +48,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{78D77AE4-0264-462E-8590-5EE25870F71D} = {4447C949-FB7D-4E62-8403-D61C101B6FEF}
+		{03D19246-9255-4A06-B23A-77B46AF005BD} = {92A3BFB8-2B4B-4001-A89A-72AD8D4DF531}
+		{44A7341E-0A29-42CE-8793-2F4825969CF4} = {92A3BFB8-2B4B-4001-A89A-72AD8D4DF531}
+		{3F9FDAA6-61B4-4950-9300-BB9C26B4CA48} = {C31970A9-309E-4F22-B2F8-7E526BBEBAE7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {792CE548-DEE0-4A6C-A19D-6B3C21FC1B51}
