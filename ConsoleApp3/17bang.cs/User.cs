@@ -14,7 +14,7 @@ namespace ConsoleApp3
         {
 
         }
-        internal enum TokenManager { get }
+        internal TokenManager Manager { get; set; }
         internal int HelpMony { get; set; }
         internal int credit { get; set; }
         private int _reward;
