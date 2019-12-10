@@ -17,7 +17,7 @@ namespace ConsoleApp3
             Student[1] = Score;
             double GPA = 88.5;
             Student[2] = GPA;
-            DateTime EnrolTime = new DateTime(1/1/1);
+            DateTime EnrolTime = new DateTime(12,3,4);
             Student[3] = EnrolTime;
             bool gender = true;//true代表男生,false代表女生.
             Student[4] = gender;

@@ -10,6 +10,8 @@ namespace ConsoleApp3
         public DoubleLinked Preivous { get; private set; }
         public DoubleLinked Next { get; private set; }
         public int Value { get; set; }
+
+
         public bool IsHead
         {
             get
@@ -43,7 +45,18 @@ namespace ConsoleApp3
         /// <param name="node"></param>
         public void InsretAfter(DoubleLinked node)
         {
-
+            this.Preivous = node;
+            if (node.Next==null)
+            {
+                node.Next = this;
+            }
+            else
+            {
+                this.Next = node.Next;
+                this.Preivous = node;
+                node.Next = this;
+                this.Next.Preivous = this;
+            }
         }
 
         public void InsertBefore(DoubleLinked node)
