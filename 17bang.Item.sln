@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "17bang.CSharp", "17bang.CSh
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "practice", "practice", "{92A3BFB8-2B4B-4001-A89A-72AD8D4DF531}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testapproach", "testapproach\testapproach.csproj", "{3E2AE578-C6B7-435F-A482-7FDD003D6E23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{7FFB64C4-CC36-4E51-9BF8-3F34E39B8B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FFB64C4-CC36-4E51-9BF8-3F34E39B8B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FFB64C4-CC36-4E51-9BF8-3F34E39B8B26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E2AE578-C6B7-435F-A482-7FDD003D6E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E2AE578-C6B7-435F-A482-7FDD003D6E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E2AE578-C6B7-435F-A482-7FDD003D6E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E2AE578-C6B7-435F-A482-7FDD003D6E23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
