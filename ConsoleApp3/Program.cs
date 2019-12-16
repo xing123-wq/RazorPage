@@ -30,8 +30,8 @@ namespace ConsoleApp3
             //Console.WriteLine(wx.score);
 
             //GetWeeks(2019/1/1);
-            Student s = new Student();
-            s.Information();
+            //Student s = new Student();
+            //s.Information();
 
             Problem keyword = new Problem();
             Console.WriteLine(keyword[1]);
