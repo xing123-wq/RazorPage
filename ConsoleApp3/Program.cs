@@ -33,11 +33,10 @@ namespace ConsoleApp3
             //Student s = new Student();
             //s.Information();
 
-            Problem keyword = new Problem();
-            Console.WriteLine(keyword[1]);
+            //Problem keyword = new Problem();
+            //Console.WriteLine(keyword[1]);
 
-            Article article = new Article();
-            article.TitleContent(" abc ");
+            LinqWork.PublishArticleXy();
 
         }
         //源栈的学费是按周计费的，所以请实现这两个功能：

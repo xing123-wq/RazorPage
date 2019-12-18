@@ -1,41 +1,55 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ConsoleApp3
 {
     public class Article : Content
     {
+        private string title;
+        private DateTime _publishTime;
+
         //public Article(string kind) : base(kind) { }
-        public string Title { get; set; }
-        internal void TitleContent(string Title)
+        public List<keyword> keywords { get; set; }
+        public List<Comment> Comments { get; set; }
+        public string Title
         {
-            this.Title = Title;
-            if (Title == "    ")
+            get
             {
-                Console.WriteLine(Title.Remove(1, Title.Length - 1));
+                return title;
             }
-            else
+            set
             {
-                //do nothing
-            }
-            if (Title == " abc  ")
-            {
-                Console.WriteLine(Title.Trim());
-            }
-            else
-            {
-                //do nothing
-            }
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("标题不能为null或空值");
+                }
 
-
+                title = value.Trim();
+            }
+        }
+        public Article(string kind)
+        {
 
         }
+
+        public Article()
+        {
+        }
+
         public void MoneyAeount(int reward)
         {
             Console.WriteLine("覆盖" + reward + "了");
         }
-        public void Publish()
+
+        public  void Publish()
         {
-            Author.HelpMony -= 1;
+            if (Author == null)
+            {
+                throw new ArgumentException("不能没有作者");
+            }
+            _publishTime = DateTime.Now;//在发布时调用此方法为PublishTime赋值
+            Author.HelpMoney += 1;
+
         }
     }
     //确保文章（Article）的标题不能为null值，

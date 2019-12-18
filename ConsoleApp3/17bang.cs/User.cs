@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleApp3
 {
-    sealed internal class User : Entity, ISendMessage, IChat
+    sealed public class User : Entity, ISendMessage, IChat
     {
         internal User(string inviter)
         {
@@ -39,18 +39,18 @@ namespace ConsoleApp3
 
             }
         }
-        public string _name;
-        public string Name
+        public string Name;
+        public string _name
         {
             get
             {
-                return _name;
+                return Name;
             }
             set
             {
                 if (value == "admin")
                 {
-                    _name = "系统管理员";
+                    Name = "系统管理员";
                 }
                 else
                 {
@@ -61,6 +61,8 @@ namespace ConsoleApp3
         private string Password { get; set; }
         public User Invitedby { get; set; }
         public string Grade { get; set; }//等级属性
+        public int HelpMoney { get; internal set; }
+
         internal void elevaterank(string label, int integral)
         {
 
