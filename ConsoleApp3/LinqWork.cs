@@ -111,6 +111,7 @@ namespace ConsoleApp3
         }
         public static void PublishArticleXy()
         {
+            Console.WriteLine("找出小余发布的文章:");
             var xyArtricle = from a in articles
                              where/* a.PublishTime > Convert.ToDateTime("2019年1月1日") &&*/ a.Author.Name == "小余"
                              select a;
@@ -119,5 +120,25 @@ namespace ConsoleApp3
                 Console.WriteLine(item.Title);
             }
         }
+
+        public static void ArticleTime()
+        {
+            Console.WriteLine("按照时间升序降序显示文章:");
+            var deta = from a in articles
+                       orderby a.PublishTime ascending
+                       select a;
+            var Time = from a in articles
+                       orderby a.PublishTime descending
+                       select a;
+            foreach (var item in deta)
+            {
+                Console.WriteLine(item.Title);
+            }
+            foreach (var item in Time)
+            {
+                Console.WriteLine(item.Title);
+            }
+        }
+
     }
 }

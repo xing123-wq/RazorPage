@@ -36,7 +36,7 @@ namespace ConsoleApp3
             //Problem keyword = new Problem();
             //Console.WriteLine(keyword[1]);
 
-            LinqWork.PublishArticleXy();
+            LinqWork.ArticleTime();
 
         }
         //源栈的学费是按周计费的，所以请实现这两个功能：
