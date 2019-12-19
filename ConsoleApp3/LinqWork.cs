@@ -139,6 +139,20 @@ namespace ConsoleApp3
                 Console.WriteLine(item.Title);
             }
         }
-
+        public static void UserArticle()
+        {
+            Console.WriteLine("");
+            var authorArticle = from a in articles
+                                group a by a.Author into gm
+                                select new
+                                {
+                                    Author = gm.Key,
+                                    count = gm.Count()
+                                };
+            foreach (var item in authorArticle)
+            {
+                Console.WriteLine(item.Author + ":" + item.count);
+            }
+        }
     }
 }
