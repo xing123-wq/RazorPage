@@ -9,7 +9,7 @@ namespace ConsoleApp3
         private DateTime _publishTime;
 
         //public Article(string kind) : base(kind) { }
-        public List<keyword> keywords { get; set; }
+        public List<Keyword> keywords { get; set; }
         public List<Comment> Comments { get; set; }
         public string Title
         {

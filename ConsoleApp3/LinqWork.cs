@@ -16,7 +16,7 @@ namespace ConsoleApp3
         //找出包含关键字“C#”或“.NET”的文章
         //找出评论数量最多的文章
         static readonly User fg, xy;
-        static keyword sql, csharp, net, java, js, html;
+        static Keyword sql, csharp, net, java, js, html;
         static readonly Article SQL, JAVA, UI, CSharp;
         static readonly Comment wx, atai, pzq, cbw, ljp;
         static LinqWork()
@@ -24,36 +24,36 @@ namespace ConsoleApp3
             fg = new User() { Name = "飞哥" };
             xy = new User() { Name = "小余" };
 
-            sql = new keyword() { Content = "SQL" };
-            csharp = new keyword() { Content = "C#" };
-            net = new keyword() { Content = ".NET" };
-            java = new keyword() { Content = "JAVA" };
-            js = new keyword() { Content = "JavaScript" };
-            html = new keyword() { Content = "HTML" };
+            sql = new Keyword() { Content = "SQL" };
+            csharp = new Keyword() { Content = "C#" };
+            net = new Keyword() { Content = ".NET" };
+            java = new Keyword() { Content = "JAVA" };
+            js = new Keyword() { Content = "JavaScript" };
+            html = new Keyword() { Content = "HTML" };
 
             SQL = new Article("文章")
             {
                 Author = fg,
                 Title = "SQL",
-                keywords = new List<keyword> { sql }
+                keywords = new List<Keyword> { sql }
             };
             JAVA = new Article("文章")
             {
                 Author = fg,
                 Title = "JAVA",
-                keywords = new List<keyword> { java, html }
+                keywords = new List<Keyword> { java, html }
             };
             UI = new Article("文章")
             {
                 Author = xy,
                 Title = "UI",
-                keywords = new List<keyword> { js, html, net }
+                keywords = new List<Keyword> { js, html, net }
             };
             CSharp = new Article("文章")
             {
                 Author = xy,
                 Title = "CSharp",
-                keywords = new List<keyword> { csharp }
+                keywords = new List<Keyword> { csharp }
             };
 
             wx = new Comment(JAVA)
@@ -98,9 +98,17 @@ namespace ConsoleApp3
             //ContentService.Publish(JAVA);
         }
         private static IEnumerable<Article> articles;
-        public static void PublishArticleFg()
+        public static void Do()
         {
-            Console.WriteLine("找出飞哥发布的文章:");
+            PublishArticleFg();
+            PublishArticleXy();
+            ArticleTime();
+            UserArticle();
+            GetKey(csharp, net);
+        }
+        private static void PublishArticleFg()
+        {
+            Console.WriteLine("\n找出飞哥发布的文章:");
             var fgArticle = from a in articles
                             where a.Author.Name == "飞哥"
                             select a;
@@ -109,9 +117,9 @@ namespace ConsoleApp3
                 Console.WriteLine(item.Title);
             }
         }
-        public static void PublishArticleXy()
+        private static void PublishArticleXy()
         {
-            Console.WriteLine("找出小余发布的文章:");
+            Console.WriteLine("\n找出小余发布的文章:");
             var xyArtricle = from a in articles
                              where/* a.PublishTime > Convert.ToDateTime("2019年1月1日") &&*/ a.Author.Name == "小余"
                              select a;
@@ -120,10 +128,9 @@ namespace ConsoleApp3
                 Console.WriteLine(item.Title);
             }
         }
-
-        public static void ArticleTime()
+        private static void ArticleTime()
         {
-            Console.WriteLine("按照时间升序降序显示文章:");
+            Console.WriteLine("\n按照时间升序降序显示文章:");
             var deta = from a in articles
                        orderby a.PublishTime ascending
                        select a;
@@ -139,9 +146,9 @@ namespace ConsoleApp3
                 Console.WriteLine(item.Title);
             }
         }
-        public static void UserArticle()
+        private static void UserArticle()
         {
-            Console.WriteLine("按发布时间升序/降序排列显示文章");
+            Console.WriteLine("\n按发布时间升序/降序排列显示文章");
             var authorArticle = from a in articles
                                 group a by a.Author into gm
                                 select new
@@ -152,6 +159,17 @@ namespace ConsoleApp3
             foreach (var item in authorArticle)
             {
                 Console.WriteLine(item.Author + ":" + item.count);
+            }
+        }
+        private static void GetKey(Keyword keyword,Keyword Keyword)
+        {
+            Console.WriteLine("\n找出包含关键字“C#”或“.NET”的文章");
+            var SeekKey = from a in articles
+                          where a.keywords.Contains(keyword) || a.keywords.Contains(Keyword)
+                          select a;
+            foreach (var item in SeekKey)
+            {
+                Console.WriteLine(item.Title);
             }
         }
     }
