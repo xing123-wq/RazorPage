@@ -141,7 +141,7 @@ namespace ConsoleApp3
         }
         public static void UserArticle()
         {
-            Console.WriteLine("");
+            Console.WriteLine("按发布时间升序/降序排列显示文章");
             var authorArticle = from a in articles
                                 group a by a.Author into gm
                                 select new
