@@ -109,6 +109,7 @@ namespace ConsoleApp3
             ArticleTime();
             UserArticle();
             GetKey(csharp, net);
+            MaxComment();
         }
         private static void PublishArticleFg()
         {
@@ -178,6 +179,7 @@ namespace ConsoleApp3
         }
         private static void MaxComment()
         {
+            Console.WriteLine("\n找出评论数量最多的文章:");
             var ArticleComment = (from a in articles
                                   orderby a.Comments.Count() descending
                                   select a).First();
