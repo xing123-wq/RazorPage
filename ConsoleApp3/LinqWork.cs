@@ -158,10 +158,10 @@ namespace ConsoleApp3
                                 };
             foreach (var item in authorArticle)
             {
-                Console.WriteLine(item.Author + ":" + item.count);
+                Console.WriteLine(item.Author.Name + ":" + item.count);
             }
         }
-        private static void GetKey(Keyword keyword,Keyword Keyword)
+        private static void GetKey(Keyword keyword, Keyword Keyword)
         {
             Console.WriteLine("\n找出包含关键字“C#”或“.NET”的文章");
             var SeekKey = from a in articles
@@ -169,7 +169,7 @@ namespace ConsoleApp3
                           select a;
             foreach (var item in SeekKey)
             {
-                Console.WriteLine(item.Title);
+                Console.WriteLine($"{item.Author.Name}:{ item.Title}");
             }
         }
     }
