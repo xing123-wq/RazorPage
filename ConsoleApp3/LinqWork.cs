@@ -172,5 +172,12 @@ namespace ConsoleApp3
                 Console.WriteLine($"{item.Author.Name}:{ item.Title}");
             }
         }
+        private static void MaxComment()
+        {
+            var ArticleComment = (from a in articles
+                                  orderby a.Comments.Count() descending
+                                  select a).First();
+            Console.WriteLine(ArticleComment.Title);
+        }
     }
 }
