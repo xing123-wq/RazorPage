@@ -15,6 +15,10 @@ namespace ConsoleApp3
         //统计每个用户各发布了多少篇文章
         //找出包含关键字“C#”或“.NET”的文章
         //找出评论数量最多的文章
+        //声明一个委托：打水（ProvideWater），可以接受一个Person类的参数，返回值为int类型
+        //使用方,匿名方,lambda表达式,给上述委托赋值，并运行该委托,
+        //声明一个方法GetWater()，该方法接受ProvideWater作为参数，并能将ProvideWater的返回值输出
+
         static readonly User fg, xy;
         static Keyword sql, csharp, net, java, js, html;
         static readonly Article SQL, JAVA, UI, CSharp;
