@@ -25,16 +25,14 @@ namespace ConsoleApp3
         static readonly Comment wx, atai, pzq, cbw, ljp;
         static LinqWork()
         {
-            fg = new User() { Name = "飞哥" };
-            xy = new User() { Name = "小余" };
-
-            sql = new Keyword() { Content = "SQL" };
-            csharp = new Keyword() { Content = "C#" };
-            net = new Keyword() { Content = ".NET" };
-            java = new Keyword() { Content = "JAVA" };
-            js = new Keyword() { Content = "JavaScript" };
-            html = new Keyword() { Content = "HTML" };
-
+            fg = new User { Name = "飞哥" };
+            xy = new User { Name = "小余" };
+            sql = new Keyword { Content = "SQL" };
+            csharp = new Keyword { Content = "C#" };
+            net = new Keyword { Content = ".NET" };
+            java = new Keyword { Content = "JAVA" };
+            js = new Keyword { Content = "JAVASCRIPT" };
+            html = new Keyword { Content = "HTML" };
             SQL = new Article("文章")
             {
                 Author = fg,
@@ -59,31 +57,45 @@ namespace ConsoleApp3
                 Title = "CSharp",
                 keywords = new List<Keyword> { csharp }
             };
-
             wx = new Comment(JAVA)
             {
                 Body = "写的不行",
-                Author = new User { Name = "王欣" }
+                Author = new User
+                {
+                    Name = "王欣"
+                }
             };
             atai = new Comment(SQL)
             {
                 Body = "写的很好",
-                Author = new User { Name = "阿泰" }
+                Author = new User
+                {
+                    Name = "阿泰"
+                }
             };
             pzq = new Comment(UI)
             {
                 Body = "还可以",
-                Author = new User { Name = "彭志强" }
+                Author = new User
+                {
+                    Name = "彭志强"
+                }
             };
             cbw = new Comment(CSharp)
             {
                 Body = "一般般",
-                Author = new User { Name = "陈百万" }
+                Author = new User
+                {
+                    Name = "陈百万"
+                }
             };
             ljp = new Comment(CSharp)
             {
                 Body = "看得下去",
-                Author = new User { Name = "刘江平" }
+                Author = new User
+                {
+                    Name = "刘江平"
+                }
             };
             SQL.Comments = new List<Comment> { atai };
             JAVA.Comments = new List<Comment> { wx };
@@ -110,24 +122,23 @@ namespace ConsoleApp3
             UserArticle();
             GetKey(csharp, net);
             MaxComment();
+            RecentlyArticle();
         }
         private static void PublishArticleFg()
         {
             Console.WriteLine("\n找出飞哥发布的文章:");
-            var fgArticle = from a in articles
-                            where a.Author.Name == "飞哥"
-                            select a;
+            var fgArticle = articles.Where(a => a.Author.Name == "飞哥");
             foreach (var item in fgArticle)
             {
                 Console.WriteLine(item.Title);
             }
+
         }
         private static void PublishArticleXy()
         {
             Console.WriteLine("\n找出小余发布的文章:");
-            var xyArtricle = from a in articles
-                             where/* a.PublishTime > Convert.ToDateTime("2019年1月1日") &&*/ a.Author.Name == "小余"
-                             select a;
+            var xyArtricle = articles.Where(a => a.Author == xy && a.PublishTime > new DateTime(2019, 1, 1));
+
             foreach (var item in xyArtricle)
             {
                 Console.WriteLine(item.Title);
@@ -136,12 +147,9 @@ namespace ConsoleApp3
         private static void ArticleTime()
         {
             Console.WriteLine("\n按照时间升序降序显示文章:");
-            var deta = from a in articles
-                       orderby a.PublishTime ascending
-                       select a;
-            var Time = from a in articles
-                       orderby a.PublishTime descending
-                       select a;
+            var deta = articles.OrderByDescending(a => a.PublishTime);
+            var Time = articles.OrderBy(a => a.PublishTime);
+
             foreach (var item in deta)
             {
                 Console.WriteLine(item.Title);
@@ -153,14 +161,13 @@ namespace ConsoleApp3
         }
         private static void UserArticle()
         {
-            Console.WriteLine("\n按发布时间升序/降序排列显示文章");
-            var authorArticle = from a in articles
-                                group a by a.Author into gm
-                                select new
-                                {
-                                    Author = gm.Key,
-                                    count = gm.Count()
-                                };
+            Console.WriteLine("\n统计每个用户各发布了多少篇文章");
+            var authorArticle = articles.GroupBy(a => a.Author)
+                .Select(gm => new
+                {
+                    Author = gm.Key,
+                    count = gm.Count()
+                });
             foreach (var item in authorArticle)
             {
                 Console.WriteLine(item.Author.Name + ":" + item.count);
@@ -169,9 +176,7 @@ namespace ConsoleApp3
         private static void GetKey(Keyword keyword, Keyword Keyword)
         {
             Console.WriteLine("\n找出包含关键字“C#”或“.NET”的文章");
-            var SeekKey = from a in articles
-                          where a.keywords.Contains(keyword) || a.keywords.Contains(Keyword)
-                          select a;
+            var SeekKey = articles.Where(a => a.keywords.Contains(keyword) || a.keywords.Contains(Keyword));
             foreach (var item in SeekKey)
             {
                 Console.WriteLine($"{item.Author.Name}:{ item.Title}");
@@ -180,10 +185,22 @@ namespace ConsoleApp3
         private static void MaxComment()
         {
             Console.WriteLine("\n找出评论数量最多的文章:");
-            var ArticleComment = (from a in articles
-                                  orderby a.Comments.Count() descending
-                                  select a).First();
+            var ArticleComment = (articles.OrderByDescending(a => a.Comments.Count()).First());
             Console.WriteLine(ArticleComment.Title);
+        }
+        //将之前作业的Linq查询表达式用Linq方法实现
+        //找出每个作者最近发布的一篇文章
+        //为求助（Problem）添加悬赏（Reward）属性，并找出每一篇求助的悬赏都大于5个帮帮币的文章作者
+        private static void RecentlyArticle()
+        {
+            Console.WriteLine("\n找出每个作者最近发布的一篇文章");
+            var recently = articles.GroupBy(a => a.Author)
+                .Select(a => a.OrderByDescending
+                (p => p.PublishTime).First());
+            foreach (var item in recently)
+            {
+                Console.WriteLine(item.Title);
+            }
         }
     }
 }

@@ -25,9 +25,6 @@ namespace ConsoleApp3
         protected DateTime _publishTime;
         public DateTime PublishTime { get { return _publishTime; } }
         protected string kind;
-
-
-
         private User author;
         public User Author
         {
