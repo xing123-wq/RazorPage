@@ -67,6 +67,10 @@ namespace ConsoleApp3
                    new XAttribute("isDraft", true))
                );
             Console.WriteLine(articles);
+            XDocument document = new XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),   //添加一个XML声明
+               articles);
+            document.Save("F:\\17bang\\articles.xml");
         }
         //源栈的学费是按周计费的，所以请实现这两个功能：
         //函数GetDate()，能计算一个日期若干（日 / 周 / 月）后的日期
