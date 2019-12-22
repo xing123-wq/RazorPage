@@ -10,7 +10,7 @@ namespace DrawingOperations
     {
         static void Main(string[] args)
         {
-
+            Verification.Code();
         }
     }
 }
