@@ -22,7 +22,27 @@ namespace DrawingOperations
             Graphics g = Graphics.FromImage(image);    //在画板的基础上生成一个绘图对象
             g.Clear(Color.AliceBlue);           //添加底色
 
-            g.DrawLine(new Pen(Color.Black), new Point(0, 0), new Point(100, 50)); //画直线
+
+            // Create pens.
+            Pen redPen = new Pen(Color.Red, 3);
+            Pen greenPen = new Pen(Color.Green, 3);
+
+            // Create points that define curve.
+            Point point1 = new Point(20, 50);
+            Point point2 = new Point(50, 25);
+            Point point3 = new Point(10, 55);
+            Point point4 = new Point(200, 30);
+            Point point5 = new Point(300, 120);
+            Point point6 = new Point(350, 300);
+            Point point7 = new Point(250, 2900);
+            Point[] curvePoints = { point1, point2, point3, point4, point5, point6, point7 };
+
+            // Draw lines between original points to screen.
+            g.DrawLines(redPen, curvePoints);
+
+            // Draw curve to screen.
+            g.DrawCurve(greenPen, curvePoints);
+
             g.DrawString("hello, luckystack",       //绘制字符串
                 new Font("宋体", 14),                //指定字体
                 new SolidBrush(Color.DarkRed),      //绘制时使用的刷子
