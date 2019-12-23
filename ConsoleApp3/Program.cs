@@ -37,8 +37,8 @@ namespace ConsoleApp3
             //Problem keyword = new Problem();
             //Console.WriteLine(keyword[1]);
 
-            LinqWork.Do();
-            //按以下格式生成一个XML对象：
+            //LinqWork.Do();
+            ////按以下格式生成一个XML对象：
             //XElement articles = new XElement(
             //   "articles",
             //   new XComment("以下存放所有“源栈”所有文章"),
@@ -66,6 +66,9 @@ namespace ConsoleApp3
             //       new XElement("authorId", 1),
             //       new XAttribute("isDraft", true))
             //   );
+            XElement element = XElement.Load("F:\\17bang\\articles.xml");
+            Console.WriteLine(element.Element("article").FirstNode);
+
             //Console.WriteLine(articles);
             //XDocument document = new XDocument(
             //   new XDeclaration("1.0", "utf-8", "yes"),   //添加一个XML声明
