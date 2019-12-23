@@ -50,15 +50,14 @@ namespace ConsoleApp3
             //         new XElement("authorId", "2")));
             //articles.Save(@"F:\article.xml");
             //Console.WriteLine(articles);
-            //删除id = 12的评论
-            //改变id = 2的article：isDraft = false，title = 源栈培训：C#进阶-8：异步和并行
 
-            var teachers = (from x in articles.Descendants("comment")
-                           where x.Element("id").Value == "12"
-                           select x).Single();
-            teachers.Remove();
-            articles.Save(@"F:\17bang\articles.xml");
-            Console.WriteLine(articles);
+            //删除id = 12的评论
+            //var teachers = (from x in articles.Descendants("comment")
+            //               where x.Element("id").Value == "12"
+            //               select x).Single();
+            //teachers.Remove();
+            //articles.Save(@"F:\17bang\articles.xml");
+            //Console.WriteLine(articles);
 
             //然后，将其以文件形式存放到磁盘中；
             //Console.WriteLine(articles);
@@ -66,6 +65,9 @@ namespace ConsoleApp3
             //   new XDeclaration("1.0", "utf-8", "yes"),   //添加一个XML声明
             //   articles);
             //document.Save("F:\\17bang\\articles.xml");
+
+            //改变id = 2的article：isDraft = false，title = 源栈培训：C#进阶-8：异步和并行
+
         }
     }
 }
