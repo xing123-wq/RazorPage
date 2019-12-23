@@ -67,7 +67,13 @@ namespace ConsoleApp3
             //document.Save("F:\\17bang\\articles.xml");
 
             //改变id = 2的article：isDraft = false，title = 源栈培训：C#进阶-8：异步和并行
-
+            var alter = (from a in articles.Descendants("article")
+                        where a.Element("id").Value == "2"
+                        select a).Single();
+            alter.SetAttributeValue("isDraft",false);
+            alter.SetAttributeValue("title", "源栈培训：C#进阶-8：异步和并行");
+            articles.Save(@"F:\17bang\articles.xml");
+            Console.WriteLine(articles);
         }
     }
 }
