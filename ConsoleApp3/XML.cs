@@ -8,7 +8,7 @@ namespace ConsoleApp3
 {
     class XML
     {
-        public  void operation()
+        public void operation()
         {
             ////按以下格式生成一个XML对象：
             XElement articles = new XElement(
@@ -74,6 +74,17 @@ namespace ConsoleApp3
             //alter.SetAttributeValue("title", "源栈培训：C#进阶-8：异步和并行");
             //articles.Save(@"F:\17bang\articles.xml");
             //Console.WriteLine(articles);
+        }
+        public void UsersOperation()
+        {
+            //参照上述articles，代码生成一个XML的users对象，
+            //能够存放用户的id、name和password，然后并存放到磁盘
+            //扩展user和articles的内容，使其能够完成以下操作：
+            //根据用户名查找他发布的全部文章
+            //统计出每个用户各发表了多少篇文章
+            //查出每个用户最近发布的一篇文章
+            //每个用户评论最多的一篇文章
+            //删除没有发表文章的用户
         }
     }
 }
