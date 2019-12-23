@@ -85,6 +85,22 @@ namespace ConsoleApp3
             //查出每个用户最近发布的一篇文章
             //每个用户评论最多的一篇文章
             //删除没有发表文章的用户
+            XElement Users = new XElement(
+                "Users",
+                new XElement("Users", "CQ",
+                new XAttribute("head", true)),
+                new XElement("Users",
+                new XElement("name", "大飞哥",
+                new XAttribute("id", "2"),
+                new XAttribute("name", "大飞哥"),
+                new XAttribute("age", "39")),
+                new XAttribute("password", "1234567890"))
+                );
+            Console.WriteLine(Users);
+            XDocument document = new XDocument(
+              new XDeclaration("1.0", "utf-8", "yes"),   //添加一个XML声明
+              Users);
+            document.Save("F:\\17bang\\Users.xml");
         }
     }
 }
