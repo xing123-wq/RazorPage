@@ -13,7 +13,8 @@ namespace ConsoleApp3
             //operation();
             //UsersOperation();
             //Save();
-            SeekArticle();
+            //SeekArticle();
+            PunlshArticle();
         }
         private static XElement operation()
         {
@@ -47,7 +48,7 @@ namespace ConsoleApp3
                );
             return articles;
 
-           
+
 
             //在根节点下添加一个新的article元素，内容至少包含id、title和authorId
             //articles.Add(new XElement("article",
@@ -139,7 +140,17 @@ namespace ConsoleApp3
         private static void PunlshArticle()
         {
             //统计出每个用户各发表了多少篇文章
-
+            var users = UsersOperation().Descendants("User")
+                      .GroupBy(u => u.Element("name").Value)
+                      .Select(us => new
+                      {
+                          Author = us.Key,
+                          count = us.Count()
+                      });
+            foreach (var item in users)
+            {
+                Console.WriteLine($"{item.Author}:{item.count}");
+            }
         }
     }
 }
