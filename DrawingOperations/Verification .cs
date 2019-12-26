@@ -26,9 +26,8 @@ namespace DrawingOperations
             // Create pens.
             Pen redPen = new Pen(Color.Red, 3);
             Pen greenPen = new Pen(Color.Green, 3);
-
             // Create points that define curve.
-            Point point1 = new Point(20, 50);
+            Point point1 = new Point(40, 100);
             Point point2 = new Point(50, 25);
             Point point3 = new Point(10, 55);
             Point point4 = new Point(200, 30);
@@ -39,14 +38,13 @@ namespace DrawingOperations
 
             // Draw lines between original points to screen.
             g.DrawLines(redPen, curvePoints);
-
             // Draw curve to screen.
             g.DrawCurve(greenPen, curvePoints);
 
             g.DrawString(GenerateRandomNumber(8),       //绘制字符串
                 new Font("宋体", 14),                //指定字体
                 new SolidBrush(Color.DarkRed),      //绘制时使用的刷子
-                new PointF(5, 6)                    //左上角定位
+                new PointF(6, 6)                    //左上角定位
             );
 
             image.SetPixel(195, 95, Color.BlueViolet);  //绘制一个像素的点

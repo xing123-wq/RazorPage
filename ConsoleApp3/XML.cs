@@ -8,7 +8,11 @@ namespace ConsoleApp3
 {
     class XML
     {
-        public void operation()
+        public static void Do()
+        {
+
+        }
+        private static XElement operation()
         {
             ////按以下格式生成一个XML对象：
             XElement articles = new XElement(
@@ -38,6 +42,7 @@ namespace ConsoleApp3
                    new XElement("authorId", 1),
                    new XAttribute("isDraft", true))
                );
+            return articles;
 
             //再从磁盘中读取到内存中。  
             //XElement element = XElement.Load(@"F:\17bang\articles.xml");
@@ -75,32 +80,57 @@ namespace ConsoleApp3
             //articles.Save(@"F:\17bang\articles.xml");
             //Console.WriteLine(articles);
         }
-        public void UsersOperation()
+        private static XElement UsersOperation()
         {
             //参照上述articles，代码生成一个XML的users对象，
             //能够存放用户的id、name和password，然后并存放到磁盘
             //扩展user和articles的内容，使其能够完成以下操作：
-            //根据用户名查找他发布的全部文章
             //统计出每个用户各发表了多少篇文章
             //查出每个用户最近发布的一篇文章
             //每个用户评论最多的一篇文章
             //删除没有发表文章的用户
             XElement Users = new XElement(
                 "Users",
-                new XElement("Users", "CQ",
-                new XAttribute("head", true)),
-                new XElement("Users",
+                new XElement("User",
                 new XElement("name", "大飞哥",
                 new XAttribute("id", "2"),
-                new XAttribute("name", "大飞哥"),
-                new XAttribute("age", "39")),
-                new XAttribute("password", "1234567890"))
-                );
-            Console.WriteLine(Users);
+                new XAttribute("password", "12356fnfiiv"),
+                new XAttribute("Age", "39")),
+                new XElement("ArticleTitle", "XML"),
+                new XElement("Content", "什么是XML（EXtensible Markup Language"),
+                new XElement("Comment", "写的真好!"),
+                new XElement("PublishTime", "2019年10月2日")),
+                new XElement("User",
+                new XElement("name", "于维谦",
+                new XAttribute("id", "5"),
+                new XAttribute("password", "2efer42tyf79"),
+                new XAttribute("Age", "21")),
+                new XElement("ArticleTitle", "C#"),
+                new XElement("Content", "什么是C#?"),
+                new XElement("Comment", "写的不好!"),
+                new XElement("PublishTime", "2020年1月1日")
+                ));
+            return Users;
+
+        }
+        private static void Save()
+        {
+            Console.WriteLine(UsersOperation());
             XDocument document = new XDocument(
-              new XDeclaration("1.0", "utf-8", "yes"),   //添加一个XML声明
-              Users);
+               new XDeclaration("1.0", "utf-8", "yes"),   //添加一个XML声明
+              UsersOperation());
             document.Save("F:\\17bang\\Users.xml");
+        }
+        private static void SeekArticle()
+        {
+            //根据用户名查找他发布的全部文章
+            var Author = from u in UsersOperation().Descendants("User")
+                         where u.Element("name").Value == "大飞哥"
+                         select u;
+            foreach (var item in Author)
+            {
+                Console.WriteLine(item.Element("ArticleTitle"));
+            }
         }
     }
 }

@@ -39,7 +39,7 @@ namespace ConsoleApp3
 
             //LinqWork.Do();
 
-            XML.SeekArticle();
+            XML.Do();
 
         }
         //源栈的学费是按周计费的，所以请实现这两个功能：
