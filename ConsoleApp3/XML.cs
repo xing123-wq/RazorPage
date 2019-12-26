@@ -47,9 +47,7 @@ namespace ConsoleApp3
                );
             return articles;
 
-            //再从磁盘中读取到内存中。  
-            //XElement element = XElement.Load(@"F:\17bang\articles.xml");
-            //Console.WriteLine(element.Element("article").FirstNode);
+           
 
             //在根节点下添加一个新的article元素，内容至少包含id、title和authorId
             //articles.Add(new XElement("article",
@@ -88,7 +86,6 @@ namespace ConsoleApp3
             //参照上述articles，代码生成一个XML的users对象，
             //能够存放用户的id、name和password，然后并存放到磁盘
             //扩展user和articles的内容，使其能够完成以下操作：
-            //统计出每个用户各发表了多少篇文章
             //查出每个用户最近发布的一篇文章
             //每个用户评论最多的一篇文章
             //删除没有发表文章的用户
@@ -118,6 +115,10 @@ namespace ConsoleApp3
         }
         private static void Save()
         {
+            //再从磁盘中读取到内存中。  
+            XElement element = XElement.Load(@"F:\17bang\articles.xml");
+            Console.WriteLine(element.Element("article").FirstNode);
+
             Console.WriteLine(UsersOperation());
             XDocument document = new XDocument(
                new XDeclaration("1.0", "utf-8", "yes"),   //添加一个XML声明
@@ -134,6 +135,11 @@ namespace ConsoleApp3
             {
                 Console.WriteLine(item.Element("ArticleTitle"));
             }
+        }
+        private static void PunlshArticle()
+        {
+            //统计出每个用户各发表了多少篇文章
+
         }
     }
 }
