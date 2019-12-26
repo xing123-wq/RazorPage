@@ -22,9 +22,17 @@ namespace DrawingOperations
             Graphics g = Graphics.FromImage(image);    //在画板的基础上生成一个绘图对象
             g.Clear(Color.AliceBlue);           //添加底色
 
+            Random random = new Random();
+
+            for (int i = 0; i < 100; i++)
+            {
+                int x = random.Next(image.Width);
+                int y = random.Next(image.Height);
+                image.SetPixel(x, y, Color.FromArgb(random.Next()));
+            }
 
             // Create pens.
-            Pen redPen = new Pen(Color.Red, 3);
+            Pen redPen = new Pen(Color.Red, 4);
             Pen greenPen = new Pen(Color.Green, 3);
             // Create points that define curve.
             Point point1 = new Point(40, 100);
@@ -54,10 +62,10 @@ namespace DrawingOperations
         }
         private static char[] constant =
      {
-        '0','1','2','3','4','5','6','7','8','9',
-        'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-        'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
-      };
+           '0','1','2','3','4','5','6','7','8','9',
+           'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+           'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
+        };
         public static string GenerateRandomNumber(int Length)
         {
             System.Text.StringBuilder newRandom = new System.Text.StringBuilder(62);

@@ -12,7 +12,7 @@ namespace ConsoleApp3
         {
             //operation();
             //UsersOperation();
-            //Save();
+            Save();
             //SeekArticle();
             //PunlshArticle();
         }
@@ -109,19 +109,18 @@ namespace ConsoleApp3
                 new XElement("ArticleTitle", "C#"),
                 new XElement("Content", "什么是C#?"),
                 new XElement("Comment", "写的不好!"),
-                new XElement("PublishTime", "2020年1月1日"),
+                new XElement("PublishTime", "2020年1月1日")),
                 new XElement("User",
-                new XElement("name", "曾俊清"),
-                new XElement("id", "3"),
-                new XElement("Age", "23"),
-                new XElement("password", "1grf32fg2rg"),
+                new XElement("name", "曾俊清",
+                new XAttribute("id", "3"),
+                new XAttribute("Age", "23"),
+                new XAttribute("password", "1grf32fg2rg")),
                 new XElement("ArcticleTitle", "JavaScript"),
                 new XElement("Content", "什么是JavaScript?"),
                 new XElement("Comment", "很赞!"),
                 new XElement("PublishTime", "2019年12月24日")
-                )));
+                ));
             return Users;
-
         }
         private static void Save()
         {
