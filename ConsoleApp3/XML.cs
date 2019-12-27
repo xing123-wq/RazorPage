@@ -12,9 +12,10 @@ namespace ConsoleApp3
         {
             //operation();
             //UsersOperation();
-            Save();
+            //Save();
             //SeekArticle();
             //PunlshArticle();
+            CommentArticle();
         }
         private static XElement operation()
         {
@@ -88,7 +89,6 @@ namespace ConsoleApp3
             //能够存放用户的id、name和password，然后并存放到磁盘
             //扩展user和articles的内容，使其能够完成以下操作：
             //查出每个用户最近发布的一篇文章
-            //每个用户评论最多的一篇文章
             //删除没有发表文章的用户
             XElement Users = new XElement(
                 "Users",
@@ -118,8 +118,18 @@ namespace ConsoleApp3
                 new XElement("ArcticleTitle", "JavaScript"),
                 new XElement("Content", "什么是JavaScript?"),
                 new XElement("Comment", "很赞!"),
-                new XElement("PublishTime", "2019年12月24日")
-                ));
+                new XElement ("Comment","极好!"),
+                new XElement("PublishTime", "2019年12月24日"),
+                new XElement("User",
+                new XElement("name", "大飞哥",
+                new XAttribute("id", "4"),
+                new XAttribute("password", "ribfweiqoq21"),
+                new XAttribute("Age", "39")),
+                new XElement("ArticleTitle", ".NET"),
+                new XElement("Content", "什么是.NET?"),
+                new XElement("Comment", "写的很Very Good! "),
+                new XElement("PublishTime", "2018年9月18日")
+                )));
             return Users;
         }
         private static void Save()
@@ -158,6 +168,20 @@ namespace ConsoleApp3
             foreach (var item in users)
             {
                 Console.WriteLine($"{item.Author}:{item.count}");
+            }
+        }
+        private static void CommentArticle()
+        {
+            //每个用户评论最多的一篇文章
+            var Max = UsersOperation().Descendants("User")
+                .GroupBy(u => u.Element("name").Value)
+                .Select(u=>u.OrderByDescending
+                (u=>u.Descendants("Content")
+                .Elements("Comment").Count()))
+                .First().Elements("ArticleTitle");
+            foreach (var item in Max)
+            {
+                Console.WriteLine(item);
             }
         }
     }
