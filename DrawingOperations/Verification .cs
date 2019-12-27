@@ -24,14 +24,28 @@ namespace DrawingOperations
 
             Random random = new Random();
 
-            for (int i = 0; i < 100; i++)
+            Color[] myColor = { Color.Black, Color.Red, Color.Blue, Color.Green, Color.Orange, Color.Brown, Color.Brown, Color.DarkBlue };
+
+            //画噪音点
+            for (int j = 0; j < 100; j++)
             {
                 int x = random.Next(image.Width);
                 int y = random.Next(image.Height);
-                image.SetPixel(x, y, Color.FromArgb(random.Next()));
+                Color tempColor = myColor[random.Next(myColor.Length)];
+                image.SetPixel(x, y,tempColor);
+            }
+            //画噪音线
+            for (int i = 0; i < 25; i++)
+            {
+                int x1 = random.Next(image.Width);
+                int x2 = random.Next(image.Width);
+                int y1 = random.Next(image.Height);
+                int y2 = random.Next(image.Height);
+                Color tempColor = myColor[random.Next(myColor.Length)];
+                g.DrawLine(new Pen(tempColor ), new Point(x1, y1), new Point(x2, y2));
+
             }
 
-          
 
             g.DrawString(GenerateRandomNumber(4),       //绘制字符串
                 new Font("宋体", 14),                //指定字体
