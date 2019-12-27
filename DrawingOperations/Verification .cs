@@ -31,25 +31,9 @@ namespace DrawingOperations
                 image.SetPixel(x, y, Color.FromArgb(random.Next()));
             }
 
-            // Create pens.
-            Pen redPen = new Pen(Color.Red, 4);
-            Pen greenPen = new Pen(Color.Green, 3);
-            // Create points that define curve.
-            Point point1 = new Point(40, 100);
-            Point point2 = new Point(50, 25);
-            Point point3 = new Point(10, 55);
-            Point point4 = new Point(200, 30);
-            Point point5 = new Point(300, 120);
-            Point point6 = new Point(350, 300);
-            Point point7 = new Point(250, 2900);
-            Point[] curvePoints = { point1, point2, point3, point4, point5, point6, point7 };
+          
 
-            // Draw lines between original points to screen.
-            g.DrawLines(redPen, curvePoints);
-            // Draw curve to screen.
-            g.DrawCurve(greenPen, curvePoints);
-
-            g.DrawString(GenerateRandomNumber(8),       //绘制字符串
+            g.DrawString(GenerateRandomNumber(4),       //绘制字符串
                 new Font("宋体", 14),                //指定字体
                 new SolidBrush(Color.DarkRed),      //绘制时使用的刷子
                 new PointF(6, 6)                    //左上角定位
@@ -64,7 +48,8 @@ namespace DrawingOperations
         {
            '0','1','2','3','4','5','6','7','8','9',
            'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-           'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
+           'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+           '王','老','飞','哥','可'
         };
         public static string GenerateRandomNumber(int Length)
         {
