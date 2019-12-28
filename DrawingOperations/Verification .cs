@@ -31,8 +31,8 @@ namespace DrawingOperations
             {
                 int x = random.Next(image.Width);
                 int y = random.Next(image.Height);
-                Color tempColor = myColor[random.Next(myColor.Length)];
-                image.SetPixel(x, y,tempColor);
+                Color Color = myColor[random.Next(myColor.Length)];
+                image.SetPixel(x, y,Color);
             }
             //画噪音线
             for (int i = 0; i < 25; i++)
@@ -41,16 +41,17 @@ namespace DrawingOperations
                 int x2 = random.Next(image.Width);
                 int y1 = random.Next(image.Height);
                 int y2 = random.Next(image.Height);
-                Color tempColor = myColor[random.Next(myColor.Length)];
-                g.DrawLine(new Pen(tempColor ), new Point(x1, y1), new Point(x2, y2));
+                Color Color = myColor[random.Next(myColor.Length)];
+                g.DrawLine(new Pen(Color ), new Point(x1, y1), new Point(x2, y2));
 
             }
+            Color tempColor = myColor[random.Next(myColor.Length)];
 
 
             g.DrawString(GenerateRandomNumber(4),       //绘制字符串
-                new Font("宋体", 14),                //指定字体
-                new SolidBrush(Color.DarkRed),      //绘制时使用的刷子
-                new PointF(6, 6)                    //左上角定位
+                new Font("宋体", 20),                //指定字体
+                new SolidBrush(tempColor),      //绘制时使用的刷子
+                new PointF(90, 50)                    //左上角定位
             );
 
             image.SetPixel(195, 95, Color.BlueViolet);  //绘制一个像素的点
@@ -65,10 +66,12 @@ namespace DrawingOperations
            'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
            '王','老','飞','哥','可'
         };
-        public static string GenerateRandomNumber(int Length)
+        public static string GenerateRandomNumber(int Length)   
         {
             System.Text.StringBuilder newRandom = new System.Text.StringBuilder(62);
             Random rd = new Random();
+            Color[] myColor = { Color.Black, Color.Red, Color.Blue, Color.Green, Color.Orange, Color.Brown, Color.Brown, Color.DarkBlue };
+
             for (int i = 0; i < Length; i++)
             {
                 newRandom.Append(constant[rd.Next(62)]);
