@@ -26,13 +26,17 @@ namespace DrawingOperations
             Color tempColor = myColor[random.Next(myColor.Length)];
             string[] fonts = { "微软雅黑", "宋体", "黑体", "隶书", "仿宋" };
             string typeface = fonts[random.Next(fonts.Length)];
+            int[] size = { 10, 20, 30, 40 };
+            int[] sizes = { 15, 25, 35, 45 };
+            int mysize = size[random.Next(size.Length)];
+            int mysizes = sizes[random.Next(sizes.Length)];
             //画噪音点
             for (int j = 0; j < 100; j++)
             {
                 int x = random.Next(image.Width);
                 int y = random.Next(image.Height);
                 Color Color = myColor[random.Next(myColor.Length)];
-                image.SetPixel(x, y,Color);
+                image.SetPixel(x, y, Color);
             }
 
             //画噪音线
@@ -43,14 +47,14 @@ namespace DrawingOperations
                 int y1 = random.Next(image.Height);
                 int y2 = random.Next(image.Height);
                 Color Color = myColor[random.Next(myColor.Length)];
-                g.DrawLine(new Pen(Color ), new Point(x1, y1), new Point(x2, y2));
+                g.DrawLine(new Pen(Color), new Point(x1, y1), new Point(x2, y2));
 
             }
-            
+
             g.DrawString(GenerateRandomNumber(4),       //绘制字符串
-                new Font(typeface, 20),                //指定字体
+                new Font(typeface, mysize),                //指定字体
                 new SolidBrush(tempColor),      //绘制时使用的刷子
-                new PointF(90, 50)                    //左上角定位
+                new PointF(mysize, mysizes)                    //左上角定位
             );
 
             image.SetPixel(195, 95, Color.BlueViolet);  //绘制一个像素的点
@@ -64,7 +68,7 @@ namespace DrawingOperations
            'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
            '王','老','飞','哥','可'
         };
-        public static string GenerateRandomNumber(int Length)   
+        public static string GenerateRandomNumber(int Length)
         {
             System.Text.StringBuilder newRandom = new System.Text.StringBuilder(62);
             Random rd = new Random();
