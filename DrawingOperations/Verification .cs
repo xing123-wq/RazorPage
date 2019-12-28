@@ -18,13 +18,12 @@ namespace DrawingOperations
         public static void Code()
         {
             Bitmap image = new Bitmap(200, 100);  //生成一个像素图“画板”
-
             Graphics g = Graphics.FromImage(image);    //在画板的基础上生成一个绘图对象
             g.Clear(Color.AliceBlue);           //添加底色
 
             Random random = new Random();
-
             Color[] myColor = { Color.Black, Color.Red, Color.Blue, Color.Green, Color.Orange, Color.Brown, Color.Brown, Color.DarkBlue };
+            Color tempColor = myColor[random.Next(myColor.Length)];
 
             //画噪音点
             for (int j = 0; j < 100; j++)
@@ -34,6 +33,7 @@ namespace DrawingOperations
                 Color Color = myColor[random.Next(myColor.Length)];
                 image.SetPixel(x, y,Color);
             }
+
             //画噪音线
             for (int i = 0; i < 25; i++)
             {
@@ -45,9 +45,7 @@ namespace DrawingOperations
                 g.DrawLine(new Pen(Color ), new Point(x1, y1), new Point(x2, y2));
 
             }
-            Color tempColor = myColor[random.Next(myColor.Length)];
-
-
+            
             g.DrawString(GenerateRandomNumber(4),       //绘制字符串
                 new Font("宋体", 20),                //指定字体
                 new SolidBrush(tempColor),      //绘制时使用的刷子
@@ -55,7 +53,6 @@ namespace DrawingOperations
             );
 
             image.SetPixel(195, 95, Color.BlueViolet);  //绘制一个像素的点
-
             image.Save(@"F:\17bang\hello.jpg", ImageFormat.Jpeg);   //保存到文件
 
         }
