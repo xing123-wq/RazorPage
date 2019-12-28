@@ -24,7 +24,8 @@ namespace DrawingOperations
             Random random = new Random();
             Color[] myColor = { Color.Black, Color.Red, Color.Blue, Color.Green, Color.Orange, Color.Brown, Color.Brown, Color.DarkBlue };
             Color tempColor = myColor[random.Next(myColor.Length)];
-
+            string[] fonts = { "微软雅黑", "宋体", "黑体", "隶书", "仿宋" };
+            string typeface = fonts[random.Next(fonts.Length)];
             //画噪音点
             for (int j = 0; j < 100; j++)
             {
@@ -47,7 +48,7 @@ namespace DrawingOperations
             }
             
             g.DrawString(GenerateRandomNumber(4),       //绘制字符串
-                new Font("宋体", 20),                //指定字体
+                new Font(typeface, 20),                //指定字体
                 new SolidBrush(tempColor),      //绘制时使用的刷子
                 new PointF(90, 50)                    //左上角定位
             );
