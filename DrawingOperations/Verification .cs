@@ -17,19 +17,22 @@ namespace DrawingOperations
         //混淆用的直线（或曲线）
         public static void Code()
         {
+            Random random = new Random();
+
+            string[] fonts = { "微软雅黑", "宋体", "黑体", "隶书", "仿宋" };
+            Color[] myColor = { Color.Black, Color.Red, Color.Blue, Color.Green, Color.Orange, Color.Brown, Color.Brown, Color.DarkBlue };
+            int[] size = { 10, 20, 30, 40 };
+            int[] sizes = { 15, 25, 35, 45 };
+          
+            Color tempColor = myColor[random.Next(myColor.Length)];
+            string typeface = fonts[random.Next(fonts.Length)];
+            int mysize = size[random.Next(size.Length)];
+            int mysizes = sizes[random.Next(sizes.Length)];
+
             Bitmap image = new Bitmap(200, 100);  //生成一个像素图“画板”
             Graphics g = Graphics.FromImage(image);    //在画板的基础上生成一个绘图对象
             g.Clear(Color.AliceBlue);           //添加底色
 
-            Random random = new Random();
-            Color[] myColor = { Color.Black, Color.Red, Color.Blue, Color.Green, Color.Orange, Color.Brown, Color.Brown, Color.DarkBlue };
-            Color tempColor = myColor[random.Next(myColor.Length)];
-            string[] fonts = { "微软雅黑", "宋体", "黑体", "隶书", "仿宋" };
-            string typeface = fonts[random.Next(fonts.Length)];
-            int[] size = { 10, 20, 30, 40 };
-            int[] sizes = { 15, 25, 35, 45 };
-            int mysize = size[random.Next(size.Length)];
-            int mysizes = sizes[random.Next(sizes.Length)];
             //画噪音点
             for (int j = 0; j < 100; j++)
             {
