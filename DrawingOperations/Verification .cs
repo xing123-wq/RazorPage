@@ -21,9 +21,9 @@ namespace DrawingOperations
 
             string[] fonts = { "微软雅黑", "宋体", "黑体", "隶书", "仿宋" };
             Color[] myColor = { Color.Black, Color.Red, Color.Blue, Color.Green, Color.Orange, Color.Brown, Color.Brown, Color.DarkBlue };
-            int[] size = { 10, 20, 30, 40 };
-            int[] sizes = { 15, 25, 35, 45 };
-          
+            int[] size = { 44, 20, 30, 40, 33, 44, 22, 32 };
+            int[] sizes = { 43, 25, 35, 45, 41, 39, 29 };
+
             Color tempColor = myColor[random.Next(myColor.Length)];
             string typeface = fonts[random.Next(fonts.Length)];
             int mysize = size[random.Next(size.Length)];
