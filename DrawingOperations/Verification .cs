@@ -19,15 +19,15 @@ namespace DrawingOperations
         {
             Random random = new Random();
 
-            string[] fonts = { "微软雅黑", "宋体", "黑体", "隶书", "仿宋" };
+            string[] fonts = { "微软雅黑", "宋体", "黑体", "隶书", "仿宋","粗体", "篆书","燕体","楷书","草书" };
             Color[] myColor = { Color.Black, Color.Red, Color.Blue, Color.Green, Color.Orange, Color.Brown, Color.Brown, Color.DarkBlue };
-            int[] size = { 44, 20, 30, 40, 33, 44, 22, 32 };
-            int[] sizes = { 43, 25, 35, 45, 41, 39, 29 };
+            int[] Pen = { 44, 20, 30, 40, 33, 44, 22, 32 };
+            int[] Point = { 43, 25, 35, 45, 41, 39, 29 };
 
             Color tempColor = myColor[random.Next(myColor.Length)];
             string typeface = fonts[random.Next(fonts.Length)];
-            int mysize = size[random.Next(size.Length)];
-            int mysizes = sizes[random.Next(sizes.Length)];
+            int MyPen = Pen[random.Next(Pen.Length)];
+            int MyPoint = Point[random.Next(Point.Length)];
 
             Bitmap image = new Bitmap(200, 100);  //生成一个像素图“画板”
             Graphics g = Graphics.FromImage(image);    //在画板的基础上生成一个绘图对象
@@ -51,35 +51,26 @@ namespace DrawingOperations
                 int y2 = random.Next(image.Height);
                 Color Color = myColor[random.Next(myColor.Length)];
                 g.DrawLine(new Pen(Color), new Point(x1, y1), new Point(x2, y2));
-
             }
 
             g.DrawString(GenerateRandomNumber(4),       //绘制字符串
-                new Font(typeface, mysize),                //指定字体
+                new Font(typeface, MyPen),                //指定字体
                 new SolidBrush(tempColor),      //绘制时使用的刷子
-                new PointF(mysize, mysizes)                    //左上角定位
+                new PointF(MyPen, MyPoint)                    //左上角定位
             );
 
             image.SetPixel(195, 95, Color.BlueViolet);  //绘制一个像素的点
             image.Save(@"F:\17bang\hello.jpg", ImageFormat.Jpeg);   //保存到文件
 
         }
-        private static char[] constant =
+        private static char[] constant = "1234567890,qwertyuiopasdfghjklzxcvbnm,QWERTYUIOPASDFGHJKLZXCVBNM".ToArray();
+        public static string GenerateRandomNumber(int length)
         {
-           '0','1','2','3','4','5','6','7','8','9',
-           'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-           'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-           '王','老','飞','哥','可'
-        };
-        public static string GenerateRandomNumber(int Length)
-        {
-            System.Text.StringBuilder newRandom = new System.Text.StringBuilder(62);
+            StringBuilder newRandom = new StringBuilder(length);
             Random rd = new Random();
-            Color[] myColor = { Color.Black, Color.Red, Color.Blue, Color.Green, Color.Orange, Color.Brown, Color.Brown, Color.DarkBlue };
-
-            for (int i = 0; i < Length; i++)
+            for (int i = 0; i < length; i++)
             {
-                newRandom.Append(constant[rd.Next(62)]);
+                newRandom.Append(constant[rd.Next(length)]);
             }
             return newRandom.ToString();
         }
