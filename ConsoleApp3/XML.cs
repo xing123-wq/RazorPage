@@ -12,10 +12,10 @@ namespace ConsoleApp3
         {
             //operation();
             //UsersOperation();
-            //Save();
+            Save();
             //SeekArticle();
             //PunlshArticle();
-            CommentArticle();
+            //CommentArticle();
         }
         private static XElement operation()
         {
@@ -118,7 +118,7 @@ namespace ConsoleApp3
                 new XElement("ArcticleTitle", "JavaScript"),
                 new XElement("Content", "什么是JavaScript?"),
                 new XElement("Comment", "很赞!"),
-                new XElement ("Comment","极好!"),
+                new XElement("Comment", "极好!"),
                 new XElement("PublishTime", "2019年12月24日"),
                 new XElement("User",
                 new XElement("name", "大飞哥",
@@ -129,6 +129,11 @@ namespace ConsoleApp3
                 new XElement("Content", "什么是.NET?"),
                 new XElement("Comment", "写的很Very Good! "),
                 new XElement("PublishTime", "2018年9月18日")
+                )), new XElement("User",
+                new XElement("name", "侯涛",
+                new XAttribute("id", "8"),
+                new XAttribute("Age", "56"),
+                new XAttribute("password", "78gtr0qfroh")
                 )));
             return Users;
         }
@@ -175,8 +180,8 @@ namespace ConsoleApp3
             //每个用户评论最多的一篇文章
             var Max = UsersOperation().Descendants("User")
                 .GroupBy(u => u.Element("name").Value)
-                .Select(u=>u.OrderByDescending
-                (u=>u.Descendants("Content")
+                .Select(u => u.OrderByDescending
+                (u => u.Descendants("Content")
                 .Elements("Comment").Count()))
                 .First().Elements("ArticleTitle");
             foreach (var item in Max)
