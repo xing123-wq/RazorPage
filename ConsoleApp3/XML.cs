@@ -12,7 +12,7 @@ namespace ConsoleApp3
         {
             //operation();
             //UsersOperation();
-            Save();
+            //Save();
             //SeekArticle();
             //PunlshArticle();
             //CommentArticle();
