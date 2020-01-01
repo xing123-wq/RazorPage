@@ -16,6 +16,7 @@ namespace ConsoleApp3
             //SeekArticle();
             //PunlshArticle();
             //CommentArticle();
+            LatelyPublish();
         }
         private static XElement operation()
         {
@@ -88,47 +89,49 @@ namespace ConsoleApp3
             //参照上述articles，代码生成一个XML的users对象，
             //能够存放用户的id、name和password，然后并存放到磁盘
             //扩展user和articles的内容，使其能够完成以下操作：
-            //查出每个用户最近发布的一篇文章
-            //删除没有发表文章的用户
             XElement Users = new XElement(
                 "Users",
                 new XElement("User",
+                new XElement("Article",
                 new XElement("name", "大飞哥",
                 new XAttribute("id", "2"),
                 new XAttribute("password", "12356fnfiiv"),
                 new XAttribute("Age", "39")),
-                new XElement("ArticleTitle", "XML"),
+                new XElement("Title", "XML"),
                 new XElement("Content", "什么是XML（EXtensible Markup Language"),
                 new XElement("Comment", "写的真好!"),
-                new XElement("PublishTime", "2019年10月2日")),
+                new XElement("PublishTime", "2019/10/2  12:16"))),
                 new XElement("User",
+                new XElement("Article",
                 new XElement("name", "于维谦",
                 new XAttribute("id", "5"),
                 new XAttribute("password", "2efer42tyf79"),
                 new XAttribute("Age", "21")),
-                new XElement("ArticleTitle", "C#"),
+                new XElement("Title", "C#"),
                 new XElement("Content", "什么是C#?"),
                 new XElement("Comment", "写的不好!"),
-                new XElement("PublishTime", "2020年1月1日")),
+                new XElement("PublishTime", "2020/1/1  00:00"))),
                 new XElement("User",
+                new XElement("Arcticle",
                 new XElement("name", "曾俊清",
                 new XAttribute("id", "3"),
                 new XAttribute("Age", "23"),
                 new XAttribute("password", "1grf32fg2rg")),
-                new XElement("ArcticleTitle", "JavaScript"),
+                new XElement("Title", "JavaScript"),
                 new XElement("Content", "什么是JavaScript?"),
                 new XElement("Comment", "很赞!"),
                 new XElement("Comment", "极好!"),
-                new XElement("PublishTime", "2019年12月24日"),
+                new XElement("PublishTime", "2019/12/24  16:21"))),
                 new XElement("User",
+                new XElement("Article",
                 new XElement("name", "大飞哥",
                 new XAttribute("id", "4"),
                 new XAttribute("password", "ribfweiqoq21"),
                 new XAttribute("Age", "39")),
-                new XElement("ArticleTitle", ".NET"),
+                new XElement("Title", ".NET"),
                 new XElement("Content", "什么是.NET?"),
                 new XElement("Comment", "写的很Very Good! "),
-                new XElement("PublishTime", "2018年9月18日")
+                new XElement("PublishTime", "2019/12/31  18:22")
                 )), new XElement("User",
                 new XElement("name", "侯涛",
                 new XAttribute("id", "8"),
@@ -187,6 +190,18 @@ namespace ConsoleApp3
             foreach (var item in Max)
             {
                 Console.WriteLine(item);
+            }
+        }
+        private static void LatelyPublish()
+        {
+            //查出每个用户最近发布的一篇文章
+            var article = UsersOperation().Descendants("Article")
+                      .GroupBy(u => u.Element("name").Value)
+                      .Select(u => u.OrderByDescending(p => p.Element("PublishTime").Value).First());
+            foreach (var item in article)
+            {
+                Console.WriteLine(item.Element("Title"));
+
             }
         }
     }
