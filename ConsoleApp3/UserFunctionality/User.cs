@@ -58,7 +58,21 @@ namespace ConsoleApp3
                 }
             }
         }
-        private string Password { get; set; }
+        private string _Password;
+        private string Password
+        {
+            get
+            {
+                return _Password;
+            }
+            set
+            {
+                if(_Password.Length<6)
+                {
+                    Console.WriteLine("密码不能小于6位!");
+                }
+            }
+        }
         public User Invitedby { get; set; }
         public string Grade { get; set; }//等级属性
         public int HelpMoney { get; internal set; }
