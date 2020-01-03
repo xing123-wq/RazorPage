@@ -20,11 +20,11 @@ namespace DrawingOperations
             Random random = new Random();
 
             string[] fonts = { "微软雅黑", "宋体", "黑体", "隶书", "仿宋","粗体", "篆书","燕体","楷书","草书" };
-            Color[] myColor = { Color.Black, Color.Red, Color.Blue, Color.Green, Color.Orange, Color.Brown, Color.Brown, Color.DarkBlue };
+            Color[] RandomColor = { Color.Black, Color.Red, Color.Blue, Color.Green, Color.Orange, Color.Brown, Color.Brown, Color.DarkBlue };
             int[] Pen = { 44, 20, 30, 40, 33, 44, 22, 32 };
             int[] Point = { 43, 25, 35, 45, 41, 39, 29 };
 
-            Color tempColor = myColor[random.Next(myColor.Length)];
+            Color tempColor = RandomColor[random.Next(RandomColor.Length)];
             string typeface = fonts[random.Next(fonts.Length)];
             int MyPen = Pen[random.Next(Pen.Length)];
             int MyPoint = Point[random.Next(Point.Length)];
@@ -38,7 +38,7 @@ namespace DrawingOperations
             {
                 int x = random.Next(image.Width);
                 int y = random.Next(image.Height);
-                Color Color = myColor[random.Next(myColor.Length)];
+                Color Color = RandomColor[random.Next(RandomColor.Length)];
                 image.SetPixel(x, y, Color);
             }
 
@@ -49,7 +49,7 @@ namespace DrawingOperations
                 int x2 = random.Next(image.Width);
                 int y1 = random.Next(image.Height);
                 int y2 = random.Next(image.Height);
-                Color Color = myColor[random.Next(myColor.Length)];
+                Color Color = RandomColor[random.Next(RandomColor.Length)];
                 g.DrawLine(new Pen(Color), new Point(x1, y1), new Point(x2, y2));
             }
 
