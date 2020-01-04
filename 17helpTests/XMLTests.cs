@@ -82,5 +82,23 @@ namespace ConsoleApp3.Tests
                 Console.WriteLine(item.Element("Title"));
             }
         }
+
+        [TestMethod()]
+        public void PunlshArticleTest()
+        {
+            //Assert.Fail();
+            //统计出每个用户各发表了多少篇文章
+            var users = UsersOperation().Descendants("Article")
+                     .GroupBy(u => u.Element("name").Value)
+                     .Select(us => new
+                     {
+                         Author = us.Key,
+                         count = us.Count()
+                     });
+            foreach (var item in users)
+            {
+                Console.WriteLine($"{item.Author}:{item.count}");
+            }
+        }
     }
 }
