@@ -114,5 +114,16 @@ namespace ConsoleApp3.Tests
                 Console.WriteLine(item.Title);
             }
         }
+        [TestMethod()]
+        public void PublishArticleXyTest()
+        {
+            var xyArtricle = articles.Where(a => a.Author == xy && a.PublishTime > new DateTime(2019, 1, 1));
+
+            foreach (var item in xyArtricle)
+            {
+                Console.WriteLine(item.Title);
+            }
+        }
+
     }
 }
