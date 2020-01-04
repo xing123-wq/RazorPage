@@ -113,7 +113,7 @@ namespace ConsoleApp3
             //ContentService.Publish(SQL);
             //ContentService.Publish(JAVA);
         }
-        private static IEnumerable<Article> articles;
+        public static IEnumerable<Article> articles;
         public static void Do()
         {
             PublishArticleFg();
@@ -124,7 +124,7 @@ namespace ConsoleApp3
             MaxComment();
             RecentlyArticle();
         }
-        private static void PublishArticleFg()
+        public static void PublishArticleFg()
         {
             Console.WriteLine("\n找出飞哥发布的文章:");
             var fgArticle = articles.Where(a => a.Author.Name == "飞哥");
@@ -134,7 +134,7 @@ namespace ConsoleApp3
             }
 
         }
-        private static void PublishArticleXy()
+        public static void PublishArticleXy()
         {
             Console.WriteLine("\n找出小余发布的文章:");
             var xyArtricle = articles.Where(a => a.Author == xy && a.PublishTime > new DateTime(2019, 1, 1));
@@ -144,7 +144,7 @@ namespace ConsoleApp3
                 Console.WriteLine(item.Title);
             }
         }
-        private static void ArticleTime()
+        public static void ArticleTime()
         {
             Console.WriteLine("\n按照时间升序降序显示文章:");
             var deta = articles.OrderByDescending(a => a.PublishTime);
@@ -159,7 +159,7 @@ namespace ConsoleApp3
                 Console.WriteLine(item.Title);
             }
         }
-        private static void UserArticle()
+        public static void UserArticle()
         {
             Console.WriteLine("\n统计每个用户各发布了多少篇文章");
             var authorArticle = articles.GroupBy(a => a.Author)
@@ -173,7 +173,7 @@ namespace ConsoleApp3
                 Console.WriteLine(item.Author.Name + ":" + item.count);
             }
         }
-        private static void GetKey(Keyword keyword, Keyword Keyword)
+        public static void GetKey(Keyword keyword, Keyword Keyword)
         {
             Console.WriteLine("\n找出包含关键字“C#”或“.NET”的文章");
             var SeekKey = articles.Where(a => a.keywords.Contains(keyword) || a.keywords.Contains(Keyword));
@@ -182,7 +182,7 @@ namespace ConsoleApp3
                 Console.WriteLine($"{item.Author.Name}:{ item.Title}");
             }
         }
-        private static void MaxComment()
+        public static void MaxComment()
         {
             Console.WriteLine("\n找出评论数量最多的文章:");
             var ArticleComment = (articles.OrderByDescending(a => a.Comments.Count()).First());
@@ -191,7 +191,7 @@ namespace ConsoleApp3
         //将之前作业的Linq查询表达式用Linq方法实现
         //找出每个作者最近发布的一篇文章
         //为求助（Problem）添加悬赏（Reward）属性，并找出每一篇求助的悬赏都大于5个帮帮币的文章作者
-        private static void RecentlyArticle()
+        public static void RecentlyArticle()
         {
             Console.WriteLine("\n找出每个作者最近发布的一篇文章");
             var recently = articles.GroupBy(a => a.Author)
