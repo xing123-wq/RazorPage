@@ -100,5 +100,18 @@ namespace ConsoleApp3.Tests
                 Console.WriteLine($"{item.Author}:{item.count}");
             }
         }
+
+        [TestMethod()]
+        public void SeekArticleTest()
+        {
+            //根据用户名查找他发布的全部文章
+            var Author = from u in UsersOperation().Descendants("Article")
+                         where u.Element("name").Value == "大飞哥"
+                         select u;
+            foreach (var item in Author)
+            {
+                Console.WriteLine(item.Element("Title"));
+            }
+        }
     }
 }
