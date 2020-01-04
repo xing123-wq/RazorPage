@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 namespace ConsoleApp3
 {
-    class XML
+    public class XML
     {
         public static void Do()
         {
@@ -18,7 +18,7 @@ namespace ConsoleApp3
             //CommentArticle();
             LatelyPublish();
         }
-        private static XElement operation()
+        public static XElement operation()
         {
             ////按以下格式生成一个XML对象：
             XElement articles = new XElement(
@@ -84,7 +84,7 @@ namespace ConsoleApp3
             //articles.Save(@"F:\17bang\articles.xml");
             //Console.WriteLine(articles);
         }
-        private static XElement UsersOperation()
+        public static XElement UsersOperation()
         {
             //参照上述articles，代码生成一个XML的users对象，
             //能够存放用户的id、name和password，然后并存放到磁盘
@@ -140,7 +140,7 @@ namespace ConsoleApp3
                 )));
             return Users;
         }
-        private static void Save()
+        public static void Save()
         {
             //再从磁盘中读取到内存中。  
             XElement element = XElement.Load(@"F:\17bang\articles.xml");
@@ -152,7 +152,7 @@ namespace ConsoleApp3
               UsersOperation());
             document.Save("F:\\17bang\\Users.xml");
         }
-        private static void SeekArticle()
+        public static void SeekArticle()
         {
             //根据用户名查找他发布的全部文章
             var Author = from u in UsersOperation().Descendants("User")
@@ -163,7 +163,7 @@ namespace ConsoleApp3
                 Console.WriteLine(item.Element("ArticleTitle"));
             }
         }
-        private static void PunlshArticle()
+        public static void PunlshArticle()
         {
             //统计出每个用户各发表了多少篇文章
             var users = UsersOperation().Descendants("User")
@@ -178,7 +178,7 @@ namespace ConsoleApp3
                 Console.WriteLine($"{item.Author}:{item.count}");
             }
         }
-        private static void CommentArticle()
+        public static void CommentArticle()
         {
             //每个用户评论最多的一篇文章
             var Max = UsersOperation().Descendants("User")
@@ -192,7 +192,7 @@ namespace ConsoleApp3
                 Console.WriteLine(item);
             }
         }
-        private static void LatelyPublish()
+        public static void LatelyPublish()
         {
             //查出每个用户最近发布的一篇文章
             var article = UsersOperation().Descendants("Article")
