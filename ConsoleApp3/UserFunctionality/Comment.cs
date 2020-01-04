@@ -6,9 +6,9 @@ namespace ConsoleApp3
 {
     public class Comment : IAppraise
     {
-        public string Body { get; internal set; }
-        public Article Article { get; }
-        public User Author { get; internal set; }
+        public string Body { get;  set; }
+        public Article Article { get; set; }
+        public User Author { get;  set; }
 
         public Comment(Article article)//记录文章
         {
