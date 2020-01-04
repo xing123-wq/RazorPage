@@ -16,6 +16,10 @@ namespace ConsoleApp3
         //还可以考虑使用索引表（注意要用代码生成）以方便快速查询，如AuthorArticle.xml表存放作者Id和文章Id之间的对应关系……
         internal const int VERSION = 1;
         static readonly string Connection;
+        public static void Do()
+        {
+            Save();
+        }
         private static XElement GetRepoistory()
         {
             XElement Article = new XElement(
@@ -82,9 +86,11 @@ namespace ConsoleApp3
         }
         private static void Save()
         {
-            //再从磁盘中读取到内存中。  
-            XElement element = XElement.Load(@"F:\17bang\Articles.xml");
-            Console.WriteLine(element.Element("Article").FirstNode);
+            Console.WriteLine(GetRepoistory());
+            XDocument document = new XDocument(
+               new XDeclaration("1.0", "utf-8", "yes"),   //添加一个XML声明
+              GetRepoistory());
+            document.Save(@"F:\\17bang\\RepoistoryArticle.xml");
         }
 
     }
