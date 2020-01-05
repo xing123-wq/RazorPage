@@ -124,6 +124,20 @@ namespace ConsoleApp3.Tests
                 Console.WriteLine(item.Title);
             }
         }
+        [TestMethod()]
+        public void ArticleTimeTest()
+        {
+            var deta = articles.OrderByDescending(a => a.PublishTime);
+            var Time = articles.OrderBy(a => a.PublishTime);
+            foreach (var item in deta)
+            {
+                Console.WriteLine(item.Title);
+            }
+            foreach (var item in Time)
+            {
+                Console.WriteLine(item.Title);
+            }
+        }
 
     }
 }
