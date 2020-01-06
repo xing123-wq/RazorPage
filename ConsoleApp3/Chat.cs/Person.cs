@@ -4,9 +4,10 @@ using System.Text;
 
 namespace ConsoleApp3
 {
-    class Person
+    public class Person
     {
+        public int age = 18;
     }
-    delegate int ProvideWater(Person person);
+    public delegate int ProvideWater(Person person);
 
 }
