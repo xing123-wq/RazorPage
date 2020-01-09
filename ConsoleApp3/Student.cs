@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ConsoleApp3
 {
-    public class Student:Entity
+    public class Student : Entity
     {
         public string Name { get; set; }
         public int Age { get; set; }
@@ -29,7 +29,26 @@ namespace ConsoleApp3
 
             }
         }
+        public void Delete()
+        {
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;
+                                    Initial Catalog=17bang;
+                                    Integrated Security=True;
+                                    Connect Timeout=30;
+                                    Encrypt=False;
+                                    TrustServerCertificate=False;
+                                    ApplicationIntent=ReadWrite;
+                                    MultiSubnetFailover=False";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();  //需要显式的Open()
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = $"DELETE DREAM  ";
+                int row = command.ExecuteNonQuery();
 
+            }
+        }
         //思考dynamic和var的区别
         //用代码证明struct定义的类型是值类型
         internal void Information()
