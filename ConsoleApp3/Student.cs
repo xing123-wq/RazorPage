@@ -1,23 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace ConsoleApp3
 {
-    class Student
+    public class Student:Entity
     {
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public void Save()
+        {
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;
+                                    Initial Catalog=17bang;
+                                    Integrated Security=True;
+                                    Connect Timeout=30;
+                                    Encrypt=False;
+                                    TrustServerCertificate=False;
+                                    ApplicationIntent=ReadWrite;
+                                    MultiSubnetFailover=False";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();  //需要显式的Open()
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = $"INSERT DREAM VALUES(N'{Name}',{Age})";
+                int row = command.ExecuteNonQuery();
+
+            }
+        }
+
         //思考dynamic和var的区别
         //用代码证明struct定义的类型是值类型
         internal void Information()
         {
             object[] Student = new object[5];
             string Name = "阿泰";
-            Student[0] = Name;  
+            Student[0] = Name;
             int Score = 99;
             Student[1] = Score;
             double GPA = 88.5;
             Student[2] = GPA;
-            DateTime EnrolTime = new DateTime(12,3,4);
+            DateTime EnrolTime = new DateTime(12, 3, 4);
             Student[3] = EnrolTime;
             bool gender = true;//true代表男生,false代表女生.
             Student[4] = gender;

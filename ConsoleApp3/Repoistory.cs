@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace ConsoleApp3
 {
-    internal class Repoistory
+    internal class Repoistory<T>
     {
         //改写之前的对象模型中的Repoistory，使其能够：
         //以XML文件格式存储各种文章、求助和建议

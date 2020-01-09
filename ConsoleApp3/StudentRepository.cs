@@ -4,8 +4,11 @@ using System.Text;
 
 namespace ConsoleApp3
 {
-    public abstract class Entity
+    class StudentRepository:Repoistory<Student>
     {
-        public int Id { get; set; }
+        void Save(Student student)
+        {
+
+        }
     }
 }
