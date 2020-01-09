@@ -41,7 +41,9 @@ namespace ConsoleApp3
 
             //XML.Do();
 
-            Repoistory.Do();
+            //Repoistory.Do();
+
+            DBhelper.SQL();
         }
         //源栈的学费是按周计费的，所以请实现这两个功能：
         //函数GetDate()，能计算一个日期若干（日 / 周 / 月）后的日期
