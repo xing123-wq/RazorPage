@@ -17,10 +17,50 @@ namespace ConsoleApp3
         //根据用户名和密码检查某用户能够成功登陆：Logon()
         //如果用户成功登陆，将其最后登录时间（LatestLogonTime）改成当前时间
         //批量标记Message为已读
-        public static void SQL()
+        private const string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;
+                                    Initial Catalog=17bang;
+                                    Integrated Security=True;
+                                    Connect Timeout=30;
+                                    Encrypt=False;
+                                    TrustServerCertificate=False;
+                                    ApplicationIntent=ReadWrite;
+                                    MultiSubnetFailover=False";
+        public int ExecuteNonQuery(string cmdText)
         {
-            
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();  //需要显式的Open()
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = cmdText;
+                int row = command.ExecuteNonQuery();
+            }
+            return -1;
         }
-  
+        public object ExecuteScalar(string cmdText)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();  //需要显式的Open()
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = cmdText;
+                object row = command.ExecuteScalar();
+                return row;
+            }
+        }
+        public SqlDataReader ExecuteReader(string cmdText)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();  //需要显式的Open()
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = cmdText;
+                SqlDataReader row = command.ExecuteReader();
+                return row;
+            }
+
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
@@ -9,45 +10,27 @@ namespace ConsoleApp3
     {
         public string Name { get; set; }
         public int Age { get; set; }
+        private DBhelper _dBhelper;
+        private string _name { get; set; }
+        public Student()//减少newDBhelper的次数
+        {
+            if (_dBhelper == null)
+            {
+                _dBhelper = new DBhelper();
+            }
+        }
         public void Save()
         {
-            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;
-                                    Initial Catalog=17bang;
-                                    Integrated Security=True;
-                                    Connect Timeout=30;
-                                    Encrypt=False;
-                                    TrustServerCertificate=False;
-                                    ApplicationIntent=ReadWrite;
-                                    MultiSubnetFailover=False";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();  //需要显式的Open()
-                SqlCommand command = new SqlCommand();
-                command.Connection = connection;
-                command.CommandText = $"INSERT DREAM VALUES(N'{Name}',{Age})";
-                int row = command.ExecuteNonQuery();
-
-            }
+            _dBhelper.ExecuteNonQuery($" INSERT DREAM VALUES(N'{Name}',{Age})");
         }
         public void Delete()
         {
-            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;
-                                    Initial Catalog=17bang;
-                                    Integrated Security=True;
-                                    Connect Timeout=30;
-                                    Encrypt=False;
-                                    TrustServerCertificate=False;
-                                    ApplicationIntent=ReadWrite;
-                                    MultiSubnetFailover=False";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();  //需要显式的Open()
-                SqlCommand command = new SqlCommand();
-                command.Connection = connection;
-                command.CommandText = $"DELETE DREAM  ";
-                int row = command.ExecuteNonQuery();
-
-            }
+            _dBhelper.ExecuteNonQuery($"DELETE DREAM WHERE [Name]={_name} ");
+        }
+        public void Select()
+        {
+            object selrct = _dBhelper.ExecuteScalar("SELECT COUNT(*)[Name] FROM DREAM WHERE Age>2");
+            Console.WriteLine(selrct);
         }
         //思考dynamic和var的区别
         //用代码证明struct定义的类型是值类型

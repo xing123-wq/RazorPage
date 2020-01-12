@@ -1,0 +1,101 @@
+﻿@page
+<html>
+<head>
+    <script src="~/js/JavaScript2.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0
+        }
+
+        table {
+            margin: 0 auto;
+            margin-top: 200px
+        }
+    </style>
+</head>
+
+<body>
+    @*<form method="post" action="#" οnsubmit="return formCheck() ">
+            <input type="text" required="required" placeholder="username" name="username" />
+            <input type="password" id="pwd1" required="required" placeholder="password" name="password" />
+            <input type="password" id="pwd2" required="required" placeholder="confirm password" name="passwordconfirm">
+            <button class="but" type="submit">注册</button>
+        </form>*@
+
+    <form name="form1" method="post" action="">
+        <!--这里用js实现跳转-->
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td height="50" colspan="2" bgcolor="#eeeeee" align="center">用户登录</td>
+            </tr>
+            <tr>
+                <td width="70" height="50">用户名：</td>
+                <td><input name="user" type="text" maxlength="8"><!--8指的是8个汉字，8个字符--></td>
+            </tr>
+            <tr>
+                <td width="70" height="50">密&nbsp;码：</td>
+                <td><input name="pwd" type="password" id="user" maxlength="16"></td>
+            </tr>
+            <tr>
+                <td width="70" height="50">验证密码</td>
+                <td><input name="pwd" type="password" id="pwd" maxlength="16" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input name="reset" type="reset" value="重置">
+                    <input name="button" type="button" value="登录">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        //参考用户注册页面，创建一下函数：
+        //显示密码的长度
+        //如果密码和确认密码不一致，弹出提示
+        function formCheck() {
+            var pwd1 = document.getElementById("user");
+            var pwd2 = document.getElementById("pwd");
+            if (pwd1 === pwd2) {
+
+
+            }
+            else {
+                alert("两次输入的密码不一致！");
+            }
+        }
+                //function check() {
+                //    var user_name = form1.user.value;//获取表单form1的用户名的值
+                //    var user_pwd = form1.pwd.value;//获取表单form1密码值
+                //    if ((user_name == "") || (user_name == null)) {//判断用户名是否为空，为空就弹出提示框"请输入用户名"，否则正常执行下面的代码。
+                //        alert("请输入用户名！");
+                //        form1.user.focus();//获取焦点，即：鼠标自动定位到用户名输入框，等待用户输入用户名。
+                //        return;
+                //    }
+                //    else if ((user_pwd == "") || (user_pwd == null)) {//判断密码是否为空，为空就弹出提示框"请输入密码"，否则正常执行下面的代码。
+                //        alert("请输入密码！");
+                //        form1.pwd.focus();//获取焦点。
+                //        return;
+                //    }
+                //    else {//如果用户名、密码都正常输入，则提交表单，浏览器经打开新的（主页）窗口。
+                //        form1.submit();
+                //        window.open("http://17bang.ren/");
+                //    }
+                //}
+                //function password() {
+                //    var pas1, pas2;
+                //    pas1 = document.getElementById("pwd1").value;
+                //    pas2 = document.getElementById("pwd2").value;
+                //    if (pas1.length < 8) {
+                //        alert("密码必须大于8位，请重新输入！");
+                //        return;
+                //    }
+                //    if (!(pas1 == pas2 && pas2 != '')) {
+                //        alert("两次输入的密码不一致，请重新输入！");
+                //        return;
+                //    }
+                //}
+//参考用户资料页面，控制台显示出用户的：性别 / 出生年月 / 关注（关键字）/ 自我介绍
+    </script>
+</body>
+</html>
