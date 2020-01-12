@@ -11,7 +11,6 @@ namespace ConsoleApp3
         public string Name { get; set; }
         public int Age { get; set; }
         private DBhelper _dBhelper;
-        private string _name { get; set; }
         public Student()//减少newDBhelper的次数
         {
             if (_dBhelper == null)
@@ -25,7 +24,7 @@ namespace ConsoleApp3
         }
         public void Delete()
         {
-            _dBhelper.ExecuteNonQuery($"DELETE DREAM WHERE [Name]={_name} ");
+            _dBhelper.ExecuteNonQuery($"DELETE DREAM WHERE [Name]=N'与围墙' ");
         }
         public void Select()
         {

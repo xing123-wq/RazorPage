@@ -47,8 +47,9 @@ namespace ConsoleApp3
             //new Student { Name = "陈百万", Age = 2 }.Save();
             //new Student { Name = "曾俊清", Age = 21 }.Save();
             //new Student { Name = "彭坤", Age = 21 }.Save();
+            //new Student { Name = "与围墙", Age = 21 }.Save();
 
-            new Student().Delete();
+            //new Student().Delete();
 
         }
         //源栈的学费是按周计费的，所以请实现这两个功能：
