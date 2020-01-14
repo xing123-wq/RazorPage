@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Xml.Linq;
 using ConsoleApp3;
 
@@ -43,14 +44,9 @@ namespace ConsoleApp3
 
             //Repoistory.Do();
 
-            //new Student { Name = "于维谦", Age = 21 }.Save();
-            //new Student { Name = "陈百万", Age = 2 }.Save();
-            //new Student { Name = "曾俊清", Age = 21 }.Save();
-            //new Student { Name = "彭坤", Age = 21 }.Save();
-            //new Student { Name = "与围墙", Age = 21 }.Save();
-
             //new Student().Delete();
 
+            
         }
         //源栈的学费是按周计费的，所以请实现这两个功能：
         //函数GetDate()，能计算一个日期若干（日 / 周 / 月）后的日期

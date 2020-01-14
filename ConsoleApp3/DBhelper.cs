@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace ConsoleApp3
 {
-    public class DBhelper
+    public class DBhelper //工具类
     {
         //构建一个DBHelper，可以提供：
         //封装过后的ExecuteNonQuery()/ExecuteScalar()/ExecuteReader()方法
@@ -17,6 +18,7 @@ namespace ConsoleApp3
         //根据用户名和密码检查某用户能够成功登陆：Logon()
         //如果用户成功登陆，将其最后登录时间（LatestLogonTime）改成当前时间
         //批量标记Message为已读
+        private SqlConnection _longConnection { get; }
         private const string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;
                                     Initial Catalog=17bang;
                                     Integrated Security=True;
@@ -25,23 +27,51 @@ namespace ConsoleApp3
                                     TrustServerCertificate=False;
                                     ApplicationIntent=ReadWrite;
                                     MultiSubnetFailover=False";
-        public int ExecuteNonQuery(string cmdText)
+        public SqlConnection LongConnection
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            get
             {
-                connection.Open();  //需要显式的Open()
+                return new SqlConnection(connectionString);
+            }
+        }
+        public int ExecuteNonQuery(string cmdText, SqlConnection connection)
+        {
+            using (connection)
+            {
+                if (connection.State==ConnectionState.Closed)
+                {
+                    connection.Open();  //需要显式的Open()
+                }
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
                 command.CommandText = cmdText;
                 int row = command.ExecuteNonQuery();
+                return row;
             }
-            return -1;
         }
-        public object ExecuteScalar(string cmdText)
+        public int ExecuteNonQuery(string cmdText)
+        {
+            using (var connection = LongConnection)
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }//else:do notthing
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = cmdText;
+                int row = command.ExecuteNonQuery();
+                return row;
+            }
+        }
+        public object ExecuteScalar(string cmdText)//得到的结果是个标量
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();  //需要显式的Open()
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }//else:do notthing
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
                 command.CommandText = cmdText;
@@ -49,11 +79,14 @@ namespace ConsoleApp3
                 return row;
             }
         }
-        public SqlDataReader ExecuteReader(string cmdText)
+        public SqlDataReader ExecuteReader(string cmdText)//通过SqDataReader对象来获得返回的结果
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();  //需要显式的Open()
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }//else:do notthing
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
                 command.CommandText = cmdText;

@@ -18,7 +18,27 @@ namespace ConsoleApp3
                 _dBhelper = new DBhelper();
             }
         }
+        public static void SaveSome(params Student[] students)
+        {
+            DBhelper dBhelper = new DBhelper();
+            using (dBhelper.LongConnection)
+            {
+                for (int i = 0; i < students.Length; i++)
+                {
+                    students[0].Save(dBhelper.LongConnection);
+                }
+                //new Student { Name = "老王", Age = 21 }.Save();
+                //new Student { Name = "老铁", Age = 12 }.Save();
+                //new Student { Name = "清石", Age = 19 }.Save();
+                //new Student { Name = " ", Age = 30 }.Save();
+                //new Student { Name = "红莲", Age = 800 }.Save();
+            }
+        }
         public void Save()
+        {
+            _dBhelper.ExecuteNonQuery($" INSERT DREAM VALUES(N'{Name}',{Age})");
+        }
+        public void Save(SqlConnection connection)
         {
             _dBhelper.ExecuteNonQuery($" INSERT DREAM VALUES(N'{Name}',{Age})");
         }
@@ -53,11 +73,11 @@ namespace ConsoleApp3
             Console.WriteLine(Student[4]);
         }
     }
-    internal struct StudentInformation
-    {
+    //internal struct StudentInformation
+    //{
 
-        internal int score;
-    }
+    //    internal int score;
+    //}
 
 }
 
