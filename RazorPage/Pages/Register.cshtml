@@ -1,0 +1,10 @@
+﻿@page
+@model RazorPage.RegisterModel
+@{
+    Layout = "~/Pages/Layout/_DualColumn.cshtml";
+}
+@*使用双层嵌套Layout技术，让 /Register 和 /Log/On 显示相同的一行文字：欢迎加入“一起帮”，而Index页面不会显示。*@
+@section Description
+{
+    <h3 style="color:red">欢迎加入“一起帮”</h3>
+}

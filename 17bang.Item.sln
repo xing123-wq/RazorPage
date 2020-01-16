@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "17help", "ConsoleApp3\17help.csproj", "{3F9FDAA6-61B4-4950-9300-BB9C26B4CA48}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "17bang.CSharp", "17bang.CSharp", "{C31970A9-309E-4F22-B2F8-7E526BBEBAE7}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testapproach", "testapproach\testapproach.csproj", "{3E2AE578-C6B7-435F-A482-7FDD003D6E23}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawingOperations", "DrawingOperations\DrawingOperations.csproj", "{4C70BE02-5AB9-4E98-974E-9C27060CAB41}"
 EndProject
@@ -15,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "17helpTests", "17helpTests\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testitem", "Testitem", "{83AB23E7-93DB-4122-B75B-EDC7AE84C5F7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "17bangFront", "17bangFront\17bangFront.csproj", "{EB601391-D51A-4CDC-B5EB-EE329C2B7898}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPage", "RazorPage\RazorPage.csproj", "{05B185E3-1B21-42E3-888A-B9C2A8CAC393}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,14 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3F9FDAA6-61B4-4950-9300-BB9C26B4CA48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F9FDAA6-61B4-4950-9300-BB9C26B4CA48}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F9FDAA6-61B4-4950-9300-BB9C26B4CA48}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F9FDAA6-61B4-4950-9300-BB9C26B4CA48}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3E2AE578-C6B7-435F-A482-7FDD003D6E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E2AE578-C6B7-435F-A482-7FDD003D6E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E2AE578-C6B7-435F-A482-7FDD003D6E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E2AE578-C6B7-435F-A482-7FDD003D6E23}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4C70BE02-5AB9-4E98-974E-9C27060CAB41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4C70BE02-5AB9-4E98-974E-9C27060CAB41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C70BE02-5AB9-4E98-974E-9C27060CAB41}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,17 +27,15 @@ Global
 		{09450206-E941-4F07-9F00-8A5C293A0F1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09450206-E941-4F07-9F00-8A5C293A0F1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09450206-E941-4F07-9F00-8A5C293A0F1E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EB601391-D51A-4CDC-B5EB-EE329C2B7898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB601391-D51A-4CDC-B5EB-EE329C2B7898}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB601391-D51A-4CDC-B5EB-EE329C2B7898}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB601391-D51A-4CDC-B5EB-EE329C2B7898}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05B185E3-1B21-42E3-888A-B9C2A8CAC393}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05B185E3-1B21-42E3-888A-B9C2A8CAC393}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05B185E3-1B21-42E3-888A-B9C2A8CAC393}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05B185E3-1B21-42E3-888A-B9C2A8CAC393}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{3F9FDAA6-61B4-4950-9300-BB9C26B4CA48} = {C31970A9-309E-4F22-B2F8-7E526BBEBAE7}
-		{3E2AE578-C6B7-435F-A482-7FDD003D6E23} = {83AB23E7-93DB-4122-B75B-EDC7AE84C5F7}
 		{4C70BE02-5AB9-4E98-974E-9C27060CAB41} = {C31970A9-309E-4F22-B2F8-7E526BBEBAE7}
 		{09450206-E941-4F07-9F00-8A5C293A0F1E} = {83AB23E7-93DB-4122-B75B-EDC7AE84C5F7}
 	EndGlobalSection
