@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Pages\Index.cshtml~RF7daacc9.TMP" />
     <None Remove="Pages\Layout\All.cshtml~RF7b38932.TMP" />
     <None Remove="Pages\Layout\_DualColumn.cshtml~RF2e3425d.TMP" />
     <None Remove="Pages\Layout\_DualColumnLayout.cshtml~RF2bd8bf2.TMP" />
