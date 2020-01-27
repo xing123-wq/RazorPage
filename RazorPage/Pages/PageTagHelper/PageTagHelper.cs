@@ -11,7 +11,7 @@ namespace RazorPage.Pages.PageTagHelper
     {
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            output.TagName = "a";
+            output.TagName = "small";
             object pageIndex = context.AllAttributes["pageIndex"].Value;
             object path = context.AllAttributes["path"].Value;
             output.Attributes.Add("href", $"{path}/Page-{pageIndex}");

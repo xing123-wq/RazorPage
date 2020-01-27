@@ -11,7 +11,7 @@ namespace RazorPage
     {
         public void OnGet()
         {
-
+            ViewData["title"] = "首页-一起帮";
         }
     }
 }
