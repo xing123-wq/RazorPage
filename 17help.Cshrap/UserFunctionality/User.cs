@@ -6,6 +6,7 @@ namespace ConsoleApp3
 {
     sealed public class User : Entity, ISendMessage, IChat
     {
+        public int Id { get; set; }
         internal User(string inviter)
         {
 
@@ -39,7 +40,7 @@ namespace ConsoleApp3
 
             }
         }
-        public string Name;
+        public string Name { get; set; }
         public string _name
         {
             get
@@ -67,7 +68,7 @@ namespace ConsoleApp3
             }
             set
             {
-                if(_Password.Length<6)
+                if (_Password.Length < 6)
                 {
                     Console.WriteLine("密码不能小于6位!");
                 }
