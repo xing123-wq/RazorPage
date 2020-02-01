@@ -13,5 +13,10 @@ namespace ConsoleApp3
         public List<Article> Articles { get; set; }//关键字对应多个文章
         public int Id { get; set; }//关键字的Id
         public string Name { get; set; }
+
+        public static implicit operator string(Keyword v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
