@@ -1,9 +1,4 @@
-﻿.navbar-fixed-top, .navbar-fixed-bottom {
-    right: 0;
-    left: 0;
-    z-index: 1030;
-}
-
+﻿
 .container {
     padding-right: 15px;
     padding-left: 15px;
