@@ -149,6 +149,9 @@
     @RenderBody()
     <script>
         $('.dropdown-toggle').dropdown();
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
     </script>
 </body>
 </html>

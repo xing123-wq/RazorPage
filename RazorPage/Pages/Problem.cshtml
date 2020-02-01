@@ -1461,42 +1461,7 @@
             </div>
             <div class="modal fade" tabindex="-1" role="dialog" zyf-adinwidget-free-modal="">
             </div><!-- /.modal -->
-            <script>
-                $(document).ready(function () {
-                    var $freeAdInWidget = $("[zyf-adInWidget-free]"),
-                        warningClassName = "text-warning";
-
-                    setInterval(function () {
-                        if ($freeAdInWidget.hasClass(warningClassName)) {
-                            $freeAdInWidget.removeClass(warningClassName);
-                        } else {
-                            $freeAdInWidget.addClass(warningClassName);
-                        }
-                    }, 500)
-
-                    $("[zyf-adInWidget-free]").click(function (event) {
-                        event.preventDefault();
-                        if (isVisitor()) {
-                            showRemind(getWarningIcon() + " 访客不能申请该免费广告位。" + needLogonRemind());
-                            return false;
-                        }
-                        var $this = $(this),
-                            $modal = $("[zyf-adInWidget-free-modal]");
-                        $.ajax({
-                            url: $this.attr("href"),
-                            success: function (data) {
-                                $modal.modal("show");
-                                var $data = $(data);
-                                $data.find("[zyf-adInWidget-free-parentUrl]").val(location.href);
-                                $data.find("[zyf-ad-content-edit]").change(modifeAdContent);
-                                $data.find("[zyf-ad-in-widget-history-select]").change(showAdContent);
-                                $.validator.unobtrusive.parse($data.find("form"));
-                                $modal.html($data);
-                            }
-                        })
-                    })
-                })
-            </script>
+            
 
 
         </div>
@@ -1508,9 +1473,7 @@
         <span class="fa fa-comments-o"></span><br>反馈
     </a>
     <script>
-        $(".feedback").css("right", function () {
-            return getFlagPosition(this);
-        })
+       $('#example').tooltip(options)
     </script>
 
     <hr>
