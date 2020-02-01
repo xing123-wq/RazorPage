@@ -44,7 +44,6 @@ namespace ConsoleApp3
             Author.credit++;
             Author.HelpMony -= Reward;
         }
-
         public static void Load(int Id)
         {
 
@@ -53,14 +52,9 @@ namespace ConsoleApp3
         {
 
         }
+        private readonly static ProblemRepoistory _repoistory;
 
 
-        private readonly static repoistory _repoistory;
-
-        public class repoistory
-        {
-
-        }
     }
 
 }
