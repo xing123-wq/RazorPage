@@ -6,19 +6,13 @@ namespace ConsoleApp3
 {
     sealed public class User : Entity, ISendMessage, IChat
     {
+        private int _reward;
+        private string _name;
+        private string _Password;
         public int Id { get; set; }
-        internal User(string inviter)
-        {
-
-        }
-        public User()
-        {
-
-        }
         internal TokenManager Manager { get; set; }
         internal int HelpMony { get; set; }
         internal int credit { get; set; }
-        private int _reward;
         public int Reward
         {
             get
@@ -40,18 +34,17 @@ namespace ConsoleApp3
 
             }
         }
-        public string Name { get; set; }
-        public string _name
+        public string Name
         {
             get
             {
-                return Name;
+                return _name;
             }
             set
             {
                 if (value == "admin")
                 {
-                    Name = "系统管理员";
+                    _name = "系统管理员";
                 }
                 else
                 {
@@ -59,7 +52,6 @@ namespace ConsoleApp3
                 }
             }
         }
-        private string _Password;
         private string Password
         {
             get
@@ -77,7 +69,14 @@ namespace ConsoleApp3
         public User Invitedby { get; set; }
         public string Grade { get; set; }//等级属性
         public int HelpMoney { get; internal set; }
+        internal User(string inviter)
+        {
 
+        }
+        public User()
+        {
+
+        }
         internal void elevaterank(string label, int integral)
         {
 
