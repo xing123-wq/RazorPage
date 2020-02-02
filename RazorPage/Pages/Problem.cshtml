@@ -11,6 +11,7 @@
 }
 <link rel="stylesheet" href="~/css/about.css" />
 <link rel="stylesheet" href="~/css/site.css" />
+<script src="~/js/JavaScript.js"></script>
 <div class="container body-content">
     <div style="margin-top:55px" class="row">
         <div class="col-md-8">
@@ -1360,43 +1361,6 @@
                 </div>
 
             </div>
-
-            <script>
-                $(document).ready(function () {
-                    $.ajax({
-                        url: "/PlanScan/_DailyResult",
-                        success: function (data) {
-                            var $data = $(data);
-                            //显示未交作业的详情
-                            $data.find("[zyf-task-not-complete]").click(function () {
-                                if (!isAdmin()) {
-                                    showRemind(getWarningIcon() + ' 涉及个人隐私，只有管理员才有权查看。')
-                                    return false;
-                                } else {
-                                    $.ajax({
-                                        url: "/PlanScan/_GetAllNotComplete",
-                                        success: function (data) {
-                                            var title = '<span class="iconfont icon-money-bag"></span> 昨日全部未交作业';
-                                            showModal(title, data);
-                                        },
-                                        error: JqueryAjaxError
-                                    })
-                                }
-                            })
-                            $("#planscan").html($data);
-                        },
-                        error: JqueryAjaxError
-                    })
-                    $.ajax({
-                        url: "/User/_WidgetRegister",
-                        success: function (data) {
-                            $("#register").html(data);
-                        },
-                        error: JqueryAjaxError
-                    })
-                })
-            </script>
-
             <div zyf-widget-content="" class="widget clearfix">
                 <div style="font-size:24px;"><span class="iconfont icon-articles"></span> 精品文章</div>
                 <hr>
@@ -1461,21 +1425,15 @@
             </div>
             <div class="modal fade" tabindex="-1" role="dialog" zyf-adinwidget-free-modal="">
             </div><!-- /.modal -->
-            
-
-
         </div>
-    </div>
-    <a zyf-global-feedback="" href="/Contact/Us" style="bottom: 132px; right: 339.5px;" class="feedback flag text-center">
-        <span class="fa fa-question-circle-o"></span><br>帮助
-    </a>
-    <a zyf-global-feedback="" href="/Suggest/New" style="bottom: 80px; right: 339.5px;" class="feedback flag text-center">
-        <span class="fa fa-comments-o"></span><br>反馈
-    </a>
-    <script>
-       $('#example').tooltip(options)
-    </script>
+        <a zyf-global-feedback="" href="/Contact/Us" style="bottom: 132px; right: 339.5px;" class="feedback flag text-center">
+            <span class="fa fa-question-circle-o"></span><br>帮助
+        </a>
+        <a zyf-global-feedback="" href="/Suggest/New" style="bottom: 80px; right: 339.5px;" class="feedback flag text-center">
+            <span class="fa fa-comments-o"></span><br>反馈
+        </a>
 
+    </div>
     <hr>
     <footer>
         <div>
