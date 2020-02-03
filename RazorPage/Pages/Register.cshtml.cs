@@ -11,7 +11,7 @@ namespace RazorPage
     {
         public void OnGet()
         {
-
+            ViewData["title"] = "注册-一起帮";
         }
     }
 }

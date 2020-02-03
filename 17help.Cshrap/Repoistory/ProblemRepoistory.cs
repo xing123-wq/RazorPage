@@ -30,21 +30,7 @@ namespace ConsoleApp3
                 Title = "",
                 Keywords = new List<Keyword>
                 {
-                    new Keyword
-                    {
-                        Id=1,
-                        Name=CSharp
-                    },
-                     new Keyword
-                    {
-                        Id=2,
-                        Name=javascript
-                    } ,
-                    new Keyword
-                    {
-                        Id=3,
-                        Name=sql
-                    }
+                   sql,java,CSharp
                 },
 
              },
@@ -56,21 +42,7 @@ namespace ConsoleApp3
                 Title = "",
                 Keywords = new List<Keyword>
                 {
-                    new Keyword
-                    {
-                        Id=1,
-                        Name=linq
-                    },
-                     new Keyword
-                     {
-                        Id=2,
-                        Name=ajax
-                     },
-                    new Keyword
-                    {
-                        Id=3,
-                        Name=css
-                    }
+                   linq,css,ajax
                 },
 
              },
@@ -82,21 +54,7 @@ namespace ConsoleApp3
                 Title = "",
                 Keywords = new List<Keyword>
                 {
-                    new Keyword
-                    {
-                        Id=1,
-                        Name=html5
-                    },
-                     new Keyword
-                     {
-                        Id=2,
-                        Name=sql
-                     } ,
-                    new Keyword
-                    {
-                        Id=3,
-                        Name=javascript
-                    }
+                    html5,javascript,sql
                 },
 
              }
