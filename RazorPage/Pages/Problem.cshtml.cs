@@ -9,9 +9,14 @@ namespace RazorPage
 {
     public class ProblemModel : PageModel
     {
+        public IList<Problem> Problems { get; set; }
         public void OnGet()
         {
             ViewData["title"] = "首页-一起帮";
+        }
+        public void Post()
+        {
+
         }
     }
 }
