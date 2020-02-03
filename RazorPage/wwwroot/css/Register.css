@@ -43,3 +43,7 @@
     border: 2px dashed #eee;
     border-radius: 4px 5px;
 }
+
+.body {
+    margin: 0;
+}
