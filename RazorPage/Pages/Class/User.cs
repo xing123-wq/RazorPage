@@ -2,7 +2,9 @@
 {
     public class User
     {
-        public int Id { get; internal set; }
-        public string Name { get; internal set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Password { get; set; }
+        public string ValidatePassword { get; set; }
     }
 }
