@@ -9,7 +9,7 @@ namespace ConsoleApp3
         //一起帮的求助可以有多个（最多10个）关键字，
         //请为其设置索引器，以便于我们通过其整数下标进行读写。
         internal string Title { get; set; }
-        internal User Author { get; set; }
+        //internal User Author { get; set; }
         public string Body { get; set; }
         public DateTime PublishDateTime { get; set; }
         public IList<Keyword> Keywords { get; set; }
@@ -42,11 +42,11 @@ namespace ConsoleApp3
             set { Keyword[Index] = value; }
         }
         //public Problem(string kind) : base(kind) { }
-        public void Publish()
-        {
-            Author.credit++;
-            Author.HelpMony -= Reward;
-        }
+        //public void Publish()
+        //{
+        //    Author.credit++;
+        //    Author.HelpMony -= Reward;
+        ////}
         public static void Load(int Id)
         {
 

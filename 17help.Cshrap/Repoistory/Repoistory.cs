@@ -15,7 +15,7 @@ namespace ConsoleApp3
         //文件夹\Article、\Problem和\Suggest下分文件存放文章及评论信息，文件名可使用不重复的Id，如：540.xml
         //还可以考虑使用索引表（注意要用代码生成）以方便快速查询，如AuthorArticle.xml表存放作者Id和文章Id之间的对应关系……
         internal const int VERSION = 1;
-        static readonly string Connection;
+        //static readonly string Connection;
         public static void Do()
         {
             Save();

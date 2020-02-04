@@ -7,7 +7,7 @@ namespace ConsoleApp3
     class Stack
     {
         private string[] _container;
-        private int top;
+        private int top { get; set; }
         public Stack(int length)
         {
             _container = new string[length];

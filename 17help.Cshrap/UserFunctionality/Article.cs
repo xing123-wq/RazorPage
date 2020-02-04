@@ -6,7 +6,7 @@ namespace ConsoleApp3
     public class Article : Content
     {
         private string title;
-        private DateTime _publishTime;
+        //private DateTime _publishTime;
 
         //public Article(string kind) : base(kind) { }
         public List<Keyword> keywords { get; set; }
@@ -41,7 +41,7 @@ namespace ConsoleApp3
             Console.WriteLine("覆盖" + reward + "了");
         }
 
-        public  void Publish()
+        public void PublishDateTimre()
         {
             if (Author == null)
             {

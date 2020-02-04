@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using RazorPage.Pages.Class;
 
 namespace RazorPage
 {
@@ -13,6 +14,7 @@ namespace RazorPage
         public void OnGet()
         {
             ViewData["title"] = "首页-一起帮";
+            Problems = new ProblemRepoistory().Get();
         }
         public void Post()
         {

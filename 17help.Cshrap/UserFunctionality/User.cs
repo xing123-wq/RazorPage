@@ -9,7 +9,7 @@ namespace ConsoleApp3
         private int _reward;
         private string _name;
         private string _Password;
-        public int Id { get; set; }
+        //public int /*Id*/ { get; set; }
         internal TokenManager Manager { get; set; }
         internal int HelpMony { get; set; }
         internal int credit { get; set; }

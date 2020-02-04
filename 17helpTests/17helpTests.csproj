@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleApp3\17help.csproj" />
+    <ProjectReference Include="..\17help.Cshrap\17help.csproj" />
   </ItemGroup>
 
 </Project>
