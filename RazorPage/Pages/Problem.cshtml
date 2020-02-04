@@ -125,19 +125,22 @@
             }
             <nav>
                 <ul class="pagination">
-                    <li class="active"><a id="1" href="/Page-1?excludeCanceled=False&amp;excludeRewarded=False&amp;excludeInProgress=False&amp;onlyMyFocus=False&amp;onlySummaried=False">1</a></li>
-                    <li class=""><a id="2" href="/Page-2?excludeCanceled=False&amp;excludeRewarded=False&amp;excludeInProgress=False&amp;onlyMyFocus=False&amp;onlySummaried=False">2</a></li>
-                    <li class=""><a id="3" href="/Page-3?excludeCanceled=False&amp;excludeRewarded=False&amp;excludeInProgress=False&amp;onlyMyFocus=False&amp;onlySummaried=False">3</a></li>
-                    <li class=""><a id="4" href="/Page-4?excludeCanceled=False&amp;excludeRewarded=False&amp;excludeInProgress=False&amp;onlyMyFocus=False&amp;onlySummaried=False">4</a></li>
-                    <li class=""><a id="5" href="/Page-5?excludeCanceled=False&amp;excludeRewarded=False&amp;excludeInProgress=False&amp;onlyMyFocus=False&amp;onlySummaried=False">5</a></li>
-                    <li class=""><a id="6" href="/Page-6?excludeCanceled=False&amp;excludeRewarded=False&amp;excludeInProgress=False&amp;onlyMyFocus=False&amp;onlySummaried=False">6</a></li>
-                    <li class=""><a id="7" href="/Page-7?excludeCanceled=False&amp;excludeRewarded=False&amp;excludeInProgress=False&amp;onlyMyFocus=False&amp;onlySummaried=False">7</a></li>
-                    <li class=""><a id="8" href="/Page-8?excludeCanceled=False&amp;excludeRewarded=False&amp;excludeInProgress=False&amp;onlyMyFocus=False&amp;onlySummaried=False">8</a></li>
-                    <li class=""><a id="9" href="/Page-9?excludeCanceled=False&amp;excludeRewarded=False&amp;excludeInProgress=False&amp;onlyMyFocus=False&amp;onlySummaried=False">9</a></li>
-                    <li class=""><a id="10" href="/Page-10?excludeCanceled=False&amp;excludeRewarded=False&amp;excludeInProgress=False&amp;onlyMyFocus=False&amp;onlySummaried=False">10</a></li>
-                    <li><a id="2" href="/Page-2?excludeCanceled=False&amp;excludeRewarded=False&amp;excludeInProgress=False&amp;onlyMyFocus=False&amp;onlySummaried=False">&gt;&gt;</a></li>
+
+                    @for (int i = 1; i <= 10; i++)
+                    {
+                        <li class="active"><a id="1" href="/Problem?Page=@i">@(i)</a></li>
+                    }
+                    <li><a id="2" href="#">&gt;&gt;</a></li>
                 </ul>
             </nav>
+            <style>
+                .pagination > .active > a, .pagination > .active > span, .pagination > .active > a: hover, .pagination > .active > span: hover, .pagination > .active > a: focus, .pagination > .active > span: focus {
+                    color: #fff;
+                    cursor: default;
+                    background-color: #337ab7;
+                    border-color: #337ab7;
+                }
+            </style>
             <div class="modal fade" tabindex="-1" role="dialog" zyf-keyword-update-modal="">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -367,7 +370,7 @@
 
 
                                         <span data-toggle="tooltip" title="" data-original-title="">
-                                            <a href="/User/4244" zyf-show-contact="4244" >
+                                            <a href="/User/4244" zyf-show-contact="4244">
                                                 skyline
                                             </a>
                                         </span>
@@ -421,7 +424,7 @@
 
 
                                 <span data-toggle="tooltip" title="">
-                                    <a href="/User/4331" zyf-show-contact="4331" >
+                                    <a href="/User/4331" zyf-show-contact="4331">
                                         成果成果成狗
                                     </a>
                                 </span>

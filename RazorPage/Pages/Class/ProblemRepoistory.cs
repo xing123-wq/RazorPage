@@ -7,7 +7,8 @@ namespace RazorPage.Pages.Class
 {
     public class ProblemRepoistory
     {
-        public IList<Problem> Get()
+        static IList<Problem> Problems;
+        static ProblemRepoistory()
         {
             User pk = new User { Id = 1, Name = "彭昆" };
             User at = new User { Id = 2, Name = "阿泰" };
@@ -21,7 +22,7 @@ namespace RazorPage.Pages.Class
             Keyword linq = new Keyword { Id = 7, Name = "Linq" };
             Keyword ajax = new Keyword { Id = 8, Name = "AJAX" };
             //模拟从数据库取数据
-            return new List<Problem>
+            Problems = new List<Problem>
             {
               new Problem
               {
@@ -66,6 +67,17 @@ namespace RazorPage.Pages.Class
 
               }
             };
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pageindex">第几页</param>
+        /// <param name="pagesize">每一页取多少条数据</param>
+        /// <returns></returns>
+        public IList<Problem> Get(int pageindex, int pagesize)
+        {
+            return Problems.OrderByDescending(p => p.PublishDateTime)
+                .Skip((pageindex - 1) * pagesize).Take(pagesize).ToList();
         }
     }
 }
