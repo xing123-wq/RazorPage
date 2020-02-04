@@ -8,7 +8,7 @@ namespace RazorPage
         public DateTime PublishDateTime { get; set; }
         public string Body { get; internal set; }
         public string Title { get; internal set; }
-        internal User Author { get; set; }
-        internal List<Keyword> Keywords { get; set; }
+        public User Author { get; set; }
+        public List<Keyword> Keywords { get; set; }
     }
 }

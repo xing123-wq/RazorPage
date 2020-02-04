@@ -28,6 +28,10 @@
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\17help.Cshrap\17help.csproj" />
+  </ItemGroup>
+
 
 
 </Project>
