@@ -16,7 +16,7 @@ namespace RazorPage
         [Compare("Password", ErrorMessage = "* 确认密码和密码不一致")]
         public string ValidatePassword { get; set; }
         [Required(ErrorMessage = "* 邀请人不能为空")]
-        [StringLength(8, MinimumLength = 4, ErrorMessage = "* 用户名长度不能小于{2}也不能大于{1}")]
+        [StringLength(8, MinimumLength = 4, ErrorMessage = "* 邀请人长度不能小于{2}也不能大于{1}")]
         public string inviter { get; set; }
         [Required(ErrorMessage = "* 邀请码不能为空")]
         [StringLength(4, MinimumLength = 4, ErrorMessage = "* 邀请码只能是4位数")]
