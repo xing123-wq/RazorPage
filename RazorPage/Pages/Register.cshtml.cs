@@ -18,6 +18,10 @@ namespace RazorPage
         }
         public void OnPost()
         {
+            if (!ModelState.IsValid)
+            {
+                return;
+            }
             new UserRepoistoy().Sava(RegisteerOne);
         }
     }
