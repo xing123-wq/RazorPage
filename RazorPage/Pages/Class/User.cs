@@ -49,5 +49,10 @@ namespace RazorPage
         [RegularExpression("[0-9]*", ErrorMessage = "* 电话号码格式错误")]
         [MinLength(11, ErrorMessage = "* 电话号码只能是11位")]
         public int PhoneNumber { get; set; }
+
+        [Display(Name = "Email:(*必填)")]
+        [Required(ErrorMessage = "* Email不能为空")]
+        [EmailAddress(ErrorMessage = "* 电子邮件格式不正确")]
+        public string UserEmail { get; set; }
     }
 }
