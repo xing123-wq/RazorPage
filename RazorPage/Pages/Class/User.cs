@@ -28,6 +28,7 @@ namespace RazorPage
         public string inviter { get; set; }
 
         [Display(Name = "邀请码：（* 必填）")]
+        [RegularExpression("[0-9]*", ErrorMessage = "邀请码只能是4位数字")]
         [Required(ErrorMessage = "* 邀请码不能为空")]
         [StringLength(4, MinimumLength = 4, ErrorMessage = "* 邀请码只能是4位数")]
         public int Invitationcode { get; set; }
