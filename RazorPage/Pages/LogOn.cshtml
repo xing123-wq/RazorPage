@@ -33,14 +33,14 @@
                 </div>
                 <form method="post">
                     <div class="form-group">
-                        <label>用户名：（* 必填）</label>
+                        <label asp-for="LogOnOne.Name"></label>
                         <input class="form-control" data-val="true" data-val-length-max="20"
                                placeholder="登录用户名，可修改，不能重复"
                                type="text" asp-for="LogOnOne.Name">
                         <span asp-validation-for="LogOnOne.Name" style="color:red"></span>
                     </div>
                     <div class="form-group">
-                        <label>密码：（* 必填）</label>
+                        <label asp-for="LogOnOne.Password"></label>
                         <input asp-for="LogOnOne.Password" class="form-control" placeholder="不少于4个字符" type="password" />
                         <span asp-validation-for="LogOnOne.Password" style="color:red"></span>
                     </div>
