@@ -1,5 +1,4 @@
-﻿
-.container {
+﻿.container {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -9,3 +8,4 @@
 .open > .dropdown-menu {
     display: block;
 }
+

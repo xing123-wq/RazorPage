@@ -148,11 +148,6 @@ a {
     box-sizing: border-box;
 }
 
-.row {
-    margin-right: -15px;
-    margin-left: -15px;
-}
-
 .col-lg-4 {
     width: 33.33333333%;
 }
