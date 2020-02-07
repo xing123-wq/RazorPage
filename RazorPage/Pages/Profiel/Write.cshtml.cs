@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace RazorPage
 {
     [BindProperties]
-    public class ProfielModel : PageModel
+    public class WriteModel : PageModel
     {
         public bool? IsFemale { get; set; }
         public void OnGet()
