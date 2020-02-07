@@ -11,7 +11,7 @@ namespace RazorPage
     [BindProperties]
     public class RegisterModel : PageModel
     {
-        public User RegisteerOne { get; set; }
+        public RegisterUser RegisteerOne { get; set; }
         public void OnGet()
         {
             ViewData["title"] = "注册-一起帮";

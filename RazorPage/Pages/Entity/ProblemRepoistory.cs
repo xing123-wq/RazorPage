@@ -10,9 +10,9 @@ namespace RazorPage.Pages.Class
         static IList<Problem> Problems;
         static ProblemRepoistory()
         {
-            User pk = new User { Id = 1, Name = "彭昆" };
-            User at = new User { Id = 2, Name = "阿泰" };
-            User cy = new User { Id = 3, Name = "陈元" };
+            RegisterUser pk = new RegisterUser { Id = 1, Name = "彭昆" };
+            RegisterUser at = new RegisterUser { Id = 2, Name = "阿泰" };
+            RegisterUser cy = new RegisterUser { Id = 3, Name = "陈元" };
             Keyword sql = new Keyword { Id = 1, Name = "SQL" };
             Keyword java = new Keyword { Id = 2, Name = "JAVA" };
             Keyword CSharp = new Keyword { Id = 3, Name = "C#" };

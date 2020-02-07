@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RazorPage
 {
-    public class User
+    public class RegisterUser
     {
         public int Id { get; set; }
 
@@ -33,26 +33,5 @@ namespace RazorPage
         [StringLength(4, MinimumLength = 4, ErrorMessage = "* 邀请码只能是4位数")]
         public int Invitationcode { get; set; }
 
-        [Display(Name = "QQ:")]
-        [Required(ErrorMessage = "* QQ号码不能为空")]
-        [RegularExpression("[0-9]*", ErrorMessage = "* QQ号码格式错误")]
-        [StringLength(11, MinimumLength = 6, ErrorMessage = "* QQ号码不能大于{1}也不能小于{2}")]
-        public int TencentNumber { get; set; }
-
-        [Display(Name = "微信:")]
-        [Required(ErrorMessage = "* 微信号码不能为空")]
-        [StringLength(11, MinimumLength = 4, ErrorMessage = "* 微信号码不能大于{1}也不能小于{2}")]
-        public string WechatNumber { get; set; }
-
-        [Display(Name = "电话:")]
-        [Required(ErrorMessage = "* 电话不能为空")]
-        [RegularExpression("[0-9]*", ErrorMessage = "* 电话号码格式错误")]
-        [MinLength(11, ErrorMessage = "* 电话号码只能是11位")]
-        public int PhoneNumber { get; set; }
-
-        [Display(Name = "Email:(*必填)")]
-        [Required(ErrorMessage = "* Email不能为空")]
-        [EmailAddress(ErrorMessage = "* 电子邮件格式不正确")]
-        public string UserEmail { get; set; }
     }
 }

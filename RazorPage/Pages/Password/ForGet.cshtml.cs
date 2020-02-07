@@ -10,7 +10,7 @@ namespace RazorPage
 {
     public class ForGetModel : PageModel
     {
-        public User ForGetOne { get; set; }
+        public ContactEdit ForGetOne { get; set; }
         public void OnGet()
         {
             ViewData["title"] = "忘了-一起帮";
@@ -23,7 +23,7 @@ namespace RazorPage
 }
 public class UserForGet
 {
-    public void Sava(User user)
+    public void Sava(RegisterUser user)
     {
 
     }

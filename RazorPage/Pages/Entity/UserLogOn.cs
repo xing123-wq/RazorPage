@@ -9,7 +9,7 @@ namespace RazorPage.Pages.Class
     [BindProperties]
     public class UserLogOn
     {
-        public void Sava(User user)
+        public void Sava(LogOnUser user)
         {
 
         }
