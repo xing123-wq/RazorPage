@@ -42,6 +42,10 @@ namespace RazorPage
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCookiePolicy(new CookiePolicyOptions
+            {
+                CheckConsentNeeded = (x => false)
+            });
 
             app.UseEndpoints(endpoints =>
             {

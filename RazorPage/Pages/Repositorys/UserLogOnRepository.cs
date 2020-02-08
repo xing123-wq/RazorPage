@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 namespace RazorPage.Pages.Class
 {
     [BindProperties]
-    public class UserLogOn
+    public class UserLogOnRepository
     {
         public void Sava(LogOnUser user)
         {
 
         }
+
     }
 }
