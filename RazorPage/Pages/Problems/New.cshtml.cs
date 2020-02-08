@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace RazorPage
 {
-    public class NewsModel : PageModel
+    public class NewsModel : _LayoutModel
     {
-        public void OnGet()
+        public override void OnGet()
         {
+            base.OnGet();
             ViewData["title"] = "(新消息)我要求助--一起帮";
         }
     }

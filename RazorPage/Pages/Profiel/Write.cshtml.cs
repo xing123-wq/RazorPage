@@ -8,16 +8,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace RazorPage
 {
     [BindProperties]
-    public class WriteModel : PageModel
+    public class WriteModel : _LayoutModel
     {
         public bool? IsFemale { get; set; }
-        public void OnGet()
+        public override void OnGet()
         {
             ViewData["title"] = "个人资料--一起帮";
         }
         public void OnPost()
         {
-
+            base.OnGet();
         }
     }
 }

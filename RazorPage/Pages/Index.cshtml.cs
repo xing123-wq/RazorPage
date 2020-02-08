@@ -8,10 +8,11 @@ using Microsoft.Extensions.Logging;
 
 namespace RazorPage.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexModel : _LayoutModel
     {
-        public void OnGet()
+        public override void OnGet()
         {
+            base.OnGet();
             ViewData["title"] = "首页-一起帮";
         }
     }

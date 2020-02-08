@@ -9,11 +9,12 @@ using RazorPage.Pages.Class;
 namespace RazorPage
 {
     [BindProperties]
-    public class RegisterModel : PageModel
+    public class RegisterModel : _LayoutModel
     {
         public RegisterUser RegisteerOne { get; set; }
-        public void OnGet()
+        public override void OnGet()
         {
+            base.OnGet();
             ViewData["title"] = "注册-一起帮";
         }
         public void OnPost()
@@ -24,5 +25,6 @@ namespace RazorPage
             }
             new UserRepoistoy().Sava(RegisteerOne);
         }
+
     }
 }

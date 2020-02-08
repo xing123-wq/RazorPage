@@ -8,11 +8,12 @@ using RazorPage;
 
 namespace RazorPage
 {
-    public class ForGetModel : PageModel
+    public class ForGetModel : _LayoutModel
     {
         public ContactEdit ForGetOne { get; set; }
-        public void OnGet()
+        public override void OnGet()
         {
+            base.OnGet();
             ViewData["title"] = "忘了-一起帮";
         }
         public void OnPost()

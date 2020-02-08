@@ -9,11 +9,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace RazorPage
 {
     [BindProperties]
-    public class NewModel : PageModel
+    public class NewModel : _LayoutModel
     {
         public PublishUser PlanNewOn { get; set; }
-        public void OnGet()
+        public override void OnGet()
         {
+            base.OnGet();
             ViewData["title"] = "发布新目标--一起帮";
         }
         public void OnPost()

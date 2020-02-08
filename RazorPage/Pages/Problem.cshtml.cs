@@ -8,11 +8,12 @@ using RazorPage.Pages.Class;
 
 namespace RazorPage
 {
-    public class ProblemModel : PageModel
+    public class ProblemModel : _LayoutModel
     {
         public IList<Problem> Problems { get; set; }
-        public void OnGet()
+        public override void OnGet()
         {
+            base.OnGet();
             int pagesize = 2;
             int pageindex = Convert.ToInt32(Request.Query["Page"]);
             //int pageindex = 0;
