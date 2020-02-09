@@ -20,14 +20,14 @@ namespace RazorPage
         }
         public virtual void OnGet()
         {
-            bool hasUserId = Request.Cookies.TryGetValue("UserId", out string userId);
-            bool hasPassword = Request.Cookies.TryGetValue("Password", out string password);
+            bool hasUserId = Request.Cookies.TryGetValue(Const.USER_ID, out string userId);
+            bool hasPassword = Request.Cookies.TryGetValue(Const.USER_PASSWORD, out string password);
             if (hasUserId)
             {
                 LogOnUser user = _userLogOnRepository.Load(Convert.ToInt32(userId));
                 if (user.LogOnUserPassword == password)
                 {
-                    ViewData["UserName"] = user.LogOnUserName;
+                    ViewData[Const.USER_NAME] = user.LogOnUserName;
                 }
             }
         }

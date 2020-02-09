@@ -31,12 +31,12 @@ namespace RazorPage
             LogOnUser user = _userLogOnRepository.GetLog(LogOnOne.LogOnUserName);
             if (user == null)
             {
-                ModelState.AddModelError("LogOnOne.LogOnUserName", "* 用户名不存在");
+                ModelState.AddModelError(Const.LOGON_LOGONUSERNAME, "* 用户名不存在");
                 return;
             }
             if (user.LogOnUserPassword != LogOnOne.LogOnUserPassword.GetMd5Hash())
             {
-                ModelState.AddModelError("LogOnOne.LogOnUserPassword", "* 用户名或者密码不正确");
+                ModelState.AddModelError(Const.LOGON_LOGONPASSWORD, "* 用户名或者密码不正确");
             }
             CookieOptions options = new CookieOptions
             {
@@ -44,9 +44,9 @@ namespace RazorPage
                 Expires = DateTime.Now.AddDays(10)
             };
             //生成Cookie,保护用户信息
-            Response.Cookies.Append("UserId", user.Id.ToString(), options);
-            Response.Cookies.Append("Password", user.LogOnUserPassword.ToString(), options);
-            ViewData["UserName"] = user.LogOnUserName;
+            Response.Cookies.Append(Const.USER_ID, user.Id.ToString(), options);
+            Response.Cookies.Append(Const.USER_PASSWORD, user.LogOnUserPassword.ToString(), options);
+            ViewData[Const.USER_NAME] = user.LogOnUserName;
         }
         private bool correct(string name, string password)
         {
