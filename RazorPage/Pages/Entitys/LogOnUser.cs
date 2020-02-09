@@ -20,5 +20,7 @@ namespace RazorPage
         [Required(ErrorMessage = "* 验证码不能为空")]
         [MaxLength(4, ErrorMessage = "* 验证码长度最大4位")]
         public string LogOnUserVerification { get; set; }
+        public bool RememberMe { get; set; }//记住我
+
     }
 }

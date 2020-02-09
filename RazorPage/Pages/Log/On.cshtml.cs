@@ -15,11 +15,11 @@ namespace RazorPage
     public class OnModel : _LayoutModel
     {
         public LogOnUser LogOnOne { get; set; }
-        public bool RememberMe { get; set; }
-        public void OnGet()
+        public PageResult OnGet()
         {
             base.SetLogOnStatus();
             ViewData["title"] = "登录-一起帮";
+            return Page();
         }
         public void OnPost()
         {
@@ -38,17 +38,34 @@ namespace RazorPage
             {
                 ModelState.AddModelError(Const.LOGON_LOGONPASSWORD, "* 用户名或者密码不正确");
             }
-            CookieOptions options = new CookieOptions
+            if (LogOnOne.RememberMe == true)
             {
-                //显示Cookie过期时间
-                Expires = DateTime.Now.AddDays(10)
-            };
-            //生成Cookie,保护用户信息
-            Response.Cookies.Append(Const.USER_ID, user.Id.ToString(), options);
-            Response.Cookies.Append(Const.USER_PASSWORD, user.LogOnUserPassword.ToString(), options);
-            ViewData[Const.USER_NAME] = user.LogOnUserName;
+                CookieOptions options = new CookieOptions
+                {
+                    //显示Cookie过期时间
+                    Expires = DateTime.Now.AddDays(14)
+                };
+                //生成Cookie,保护用户信息
+                Response.Cookies.Append(Const.USER_ID, user.Id.ToString(), options);
+                Response.Cookies.Append(Const.USER_PASSWORD, user.LogOnUserPassword.ToString(), options);
+                Response.Cookies.Append(Const.LOGON_REMEMBERME, user.RememberMe.ToString(), options);
+                ViewData[Const.USER_NAME] = user.LogOnUserName;
+            }
+            else
+            {
+                CookieOptions options = new CookieOptions
+                {
+                    //显示Cookie过期时间
+                    Expires = DateTime.Now.AddDays(1)
+                };
+                //生成Cookie,保护用户信息
+                Response.Cookies.Append(Const.USER_ID, user.Id.ToString(), options);
+                Response.Cookies.Append(Const.USER_PASSWORD, user.LogOnUserPassword.ToString(), options);
+                Response.Cookies.Append(Const.LOGON_REMEMBERME, user.RememberMe.ToString(), options);
+                ViewData[Const.USER_NAME] = user.LogOnUserName;
+            }
         }
-        private bool correct(string name, string password)
+        private bool Correct(string name, string password)
         {
             return true;
         }
