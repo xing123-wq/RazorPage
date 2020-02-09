@@ -18,7 +18,7 @@ namespace RazorPage
         {
             _userLogOnRepository = new UserLogOnRepository();
         }
-        public virtual void OnGet()
+        public virtual void SetLogOnStatus()
         {
             bool hasUserId = Request.Cookies.TryGetValue(Const.USER_ID, out string userId);
             bool hasPassword = Request.Cookies.TryGetValue(Const.USER_PASSWORD, out string password);

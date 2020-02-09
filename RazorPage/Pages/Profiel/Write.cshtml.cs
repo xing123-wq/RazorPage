@@ -11,13 +11,13 @@ namespace RazorPage
     public class WriteModel : _LayoutModel
     {
         public bool? IsFemale { get; set; }
-        public override void OnGet()
+        public  void OnGet()
         {
             ViewData["title"] = "个人资料--一起帮";
         }
         public void OnPost()
         {
-            base.OnGet();
+            base.SetLogOnStatus();
         }
     }
 }

@@ -12,9 +12,9 @@ namespace RazorPage
     public class RegisterModel : _LayoutModel
     {
         public RegisterUser RegisteerOne { get; set; }
-        public override void OnGet()
+        public  void OnGet()
         {
-            base.OnGet();
+            base.SetLogOnStatus();
             ViewData["title"] = "注册-一起帮";
         }
         public void OnPost()

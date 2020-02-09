@@ -12,9 +12,9 @@ namespace RazorPage
     public class NewModel : _LayoutModel
     {
         public PublishUser PlanNewOn { get; set; }
-        public override void OnGet()
+        public  void OnGet()
         {
-            base.OnGet();
+            base.SetLogOnStatus();
             ViewData["title"] = "发布新目标--一起帮";
         }
         public void OnPost()

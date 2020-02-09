@@ -16,9 +16,9 @@ namespace RazorPage
     {
         public LogOnUser LogOnOne { get; set; }
         public bool RememberMe { get; set; }
-        public override void OnGet()
+        public void OnGet()
         {
-            base.OnGet();
+            base.SetLogOnStatus();
             ViewData["title"] = "登录-一起帮";
         }
         public void OnPost()

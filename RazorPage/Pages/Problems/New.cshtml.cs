@@ -9,9 +9,9 @@ namespace RazorPage
 {
     public class NewsModel : _LayoutModel
     {
-        public override void OnGet()
+        public  void OnGet()
         {
-            base.OnGet();
+            base.SetLogOnStatus();
             ViewData["title"] = "(新消息)我要求助--一起帮";
         }
     }

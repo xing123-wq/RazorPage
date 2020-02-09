@@ -11,9 +11,9 @@ namespace RazorPage
     public class ProblemModel : _LayoutModel
     {
         public IList<Problem> Problems { get; set; }
-        public override void OnGet()
+        public  void OnGet()
         {
-            base.OnGet();
+            base.SetLogOnStatus();
             int pagesize = 2;
             int pageindex = Convert.ToInt32(Request.Query["Page"]);
             //int pageindex = 0;

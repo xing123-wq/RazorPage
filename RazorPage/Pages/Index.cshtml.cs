@@ -10,9 +10,9 @@ namespace RazorPage.Pages
 {
     public class IndexModel : _LayoutModel
     {
-        public override void OnGet()
+        public void OnGet()
         {
-            base.OnGet();
+            base.SetLogOnStatus();
             ViewData["title"] = "首页-一起帮";
         }
     }

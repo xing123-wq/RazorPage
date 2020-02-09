@@ -11,9 +11,9 @@ namespace RazorPage
     public class ForGetModel : _LayoutModel
     {
         public ContactEdit ForGetOne { get; set; }
-        public override void OnGet()
+        public void OnGet()
         {
-            base.OnGet();
+            base.SetLogOnStatus();
             ViewData["title"] = "忘了-一起帮";
         }
         public void OnPost()
