@@ -11,6 +11,10 @@ namespace RazorPage.Pages.Helper
     {
         public static string GetMd5Hash(this string input)
         {
+            return getmd5(getmd5(input));
+        }
+        private static string getmd5(string input)
+        {
             using (MD5 md5Hash = MD5.Create())
             {
                 byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
