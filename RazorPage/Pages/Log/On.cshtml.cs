@@ -45,7 +45,7 @@ namespace RazorPage
             };
             //生成Cookie,保护用户信息
             Response.Cookies.Append("UserId", user.Id.ToString(), options);
-            Response.Cookies.Append("Password", user.Id.ToString(), options);
+            Response.Cookies.Append("Password", user.LogOnUserPassword.ToString(), options);
             ViewData["UserName"] = user.LogOnUserName;
         }
         private bool correct(string name, string password)
