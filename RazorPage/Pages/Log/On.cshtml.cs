@@ -21,18 +21,18 @@ namespace RazorPage
             ViewData["title"] = "登录-一起帮";
             return Page();
         }
-        public void OnPost()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
-                return;
+                return Page();
             }
             new UserLogOnRepository().Sava(LogOnOne);
             LogOnUser user = _userLogOnRepository.GetLog(LogOnOne.LogOnUserName);
             if (user == null)
             {
                 ModelState.AddModelError(Const.LOGON_LOGONUSERNAME, "* 用户名不存在");
-                return;
+                return Page();
             }
             if (user.LogOnUserPassword != LogOnOne.LogOnUserPassword.GetMd5Hash())
             {
@@ -64,6 +64,7 @@ namespace RazorPage
                 Response.Cookies.Append(Const.LOGON_REMEMBERME, user.RememberMe.ToString(), options);
                 ViewData[Const.USER_NAME] = user.LogOnUserName;
             }
+            return RedirectToPage("/Log/On");
         }
         private bool Correct(string name, string password)
         {
