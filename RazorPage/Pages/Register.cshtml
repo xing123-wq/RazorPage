@@ -39,8 +39,7 @@
                         <div class="form-group">
                             <label asp-for="RegisteerOne.inviter"></label>（* 必填，
                             <a href="/User/Inviters" class="text-info" data-toggle="tooltip" title="" data-original-title="点击由系统推荐">没有邀请人</a>）
-                            <input class="form-control" data-val="true" data-val-length-max="20"
-                                   asp-for="RegisteerOne.inviter" placeholder="他的用户名，模糊查询只能从头开始" type="text" />
+                            <input class="form-control" asp-for="RegisteerOne.inviter" placeholder="他的用户名，模糊查询只能从头开始" type="text" />
                             <span asp-validation-for="RegisteerOne.inviter" style="color:red"></span>
                         </div>
                         <div class="form-group">
@@ -51,17 +50,12 @@
                     </section>
                     <div class="form-group">
                         <label asp-for="RegisteerOne.Name"></label>
-                        <input class="form-control" data-val="true" data-val-length="* 用户名的长度不能大于20" data-val-length-max="20"
-                               data-val-remote="* 用户名重复，请重新输入" data-val-remote-additionalfields="*.UserName"
-                               data-val-remote-url="/User/_NameIsExist" data-val-required="* 用户名不能为空"
-                               placeholder="登录用户名，可修改，不能重复"
-                               asp-for="RegisteerOne.Name" type="text">
+                        <input class="form-control" placeholder="登录用户名，可修改，不能重复" asp-for="RegisteerOne.Name" type="text">
                         <span asp-validation-for="RegisteerOne.Name" style="color:red"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="RegisteerOne.Password"></label>
-                        <input asp-for="RegisteerOne.Password" class="form-control" data-val="true"
-                               placeholder="不少于4个字符" type="password" />
+                        <input asp-for="RegisteerOne.Password" class="form-control" data-val="true" placeholder="不少于4个字符" type="password" />
                         <span asp-validation-for="RegisteerOne.Password" style="color:red"></span>
                     </div>
                     <div class="form-group">
@@ -70,11 +64,12 @@
                         <span asp-validation-for="RegisteerOne.ValidatePassword" style="color:red"></span>
                     </div>
                     <div class="form-group">
-                        <label>验证码：（* 必填）</label>
+                        <label asp-for="RegisteerOne.VerificationCode"></label>
                         <br>
-                        <span zyf-img-code="">
-                            <input class="form-control" style="width:80px; display: inline;" type="text">
-                            <img zyf-image-code="" style="vertical-align: middle; display: none;">
+                        <span>
+                            <input class="form-control" style="width:80px; display: inline;" type="text" asp-for="RegisteerOne.VerificationCode">
+                            <span asp-validation-for="RegisteerOne.VerificationCode" style="color:red"></span>
+                            <img style="vertical-align: middle; display: none;">
                             <a name="imageCode">
 
                             </a>
@@ -90,7 +85,7 @@
                     <div class="submit">
                         <button type="submit" class="btn btn-primary loading">提交</button>
                         <button type="reset" class="btn btn-default">重置</button>
-                        <a href="/LogOn" class="btn pull-right"><span class="fa fa-sign-in"></span> 登录</a>
+                        <a href="/Log/On" class="btn pull-right"><span class="fa fa-sign-in"></span> 登录</a>
                     </div>
                 </form>
                 <div zyf-register-invite-share="" class="modal fade" tabindex="-1" role="dialog">

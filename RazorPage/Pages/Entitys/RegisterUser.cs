@@ -30,8 +30,15 @@ namespace RazorPage
         [Display(Name = "邀请码：（* 必填）")]
         [RegularExpression("[0-9]*", ErrorMessage = "* 邀请码只能是4位数字")]
         [Required(ErrorMessage = "* 邀请码不能为空")]
-        [StringLength(4, MinimumLength = 4, ErrorMessage = "* 邀请码只能是4位数")]
-        public int Invitationcode { get; set; }
+        [MaxLength(4)]
+        [MinLength(4, ErrorMessage = "* 邀请码只能是4位")]
+        public string Invitationcode { get; set; }
+
+        [Display(Name = "验证码:(*必填)")]
+        [Required(ErrorMessage = "* 验证码不能为空")]
+        [MaxLength(4)]
+        [MinLength(4, ErrorMessage = "* 验证码长度只能是4位")]
+        public string VerificationCode { get; set; }
 
     }
 }

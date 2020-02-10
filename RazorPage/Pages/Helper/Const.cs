@@ -14,5 +14,9 @@ namespace RazorPage.Pages.Helper
         public const string LOGON_LOGONUSERNAME = "LogOnOne.LogOnUserName";
         public const string LOGON_LOGONPASSWORD = "LogOnOne.LogOnUserPassword";
         public const string LOGON_REMEMBERME = "LogOnOne.RememberMe";
+
+        public const string REGISTER_ID = "RegisteerOne.Id";
+        public const string REGISTER_PASSWORD = "RegisterOn.Password";
+        public const string REGISTER_NAME = "RegisteerOne.Name";
     }
 }
