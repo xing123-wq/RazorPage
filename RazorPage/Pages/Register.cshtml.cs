@@ -20,11 +20,11 @@ namespace RazorPage
             ViewData["title"] = "注册-一起帮";
             return Page();
         }
-        public void OnPost()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
-                return;
+                return Page();
             }
             new UserRepoistoy().Sava(RegisteerOne);
             RegisterUser user = _userRepoistoy.GetLog(RegisteerOne.Name);
@@ -33,14 +33,14 @@ namespace RazorPage
                 if (user.Name == RegisteerOne.Name)
                 {
                     ModelState.AddModelError(Const.REGISTER_NAME, "* 用户名已存在");
-                    return;
+                    return Page();
                 }
                 if (user.Password != RegisteerOne.Password.GetMd5Hash())
                 {
                     ModelState.AddModelError(Const.REGISTER_PASSWORD, "* 用户名或者密码不正确");
                 }
             }
-            if (user!=null)
+            if (user != null)
             {
                 CookieOptions options = new CookieOptions
                 {
@@ -52,7 +52,8 @@ namespace RazorPage
                 Response.Cookies.Append(Const.REGISTER_PASSWORD, user.Password.ToString(), options);
                 ViewData[Const.REGISTER_NAME] = user.Name;
             }
-        }
+            return RedirectToPage("/Register");
+         }
         private bool Correct(string name, string password)
         {
             return true;
