@@ -11,7 +11,18 @@ namespace RazorPage
     public class ProblemModel : _LayoutModel
     {
         public IList<Problem> Problems { get; set; }
-        public  void OnGet()
+        public _KeywordModel Keywords { get; }
+        public ProblemModel()
+        {
+            Keywords = new _KeywordModel
+            {
+                naems = new List<string>
+                {
+                    "编程开发语言","C#","JAVA","工具软件","Javascript","顾问咨询","html","VisualStudio","操作系统","SQL","职场","法律",".net","Python","CSS","Linux"
+                }
+            };
+        }
+        public void OnGet()
         {
             base.SetLogOnStatus();
             int pagesize = 2;
