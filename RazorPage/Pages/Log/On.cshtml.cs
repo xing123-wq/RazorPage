@@ -64,7 +64,14 @@ namespace RazorPage
                 Response.Cookies.Append(Const.LOGON_REMEMBERME, user.RememberMe.ToString(), options);
                 ViewData[Const.USER_NAME] = user.LogOnUserName;
             }
-            return RedirectToPage("/Log/On");
+            if (user != null)
+            {
+                if (user.LogOnUserPassword == LogOnOne.LogOnUserPassword.GetMd5Hash())
+                {
+                    Response.Redirect("/Profiel/Write");
+                }
+            }
+            return Page();
         }
         private bool Correct(string name, string password)
         {
