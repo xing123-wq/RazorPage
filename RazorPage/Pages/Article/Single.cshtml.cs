@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace RazorPage
 {
-    public class TaskModel : PageModel
+    public class SingleModel : PageModel
     {
         public void OnGet()
         {
