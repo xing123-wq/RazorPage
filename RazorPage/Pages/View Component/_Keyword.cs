@@ -10,7 +10,10 @@ namespace RazorPage.Pages.View_Component
     {
         public IViewComponentResult Invoke()
         {
-            return View();
+            DefaultModel model = new DefaultModel();
+            return View(model.Default());
         }
+
     }
 }
+
