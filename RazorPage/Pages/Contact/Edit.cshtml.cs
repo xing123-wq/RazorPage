@@ -9,11 +9,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace RazorPage
 {
     [BindProperties]
-    public class EditModel : PageModel
+    public class EditModel : _LayoutModel
     {
         public ContactEdit EditOne { get; set; }
         public void OnGet()
         {
+            base.SetLogOnStatus();
             ViewData["title"] = "修改联系方式-一起帮";
         }
         public void OnPost()
