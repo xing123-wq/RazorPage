@@ -22,12 +22,12 @@ namespace RazorPage
         }
         public IActionResult OnPost()
         {
+            new UserRepoistoy().Sava(RegisteerOne);
+            RegisterUser user = _userRepoistoy.GetLog(RegisteerOne.Name);
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            new UserRepoistoy().Sava(RegisteerOne);
-            RegisterUser user = _userRepoistoy.GetLog(RegisteerOne.Name);
             if (user != null)
             {
                 if (user.Name == RegisteerOne.Name)
@@ -53,10 +53,6 @@ namespace RazorPage
                 ViewData[Const.REGISTER_NAME] = user.Name;
             }
             return RedirectToPage("/Register");
-         }
-        private bool Correct(string name, string password)
-        {
-            return true;
         }
     }
 }

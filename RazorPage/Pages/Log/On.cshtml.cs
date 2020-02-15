@@ -23,12 +23,13 @@ namespace RazorPage
         }
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
             new UserLogOnRepository().Sava(LogOnOne);
             LogOnUser user = _userLogOnRepository.GetLog(LogOnOne.LogOnUserName);
+            if (!ModelState.IsValid)
+            {
+                ViewData["title"] = "登录-一起帮";
+                return Page();
+            }
             if (user == null)
             {
                 ModelState.AddModelError(Const.LOGON_LOGONUSERNAME, "* 用户名不存在");
@@ -72,10 +73,6 @@ namespace RazorPage
                 }
             }
             return Page();
-        }
-        private bool Correct(string name, string password)
-        {
-            return true;
         }
     }
 }

@@ -18,5 +18,7 @@ namespace RazorPage.Pages.Helper
         public const string REGISTER_ID = "RegisteerOne.Id";
         public const string REGISTER_PASSWORD = "RegisterOn.Password";
         public const string REGISTER_NAME = "RegisteerOne.Name";
+
+        public const string TEMP_MODELSTATE = "TempModelstate";
     }
 }

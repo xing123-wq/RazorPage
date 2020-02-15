@@ -309,9 +309,17 @@ a {
     display: block !important;
 }
 
+.container.visible-md.visible-lg.top-user-message {
+    margin-top: -18px;
+}
+
+.navbar.navbar-default.navbar-fixed-top {
+    position: inherit;
+}
+
 .top-user-message {
     background-color: #eee;
-    margin-top: 55px;
+    margin-top: 1px;
     padding: 5px 20px;
     padding-top: 5px;
     padding-right: 20px;
@@ -343,10 +351,6 @@ a {
     right: 0;
     left: 0;
     z-index: 1030;
-}
-
-.navbar {
-    margin-bottom: 0px;
 }
 
 input.input-validation-error {
