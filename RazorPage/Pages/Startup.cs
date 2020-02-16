@@ -27,7 +27,13 @@ namespace RazorPage
             services.AddMvc()
            .AddRazorPagesOptions(opt =>
            {
-               opt.Conventions.AddPageRoute("/Article/Single", "/Article/{id}");
+               opt.Conventions.AddPageRoute("/Article/Single", "/Article/{id:int}");
+               opt.Conventions.AddPageRoute("/Article/Edits", "/Article/Edits/{id:int}");
+               opt.Conventions.AddPageRoute("/Article/Category", "/Article/Category/Page-{id:int}");
+               opt.Conventions.AddPageRoute("/Article/User", "/Article/User-{id:int}");
+               opt.Conventions.AddPageRoute("/Article/Page", "/Article/Page-{id:int}");
+               opt.Conventions.AddPageRoute("/Article/User/Page", "/Article/User-{q:int}/Page-{w:int}");
+               opt.Conventions.AddPageRoute("/Task/Historys", "/Task/Historys/{i:int}/{j:int}/{k:int}");
            });
             //.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMvc()

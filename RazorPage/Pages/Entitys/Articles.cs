@@ -11,6 +11,7 @@ namespace RazorPage.Pages.Entitys
         public RegisterUser Author { get; internal set; }
         public string Body { get; internal set; }
         public string Title { get; internal set; }
+        public int Id { get; set; }
         public List<Keyword> Keywords { get; internal set; }
     }
 }
