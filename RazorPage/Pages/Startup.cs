@@ -32,6 +32,12 @@ namespace RazorPage
             //.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMvc()
             .AddSessionStateTempDataProvider();
+            services.AddRazorPages(options =>
+            {
+                options.Conventions.AddFolderApplicationModelConvention(
+                    "/Movies",
+                    model => model.Filters.Add(new SampleAsyncPageFilter(Configuration)));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
