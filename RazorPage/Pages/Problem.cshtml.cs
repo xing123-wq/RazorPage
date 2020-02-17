@@ -11,17 +11,18 @@ namespace RazorPage
     public class ProblemModel : _LayoutModel
     {
         public IList<Problem> Problems { get; set; }
+        public int pagesize { get; set; }
+        public int pageindex { get; set; }
         public ProblemModel()
         {
         }
         public void OnGet()
         {
-            base.SetLogOnStatus();
-            int pagesize = 2;
-            int pageindex = Convert.ToInt32(Request.Query["Page"]);
-            //int pageindex = 0;
+            pagesize = 2;
+            pageindex = Convert.ToInt32(Request.Query["Page"]);
             Problems = new ProblemRepoistory().Get(pageindex, pagesize);
             ViewData["title"] = "首页-一起帮";
+            base.SetLogOnStatus();
         }
         public void Post()
         {

@@ -12,12 +12,13 @@ namespace RazorPage
     public class TaskModel : _LayoutModel
     {
         public IList<Articles> Articles;
-
+        public int Pageindex { get; set; }
+        public int pagesize { get; set; }
         public void OnGet()
         {
-            int pagesize = 2;
-            int pageindex = Convert.ToInt32(Request.Query["Page"]);
-            Articles = new ArticleRepoistory().Get(pageindex,pagesize);
+            pagesize = 2;
+            Pageindex = Convert.ToInt32(Request.Query["Page"]);
+            Articles = new ArticleRepoistory().Get(Pageindex, pagesize);
             base.SetLogOnStatus();
             ViewData["title"] = "精品文章--一起帮";
         }
