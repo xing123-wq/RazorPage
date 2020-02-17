@@ -71,10 +71,10 @@
                         <div style="font-size:24px;word-break:break-all;">
                             <span class="problem-status label-default">已撤销</span>
                             <span class="hide" zyf-problem-status="" data-problem-status="Cancel"></span>
-                            <a href="/Problem/739" style="color:black;">@problem.Title</a>
+                            <a href="/Problem/@problem.Id" style="color:black;">@problem.Title</a>
                         </div>
                         <div style="margin-top:10px; margin-bottom:10px; word-break:break-all;" class="clearfix">
-                            @problem.Body<a href="/Problem/739" data-toggle="tooltip" title="" data-original-title="全文">……</a>
+                            @problem.Body<a href="/Problem/@problem.Id" data-toggle="tooltip" title="" data-original-title="全文">……</a>
                             <a href="/Problem/AdminEdit?id=739" class="hide" zyf-problem-edit-admin="" style="margin-left:15px;">
                                 <span class="fa fa-pencil-square-o"></span> 修改
                             </a>
@@ -84,7 +84,7 @@
                             @foreach (var keywords in problem.Keywords)
                             {
                                 <span zyf-keyword="1" title="" data-toggle="tooltip" class="badge badge-has-used" style="margin-right:5px;" data-original-title="已使用 1 次">
-                                    <a href="/Problem?keyword=710" style="color:white;">@keywords.Name</a>
+                                    <a href="/Problem?keyword=@keywords.Id" style="color:white;">@keywords.Name</a>
                                 </span>
                             }
                         </p>
