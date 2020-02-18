@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RazorPage.Pages.Filters
 {
+    //全局类
     public class SampleFilters : IPageFilter
     {
         public void OnPageHandlerExecuted(PageHandlerExecutedContext context)

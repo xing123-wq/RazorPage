@@ -26,6 +26,7 @@ namespace RazorPage
             RegisterUser user = _userRepoistoy.GetLog(RegisteerOne.Name);
             if (!ModelState.IsValid)
             {
+                ViewData["title"] = "注册-一起帮";
                 return Page();
             }
             if (user != null)
@@ -38,21 +39,19 @@ namespace RazorPage
                 if (user.Password != RegisteerOne.Password.GetMd5Hash())
                 {
                     ModelState.AddModelError(Const.REGISTER_PASSWORD, "* 用户名或者密码不正确");
+                    return Page();
                 }
             }
-            if (user != null)
+            if (user == null)
             {
                 CookieOptions options = new CookieOptions
                 {
-                    //显示Cookie过期时间
-                    Expires = DateTime.Now.AddDays(14)
+                    Expires = DateTime.Now.AddDays(1)
                 };
-                //生成Cookie,保护用户信息
-                Response.Cookies.Append(Const.REGISTER_ID, user.Id.ToString(), options);
-                Response.Cookies.Append(Const.REGISTER_PASSWORD, user.Password.ToString(), options);
-                ViewData[Const.REGISTER_NAME] = user.Name;
+                ViewData[Const.REGISTER_NAME] = RegisteerOne.Name;
             }
             return RedirectToPage("/Register");
+
         }
     }
 }

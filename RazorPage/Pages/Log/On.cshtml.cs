@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPage.Pages.Class;
+using RazorPage.Pages.Filters;
 using RazorPage.Pages.Helper;
 
 namespace RazorPage
 {
     [BindProperties]
+    [AddHeader]
     public class OnModel : _LayoutModel
     {
         public LogOnUser LogOnOne { get; set; }
@@ -23,8 +25,9 @@ namespace RazorPage
         }
         public IActionResult OnPost()
         {
-            new UserLogOnRepository().Sava(LogOnOne);
+            CookieOptions options = new CookieOptions();
             LogOnUser user = _userLogOnRepository.GetLog(LogOnOne.LogOnUserName);
+            new UserLogOnRepository().Sava(LogOnOne);
             if (!ModelState.IsValid)
             {
                 ViewData["title"] = "登录-一起帮";
@@ -38,41 +41,28 @@ namespace RazorPage
             if (user.LogOnUserPassword != LogOnOne.LogOnUserPassword.GetMd5Hash())
             {
                 ModelState.AddModelError(Const.LOGON_LOGONPASSWORD, "* 用户名或者密码不正确");
+                return Page();
             }
-            if (LogOnOne.RememberMe == true)
+            LogOnCookies();
+            Response.Redirect("/Profiel/Write");
+            return Page();
+        }
+        public void LogOnCookies()
+        {
+            CookieOptions options = new CookieOptions();
+            if (LogOnOne.RememberMe)
             {
-                CookieOptions options = new CookieOptions
-                {
-                    //显示Cookie过期时间
-                    Expires = DateTime.Now.AddDays(14)
-                };
-                //生成Cookie,保护用户信息
-                Response.Cookies.Append(Const.USER_ID, user.Id.ToString(), options);
-                Response.Cookies.Append(Const.USER_PASSWORD, user.LogOnUserPassword.ToString(), options);
-                Response.Cookies.Append(Const.LOGON_REMEMBERME, user.RememberMe.ToString(), options);
-                ViewData[Const.USER_NAME] = user.LogOnUserName;
+                options.Expires = DateTime.Now.AddDays(14);
             }
             else
             {
-                CookieOptions options = new CookieOptions
-                {
-                    //显示Cookie过期时间
-                    Expires = DateTime.Now.AddDays(1)
-                };
-                //生成Cookie,保护用户信息
-                Response.Cookies.Append(Const.USER_ID, user.Id.ToString(), options);
-                Response.Cookies.Append(Const.USER_PASSWORD, user.LogOnUserPassword.ToString(), options);
-                Response.Cookies.Append(Const.LOGON_REMEMBERME, user.RememberMe.ToString(), options);
-                ViewData[Const.USER_NAME] = user.LogOnUserName;
+                options.Expires = DateTime.Now.AddDays(1);
             }
-            if (user != null)
-            {
-                if (user.LogOnUserPassword == LogOnOne.LogOnUserPassword.GetMd5Hash())
-                {
-                    Response.Redirect("/Profiel/Write");
-                }
-            }
-            return Page();
+            LogOnUser user = _userLogOnRepository.GetLog(LogOnOne.LogOnUserName);
+            Response.Cookies.Append(Const.USER_ID, user.Id.ToString(), options);
+            Response.Cookies.Append(Const.USER_PASSWORD, user.LogOnUserPassword.ToString(), options);
+            Response.Cookies.Append(Const.LOGON_REMEMBERME, user.RememberMe.ToString(), options);
+            ViewData[Const.USER_NAME] = user.LogOnUserName;
         }
     }
 }

@@ -4,10 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using RazorPage.Pages.Filters;
 
 namespace RazorPage
 {
@@ -38,12 +41,26 @@ namespace RazorPage
             //.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMvc()
             .AddSessionStateTempDataProvider();
-            services.AddRazorPages(options =>
+            services.AddMvc().AddMvcOptions(opt =>
             {
-                options.Conventions.AddFolderApplicationModelConvention(
-                    "/Movies",
-                    model => model.Filters.Add(new SampleAsyncPageFilter(Configuration)));
+                opt.Filters.Add(new SampleFilters());
             });
+            //session首先需要一定地方（MemoryCache）来存放
+            services.AddMemoryCache();
+            //引入session
+            services.AddSession(option =>
+            {
+                //自定义session的cookie名字
+                option.Cookie = new CookieBuilder
+                {
+                    Name = "MySessionId",
+                    //确保session的cookie不受cookie policy影响
+                    IsEssential = true
+                };
+                //session的有效时间为20分钟，从上一次获取session的时间起算
+                option.IdleTimeout = new TimeSpan(0, 10, 0);
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,17 +74,14 @@ namespace RazorPage
             {
                 app.UseExceptionHandler("/Error");
             }
-
             app.UseStaticFiles();
-
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthorization();
             app.UseCookiePolicy(new CookiePolicyOptions
             {
                 CheckConsentNeeded = (x => false)
             });
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
