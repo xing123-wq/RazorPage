@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RazorPage.Pages.Entitys
+namespace _17bnag.Entitys
 {
     public class Articles
     {

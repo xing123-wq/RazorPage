@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RazorPage
+namespace _17bnag.Entitys
 {
     public class LogOnUser
     {

@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RazorPage
+namespace _17bnag.Entitys
 {
     public class HelpRelease
     {
+        public int Id { get; set; }
         [Display(Name = "标题:(* 必填)")]
         [Required(ErrorMessage = "* 标题不能为空")]
         [StringLength(10, MinimumLength = 4, ErrorMessage = "* 标题不能大于{1},不能小于{2}")]
@@ -25,5 +26,7 @@ namespace RazorPage
         [Required(ErrorMessage = "* 悬赏帮帮币不能为空")]
         [RegularExpression("[0-9]*", ErrorMessage = "* 悬赏帮帮币只能为正整数")]
         public string Moneys { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime PublishDateTime { get; set; }
     }
 }

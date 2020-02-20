@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
-namespace RazorPage
+namespace _17bnag.Entitys
 {
     public class RegisterUser
     {

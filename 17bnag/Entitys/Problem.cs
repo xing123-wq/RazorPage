@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RazorPage
+namespace _17bnag.Entitys
 {
     public class Problem
     {

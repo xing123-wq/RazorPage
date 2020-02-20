@@ -1,4 +1,4 @@
-﻿namespace RazorPage
+﻿namespace _17bnag.Entitys
 {
     public class Keyword
     {

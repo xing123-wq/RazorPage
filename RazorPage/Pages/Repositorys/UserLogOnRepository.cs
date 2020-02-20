@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using _17bnag.Entitys;
+using Microsoft.AspNetCore.Mvc;
 using RazorPage.Pages.Helper;
 using System.Collections.Generic;
 using System.Linq;

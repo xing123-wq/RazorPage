@@ -1,4 +1,4 @@
-﻿using RazorPage.Pages.Entitys;
+﻿using _17bnag.Entitys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
