@@ -44,7 +44,7 @@ namespace RazorPage
                 return Page();
             }
             LogOnCookies();
-            Response.Redirect("/Profiel/Write");
+            GetUrl();
             return Page();
         }
         public void LogOnCookies()
@@ -63,6 +63,22 @@ namespace RazorPage
             Response.Cookies.Append(Const.USER_PASSWORD, user.LogOnUserPassword.ToString(), options);
             Response.Cookies.Append(Const.LOGON_REMEMBERME, user.RememberMe.ToString(), options);
             ViewData[Const.USER_NAME] = user.LogOnUserName;
+        }
+        public void GetUrl()
+        {
+            string pagepth = Request.Query["pagepth"];
+            if (pagepth == "/Log/On")
+            {
+                Response.Redirect("/Index");
+            }
+            else
+            {
+                Response.Redirect(pagepth);
+            }
+            if (pagepth == "/Register")
+            {
+                Response.Redirect("/Index");
+            }
         }
     }
 }
