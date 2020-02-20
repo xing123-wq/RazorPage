@@ -31,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\17help.Cshrap\17help.csproj" />
+    <ProjectReference Include="..\17bnag\17bnag.csproj" />
   </ItemGroup>
 
 
