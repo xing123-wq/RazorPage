@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using _17bnag.Data;
 
 namespace _17bnag
 {
@@ -24,6 +26,9 @@ namespace _17bnag
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddDbContext<_17bnagContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("_17bnagContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,59 @@
+﻿@page
+@model _17bnag.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>HelpRelease</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="HelpRelease.Title" class="control-label"></label>
+                <input asp-for="HelpRelease.Title" class="form-control" />
+                <span asp-validation-for="HelpRelease.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HelpRelease.Boyd" class="control-label"></label>
+                <input asp-for="HelpRelease.Boyd" class="form-control" />
+                <span asp-validation-for="HelpRelease.Boyd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HelpRelease.KeyWord" class="control-label"></label>
+                <input asp-for="HelpRelease.KeyWord" class="form-control" />
+                <span asp-validation-for="HelpRelease.KeyWord" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HelpRelease.Resort" class="control-label"></label>
+                <input asp-for="HelpRelease.Resort" class="form-control" />
+                <span asp-validation-for="HelpRelease.Resort" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HelpRelease.Moneys" class="control-label"></label>
+                <input asp-for="HelpRelease.Moneys" class="form-control" />
+                <span asp-validation-for="HelpRelease.Moneys" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HelpRelease.PublishDateTime" class="control-label"></label>
+                <input asp-for="HelpRelease.PublishDateTime" class="form-control" />
+                <span asp-validation-for="HelpRelease.PublishDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
