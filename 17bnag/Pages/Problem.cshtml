@@ -1,0 +1,176 @@
+﻿@page
+@model _17bnag.Pages.ProblemModel
+@{
+    Layout = "~/Pages/Layout/_DualColumn.cshtml";
+}
+@*添加Problem.cshtml，让其只显示页面本身内容（如：<h1>我是Promblem内容页</h1>），不显示_Layout.cshtml中的内容。*@
+@section Description
+{
+    <title>@ViewData["title"]</title>
+}
+<link rel="stylesheet" href="~/css/about.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+<script src="~/js/JavaScript.js"></script>
+<div class="container body-content">
+    <div style="margin-top:55px" class="row">
+        <div class="col-md-8">
+            <form action="/Page-1?excludeCanceled=False&amp;excludeRewarded=False&amp;excludeInProgress=False&amp;onlyMyFocus=False&amp;onlySummaried=False" method="post" novalidate="novalidate">
+                <div class="clearfix" style="border-left:6px solid gray; margin-bottom:20px">
+                    <div class="pull-left text-muted" style="margin:5px 0;">
+                        <label class="checkbox-inline">
+                            <span class="fa fa-eye-slash"></span> 不显示
+                        </label>
+                        <label class="checkbox-inline">
+                            <input data-val="true" data-val-required="ExcludeRewarded 字段是必需的。" id="ExcludeRewarded" name="ExcludeRewarded" type="checkbox" value="true" zyf-filter-problems=""><input name="ExcludeRewarded" type="hidden" value="false">已酬谢
+                        </label>
+                        <label class="checkbox-inline">
+                            <input data-val="true" data-val-required="ExcludeCanceled 字段是必需的。" id="ExcludeCanceled" name="ExcludeCanceled" type="checkbox" value="true" zyf-filter-problems=""><input name="ExcludeCanceled" type="hidden" value="false">已撤销
+                        </label>
+                        <label class="checkbox-inline">
+                            <input data-val="true" data-val-required="ExcludeInProgress 字段是必需的。" id="ExcludeInProgress" name="ExcludeInProgress" type="checkbox" value="true" zyf-filter-problems=""><input name="ExcludeInProgress" type="hidden" value="false">协助中
+                        </label>
+                    </div>
+                    <div class="pull-left text-info" style="margin:5px 0;">
+                        <label class="checkbox-inline">
+                            <span class="fa fa-eye"></span> 只显示
+                        </label>
+                        <label class="checkbox-inline">
+                            <input data-val="true" data-val-required="OnlyMyFocus 字段是必需的。" id="OnlyMyFocus" name="OnlyMyFocus" type="checkbox" value="true" zyf-filter-problems=""><input name="OnlyMyFocus" type="hidden" value="false"> 我的关注
+                        </label>
+                        <label class="checkbox-inline">
+                            <input data-val="true" data-val-required="OnlySummaried 字段是必需的。" id="OnlySummaried" name="OnlySummaried" type="checkbox" value="true" zyf-filter-problems=""><input name="OnlySummaried" type="hidden" value="false"> 有总结
+                        </label>
+                    </div>
+
+                </div>
+            </form>
+            @foreach (var problem in Model.Problems)
+            {
+                <div style="margin:10px 0; clear:both;">
+                    <div zyf-problem-single="" style="padding-top:20px;">
+                        <span data-toggle="tooltip" title="" data-original-title="更新：2019年09月28日 20点11分">
+                            <small class="text-muted" zyf-datetime="">
+                                <span>
+                                    <span class="fa fa-calendar"></span> <span zyf-can-hide="">@problem.PublishDateTime</span>
+                                </span>
+                            </small>
+                        </span>
+                        <span class="pull-right">
+                            <span data-author-id="2720" zyf-problem-author="">
+                                <span data-toggle="tooltip" title="" data-original-title="">
+                                    <span class="fa fa-user-circle-o"></span>
+                                    <a href="/User/@problem.Author.Id" zyf-show-contact="2720">
+                                        @problem.Author.Name
+                                    </a>
+                                </span>
+                                <a href="/FAQ/Credit#" data-toggle="tooltip" title="" class="text-muted" style="position:relative; top:-1px;" data-original-title="导师">
+                                    <span>⑦</span>
+                                </a>
+                            </span>
+                        </span>
+                        <div style="font-size:24px;word-break:break-all;">
+                            <span class="problem-status label-default">已撤销</span>
+                            <span class="hide" zyf-problem-status="" data-problem-status="Cancel"></span>
+                            <a href="/Problem/@problem.Id" style="color:black;">@problem.Title</a>
+                        </div>
+                        <div style="margin-top:10px; margin-bottom:10px; word-break:break-all;" class="clearfix">
+                            @problem.Body<a href="/Problem/@problem.Id" data-toggle="tooltip" title="" data-original-title="全文">……</a>
+                            <a href="/Problem/AdminEdit?id=739" class="hide" zyf-problem-edit-admin="" style="margin-left:15px;">
+                                <span class="fa fa-pencil-square-o"></span> 修改
+                            </a>
+                        </div>
+                        <p zyf-problem-keyword="" style="clear:both;">
+                            <span class="fa fa-tags " style="margin-right:10px;"></span>
+                            @foreach (var keywords in problem.Keywords)
+                            {
+                                <span zyf-keyword="1" title="" data-toggle="tooltip" class="badge badge-has-used" style="margin-right:5px;" data-original-title="已使用 1 次">
+                                    <a href="/Problem?keyword=@keywords.Id" style="color:white;">@keywords.Name</a>
+                                </span>
+                            }
+                        </p>
+                        <div class="status">
+                            <span>
+                                <span>
+                                    <a href="/FAQ/Money" data-toggle="tooltip" class="credit" title="" data-original-title="点击了解">
+                                        <span class="iconfont icon-money"></span>
+                                    </a>
+
+                                    <span class="visible-sm-inline visible-md-inline visible-lg-inline">悬赏：</span>
+                                </span>
+                                <span zyf-problem-bounty="" data-toggle="tooltip" title="" data-original-title="定额">15</span>
+                            </span>
+                            <span>
+                                <a href="/Problem/739#new-comment" zyf-problem-single-item-new-comment="">
+                                    <span class="fa fa-heart" style="color:red;"></span>
+                                    <span class="visible-sm-inline visible-md-inline visible-lg-inline">应答：</span>
+                                </a>
+                                <span zyf-comment-count="">
+                                    1
+                                </span>
+                            </span>
+                            <span>
+                                <a href="/Problem/739#summary" zyf-problem-single-item-summary="">
+                                    <span class="fa fa-key"></span>
+                                    <span class="visible-sm-inline visible-md-inline visible-lg-inline">总结：</span>
+                                </a>
+                                <span>
+                                    0
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            }
+            <nav>
+                <ul class="pagination">
+                    @for (int i = 1; i <= 10; i++)
+                    {
+                        <li class="active"><a id="1" href="/Problem?Page=@i">@(i)</a></li>
+                    }
+                    <li><a id="2" href="#">&gt;&gt;</a></li>
+                </ul>
+            </nav>
+            <div class="modal fade" tabindex="-1" role="dialog" zyf-keyword-update-modal="">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title"><span class="fa fa-pencil-square-o"></span> 修改关键字</h4>
+                        </div>
+                        <div class="modal-body" zyf-keyword-update-modal-body="">
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+        <div class="col-md-4 visible-md visible-lg">
+            <partial name="_RankingList" />
+            <partial name="_Article" />
+            <partial name="_Advertising" />
+            <div class="modal fade" tabindex="-1" role="dialog" zyf-adinwidget-free-modal="">
+            </div><!-- /.modal -->
+        </div>
+        <a zyf-global-feedback="" href="/Contact/Us" style="bottom: 132px; right: 339.5px;" class="feedback flag text-center">
+            <span class="fa fa-question-circle-o"></span><br>帮助
+        </a>
+        <a zyf-global-feedback="" href="/Suggest/New" style="bottom: 80px; right: 339.5px;" class="feedback flag text-center">
+            <span class="fa fa-comments-o"></span><br>反馈
+        </a>
+    </div>
+    <hr>
+    <footer>
+        <div>
+            <a href="/About/Us">关于我们</a> |
+            <a href="/FAQ">常见问题</a> |
+            <a href="/Suggest">意见建议</a> |
+            <a href="/Notice">历史通知</a> |
+            <a href="/Donate" class="text-success">友情捐赠</a> |
+            <a href="/About/Fund" class="text-info">融资2018</a>
+        </div>
+        <div>
+            友情链接：
+        </div>
+        <p class="pull-right"><a href="http://www.miitbeian.gov.cn">渝ICP备18007191号（备案）</a>© 2020 - 首顾科技</p>
+    </footer>
+</div>

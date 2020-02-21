@@ -60,7 +60,7 @@ namespace DrawingOperations
             );
 
             image.SetPixel(195, 95, Color.BlueViolet);  //绘制一个像素的点
-            image.Save(@"F:\17bang\hello.jpg", ImageFormat.Jpeg);   //保存到文件
+            //image.Save(@"F:\17bang\hello.jpg", ImageFormat.Jpeg);   //保存到文件
 
         }
         private static char[] constant = "1234567890,qwertyuiopasdfghjklzxcvbnm,QWERTYUIOPASDFGHJKLZXCVBNM".ToArray();

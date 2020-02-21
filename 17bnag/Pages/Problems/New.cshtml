@@ -1,0 +1,269 @@
+﻿@page
+@model _17bnag.Problems.NewsModel
+@{
+    Layout = "~/Pages/Layout/_DualColumn.cshtml";
+}
+
+@section Description
+{
+    <title>@ViewData["title"]</title>
+}
+<link rel=" stylesheet" href="~/css/Register.css" />
+<script src="~/kindeditor/lang/zh-CN.js"></script>
+<script src="~/kindeditor/kindeditor-all.js"></script>
+<link href="~/kindeditor/themes/default/default.css" rel="stylesheet" />
+<script>
+    KindEditor.ready(function (K) { window.editor = K.create('#editor_id'); });
+</script>
+<style>
+    #profile-no-picture #camera {
+        font-size: 48px;
+    }
+
+    #profile-no-picture {
+        height: 200px;
+        width: 100%;
+        padding-top: 50px;
+        text-align: center;
+    }
+</style>
+<div class="container body-content">
+    <div class="row">
+        <div class="col-md-9">
+            <h2 class="page-header">
+                <span class="fa fa-question-circle " aria-hidden="true"></span> 我要求助
+            </h2>
+            <div class="yellow-highlight text-info" style="padding:10px 10px 0 10px; margin-bottom:15px;">
+                <p>
+                    <span class="fa fa-info-circle"></span> 这是你第一次发布求助，求助发布成功系统会奖励你 20
+                    <a href="/FAQ/Credit" data-toggle="tooltip" class="water" title="" data-original-title="点击了解">
+                        <span class="iconfont icon-drips"></span> 帮帮点
+                    </a>
+                    。
+                </p>
+                <p>
+                    <span class="fa fa-info-circle"></span> 你还没有<a href="/FAQ/Problem#first" data-toggle="tooltip" title="" data-original-title="点击了解">自由发布权限</a>，为了保证求助的质量，我们会帮助你检查完善该求助内容，然后再公开显示，请耐心等待。<br>
+                    中途如有任何问题，工作人员会主动和你联系，请注意保持联系方式畅通。
+                </p>
+            </div>
+            <div zyf-old-draft-check=""></div>
+            <form method="post">
+                <div class="checkbox clearfix">
+                    <label class="pull-right text-primary">
+                        <input checked="checked" data-val="true" data-val-required="NeedRemoteHelp 字段是必需的。" id="NeedRemoteHelp" name="NeedRemoteHelp" type="checkbox" value="true" zyf-need-remote-help=""><input name="NeedRemoteHelp" type="hidden" value="false">需要远程协助
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ReleaseOn.Title"></label>
+                    <input class="form-control" placeholder="简明扼要，不超过255字" asp-for="ReleaseOn.Title" type="text">
+                    <span class="field-validation-valid" asp-validation-for="ReleaseOn.Title" style="color:red"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ReleaseOn.Boyd"></label>
+                    <textarea id="editor_id" name="content" style="width:100%;height:390px;"></textarea>
+                    <span class="field-validation-valid" asp-validation-for="ReleaseOn.Boyd" style="color:red"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ReleaseOn.KeyWord"></label>
+                    <div style="padding-bottom:3px;"></div>
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default ">--- 1级 ---</button>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a data-keyword-id="163">编程开发语言</a></li>
+                                <li><a data-keyword-id="162">工具软件</a></li>
+                                <li><a data-keyword-id="164">顾问咨询</a></li>
+                                <li><a data-keyword-id="161">操作系统</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="input-group-btn input-group-btn-middle">
+                            <button type="button" class="btn btn-default ">--- 2级 ---</button>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu" zyf-keyword-dropdownlist="2"></ul>
+                        </div>
+                        <input type="text" asp-for="ReleaseOn.KeyWord" class="form-control" placeholder="自定义关键字，使用空格分隔">
+                    </div>
+                    <input type="hidden" asp-for="ReleaseOn.KeyWord">
+                    <span class="field-validation-valid" asp-validation-for="ReleaseOn.KeyWord" style="color:red"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ReleaseOn.Resort">（<a zyf-user-recommend="">推荐</a> <small><span class="fa fa-question-circle text-info" data-toggle="tooltip" title="" data-original-title="根据关键字筛选用户"></span></small>）</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"></span>
+                        <input type="text" class="form-control" placeholder="输入你想要求助的大神用户名" asp-for="ReleaseOn.Resort">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox pull-right" style="margin: 0px; /*去除checkbox的影响*/">
+                        <label><input data-val="true" data-val-required="Settlement 字段是必需的。" id="Settlement" name="Settlement" type="checkbox" value="true" zyf-problem-reward-settlement=""><input name="Settlement" type="hidden" value="false">据实结算</label>
+                    </div>
+                    <label asp-for="ReleaseOn.Moneys">
+
+                        <a href="/FAQ/Money" data-toggle="tooltip" class="credit" title="" data-original-title="点击了解">
+                            <span class="iconfont icon-money"></span> 帮帮币
+                        </a>
+                        ：（<a href="/Money/Owner">现有<span zyf-current-money="" class="credit">6</span>枚</a>
+                        <small class="fa fa-refresh text-info" data-toggle="tooltip" data-original-title="刷新"></small>
+                    </label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <a href="/FAQ/Money" data-toggle="tooltip" class="credit" title="" data-original-title="点击了解">
+                                <span class="iconfont icon-money"></span>
+                            </a>
+                        </span>
+                        <input class="form-control" asp-for="ReleaseOn.Moneys" placeholder="正整数，建议10枚以上" type="text">
+                        <span class="input-group-addon">枚</span>
+                    </div>
+                    <a href="/FAQ/Money#gain" class="pull-right"><span class="fa fa-question-circle"></span> 如何获得“帮帮币”</a>
+                    <span class="field-validation-valid" asp-validation-for="ReleaseOn.Moneys" style="color:red"></span>
+                </div>
+                <div class="submit">
+                    <input type="submit" class="btn btn-primary loading" value="发布">
+                    <button type="button" class="btn btn-default" data-toggle="tooltip" data-original-title="存为草稿">保存基本内容</button>
+                    <small class="text-success"></small>
+                    <input type="hidden" name="draftId">
+                </div>
+            </form><div class="modal fade" tabindex="-1" role="dialog" id="contact">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h3 class="modal-title"><span class="fa fa-question-circle"></span> 是否需要远程协助</h3>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                “一起帮”提倡通过远程协助，“一对一”的解决开发/电脑使用等方面的具体问题。请确认你的求助是否需要远程协助：
+                            </p>
+                            <p class="radio">
+                                <label>
+                                    <input type="radio" name="needRemoteHelpInModal" checked="" zyf-need-remote-help-in-modal=""> 需要（推荐）<br>
+                                    当有人应答之后，建议你点击他们的<a>用户名</a>获得他们的联系方式，主动联系他/她；当然你也可以等待他们联系你，所以请注意保持<a href="/Contact/New">联系方式</a>畅通。
+                                </label>
+                            </p>
+                            <p class="radio">
+                                <label>
+                                    <input type="radio" name="needRemoteHelpInModal">不需要 <br>
+                                    类似于传统的论坛问答，解决方案将直接写在应答当中，任何人都可以阅读。<a href="/FAQ/Problem#normal">开始协助</a> -&gt; <a href="/FAQ/Problem#refuse">拒绝全额酬谢</a>/<a href="/FAQ/Problem#normal">酬谢评价</a> 机制被破坏，<a href="/FAQ/Problem#summary">总结</a> 的价值被大大削弱。
+                                </label>
+                            </p>
+                            <hr>
+                            <p class="checkbox">
+                                <label>
+                                    <input type="checkbox" zyf-remember-in-needremotehelp-modal=""> 不再提示。（该选项还可以在发布求助前更改）
+                                </label>
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+        <div class="col-md-3" style="margin-top: 40px;">
+            <div zyf-newbie-reminder="" class="widget yellow-highlight">
+                <h4><span class="fa fa-list"></span> 新手任务</h4>
+                <p zyf-newbie-tasks-done="" class="hide text-right">
+                    <span class="fa fa-thumbs-o-up text-success"></span> 全部完成！
+                    <a zyf-newbie-reminder-hide="" href="#" class="text-primary">不再显示</a>
+                </p>
+                <hr>
+                <p><span class="fa fa-check-square-o text-success fa-fw"></span> 填写：<a href="/Contact/New?prepage=%2fProblem%2fNew">联系方式</a></p>
+                <p><span class="fa fa-check-square-o text-success fa-fw"></span> 激活：<a href="/Email/Activate?prepage=%2fProblem%2fNew">Email</a></p>
+                <p><span class="fa fa-square-o fa-fw"></span> 邀请：<a href="/Invite">我的小伙伴</a></p>
+                <p><span class="fa fa-check-square-o text-success fa-fw"></span> 参加：<a href="/Exam/Newbie">新人测试</a></p>
+                <p><span class="fa fa-square-o fa-fw"></span> 发布：<a href="/Problem/New">第一个求助</a></p>
+                <p><span class="fa fa-square-o fa-fw"></span> 尝试：<a href="/Problem"> 第一次协助</a></p>
+                <p>
+                    <span class="fa fa-check-square-o text-success fa-fw"></span> 获得：若干
+                    <a href="/FAQ/Money" data-toggle="tooltip" class="credit" title="" data-original-title="点击了解">
+                        <span class="iconfont icon-money"></span> 帮帮币
+                    </a>
+                </p>
+            </div>
+            <a href="/Profile/Write?prepage=%2fProblem%2fNew" class="btn pull-right" zyf-profile-edit="">
+                <span class="fa fa-pencil-square-o"></span>
+                <span>修改</span>
+            </a>
+            <div class="img-responsive img-thumbnail" id="profile-no-picture">
+                <span class="fa fa-picture-o" id="camera"></span>
+                <div id="wait">
+                    等待上传中<span class="fa fa-hourglass-half"></span>...
+                </div>
+            </div>
+            <div class="user-show">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <label>用户：</label>
+                        <span data-toggle="tooltip" title="" data-original-title="">
+                            <a href="/User/4280" zyf-show-contact="4280" style="color:lightblue">
+                                阿泰12
+                            </a>
+                        </span>
+                        <a href="/FAQ/Credit#" data-toggle="tooltip" title="" class="text-muted" style="position:relative; top:-1px;" data-original-title="中级学徒">
+                            <span>②</span>
+                        </a>
+                        <a href="/User/ChangeName" class="btn" zyf-username-change="4280"><span class="fa fa-pencil-square-o"></span> 修改</a>
+                    </div>
+                    <input type="hidden" value="4280" zyf-profile-user-id="">
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <label>性别：</label>
+                        男
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <label>生日：</label>
+                        1957 <span>年</span>
+                        10 <span>月</span>
+                        天秤座
+                    </div>
+                </div>
+                <div>
+                    <label>关注：</label>
+                    <p>
+                        <span title="" data-toggle="tooltip" class="badge" data-original-title="被使用过 95 次">C#</span>
+                        <span title="" data-toggle="tooltip" class="badge" data-original-title="被使用过 241 次">编程开发语言</span>
+                        <span title="" data-toggle="tooltip" class="badge" data-original-title="被使用过 55 次">Javascript</span>
+                        <span title="" data-toggle="tooltip" class="badge" data-original-title="被使用过 18 次">SQL</span>
+                        <span title="" data-toggle="tooltip" class="badge" data-original-title="被使用过 32 次">html</span>
+                        <span title="" data-toggle="tooltip" class="badge" data-original-title="被使用过 13 次">CSS</span>
+                        <span title="" data-toggle="tooltip" class="badge" data-original-title="被使用过 68 次">工具软件</span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <a zyf-global-feedback="" href="/Contact/Us" style="bottom: 132px; right: 339.5px;" class="feedback flag text-center">
+        <span class="fa fa-question-circle-o"></span><br>帮助
+    </a>
+    <a zyf-global-feedback="" href="/Suggest/New" style="bottom: 80px; right: 339.5px;" class="feedback flag text-center">
+        <span class="fa fa-comments-o"></span><br>反馈
+    </a>
+    <hr>
+    <footer>
+        <div>
+            <a href="/About/Us">关于我们</a> |
+            <a href="/FAQ">常见问题</a> |
+            <a href="/Suggest">意见建议</a> |
+            <a href="/Notice">历史通知</a> |
+            <a href="/Donate" class="text-success">友情捐赠</a> |
+            <a href="/About/Fund" class="text-info">融资2018</a>
+        </div>
+        <div>
+            友情链接：
+        </div>
+        <p class="pull-right"><a href="http://www.miitbeian.gov.cn">渝ICP备18007191号（备案）</a>© 2020 - 首顾科技</p>
+    </footer>
+</div>
