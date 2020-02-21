@@ -1,0 +1,128 @@
+﻿@page
+@model _17bnag.Log.OnModel
+@{
+    Layout = "~/Pages/Layout/_DualColumn.cshtml";
+}
+
+@section Description
+{
+    <title>@ViewData["title"]</title>
+}
+<link rel="stylesheet" href="~/css/Register.css" />
+<div class="container body-content">
+    <div class="return-prepage">
+        <a href="/Problem?excludeCanceled=true&amp;excludeRewarded=true"><span class="fa fa-share"></span> 返回</a>
+    </div>
+    <div class="dualcolumns-container">
+        <div class="page-header">
+            <h2>
+                <span class="fa fa-sign-in " aria-hidden="true"></span> 用户登录
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-5">
+                <div class="container" style="margin-bottom: 16px;">
+                    <div class="row">
+                        <a class="visible-sm visible-xs pull-right" show-introduction="">
+                            <span class="fa fa-question-circle"></span>
+                            <span style="margin-left:4px;">
+                                说明
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <form method="post">
+                    <div class="form-group">
+                        <label asp-for="LogOnOne.LogOnUserName"></label>
+                        <input class="form-control" data-val="true" data-val-length-max="20"
+                               placeholder="登录用户名，可修改，不能重复"
+                               type="text" asp-for="LogOnOne.LogOnUserName">
+                        <span asp-validation-for="LogOnOne.LogOnUserName" style="color:red"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LogOnOne.LogOnUserPassword"></label>
+                        <input asp-for="LogOnOne.LogOnUserPassword" class="form-control" placeholder="不少于4个字符" type="password" />
+                        <span asp-validation-for="LogOnOne.LogOnUserPassword" style="color:red"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LogOnOne.LogOnUserVerification"></label>
+                        <br>
+                        <span>
+                            <input asp-for="LogOnOne.LogOnUserVerification" class="form-control" style="width:80px; display: inline;" type="text">
+                            <img zyf-image-code="" style="vertical-align: middle; display: none;">
+                            <a name="imageCode">
+
+                            </a><a href="#" zyf-refresh-image-code="" style="font-size: 12px; display: none">
+                                看不清楚
+                            </a>
+                            <span zyf-image-code-reminder="">点击输入框显示</span>
+                            <span zyf-image-code-error="" class="field-validation-error"></span>
+                            <br>
+                            <span class="field-validation-valid" asp-validation-for="LogOnOne.LogOnUserVerification" style="color:red"></span>
+                        </span>
+                    </div>
+                    <div class="submit">
+                        <button type="submit" class="btn btn-primary loading">提交</button>
+                        <label class="checkbox-inline" style="margin-left:16px;">
+                            <input asp-for="LogOnOne.RememberMe" />记住我
+                        </label>
+                        <span class="pull-right btn">
+                            <a href="/Password/Forget">(｡ŏ_ŏ) 忘了</a>
+                            <a href="/Register" style="margin-left:10px;"><span class="fa fa-registered"></span> 注册</a>
+                        </span>
+                    </div>
+                </form>
+                <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="introductionLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                <h4 class="modal-title" id="introductionLabel"></h4>
+                            </div>
+                            <div class="modal-body">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">知道了</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 visible-lg visible-md">
+                <div page-introduction="">
+                    <h3 class="text-info" style="margin-bottom: 20px;"><span class="fa fa-question-circle "></span> 说明</h3>
+                    <ol class="page-introduction-ol" zyf-page-introduction-body="">
+
+                        <li>我们希望通过<a href="/About/Us">一起帮</a>，能<span class="text-primary text-bold">直接解决</span>大家在<span class="text-primary">电脑操作/软件使用/编程学习</span>等方面的<span class="text-primary text-bold">具体问题</span>。</li>
+                        <li>现在互联网远程技术<span class="text-muted">（比如QQ桌面共享）</span>已经非常成熟，当我们再遇到上述问题，如果别人能<span class="text-primary">直接远程给予帮助</span>，岂不是好？</li>
+                        <li>当然，你也可以在你熟悉的领域去<span class="text-primary">帮助别人</span>。由此而形成我们这个“你帮他他帮我我帮你，大家一起帮”的网上互助社区平台。</li>
+                        <li>公平起见，我们还引入了 帮帮<span class="water">点</span>/<span class="credit">币</span>/<span class="bean">豆</span> 三级概念，以记录和衡量社区成员的收获和贡献。</li>
+                        <li>赶快加入我们，赚取帮帮币吧！</li>
+
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a zyf-global-feedback="" href="/Contact/Us" style="bottom: 132px; right: 13.5px;" class="feedback flag text-center">
+        <span class="fa fa-question-circle-o"></span><br>帮助
+    </a>
+    <a zyf-global-feedback="" href="/Suggest/New" style="bottom: 80px; right: 13.5px;" class="feedback flag text-center">
+        <span class="fa fa-comments-o"></span><br>反馈
+    </a>
+    <hr>
+    <footer>
+        <div>
+            <a href="/About/Us">关于我们</a> |
+            <a href="/FAQ">常见问题</a> |
+            <a href="/Suggest">意见建议</a> |
+            <a href="/Notice">历史通知</a> |
+            <a href="/Donate" class="text-success">友情捐赠</a> |
+            <a href="/About/Fund" class="text-info">融资2018</a>
+        </div>
+        <div>
+            友情链接：
+        </div>
+        <p class="pull-right"><a href="http://www.miitbeian.gov.cn">渝ICP备18007191号（备案）</a>© 2020 - 首顾科技</p>
+    </footer>
+</div>
