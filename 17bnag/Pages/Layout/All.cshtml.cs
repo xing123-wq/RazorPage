@@ -1,4 +1,5 @@
 ﻿using System;
+using _17bnag.Data;
 using _17bnag.Entitys;
 using _17bnag.Helper;
 using _17bnag.Repositorys;
@@ -8,12 +9,18 @@ namespace _17bnag.Layout
 {
     public class _LayoutModel : PageModel
     {
+        private _17bnagContext _context;
+
         public UserLogOnRepository _userLogOnRepository { get; set; }
         public UserRepoistoy _userRepoistoy { get; set; }
         public _LayoutModel()
         {
             _userLogOnRepository = new UserLogOnRepository();
             _userRepoistoy = new UserRepoistoy();
+        }
+        public _LayoutModel(_17bnagContext context)
+        {
+            _context = context;
         }
         public virtual void SetLogOnStatus()
         {

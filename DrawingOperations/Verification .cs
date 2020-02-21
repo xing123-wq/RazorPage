@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DrawingOperations
 {
-    class Verification
+    public class Verification
     {
         //作业：
         //参考一起帮的登录页面，绘制一个验证码图片，存放到当前项目中。验证码应包含：
@@ -19,7 +19,7 @@ namespace DrawingOperations
         {
             Random random = new Random();
 
-            string[] fonts = { "微软雅黑", "宋体", "黑体", "隶书", "仿宋","粗体", "篆书","燕体","楷书","草书" };
+            string[] fonts = { "微软雅黑", "宋体", "黑体", "隶书", "仿宋", "粗体", "篆书", "燕体", "楷书", "草书" };
             Color[] RandomColor = { Color.Black, Color.Red, Color.Blue, Color.Green, Color.Orange, Color.Brown, Color.Brown, Color.DarkBlue };
             int[] Pen = { 44, 20, 30, 40, 33, 44, 22, 32 };
             int[] Point = { 43, 25, 35, 45, 41, 39, 29 };
@@ -60,7 +60,7 @@ namespace DrawingOperations
             );
 
             image.SetPixel(195, 95, Color.BlueViolet);  //绘制一个像素的点
-            //image.Save(@"F:\17bang\hello.jpg", ImageFormat.Jpeg);   //保存到文件
+            image.Save(@"E:\17bang\hello.jpg", ImageFormat.Jpeg);   //保存到文件
 
         }
         private static char[] constant = "1234567890,qwertyuiopasdfghjklzxcvbnm,QWERTYUIOPASDFGHJKLZXCVBNM".ToArray();

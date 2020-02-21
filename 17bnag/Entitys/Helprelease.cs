@@ -28,5 +28,6 @@ namespace _17bnag.Entitys
         public string Moneys { get; set; }
         [DataType(DataType.Date)]
         public DateTime PublishDateTime { get; set; }
+        //public LogOnUser Author { get; set; }
     }
 }
