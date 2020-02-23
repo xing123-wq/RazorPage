@@ -9,11 +9,15 @@ namespace _17bnag.Data
 {
     public class _17bnagContext : DbContext
     {
-        public _17bnagContext (DbContextOptions<_17bnagContext> options)
+        public _17bnagContext(DbContextOptions<_17bnagContext> options)
             : base(options)
         {
         }
 
         public DbSet<_17bnag.Entitys.HelpRelease> HelpRelease { get; set; }
+        public DbSet<_17bnag.Entitys.Keyword> keywords { get; set; }
+        public DbSet<_17bnag.Entitys.LogOnUser> onUsers { get; set; }
+        public DbSet<_17bnag.Entitys.Problem> problems { get; set; }
+        public DbSet<_17bnag.Entitys.Articles> Articles { get; set; }
     }
 }

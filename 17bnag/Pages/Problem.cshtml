@@ -48,7 +48,7 @@
             {
                 <div style="margin:10px 0; clear:both;">
                     <div zyf-problem-single="" style="padding-top:20px;">
-                        <span data-toggle="tooltip" title="" data-original-title="更新：2019年09月28日 20点11分">
+                        <span data-toggle="tooltip" title="" data-original-title=@problem.PublishDateTime>
                             <small class="text-muted" zyf-datetime="">
                                 <span>
                                     <span class="fa fa-calendar"></span> <span zyf-can-hide="">@problem.PublishDateTime</span>
@@ -59,9 +59,9 @@
                             <span data-author-id="2720" zyf-problem-author="">
                                 <span data-toggle="tooltip" title="" data-original-title="">
                                     <span class="fa fa-user-circle-o"></span>
-                                    <a href="/User/@problem.Author.Id" zyf-show-contact="2720">
-                                        @problem.Author.Name
-                                    </a>
+                                    @*<a href="/User/@problem.Author.Id" zyf-show-contact="2720">
+                                            @problem.Author.LogOnUserName
+                                        </a>*@
                                 </span>
                                 <a href="/FAQ/Credit#" data-toggle="tooltip" title="" class="text-muted" style="position:relative; top:-1px;" data-original-title="导师">
                                     <span>⑦</span>
@@ -81,12 +81,12 @@
                         </div>
                         <p zyf-problem-keyword="" style="clear:both;">
                             <span class="fa fa-tags " style="margin-right:10px;"></span>
-                            @foreach (var keywords in problem.Keywords)
-                            {
-                                <span zyf-keyword="1" title="" data-toggle="tooltip" class="badge badge-has-used" style="margin-right:5px;" data-original-title="已使用 1 次">
-                                    <a href="/Problem?keyword=@keywords.Id" style="color:white;">@keywords.Name</a>
-                                </span>
-                            }
+                            @*@foreach (var keywords in problem.KeyWord)
+                                {
+                                    <span zyf-keyword="1" title="" data-toggle="tooltip" class="badge badge-has-used" style="margin-right:5px;" data-original-title="已使用 1 次">
+                                        <a href="/Problem?keyword=@keywords.Id" style="color:white;">@keywords.Name</a>
+                                    </span>
+                                }*@
                         </p>
                         <div class="status">
                             <span>
@@ -97,7 +97,7 @@
 
                                     <span class="visible-sm-inline visible-md-inline visible-lg-inline">悬赏：</span>
                                 </span>
-                                <span zyf-problem-bounty="" data-toggle="tooltip" title="" data-original-title="定额">15</span>
+                                <span zyf-problem-bounty="" data-toggle="tooltip" title="" data-original-title="定额">@problem.Moneys</span>
                             </span>
                             <span>
                                 <a href="/Problem/739#new-comment" zyf-problem-single-item-new-comment="">

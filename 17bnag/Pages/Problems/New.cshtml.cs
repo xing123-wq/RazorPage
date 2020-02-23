@@ -15,7 +15,6 @@ namespace _17bnag.Problems
     {
         public readonly _17bnagContext _context;
         public LogOnUser OnUserName { get; set; }
-        public HelpRelease ReleaseOn { get; set; }
         public HelpRelease help { get; set; }
         public NewsModel(_17bnagContext context)
         {
