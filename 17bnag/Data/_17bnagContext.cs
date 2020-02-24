@@ -15,9 +15,7 @@ namespace _17bnag.Data
         }
 
         public DbSet<_17bnag.Entitys.HelpRelease> HelpRelease { get; set; }
-        public DbSet<_17bnag.Entitys.Keyword> keywords { get; set; }
-        public DbSet<_17bnag.Entitys.LogOnUser> onUsers { get; set; }
-        public DbSet<_17bnag.Entitys.Problem> problems { get; set; }
-        public DbSet<_17bnag.Entitys.Articles> Articles { get; set; }
+
+        public DbSet<_17bnag.Entitys.PublishArticle> PublishArticles { get; set; }
     }
 }

@@ -70,7 +70,6 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="help.Body"></label>
-                    @*<textarea id="MyEidtor" asp-for="help.Boyd" style="width:100%;height:390px;"></textarea>*@
                     <textarea asp-for="help.Body" class="form-control" style="width:100%;height:450px;" id="MyEidtor"></textarea>
                     <span class="field-validation-valid" asp-validation-for="help.Body" style="color:red"></span>
                 </div>
@@ -89,7 +88,6 @@
                                 <li><a data-keyword-id="162">工具软件</a></li>
                                 <li><a data-keyword-id="164">顾问咨询</a></li>
                                 <li><a data-keyword-id="161">操作系统</a></li>
-
                             </ul>
                         </div>
                         <div class="input-group-btn input-group-btn-middle">
@@ -101,9 +99,8 @@
                             <ul class="dropdown-menu" zyf-keyword-dropdownlist="2"></ul>
                         </div>
                         <input type="text" asp-for="help.KeyWord" class="form-control" placeholder="自定义关键字，使用空格分隔">
+                        <span class="field-validation-valid" asp-validation-for="help.KeyWord" style="color:red"></span>
                     </div>
-                    <input type="hidden" asp-for="help.KeyWord">
-                    <span class="field-validation-valid" asp-validation-for="help.KeyWord" style="color:red"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="help.Resort">（<a zyf-user-recommend="">推荐</a> <small><span class="fa fa-question-circle text-info" data-toggle="tooltip" title="" data-original-title="根据关键字筛选用户"></span></small>）</label>
@@ -142,7 +139,8 @@
                     <small class="text-success"></small>
                     <input type="hidden" name="draftId">
                 </div>
-            </form><div class="modal fade" tabindex="-1" role="dialog" id="contact">
+            </form>
+            <div class="modal fade" tabindex="-1" role="dialog" id="contact">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">

@@ -19,32 +19,6 @@ namespace _17bnag.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("_17bnag.Entitys.Articles", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AuthorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Body")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("PublishDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AuthorId");
-
-                    b.ToTable("Articles");
-                });
-
             modelBuilder.Entity("_17bnag.Entitys.HelpRelease", b =>
                 {
                     b.Property<int>("Id")
@@ -59,6 +33,9 @@ namespace _17bnag.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasMaxLength(21113);
+
+                    b.Property<int>("KeyWordId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Moneys")
                         .IsRequired()
@@ -79,6 +56,8 @@ namespace _17bnag.Migrations
 
                     b.HasIndex("AuthorId");
 
+                    b.HasIndex("KeyWordId");
+
                     b.ToTable("HelpRelease");
                 });
 
@@ -89,27 +68,12 @@ namespace _17bnag.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ArticlesId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("HelpReleaseId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ProblemId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("ArticlesId");
-
-                    b.HasIndex("HelpReleaseId");
-
-                    b.HasIndex("ProblemId");
-
-                    b.ToTable("keywords");
+                    b.ToTable("Keyword");
                 });
 
             modelBuilder.Entity("_17bnag.Entitys.LogOnUser", b =>
@@ -139,79 +103,61 @@ namespace _17bnag.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("onUsers");
+                    b.ToTable("LogOnUser");
                 });
 
-            modelBuilder.Entity("_17bnag.Entitys.Problem", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int?>("AuthorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Body")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("PublishDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AuthorId");
-
-                    b.ToTable("problems");
-                });
-
-            modelBuilder.Entity("_17bnag.Entitys.RegisterUser", b =>
+            modelBuilder.Entity("_17bnag.Entitys.PublishArticle", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Invitationcode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(4)")
-                        .HasMaxLength(4);
+                    b.Property<int?>("AuthorId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Body")
                         .IsRequired()
-                        .HasColumnType("nvarchar(8)")
-                        .HasMaxLength(8);
+                        .HasColumnType("nvarchar(max)")
+                        .HasMaxLength(2312412);
 
-                    b.Property<string>("Password")
+                    b.Property<string>("Digest")
                         .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasMaxLength(20);
+                        .HasColumnType("nvarchar(115)")
+                        .HasMaxLength(115);
 
-                    b.Property<string>("ValidatePassword")
+                    b.Property<string>("Interlinkage")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("VerificationCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(4)")
-                        .HasMaxLength(4);
+                    b.Property<DateTime>("PublishTime")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("inviter")
+                    b.Property<string>("Series")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(8)")
-                        .HasMaxLength(8);
+                        .HasColumnType("nvarchar(10)")
+                        .HasMaxLength(10);
+
+                    b.Property<string>("UsedAds")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("keywordsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("RegisterUser");
-                });
+                    b.HasIndex("AuthorId");
 
-            modelBuilder.Entity("_17bnag.Entitys.Articles", b =>
-                {
-                    b.HasOne("_17bnag.Entitys.RegisterUser", "Author")
-                        .WithMany()
-                        .HasForeignKey("AuthorId");
+                    b.HasIndex("keywordsId");
+
+                    b.ToTable("PublishArticles");
                 });
 
             modelBuilder.Entity("_17bnag.Entitys.HelpRelease", b =>
@@ -219,28 +165,25 @@ namespace _17bnag.Migrations
                     b.HasOne("_17bnag.Entitys.LogOnUser", "Author")
                         .WithMany()
                         .HasForeignKey("AuthorId");
+
+                    b.HasOne("_17bnag.Entitys.Keyword", "KeyWord")
+                        .WithMany()
+                        .HasForeignKey("KeyWordId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("_17bnag.Entitys.Keyword", b =>
+            modelBuilder.Entity("_17bnag.Entitys.PublishArticle", b =>
                 {
-                    b.HasOne("_17bnag.Entitys.Articles", null)
-                        .WithMany("Keywords")
-                        .HasForeignKey("ArticlesId");
-
-                    b.HasOne("_17bnag.Entitys.HelpRelease", null)
-                        .WithMany("KeyWord")
-                        .HasForeignKey("HelpReleaseId");
-
-                    b.HasOne("_17bnag.Entitys.Problem", null)
-                        .WithMany("Keywords")
-                        .HasForeignKey("ProblemId");
-                });
-
-            modelBuilder.Entity("_17bnag.Entitys.Problem", b =>
-                {
-                    b.HasOne("_17bnag.Entitys.RegisterUser", "Author")
+                    b.HasOne("_17bnag.Entitys.LogOnUser", "Author")
                         .WithMany()
                         .HasForeignKey("AuthorId");
+
+                    b.HasOne("_17bnag.Entitys.Keyword", "keywords")
+                        .WithMany()
+                        .HasForeignKey("keywordsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

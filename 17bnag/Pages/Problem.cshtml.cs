@@ -23,13 +23,18 @@ namespace _17bnag.Pages
         {
             pagesize = 5;
             pageindex = Convert.ToInt32(Request.Query["Page"]);
-            Problems = new ProblemRepoistory().Get(pageindex, pagesize);
-            ViewData["title"] = "首页-一起帮";
             Problems = _context.HelpRelease.Include(h => h.Author).ToList();
+            Problems = Get(pageindex, pagesize);
+            ViewData["title"] = "首页-一起帮";
             base.SetLogOnStatus();
         }
         public void Post()
         {
+        }
+        public IList<HelpRelease> Get(int pageindex, int pagesize)
+        {
+            return Problems.OrderByDescending(p => p.PublishDateTime)
+                .Skip((pageindex - 1) * pagesize).Take(pagesize).ToList();
         }
     }
 }

@@ -8,30 +8,28 @@ using _17bnag.Layout;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace _17bnag.Problems
+namespace _17bnag
 {
     [BindProperties]
-    public class NewsModel : _LayoutModel
+    public class NewArticleModel : _LayoutModel
     {
-        public readonly _17bnagContext _context;
-        public HelpRelease help { get; set; }
-        public NewsModel(_17bnagContext context)
+        public _17bnagContext _context;
+        public PublishArticle PublishesOn { get; set; }
+        public NewArticleModel(_17bnagContext context)
         {
             _context = context;
         }
         public void OnGet()
         {
             base.SetLogOnStatus();
-            ViewData["title"] = "(新消息)我要求助--一起帮";
         }
         public async Task<IActionResult> OnPost()
         {
             //help.Author = OnUserName;
-
-            help.PublishDateTime = DateTime.Now;
-            _context.HelpRelease.Add(help);
+            PublishesOn.PublishTime = DateTime.Now;
+            _context.PublishArticles.Add(PublishesOn);
             await _context.SaveChangesAsync();
-            return RedirectToPage("/Problem");
+            return RedirectToPage("/Article");
         }
     }
 }

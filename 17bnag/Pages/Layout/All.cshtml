@@ -64,14 +64,15 @@
                             <li><a href="/Plan?my=s&amp;full=False&amp;due=False&amp;expire=True&amp;Frozen=False"><span class="fa fa-list fa-fw"></span> 我的督促</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="/Article" class="dropdown-toggle" data-toggle="dropdown"><span class="iconfont icon-articles"></span> 文章</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/Article"><span class="fa fa-list fa-fw"></span> 列表</a> </li>
-                        </ul>
-                    </li>
+
                     @if (@ViewData["UserName"] == null)
                     {
+                        <li class="dropdown">
+                            <a href="/Article" class="dropdown-toggle" data-toggle="dropdown"><span class="iconfont icon-articles"></span> 文章</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/Article"><span class="fa fa-list fa-fw"></span> 列表</a> </li>
+                            </ul>
+                        </li>
                         <li class="dropdown">
                             <a class="text-primary dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
                                 <span class="text-muted"><span class="fa fa-user-secret"></span><span> 未登录</span></span>
@@ -86,6 +87,16 @@
                     }
                     else
                     {
+                        <li class="dropdown">
+                            <a href="/Article" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="iconfont icon-articles"></span> 文章</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/Article"><span class="fa fa-list fa-fw"></span> 列表</a> </li>
+                                <li><a href="/Article/User-7"><span class="fa fa-home fa-fw"></span> 我的</a></li>
+                                <li><a href="/Article/NewArticle"><span class="fa fa-pencil fa-fw"></span> 发布</a></li>
+                                <li><a href="/Category/Manage"><span class="fa fa-folder-open-o"></span> 系列</a></li>
+                                <li><a href="/Article/Publisher"><span class="fa fa-certificate fa-fw"></span> 授权</a></li>
+                            </ul>
+                        </li>
                         <li class="dropdown">
                             <a class="text-primary dropdown-toggle" data-toggle="dropdown" href="#" role="button">
                                 <span class="text-primary">

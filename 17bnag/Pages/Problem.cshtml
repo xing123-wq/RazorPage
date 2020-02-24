@@ -81,12 +81,12 @@
                         </div>
                         <p zyf-problem-keyword="" style="clear:both;">
                             <span class="fa fa-tags " style="margin-right:10px;"></span>
-                            @*@foreach (var keywords in problem.KeyWord)
-                                {
-                                    <span zyf-keyword="1" title="" data-toggle="tooltip" class="badge badge-has-used" style="margin-right:5px;" data-original-title="已使用 1 次">
-                                        <a href="/Problem?keyword=@keywords.Id" style="color:white;">@keywords.Name</a>
-                                    </span>
-                                }*@
+                            @foreach (var keywords in problem.KeyWord)
+                            {
+                                <span zyf-keyword="1" title="" data-toggle="tooltip" class="badge badge-has-used" style="margin-right:5px;" data-original-title="已使用 1 次">
+                                    <a href="/Problem?keyword=@keywords.Id" style="color:white;">@keywords.Name</a>
+                                </span>
+                            }
                         </p>
                         <div class="status">
                             <span>
