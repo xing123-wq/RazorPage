@@ -9,7 +9,7 @@ namespace _17bnag.Entitys
     public class PublishArticle
     {
         public int Id { get; set; }
-        public LogOnUser Author { get; set; }
+        public User Author { get; set; }
 
         [Display(Name = "内容：（* 必填）")]
         [Required(ErrorMessage = "* 正文不能为空")]
@@ -18,7 +18,7 @@ namespace _17bnag.Entitys
 
         [Display(Name = "关键字：（* 必填）")]
         [Required(ErrorMessage = "* 关键字不能为空")]
-        public List<Keyword> keywords { get; set; }
+        public IList<ArticleMap> keywords { get; set; }
 
         [Display(Name = "标题：（* 必填）")]
         [Required(ErrorMessage = "* 标题不能为空")]

@@ -19,7 +19,7 @@ namespace _17bnag.Entitys
         public string Body { get; set; }
         [Display(Name = "关键字：（* 使用空格分隔）")]
         [Required(ErrorMessage = "* 关键字不能为空")]
-        public List<Keyword> KeyWord { get; set; }
+        public IList<Map> KeyWord { get; set; }
         [Display(Name = "定向求助：")]
         public string Resort { get; set; }
         [Display(Name = "悬赏")]
@@ -28,6 +28,6 @@ namespace _17bnag.Entitys
         public string Moneys { get; set; }
         [DataType(DataType.Date)]
         public DateTime PublishDateTime { get; set; }
-        public LogOnUser Author { get; set; }
+        public User Author { get; set; }
     }
 }

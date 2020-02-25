@@ -30,10 +30,10 @@ namespace _17bnag.Layout
             bool hasRegisterpassword = Request.Cookies.TryGetValue(Const.REGISTER_PASSWORD, out string registerPassword);
             if (hasUserId)
             {
-                LogOnUser user = _userLogOnRepository.Load(Convert.ToInt32(userId));
-                if (user.LogOnUserPassword == password)
+                User user = _userLogOnRepository.Load(Convert.ToInt32(userId));
+                if (user.Password == password)
                 {
-                    ViewData[Const.USER_NAME] = user.LogOnUserName;
+                    ViewData[Const.USER_NAME] = user.Name;
                 }
             }
             if (hasRegisterId)

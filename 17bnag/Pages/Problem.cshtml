@@ -59,8 +59,8 @@
                             <span data-author-id="2720" zyf-problem-author="">
                                 <span data-toggle="tooltip" title="" data-original-title="">
                                     <span class="fa fa-user-circle-o"></span>
-                                    @*<a href="/User/@problem.Author.Id" zyf-show-contact="2720">
-                                            @problem.Author.LogOnUserName
+                                    @*<a href="/User/@problem.Author.Id">
+                                            @problem.Author.Name
                                         </a>*@
                                 </span>
                                 <a href="/FAQ/Credit#" data-toggle="tooltip" title="" class="text-muted" style="position:relative; top:-1px;" data-original-title="导师">
@@ -84,7 +84,7 @@
                             @foreach (var keywords in problem.KeyWord)
                             {
                                 <span zyf-keyword="1" title="" data-toggle="tooltip" class="badge badge-has-used" style="margin-right:5px;" data-original-title="已使用 1 次">
-                                    <a href="/Problem?keyword=@keywords.Id" style="color:white;">@keywords.Name</a>
+                                    <a href="/Problem?keyword=@keywords.Keyword.Id" style="color:white;">@keywords.Keyword.Name</a>
                                 </span>
                             }
                         </p>

@@ -10,8 +10,8 @@ using _17bnag.Data;
 namespace _17bnag.Migrations
 {
     [DbContext(typeof(_17bnagContext))]
-    [Migration("20200224023235_first")]
-    partial class first
+    [Migration("20200225055637_frist")]
+    partial class frist
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,43 @@ namespace _17bnag.Migrations
                 .HasAnnotation("ProductVersion", "3.1.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("_17bnag.Entitys.ArticleKeyword", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ArticleKeyword");
+                });
+
+            modelBuilder.Entity("_17bnag.Entitys.ArticleMap", b =>
+                {
+                    b.Property<int>("PublishId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ArticleKeywordId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PublishArticleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PublishId");
+
+                    b.HasIndex("ArticleKeywordId");
+
+                    b.HasIndex("PublishArticleId");
+
+                    b.ToTable("ArticleMap");
+                });
 
             modelBuilder.Entity("_17bnag.Entitys.HelpRelease", b =>
                 {
@@ -36,7 +73,7 @@ namespace _17bnag.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasMaxLength(21113);
 
-                    b.Property<int>("KeyWordId")
+                    b.Property<int?>("KeywordId")
                         .HasColumnType("int");
 
                     b.Property<string>("Moneys")
@@ -58,7 +95,7 @@ namespace _17bnag.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.HasIndex("KeyWordId");
+                    b.HasIndex("KeywordId");
 
                     b.ToTable("HelpRelease");
                 });
@@ -75,37 +112,29 @@ namespace _17bnag.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Keyword");
+                    b.ToTable("Keywords");
                 });
 
-            modelBuilder.Entity("_17bnag.Entitys.LogOnUser", b =>
+            modelBuilder.Entity("_17bnag.Entitys.Map", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("helperId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("LogOnUserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(8)")
-                        .HasMaxLength(8);
+                    b.Property<int?>("HelpId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("LogOnUserPassword")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasMaxLength(20);
+                    b.Property<int>("KeywordId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("LogOnUserVerification")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(4)")
-                        .HasMaxLength(4);
+                    b.HasKey("helperId");
 
-                    b.Property<bool>("RememberMe")
-                        .HasColumnType("bit");
+                    b.HasIndex("HelpId");
 
-                    b.HasKey("Id");
+                    b.HasIndex("KeywordId");
 
-                    b.ToTable("LogOnUser");
+                    b.ToTable("Map");
                 });
 
             modelBuilder.Entity("_17bnag.Entitys.PublishArticle", b =>
@@ -114,6 +143,9 @@ namespace _17bnag.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ArticleKeywordId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("AuthorId")
                         .HasColumnType("int");
@@ -146,46 +178,95 @@ namespace _17bnag.Migrations
                     b.Property<string>("UsedAds")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("keywordsId")
-                        .HasColumnType("int");
-
                     b.Property<string>("text")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId");
+                    b.HasIndex("ArticleKeywordId");
 
-                    b.HasIndex("keywordsId");
+                    b.HasIndex("AuthorId");
 
                     b.ToTable("PublishArticles");
                 });
 
+            modelBuilder.Entity("_17bnag.Entitys.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("LogOnUserVerification")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(4)")
+                        .HasMaxLength(4);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(8)")
+                        .HasMaxLength(8);
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
+
+                    b.Property<bool>("RememberMe")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("_17bnag.Entitys.ArticleMap", b =>
+                {
+                    b.HasOne("_17bnag.Entitys.ArticleKeyword", "Keyword")
+                        .WithMany()
+                        .HasForeignKey("ArticleKeywordId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("_17bnag.Entitys.PublishArticle", "PublishArticle")
+                        .WithMany("keywords")
+                        .HasForeignKey("PublishArticleId");
+                });
+
             modelBuilder.Entity("_17bnag.Entitys.HelpRelease", b =>
                 {
-                    b.HasOne("_17bnag.Entitys.LogOnUser", "Author")
+                    b.HasOne("_17bnag.Entitys.User", "Author")
                         .WithMany()
                         .HasForeignKey("AuthorId");
 
-                    b.HasOne("_17bnag.Entitys.Keyword", "KeyWord")
+                    b.HasOne("_17bnag.Entitys.Keyword", null)
+                        .WithMany("helps")
+                        .HasForeignKey("KeywordId");
+                });
+
+            modelBuilder.Entity("_17bnag.Entitys.Map", b =>
+                {
+                    b.HasOne("_17bnag.Entitys.HelpRelease", "Help")
+                        .WithMany("KeyWord")
+                        .HasForeignKey("HelpId");
+
+                    b.HasOne("_17bnag.Entitys.Keyword", "Keyword")
                         .WithMany()
-                        .HasForeignKey("KeyWordId")
+                        .HasForeignKey("KeywordId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("_17bnag.Entitys.PublishArticle", b =>
                 {
-                    b.HasOne("_17bnag.Entitys.LogOnUser", "Author")
+                    b.HasOne("_17bnag.Entitys.ArticleKeyword", null)
+                        .WithMany("PublishArticles")
+                        .HasForeignKey("ArticleKeywordId");
+
+                    b.HasOne("_17bnag.Entitys.User", "Author")
                         .WithMany()
                         .HasForeignKey("AuthorId");
-
-                    b.HasOne("_17bnag.Entitys.Keyword", "keywords")
-                        .WithMany()
-                        .HasForeignKey("keywordsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

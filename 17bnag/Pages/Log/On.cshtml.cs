@@ -14,7 +14,7 @@ namespace _17bnag.Log
     //[AddHeader]
     public class OnModel : _LayoutModel
     {
-        public LogOnUser LogOnOne { get; set; }
+        public User LogOnOne { get; set; }
         public PageResult OnGet()
         {
             base.SetLogOnStatus();
@@ -24,7 +24,7 @@ namespace _17bnag.Log
         public IActionResult OnPost()
         {
             CookieOptions options = new CookieOptions();
-            LogOnUser user = _userLogOnRepository.GetLog(LogOnOne.LogOnUserName);
+            User user = _userLogOnRepository.GetLog(LogOnOne.Name);
             new UserLogOnRepository().Sava(LogOnOne);
             if (!ModelState.IsValid)
             {
@@ -36,7 +36,7 @@ namespace _17bnag.Log
                 ModelState.AddModelError(Const.LOGON_LOGONUSERNAME, "* 用户名不存在");
                 return Page();
             }
-            if (user.LogOnUserPassword != LogOnOne.LogOnUserPassword.GetMd5Hash())
+            if (user.Password != LogOnOne.Password.GetMd5Hash())
             {
                 ModelState.AddModelError(Const.LOGON_LOGONPASSWORD, "* 用户名或者密码不正确");
                 return Page();
@@ -56,11 +56,11 @@ namespace _17bnag.Log
             {
                 options.Expires = DateTime.Now.AddDays(1);
             }
-            LogOnUser user = _userLogOnRepository.GetLog(LogOnOne.LogOnUserName);
+            User user = _userLogOnRepository.GetLog(LogOnOne.Name);
             Response.Cookies.Append(Const.USER_ID, user.Id.ToString(), options);
-            Response.Cookies.Append(Const.USER_PASSWORD, user.LogOnUserPassword.ToString(), options);
+            Response.Cookies.Append(Const.USER_PASSWORD, user.Password.ToString(), options);
             Response.Cookies.Append(Const.LOGON_REMEMBERME, user.RememberMe.ToString(), options);
-            ViewData[Const.USER_NAME] = user.LogOnUserName;
+            ViewData[Const.USER_NAME] = user.Name;
         }
         public void GetUrl()
         {

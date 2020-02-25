@@ -33,16 +33,16 @@
                 </div>
                 <form method="post">
                     <div class="form-group">
-                        <label asp-for="LogOnOne.LogOnUserName"></label>
+                        <label asp-for="LogOnOne.Name"></label>
                         <input class="form-control" data-val="true" data-val-length-max="20"
                                placeholder="登录用户名，可修改，不能重复"
-                               type="text" asp-for="LogOnOne.LogOnUserName">
-                        <span asp-validation-for="LogOnOne.LogOnUserName" style="color:red"></span>
+                               type="text" asp-for="LogOnOne.Name">
+                        <span asp-validation-for="LogOnOne.Name" style="color:red"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="LogOnOne.LogOnUserPassword"></label>
-                        <input asp-for="LogOnOne.LogOnUserPassword" class="form-control" placeholder="不少于4个字符" type="password" />
-                        <span asp-validation-for="LogOnOne.LogOnUserPassword" style="color:red"></span>
+                        <label asp-for="LogOnOne.Password"></label>
+                        <input asp-for="LogOnOne.Password" class="form-control" placeholder="不少于4个字符" type="password" />
+                        <span asp-validation-for="LogOnOne.Password" style="color:red"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="LogOnOne.LogOnUserVerification"></label>
