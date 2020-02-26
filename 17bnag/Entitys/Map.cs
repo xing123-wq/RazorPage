@@ -8,7 +8,6 @@ namespace _17bnag.Entitys
 {
     public class Map
     {
-        [Key]
         public int helperId { get; set; }
         public HelpRelease Help { get; set; }
         public int KeywordId { get; set; }
