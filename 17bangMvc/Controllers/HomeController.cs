@@ -12,6 +12,7 @@ namespace _17bangMvc.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            ViewData["title"] = "一起帮-首页";
             return View();
         }
         [HttpPost]

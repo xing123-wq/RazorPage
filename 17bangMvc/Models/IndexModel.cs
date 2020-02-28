@@ -7,6 +7,6 @@ namespace _17bangMvc.Models
 {
     public class IndexModel
     {
-
+        
     }
 }
