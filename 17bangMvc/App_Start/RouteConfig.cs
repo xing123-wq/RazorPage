@@ -18,11 +18,7 @@ namespace _17bangMvc
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
-            routes.MapRoute(
-               name: "Article",
-               url: "Article/{id}",
-               defaults: new { controller = "Article", action = "Index", id = UrlParameter.Optional }
-           );
+
         }
     }
 }
