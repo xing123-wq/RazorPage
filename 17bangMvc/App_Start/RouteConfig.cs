@@ -19,6 +19,7 @@ namespace _17bangMvc
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
+            routes.MapMvcAttributeRoutes();
         }
     }
 }
