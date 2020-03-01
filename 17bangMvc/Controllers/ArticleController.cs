@@ -10,6 +10,7 @@ namespace _17bangMvc.Controllers
     public class ArticleController : Controller
     {
         [HttpGet]
+        [Route("Article")]
         public ActionResult index()
         {
             ViewData["title"] = "精品文章-一起帮";

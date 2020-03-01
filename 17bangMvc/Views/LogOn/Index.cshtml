@@ -29,7 +29,8 @@
                         </a>
                     </div>
                 </div>
-                <form method="post">
+                @using (Html.BeginForm())
+                {
                     <div class="form-group">
                         <label>用户名：（* 必填）</label>
                         <input class="form-control" data-val="true" data-val-length="* 用户名的长度不能大于20" data-val-length-max="20" data-val-remote="* 用户名不存在" data-val-remote-additionalfields="*.UserName" data-val-remote-url="/User/_NameNotExist" data-val-required="* 用户名不能为空" id="UserName" name="UserName" placeholder="不是昵称，是登录用户名" type="text" value="">
@@ -68,7 +69,7 @@
                             <a href="/Register" style="margin-left:10px;"><span class="fa fa-registered"></span> 注册</a>
                         </span>
                     </div>
-                </form>
+                }
                 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="introductionLabel">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">

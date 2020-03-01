@@ -10,6 +10,7 @@ namespace _17bangMvc.Controllers
     public class LogOnController : Controller
     {
         [HttpGet]
+        [Route("Log/On")]
         public ActionResult index()
         {
             ViewData["title"] = "用户登录:一起帮";
