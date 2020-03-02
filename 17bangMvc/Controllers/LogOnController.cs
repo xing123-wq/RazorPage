@@ -16,10 +16,29 @@ namespace _17bangMvc.Controllers
             ViewData["title"] = "用户登录:一起帮";
             return View();
         }
+        [Route("Log/On")]
         [HttpPost]
         public ActionResult index(OnModel model)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                ViewData["title"] = "用户登录:一起帮";
+            }
+            Cookie(model);
+            return View(model);
+        }
+        public void Cookie(OnModel model)
+        {
+            HttpCookie cookie = new HttpCookie("UserName");
+            if (model.RememberMe)
+            {
+                cookie.Expires = DateTime.Now.AddDays(14);
+            }
+            else
+            {
+                cookie.Expires = DateTime.Now.AddDays(1);
+            }
+            Response.Cookies.Add(cookie);
         }
     }
 }
