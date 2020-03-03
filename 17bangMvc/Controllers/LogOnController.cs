@@ -9,6 +9,7 @@ namespace _17bangMvc.Controllers
 {
     public class LogOnController : Controller
     {
+        HttpCookie cookie = new HttpCookie("UserName");
         [HttpGet]
         [Route("Log/On")]
         public ActionResult index()
@@ -27,9 +28,16 @@ namespace _17bangMvc.Controllers
             Cookie(model);
             return View(model);
         }
+        [HttpGet]
+        [Route("Log/Off")]
+        public ActionResult Off()
+        {
+            Response.AppendCookie(cookie);
+            Request.Cookies.Remove("UserName");
+            return RedirectToAction("index");
+        }
         public void Cookie(OnModel model)
         {
-            HttpCookie cookie = new HttpCookie("UserName");
             if (model.RememberMe)
             {
                 cookie.Expires = DateTime.Now.AddDays(14);
