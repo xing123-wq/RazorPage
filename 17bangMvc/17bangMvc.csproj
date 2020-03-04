@@ -442,12 +442,12 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_RankingList.cshtml" />
+    <Content Include="Views\Shared\Layout\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_DualColumn.cshtml" />
+    <Content Include="Views\Shared\Layout\_DualColumn.cshtml" />
     <Content Include="Views\Article\Index.cshtml" />
     <Content Include="Views\Problem\Index.cshtml" />
     <Content Include="Views\LogOn\Index.cshtml" />
@@ -459,6 +459,9 @@
     <Content Include="Views\OnModels\Details.cshtml" />
     <Content Include="Views\OnModels\Edit.cshtml" />
     <Content Include="Views\OnModels\Index.cshtml" />
+    <Content Include="Views\Shared\_Advertising.cshtml" />
+    <Content Include="Views\Shared\_Article.cshtml" />
+    <Content Include="Views\Shared\_Keyword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
