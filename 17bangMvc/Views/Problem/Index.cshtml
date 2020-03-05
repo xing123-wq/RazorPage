@@ -804,10 +804,10 @@
             </nav>
         </div>
         <div class="col-md-4 visible-md visible-lg">
-            @Html.Partial("_Keyword")
-            @Html.Partial("_RankingList")
-            @Html.Partial("_Article")
-            @Html.Partial("_Advertising")
+            @Html.Action("_Keyword", "Shared")
+            @Html.Action("_RankingList", "Shared")
+            @Html.Action("_Article", "Shared")
+            @Html.Action("_Advertising", "Shared")
             <div class="modal fade" tabindex="-1" role="dialog" zyf-adinwidget-free-modal="">
             </div><!-- /.modal -->
 
