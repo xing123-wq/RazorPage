@@ -456,11 +456,6 @@
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Problem\New.cshtml" />
     <Content Include="Views\LogOn\Off.cshtml" />
-    <Content Include="Views\OnModels\Create.cshtml" />
-    <Content Include="Views\OnModels\Delete.cshtml" />
-    <Content Include="Views\OnModels\Details.cshtml" />
-    <Content Include="Views\OnModels\Edit.cshtml" />
-    <Content Include="Views\OnModels\Index.cshtml" />
     <Content Include="Views\Shared\_Advertising.cshtml" />
     <Content Include="Views\Shared\_Article.cshtml" />
     <Content Include="Views\Shared\_Keyword.cshtml" />
