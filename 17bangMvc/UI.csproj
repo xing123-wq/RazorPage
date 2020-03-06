@@ -133,16 +133,9 @@
     <Compile Include="Controllers\ProblemController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\SharedController.cs" />
-    <Compile Include="Helper\StringConst.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ArticleModel.cs" />
-    <Compile Include="Models\IndexModel.cs" />
-    <Compile Include="Models\NewModel.cs" />
-    <Compile Include="Models\OnModel.cs" />
-    <Compile Include="Models\ProblemModel.cs" />
-    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -477,9 +470,21 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{6173c1fc-92bf-476e-86c4-d4820b120e17}</Project>
-      <Name>BLL</Name>
+    <ProjectReference Include="..\ProdService\ProdService.csproj">
+      <Project>{13ea5bb3-4a54-4668-916a-8cfcecba94e9}</Project>
+      <Name>ProdService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceInterface\ServiceInterface.csproj">
+      <Project>{52544295-d7d7-4f22-90e7-996c14a42462}</Project>
+      <Name>ServiceInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service\MockService.csproj">
+      <Project>{3dc3786f-f9c5-49ec-b222-b2a4fd3c07df}</Project>
+      <Name>MockService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewModel\ViewModel.csproj">
+      <Project>{A11F63AB-1869-4B80-9C60-08D5F0845DCB}</Project>
+      <Name>ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

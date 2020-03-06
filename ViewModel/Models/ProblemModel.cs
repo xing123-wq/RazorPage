@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace _17bangMvc.Entity
+namespace ViewModel.Models
 {
-    public class StringConst
+    public class ProblemModel
     {
     }
 }
