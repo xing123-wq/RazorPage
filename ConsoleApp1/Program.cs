@@ -20,18 +20,20 @@ namespace ConsoleApp1
             /////这个该用keyword类型
             /////因为可以在keyword类中通过id得到
             //string SelfDescription;
-            int i = 23;
-            int j = 33;
-            Console.WriteLine(i + j);
-            Console.WriteLine(i - j);
-            Console.WriteLine(i * j);
-            Console.WriteLine(i / j);
-            double a = 2.7;
-            double b = 0.3;
-            Console.WriteLine(a + b);
-            Console.WriteLine(a - b);
-            Console.WriteLine(a * b);
-            Console.WriteLine(a / b);
+
+            //输出两个整数 / 小数的和 / 差 / 积 / 商
+            //int i = 23;
+            //int j = 33;
+            //Console.WriteLine(i + j);
+            //Console.WriteLine(i - j);
+            //Console.WriteLine(i * j);
+            //Console.WriteLine(i / j);
+            //double a = 2.7;
+            //double b = 0.3;
+            //Console.WriteLine(a + b);
+            //Console.WriteLine(a - b);
+            //Console.WriteLine(a * b);
+            //Console.WriteLine(a / b);
         }
     }
 }
