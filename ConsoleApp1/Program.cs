@@ -42,6 +42,42 @@ namespace ConsoleApp1
             //int a = 10;
             //bool result = (a + 3 > 12) && a < 3.14 * 4 && a != 11;
             //Console.WriteLine(result);
+
+            //用户依次由控制台输入：验证码、用户名和密码：
+            //如果验证码输入错误，直接输出：“*验证码错误”；
+            //如果用户名不存在，直接输出：“*用户名不存在”；
+            //如果用户名或密码错误，输出：“*用户名或密码错误”
+            //以上全部正确无误，输出：“恭喜！登录成功！”
+            string input = Console.ReadLine();
+            if ("qwe1" == input)
+            {
+                Console.WriteLine("请输入用户名");
+                string inputs = Console.ReadLine();
+                if ("wf23" == inputs)
+                {
+                    Console.WriteLine("请输入密码");
+                    string inputPassword = Console.ReadLine();
+                    if ("1234" == inputPassword)
+                    {
+                        Console.WriteLine("恭喜！登录成功！");
+                    }
+                    else
+                    {
+                        Console.WriteLine("*用户名或密码错误");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("*用户名不存在");
+                }
+            }
+            else
+            {
+                Console.WriteLine("*验证码错误");
+            }
+
         }
+
     }
 }
+
