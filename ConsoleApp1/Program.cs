@@ -36,7 +36,7 @@ namespace ConsoleApp1
             //Console.WriteLine(a / b);
 
             //电脑计算并输出：[(23 + 7)x12-8]÷6的小数值（挑战：精确到小数点以后2位）
-            Console.WriteLine((Math.Round(((23 + 7) * 12 - 8) / (float)6, 2)));
+            //Console.WriteLine((Math.Round(((23 + 7) * 12 - 8) / (float)6, 2)));
 
         }
     }
