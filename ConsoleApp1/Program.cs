@@ -48,34 +48,52 @@ namespace ConsoleApp1
             //如果用户名不存在，直接输出：“*用户名不存在”；
             //如果用户名或密码错误，输出：“*用户名或密码错误”
             //以上全部正确无误，输出：“恭喜！登录成功！”
-            string input = Console.ReadLine();
-            if ("qwe1" == input)
+            //string input = Console.ReadLine();
+            //if ("qwe1" == input)
+            //{
+            //    Console.WriteLine("请输入用户名");
+            //    string inputs = Console.ReadLine();
+            //    if ("wf23" == inputs)
+            //    {
+            //        Console.WriteLine("请输入密码");
+            //        string inputPassword = Console.ReadLine();
+            //        if ("1234" == inputPassword)
+            //        {
+            //            Console.WriteLine("恭喜！登录成功！");
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("*用户名或密码错误");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("*用户名不存在");
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("*验证码错误");
+            //}
+            //将源栈同学姓名 / 昵称分别：
+            //按进栈时间装入一维数组，
+            //按座位装入二维数组，
+            //并输出共有多少名同学。
+            string[] names = new string[] { "阿泰", "与围墙", "清哥", "王总", "彭总", "陈百万" };
+            for (int i = 0; i < names.Length; i++)
             {
-                Console.WriteLine("请输入用户名");
-                string inputs = Console.ReadLine();
-                if ("wf23" == inputs)
+                Console.WriteLine(names[i]);
+            }
+            Console.WriteLine(names.Length);
+            string[,] array = new string[2, 3] { { "幸龙泰", "于维谦", "曾俊清" }, { "王新", "彭志强", "陈百万" } };
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    Console.WriteLine("请输入密码");
-                    string inputPassword = Console.ReadLine();
-                    if ("1234" == inputPassword)
-                    {
-                        Console.WriteLine("恭喜！登录成功！");
-                    }
-                    else
-                    {
-                        Console.WriteLine("*用户名或密码错误");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("*用户名不存在");
+                    Console.WriteLine(array[i, j]);
                 }
             }
-            else
-            {
-                Console.WriteLine("*验证码错误");
-            }
-
+            Console.WriteLine(array.Length);
         }
 
     }
