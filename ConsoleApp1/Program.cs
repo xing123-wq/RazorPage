@@ -38,10 +38,10 @@ namespace ConsoleApp1
             //电脑计算并输出：[(23 + 7)x12-8]÷6的小数值（挑战：精确到小数点以后2位）
             //Console.WriteLine((Math.Round(((23 + 7) * 12 - 8) / (float)6, 2)));
 
-            //当a为何值时，结果为true？
-            int a = 10;
-            bool result = (a + 3 > 12) && a < 3.14 * 4 && a != 11;
-            Console.WriteLine(result);
+            ////当a为何值时，结果为true？
+            //int a = 10;
+            //bool result = (a + 3 > 12) && a < 3.14 * 4 && a != 11;
+            //Console.WriteLine(result);
         }
     }
 }
