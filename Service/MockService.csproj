@@ -49,6 +49,10 @@
       <Project>{6173c1fc-92bf-476e-86c4-d4820b120e17}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ViewModel\ViewModel.csproj">
+      <Project>{a11f63ab-1869-4b80-9c60-08d5f0845dcb}</Project>
+      <Name>ViewModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
