@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ViewModel.Models
+namespace SRV.ViewModel.Models
 {
     public class OnModel
     {
