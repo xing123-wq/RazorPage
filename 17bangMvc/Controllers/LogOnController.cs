@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using _17bangMvc.Filters;
+using SRV.ViewModel.Models;
 using ViewModel.Models;
 
 namespace _17bangMvc.Controllers
