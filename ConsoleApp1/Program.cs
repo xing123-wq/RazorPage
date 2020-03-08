@@ -12,38 +12,12 @@ namespace ConsoleApp1
             //将源栈同学的成绩存入一个double数组中，用循环找到最高分和最低分
             //找到100以内的所有质数（只能被1和它自己整除的数）
             //在一个整数数组中找到最大值
-            //Console.WriteLine("for循环：");
-            //for (int i = 1; i <= 5; i++)
-            //{
-            //    Console.WriteLine(i);
-            //}
-            //Console.WriteLine("while循环：");
-            //int q = 0;
-            //while (q < 5)
-            //{
-            //    q++;
-            //    Console.WriteLine(q);
-            //}
-            //Console.WriteLine("for循环:");
-            //int t;
-            //for (t = 1; t < 10; t++)
-            //{
-            //    if (t % 2 != 0)
-            //    {
-            //        Console.WriteLine(t);
-            //    }
-            //}
-            //Console.WriteLine("while循环:");
-            //int w = 0;
-            //while (w < 10)
-            //{
-            //    if (w % 2 != 0)
-            //    {
-            //        Console.WriteLine(w);
-            //    }
-            //    w++;
-            //}
-
+            int sum = 0;
+            for (int i = 1; i < 100; i += 2)
+            {
+                sum += i;
+            }
+            Console.WriteLine(sum);
 
         }
 
