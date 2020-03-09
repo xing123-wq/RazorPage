@@ -47,7 +47,12 @@ namespace ConsoleApp1
             GetUnicode('了');
             GetMax(new int[] { 12, 45, 5, 4, 2, 1, 556 });
             GetAverage(new double[] { 2, 34, 12.4, 56, 112, 55 });
-            GuessMe();
+            //GuessMe();
+            int bed = 2;
+            int beds = 1;
+            Console.WriteLine($"初始值：{ bed},{ beds}");
+            Swap(ref bed, ref beds);
+            Console.WriteLine($"交换 {bed},{beds}");
         }
         public void SelfIntroduce()
         {
@@ -109,7 +114,7 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("第" + (i + 1) + "次," + "请输入一个整数：");
                 string input = Console.ReadLine();
-                int a ;
+                int a;
                 bool result = int.TryParse(input, out a);
                 if (result == true)
                 {
@@ -182,6 +187,14 @@ namespace ConsoleApp1
                     }
                 }
             }
+        }
+        static void Swap(ref int BedID, ref int bed2)
+        {
+            int k = 0;
+            k = BedID;
+            BedID = bed2;
+            bed2 = k;
+
         }
     }
 }
