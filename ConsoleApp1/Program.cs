@@ -58,15 +58,15 @@ namespace ConsoleApp1
             Time = DateTime.Now;
             Console.WriteLine($"我叫{Name}\n今年{Age}岁\n来自{Site}\n身高{Height}cm\n{Time}来到这里");
         }
-        static int Arithmetic(int score, int seres)
+        static int Arithmetic(int score, int sores)
         {
             //输出两个整数/小数的和/差/积/商
             Console.WriteLine("Arithmetic：");
-            Console.WriteLine("和：" + (score + seres));
-            Console.WriteLine("差：" + (score - seres));
-            Console.WriteLine("积：" + (score * seres));
-            Console.WriteLine("商：" + Math.Round((score / (float)seres), 2));  //保留小数点
-            return (seres + score);
+            Console.WriteLine("和：" + (score + sores));
+            Console.WriteLine("差：" + (score - sores));
+            Console.WriteLine("积：" + (score * sores));
+            Console.WriteLine("商：" + Math.Round((score / (float)sores), 2));  //保留小数点
+            return (sores + score);
         }
         static char GetUnicode(char price)
         {
