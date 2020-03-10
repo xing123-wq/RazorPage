@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.Entitys
+namespace ViewModel.Models
 {
-    public class User
+    public class UserModel
     {
-        public int Id { get; set; }
         public string Password { get; set; }
     }
 }
