@@ -22,8 +22,40 @@ namespace ConsoleApp1
             //        Console.WriteLine(text[i][j]);
             //    }
             //}
-            Program program = new Program();
-            program.AllMethod();
+            //int[] a = { 12, 56, 9, 32, 66, 77, 84, 2, 1 };
+            //for (int i = 0; i < a.Length; i++)
+            //{
+            //    for (int j = 0; j < a.Length - i - 1; j++)
+            //    {
+            //        if (a[j] > a[j + 1])
+            //        {
+            //            int temp = a[j];
+            //            a[j] = a[j + 1];
+            //            a[j + 1] = temp;
+            //        }
+            //    }
+            //}
+            //Console.WriteLine("升序排序后的结果为：");
+            //foreach (int b in a)
+            //{
+            //    Console.Write(b + " ");
+            //}
+            //Program program = new Program();
+            //program.AllMethod();
+            for (int i = 1; i <= 100; i++)
+            {
+                for (int j = 2; j < i; j++)
+                {
+                    if (i % j == 0)
+                    {
+                        break;
+                    }
+                    if (j == i - 1)
+                    {
+                        Console.WriteLine(i);
+                    }
+                }
+            }
         }
         //将之前以下作业封装成方法（自行思考参数和返回值），并调用执行
 
