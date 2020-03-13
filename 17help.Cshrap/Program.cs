@@ -41,12 +41,49 @@ namespace ConsoleApp3
             //LinqWork.Do();
 
             //XML.Do();
-
+            
             //Repoistory.Do();
 
             //new Student().Delete();
 
-            
+            Random random = new Random();
+            int[] a = new int[10];
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[i] = random.Next(1, 100);
+            }
+            getmax(a);
+        }
+        static int getmax(params int[] array)
+        {
+            int temp = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array.Length - i - 1; j++)
+                {
+                    if (array[j] > array[j + 1])
+                    {
+                        temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+
+                }
+            }
+            Console.WriteLine("升序排序后的结果为：");
+            foreach (int b in array)
+            {
+                Console.Write(b + " ");
+            }
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (temp < array[i])
+                {
+                    temp = array[i];
+                }
+            }
+            Console.WriteLine("\n最大值："+temp+"!");
+            return temp;
         }
         //源栈的学费是按周计费的，所以请实现这两个功能：
         //函数GetDate()，能计算一个日期若干（日 / 周 / 月）后的日期

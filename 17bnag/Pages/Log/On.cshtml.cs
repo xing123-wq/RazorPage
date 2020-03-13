@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using _17bnag.Data;
 using _17bnag.Entitys;
 using _17bnag.Helper;
 using _17bnag.Layout;
-using _17bnag.Repositorys;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace _17bnag.Log
 {
@@ -14,6 +16,11 @@ namespace _17bnag.Log
     //[AddHeader]
     public class OnModel : _LayoutModel
     {
+        public OnModel(_17bnagContext context):base(context)
+        {
+            _context = context;
+        }
+        public LogOn Log { get; set; }
         public User LogOnOne { get; set; }
         public PageResult OnGet()
         {
@@ -23,20 +30,18 @@ namespace _17bnag.Log
         }
         public IActionResult OnPost()
         {
-            CookieOptions options = new CookieOptions();
-            User user = _userLogOnRepository.GetLog(LogOnOne.Name);
-            new UserLogOnRepository().Sava(LogOnOne);
             if (!ModelState.IsValid)
             {
                 ViewData["title"] = "登录-一起帮";
                 return Page();
             }
-            if (user == null)
+            User _user = GetLog(LogOnOne.Name);
+            if (_user == null)
             {
                 ModelState.AddModelError(Const.LOGON_LOGONUSERNAME, "* 用户名不存在");
                 return Page();
             }
-            if (user.Password != LogOnOne.Password.GetMd5Hash())
+            if (_user.Password.GetMd5Hash() != LogOnOne.Password.GetMd5Hash())
             {
                 ModelState.AddModelError(Const.LOGON_LOGONPASSWORD, "* 用户名或者密码不正确");
                 return Page();
@@ -45,10 +50,14 @@ namespace _17bnag.Log
             GetUrl();
             return Page();
         }
+        public User GetLog(string name)
+        {
+            return _context.Users.Where(u => u.Name == name).SingleOrDefault();
+        }
         public void LogOnCookies()
         {
             CookieOptions options = new CookieOptions();
-            if (LogOnOne.RememberMe)
+            if (Log.RememberMe)
             {
                 options.Expires = DateTime.Now.AddDays(14);
             }
@@ -56,11 +65,10 @@ namespace _17bnag.Log
             {
                 options.Expires = DateTime.Now.AddDays(1);
             }
-            User user = _userLogOnRepository.GetLog(LogOnOne.Name);
-            Response.Cookies.Append(Const.USER_ID, user.Id.ToString(), options);
-            Response.Cookies.Append(Const.USER_PASSWORD, user.Password.ToString(), options);
-            Response.Cookies.Append(Const.LOGON_REMEMBERME, user.RememberMe.ToString(), options);
-            ViewData[Const.USER_NAME] = user.Name;
+            User _user = GetLog(LogOnOne.Name);
+            Response.Cookies.Append(Const.USER_ID, _user.Id.ToString(), options);
+            Response.Cookies.Append(Const.USER_PASSWORD, _user.Password.ToString(), options);
+            ViewData[Const.USER_NAME] = _user.Name;
         }
         public void GetUrl()
         {
@@ -78,5 +86,6 @@ namespace _17bnag.Log
                 Response.Redirect("/Index");
             }
         }
+       
     }
 }

@@ -35,8 +35,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceInterface", "Service
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{A11F63AB-1869-4B80-9C60-08D5F0845DCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{C0CE2D58-1DFD-4EFE-ACFE-1588802206B4}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,10 +85,6 @@ Global
 		{A11F63AB-1869-4B80-9C60-08D5F0845DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A11F63AB-1869-4B80-9C60-08D5F0845DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A11F63AB-1869-4B80-9C60-08D5F0845DCB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C0CE2D58-1DFD-4EFE-ACFE-1588802206B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C0CE2D58-1DFD-4EFE-ACFE-1588802206B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C0CE2D58-1DFD-4EFE-ACFE-1588802206B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C0CE2D58-1DFD-4EFE-ACFE-1588802206B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

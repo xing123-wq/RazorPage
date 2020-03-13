@@ -13,9 +13,8 @@ namespace _17bnag
     [BindProperties]
     public class NewArticleModel : _LayoutModel
     {
-        public _17bnagContext _context;
         public PublishArticle PublishesOn { get; set; }
-        public NewArticleModel(_17bnagContext context)
+        public NewArticleModel(_17bnagContext context) : base(context)
         {
             _context = context;
         }

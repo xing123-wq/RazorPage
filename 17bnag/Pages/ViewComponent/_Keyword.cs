@@ -9,11 +9,11 @@ namespace _17bnag.View_Component
 {
     public class _Keyword : ViewComponent
     {
-        public IViewComponentResult Invoke()
-        {
-            DefaultModel model = new DefaultModel();
-            return View(model.Default());
-        }
+        //public IViewComponentResult Invoke()
+        //{
+        //    //DefaultModel model = new DefaultModel();
+        //    //return View(model.Default());
+        //}
 
     }
 }

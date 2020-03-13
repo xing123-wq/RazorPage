@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using _17bnag.Data;
 using _17bnag.Layout;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -12,6 +13,10 @@ namespace _17bnag.Plan
     [BindProperties]
     public class NewModel : _LayoutModel
     {
+        public NewModel(_17bnagContext context) : base(context)
+        {
+        }
+
         public PublishUser PlanNewOn { get; set; }
         public void OnGet()
         {

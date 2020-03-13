@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using _17bnag.Data;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace _17bnag.Entitys
 {
@@ -15,12 +17,5 @@ namespace _17bnag.Entitys
         [Required(ErrorMessage = "* 密码不能为空")]
         [StringLength(20, MinimumLength = 4, ErrorMessage = "* 密码必须在{2} 和{1}之间")]
         public string Password { get; set; }
-
-        [Display(Name = "验证码:")]
-        [Required(ErrorMessage = "* 验证码不能为空")]
-        [MaxLength(4, ErrorMessage = "* 验证码长度最大4位")]
-        public string LogOnUserVerification { get; set; }
-        public bool RememberMe { get; set; }//记住我
-
     }
 }

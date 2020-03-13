@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using _17bnag.Data;
 using _17bnag.Layout;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -12,6 +13,10 @@ namespace _17bnag.Contact
     [BindProperties]
     public class EditModel : _LayoutModel
     {
+        public EditModel(_17bnagContext context) : base(context)
+        {
+        }
+
         public ContactEdit EditOne { get; set; }
         public void OnGet()
         {

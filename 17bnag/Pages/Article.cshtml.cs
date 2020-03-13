@@ -4,7 +4,6 @@ using System.Linq;
 using _17bnag.Data;
 using _17bnag.Entitys;
 using _17bnag.Layout;
-using _17bnag.Repositorys;
 using Microsoft.EntityFrameworkCore;
 
 namespace _17bnag.Pages
@@ -14,8 +13,7 @@ namespace _17bnag.Pages
         public IList<PublishArticle> articles { get; set; }
         public int Pageindex { get; set; }
         public int Pagesize { get; set; }
-        public _17bnagContext _context { get; set; }
-        public ArticleModel(_17bnagContext context)
+        public ArticleModel(_17bnagContext context) :base(context)
         {
             _context = context;
         }

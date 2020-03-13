@@ -13,9 +13,8 @@ namespace _17bnag.Problems
     [BindProperties]
     public class NewsModel : _LayoutModel
     {
-        public readonly _17bnagContext _context;
         public HelpRelease help { get; set; }
-        public NewsModel(_17bnagContext context)
+        public NewsModel(_17bnagContext context) : base(context)
         {
             _context = context;
         }

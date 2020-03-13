@@ -9,8 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using _17bnag.Data;
 using Microsoft.AspNetCore.Http;
+using _17bnag.Data;
 
 namespace _17bnag
 {
@@ -38,8 +38,7 @@ namespace _17bnag
                 opt.Conventions.AddPageRoute("/Article/User/Page", "/Article/User-{q:int}/Page-{w:int}");
                 opt.Conventions.AddPageRoute("/Task/Historys", "/Task/Historys/{i:int}/{j:int}/{k:int}");
             });
-            services.AddDbContext<_17bnagContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("_17bnagContext")));
+            
             //.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMvc()
             .AddSessionStateTempDataProvider();
@@ -62,6 +61,11 @@ namespace _17bnag
                 //session的有效时间为20分钟，从上一次获取session的时间起算
                 option.IdleTimeout = new TimeSpan(0, 10, 0);
             });
+
+            services.AddDbContext<_17bnagContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("_17bnagContext")));
+
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
