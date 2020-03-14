@@ -37,8 +37,13 @@ namespace _17bnag
                 opt.Conventions.AddPageRoute("/Article/Page", "/Article/Page-{id:int}");
                 opt.Conventions.AddPageRoute("/Article/User/Page", "/Article/User-{q:int}/Page-{w:int}");
                 opt.Conventions.AddPageRoute("/Task/Historys", "/Task/Historys/{i:int}/{j:int}/{k:int}");
+                opt.Conventions.AddPageRoute("/Problems/indexs", "/Problems/{id:int}");
+                opt.Conventions.AddPageRoute("/Problems/Delete", "/Problems/Delete/{id:int}");
+                opt.Conventions.AddPageRoute("/Problems/Details", "/Problems/Details/{id:int}");
+                opt.Conventions.AddPageRoute("/Problems/Edit", "/Problems/Edit/{id:int}");
+
             });
-            
+
             //.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMvc()
             .AddSessionStateTempDataProvider();
@@ -65,7 +70,7 @@ namespace _17bnag
             services.AddDbContext<_17bnagContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("_17bnagContext")));
 
-          
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

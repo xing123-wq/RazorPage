@@ -1,0 +1,57 @@
+﻿@page
+@model _17bnag.EditModel
+@{
+    Layout = "~/Pages/Layout/_DualColumn.cshtml";
+}
+@*添加Problem.cshtml，让其只显示页面本身内容（如：<h1>我是Promblem内容页</h1>），不显示_Layout.cshtml中的内容。*@
+@section Description
+{
+    <title>@ViewData["title"]</title>
+}
+<h1>Edit</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="help.Id" />
+            <div class="form-group">
+                <label asp-for="help.Title" class="control-label"></label>
+                <input asp-for="help.Title" class="form-control" />
+                <span asp-validation-for="help.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="help.Body" class="control-label"></label>
+                <input asp-for="help.Body" class="form-control" />
+                <span asp-validation-for="help.Body" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="help.PublishDateTime" class="control-label"></label>
+                <input asp-for="help.PublishDateTime" class="form-control" />
+                <span asp-validation-for="help.PublishDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="help.KeyWord" class="control-label"></label>
+                <input asp-for="help.KeyWord" class="form-control" />
+                <span asp-validation-for="help.KeyWord" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="help.Moneys" class="control-label"></label>
+                <input asp-for="help.Moneys" class="form-control" />
+                <span asp-validation-for="help.Moneys" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="help.Resort" class="control-label"></label>
+                <input asp-for="help.Resort" class="form-control" />
+                <span asp-validation-for="help.Resort" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/Problem">Back to List</a>
+</div>
