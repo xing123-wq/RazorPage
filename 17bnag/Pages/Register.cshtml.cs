@@ -48,7 +48,7 @@ namespace _17bnag.Pages
             _context.SaveChanges();
             Cookies();
             GetUrl();
-            return RedirectToPage("/Register");
+            return Page();
 
         }
         public User GetLog(string name)
@@ -61,7 +61,7 @@ namespace _17bnag.Pages
             options.Expires = DateTime.Now.AddDays(1);
             User _user = GetLog(RegisteerOne.Name);
             Response.Cookies.Append(Const.USER_ID, _user.Id.ToString(), options);
-            Response.Cookies.Append(Const.USER_PASSWORD, _user.Password.ToString(), options);
+            Response.Cookies.Append(Const.USER_PASSWORD, _user.Password.ToString().GetMd5Hash(), options);
             ViewData[Const.USER_NAME] = _user.Name;
         }
         public void GetUrl()

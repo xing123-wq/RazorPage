@@ -8,7 +8,7 @@ namespace _17bnag.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Users",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -18,7 +18,7 @@ namespace _17bnag.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.Id);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -39,9 +39,9 @@ namespace _17bnag.Migrations
                 {
                     table.PrimaryKey("PK_HelpRelease", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_HelpRelease_User_AuthorId",
+                        name: "FK_HelpRelease_Users_AuthorId",
                         column: x => x.AuthorId,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -67,9 +67,9 @@ namespace _17bnag.Migrations
                 {
                     table.PrimaryKey("PK_PublishArticles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PublishArticles_User_AuthorId",
+                        name: "FK_PublishArticles_Users_AuthorId",
                         column: x => x.AuthorId,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -94,7 +94,7 @@ namespace _17bnag.Migrations
                 name: "PublishArticles");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Users");
         }
     }
 }

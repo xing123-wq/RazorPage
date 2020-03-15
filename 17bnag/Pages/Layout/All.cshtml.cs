@@ -22,7 +22,7 @@ namespace _17bnag.Layout
             User user = Load(Convert.ToInt32(userId));
             if (hasUserId)
             {
-                if (user.Password == password)
+                if (user.Password.GetMd5Hash() == password)
                 {
                     ViewData[Const.USER_NAME] = user.Name;
                 }

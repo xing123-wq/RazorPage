@@ -67,7 +67,7 @@ namespace _17bnag.Log
             }
             User _user = GetLog(LogOnOne.Name);
             Response.Cookies.Append(Const.USER_ID, _user.Id.ToString(), options);
-            Response.Cookies.Append(Const.USER_PASSWORD, _user.Password.ToString(), options);
+            Response.Cookies.Append(Const.USER_PASSWORD, _user.Password.ToString().GetMd5Hash(), options);
             ViewData[Const.USER_NAME] = _user.Name;
         }
         public void GetUrl()
