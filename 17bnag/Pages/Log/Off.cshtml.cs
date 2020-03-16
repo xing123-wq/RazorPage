@@ -11,12 +11,29 @@ namespace _17bnag.Log
         {
         }
 
-        public ActionResult OnGet()
+        public void OnGet()
         {
             Response.Cookies.Delete(Const.USER_ID);
             Response.Cookies.Delete(Const.USER_PASSWORD);
             base.SetLogOnStatus();
-            return RedirectToPage("/Log/On");
+            GetUrl();
+
+        }
+        public void GetUrl()
+        {
+            string pagepth = Request.Query["pagepth"];
+            if (pagepth == "/Log/On")
+            {
+                Response.Redirect("/Index");
+            }
+            else
+            {
+                Response.Redirect(pagepth);
+            }
+            if (pagepth == "/Register")
+            {
+                Response.Redirect("/Index");
+            }
         }
     }
 }
