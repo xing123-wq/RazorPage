@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace _17bnag.Entitys
 {
@@ -7,7 +8,7 @@ namespace _17bnag.Entitys
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public IList<Map> helps { get; set; }
-
+        public ICollection<HelpRelease> HelpReleases { get; set; }
+        public ICollection<PublishArticle> PublishArticles { get; set; }
     }
 }

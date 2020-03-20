@@ -16,6 +16,17 @@ namespace _17bnag.Data
         public DbSet<User> Users { get; set; }
         public DbSet<HelpRelease> HelpRelease { get; set; }
         public DbSet<PublishArticle> PublishArticles { get; set; }
+        public DbSet<Keyword> Keywords { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<HelpRelease>().ToTable("HelpRelease");
+            modelBuilder.Entity<User>().ToTable("Users");
+            modelBuilder.Entity<Keyword>().ToTable("Keywords");
+
+            modelBuilder.Entity<PublishArticle>().ToTable("PublishArticles");
+            modelBuilder.Entity<User>().ToTable("Users");
+            modelBuilder.Entity<Keyword>().ToTable("Keywords");
+        }
 
     }
 }

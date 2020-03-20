@@ -10,7 +10,7 @@ using _17bnag.Data;
 namespace _17bnag.Migrations
 {
     [DbContext(typeof(_17bnagContext))]
-    [Migration("20200316062920_first")]
+    [Migration("20200317102833_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,9 +36,8 @@ namespace _17bnag.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasMaxLength(21113);
 
-                    b.Property<string>("KeyWord")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("KeyWordId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Moneys")
                         .IsRequired()
@@ -59,7 +58,22 @@ namespace _17bnag.Migrations
 
                     b.HasIndex("AuthorId");
 
+                    b.HasIndex("KeyWordId");
+
                     b.ToTable("HelpRelease");
+                });
+
+            modelBuilder.Entity("_17bnag.Entitys.Keyword", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Keywords");
                 });
 
             modelBuilder.Entity("_17bnag.Entitys.PublishArticle", b =>
@@ -100,9 +114,8 @@ namespace _17bnag.Migrations
                     b.Property<string>("UsedAds")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("keywords")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("keywordsId")
+                        .HasColumnType("int");
 
                     b.Property<string>("text")
                         .IsRequired()
@@ -111,6 +124,8 @@ namespace _17bnag.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorId");
+
+                    b.HasIndex("keywordsId");
 
                     b.ToTable("PublishArticles");
                 });
@@ -140,15 +155,27 @@ namespace _17bnag.Migrations
             modelBuilder.Entity("_17bnag.Entitys.HelpRelease", b =>
                 {
                     b.HasOne("_17bnag.Entitys.User", "Author")
-                        .WithMany()
+                        .WithMany("HelpReleases")
                         .HasForeignKey("AuthorId");
+
+                    b.HasOne("_17bnag.Entitys.Keyword", "KeyWord")
+                        .WithMany("HelpReleases")
+                        .HasForeignKey("KeyWordId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("_17bnag.Entitys.PublishArticle", b =>
                 {
                     b.HasOne("_17bnag.Entitys.User", "Author")
-                        .WithMany()
+                        .WithMany("PublishArticles")
                         .HasForeignKey("AuthorId");
+
+                    b.HasOne("_17bnag.Entitys.Keyword", "keywords")
+                        .WithMany("PublishArticles")
+                        .HasForeignKey("keywordsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

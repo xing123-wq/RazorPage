@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _17bnag.Data;
 
 namespace _17bnag.Migrations
 {
     [DbContext(typeof(_17bnagContext))]
-    partial class _17bnagContextModelSnapshot : ModelSnapshot
+    [Migration("20200317103602_two")]
+    partial class two
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,12 +23,12 @@ namespace _17bnag.Migrations
 
             modelBuilder.Entity("_17bnag.Entitys.HelpRelease", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("HelpReleaseId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AuthorId")
+                    b.Property<int?>("AuthorUserId")
                         .HasColumnType("int");
 
                     b.Property<string>("Body")
@@ -34,7 +36,7 @@ namespace _17bnag.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasMaxLength(21113);
 
-                    b.Property<int>("KeyWordId")
+                    b.Property<int>("KeywordId")
                         .HasColumnType("int");
 
                     b.Property<string>("Moneys")
@@ -52,26 +54,24 @@ namespace _17bnag.Migrations
                         .HasColumnType("nvarchar(10)")
                         .HasMaxLength(10);
 
-                    b.HasKey("Id");
+                    b.HasKey("HelpReleaseId");
 
-                    b.HasIndex("AuthorId");
+                    b.HasIndex("AuthorUserId");
 
-                    b.HasIndex("KeyWordId");
+                    b.HasIndex("KeywordId");
 
                     b.ToTable("HelpRelease");
                 });
 
             modelBuilder.Entity("_17bnag.Entitys.Keyword", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("KeywordId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("KeywordId");
 
                     b.ToTable("Keywords");
                 });
@@ -83,7 +83,7 @@ namespace _17bnag.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AuthorId")
+                    b.Property<int?>("AuthorUserId")
                         .HasColumnType("int");
 
                     b.Property<string>("Body")
@@ -114,7 +114,7 @@ namespace _17bnag.Migrations
                     b.Property<string>("UsedAds")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("keywordsId")
+                    b.Property<int>("keywordsKeywordId")
                         .HasColumnType("int");
 
                     b.Property<string>("text")
@@ -123,16 +123,16 @@ namespace _17bnag.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId");
+                    b.HasIndex("AuthorUserId");
 
-                    b.HasIndex("keywordsId");
+                    b.HasIndex("keywordsKeywordId");
 
-                    b.ToTable("PublishArticle");
+                    b.ToTable("PublishArticles");
                 });
 
             modelBuilder.Entity("_17bnag.Entitys.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -147,7 +147,7 @@ namespace _17bnag.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
                 });
@@ -156,11 +156,11 @@ namespace _17bnag.Migrations
                 {
                     b.HasOne("_17bnag.Entitys.User", "Author")
                         .WithMany("HelpReleases")
-                        .HasForeignKey("AuthorId");
+                        .HasForeignKey("AuthorUserId");
 
                     b.HasOne("_17bnag.Entitys.Keyword", "KeyWord")
                         .WithMany("HelpReleases")
-                        .HasForeignKey("KeyWordId")
+                        .HasForeignKey("KeywordId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -169,11 +169,11 @@ namespace _17bnag.Migrations
                 {
                     b.HasOne("_17bnag.Entitys.User", "Author")
                         .WithMany("PublishArticles")
-                        .HasForeignKey("AuthorId");
+                        .HasForeignKey("AuthorUserId");
 
                     b.HasOne("_17bnag.Entitys.Keyword", "keywords")
                         .WithMany("PublishArticles")
-                        .HasForeignKey("keywordsId")
+                        .HasForeignKey("keywordsKeywordId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

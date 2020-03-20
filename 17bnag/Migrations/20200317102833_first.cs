@@ -8,6 +8,18 @@ namespace _17bnag.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Keywords",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Keywords", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -29,7 +41,7 @@ namespace _17bnag.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(maxLength: 10, nullable: false),
                     Body = table.Column<string>(maxLength: 21113, nullable: false),
-                    KeyWord = table.Column<string>(nullable: false),
+                    KeyWordId = table.Column<int>(nullable: false),
                     Resort = table.Column<string>(nullable: true),
                     Moneys = table.Column<string>(nullable: false),
                     PublishDateTime = table.Column<DateTime>(nullable: false),
@@ -44,6 +56,12 @@ namespace _17bnag.Migrations
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_HelpRelease_Keywords_KeyWordId",
+                        column: x => x.KeyWordId,
+                        principalTable: "Keywords",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -54,7 +72,7 @@ namespace _17bnag.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AuthorId = table.Column<int>(nullable: true),
                     Body = table.Column<string>(maxLength: 2312412, nullable: false),
-                    keywords = table.Column<string>(nullable: false),
+                    keywordsId = table.Column<int>(nullable: false),
                     Title = table.Column<string>(maxLength: 10, nullable: false),
                     PublishTime = table.Column<DateTime>(nullable: false),
                     Digest = table.Column<string>(maxLength: 115, nullable: false),
@@ -72,6 +90,12 @@ namespace _17bnag.Migrations
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PublishArticles_Keywords_keywordsId",
+                        column: x => x.keywordsId,
+                        principalTable: "Keywords",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -80,9 +104,19 @@ namespace _17bnag.Migrations
                 column: "AuthorId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_HelpRelease_KeyWordId",
+                table: "HelpRelease",
+                column: "KeyWordId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PublishArticles_AuthorId",
                 table: "PublishArticles",
                 column: "AuthorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PublishArticles_keywordsId",
+                table: "PublishArticles",
+                column: "keywordsId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -95,6 +129,9 @@ namespace _17bnag.Migrations
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Keywords");
         }
     }
 }
